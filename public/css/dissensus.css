@@ -513,6 +513,22 @@ section[data-index]::before {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   display: flex;
+}
+
+.founder__avatar--img {
+  display: block;
+  border-radius: 2px;
+  filter: grayscale(0.6) contrast(1.1);
+  transition: filter var(--transition-base), border-color var(--transition-base);
+}
+
+.founder__avatar--img:hover {
+  filter: grayscale(0.3) contrast(1.15);
+  border-color: var(--accent-dim);
+}
+
+.founder__avatar:not(.founder__avatar--img) {
+  display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
