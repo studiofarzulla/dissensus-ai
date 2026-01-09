@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Subtle glow for the globe -->
+    <radialGradient id="globe-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#DC143C" stop-opacity="0.03"/>
+      <stop offset="70%" stop-color="#DC143C" stop-opacity="0.01"/>
+      <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Earth sphere gradient -->
+    <radialGradient id="sphere" cx="35%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#030303"/>
+    </radialGradient>
+
+    <!-- Atmosphere edge -->
+    <radialGradient id="atmosphere" cx="50%" cy="50%" r="50%">
+      <stop offset="85%" stop-color="transparent"/>
+      <stop offset="95%" stop-color="#DC143C" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#DC143C" stop-opacity="0.02"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#050505"/>
+
+  <!-- Outer glow -->
+  <circle cx="400" cy="400" r="350" fill="url(#globe-glow)"/>
+
+  <!-- Main sphere -->
+  <circle cx="400" cy="400" r="280" fill="url(#sphere)"/>
+
+  <!-- Continent outlines - very subtle -->
+  <g fill="none" stroke="#DC143C" stroke-opacity="0.08" stroke-width="0.8">
+    <!-- North America -->
+    <path d="M180,200 Q200,180 230,190 Q260,185 280,200 Q300,215 290,250 Q280,280 260,300 Q240,320 220,310 Q200,300 190,270 Q180,240 180,200"/>
+
+    <!-- South America -->
+    <path d="M230,350 Q250,340 260,360 Q270,400 265,450 Q260,500 240,540 Q220,560 210,540 Q200,500 205,450 Q210,400 230,350"/>
+
+    <!-- Europe -->
+    <path d="M380,180 Q400,170 420,180 Q440,190 450,210 Q445,230 430,235 Q415,240 400,235 Q385,230 380,210 Q378,190 380,180"/>
+
+    <!-- Africa -->
+    <path d="M400,260 Q430,250 450,280 Q470,320 465,380 Q460,440 440,480 Q420,510 400,500 Q380,490 370,450 Q360,400 370,340 Q380,280 400,260"/>
+
+    <!-- Asia -->
+    <path d="M460,180 Q500,160 550,170 Q600,180 620,210 Q630,250 610,290 Q590,330 550,350 Q510,365 480,350 Q460,330 455,290 Q450,240 460,180"/>
+
+    <!-- Australia -->
+    <path d="M560,440 Q590,430 610,450 Q625,480 615,510 Q600,535 570,530 Q545,520 545,490 Q548,460 560,440"/>
+  </g>
+
+  <!-- Latitude/longitude grid - extremely subtle -->
+  <g fill="none" stroke="#DC143C" stroke-opacity="0.03" stroke-width="0.3">
+    <ellipse cx="400" cy="400" rx="280" ry="140"/>
+    <ellipse cx="400" cy="400" rx="280" ry="70"/>
+    <ellipse cx="400" cy="400" rx="140" ry="280"/>
+    <ellipse cx="400" cy="400" rx="70" ry="280"/>
+    <line x1="120" y1="400" x2="680" y2="400"/>
+    <line x1="400" y1="120" x2="400" y2="680"/>
+  </g>
+
+  <!-- Atmosphere rim -->
+  <circle cx="400" cy="400" r="280" fill="url(#atmosphere)"/>
+
+  <!-- Highlight on sphere edge -->
+  <circle cx="400" cy="400" r="280" fill="none" stroke="#DC143C" stroke-opacity="0.04" stroke-width="2"/>
+</svg>

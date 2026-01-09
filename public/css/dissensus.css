@@ -68,6 +68,24 @@ body {
   position: relative;
 }
 
+/* Dark Earth background */
+body::after {
+  content: '';
+  position: fixed;
+  top: 50%;
+  right: -20%;
+  width: 100vmin;
+  height: 100vmin;
+  background-image: url('../assets/earth-dark.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0.6;
+}
+
 /* Grid background */
 body::before {
   content: '';
@@ -629,6 +647,202 @@ footer .coordinates {
   letter-spacing: 0.05em;
 }
 
+/* --- Framework Intro & Blockquote --- */
+.framework-intro p {
+  font-size: 1.0625rem;
+  margin-bottom: var(--space-md);
+}
+
+blockquote {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  padding: var(--space-lg);
+  margin: var(--space-lg) 0;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+/* --- Research Card Paper Links --- */
+.research-papers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border);
+}
+
+.research-papers a {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  background: var(--bg-primary);
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  transition: all var(--transition-fast);
+}
+
+.research-papers a:hover {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+  background: var(--bg-tertiary);
+}
+
+/* --- Publications Section --- */
+.publications {
+  border-top: 1px solid var(--border);
+}
+
+.pub-category {
+  margin-bottom: var(--space-xl);
+}
+
+.pub-category__title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border);
+}
+
+.pub-category__title::before {
+  content: '';
+}
+
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+}
+
+.pub-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  background: var(--bg-secondary);
+  transition: background-color var(--transition-fast);
+}
+
+.pub-item:hover {
+  background: var(--bg-tertiary);
+}
+
+.pub-item__status {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--accent-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pub-item__title {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.pub-item:hover .pub-item__title {
+  color: var(--accent);
+}
+
+.pub-item__detail {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* --- Network Section (renamed to avoid conflict with .network class) --- */
+.network-section {
+  border-top: 1px solid var(--border);
+}
+
+.network-content p {
+  font-size: 1.0625rem;
+  margin-bottom: var(--space-md);
+}
+
+.collab-list {
+  list-style: none;
+  margin: var(--space-lg) 0;
+}
+
+.collab-list li {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  padding: var(--space-sm) 0;
+  padding-left: var(--space-lg);
+  position: relative;
+}
+
+.collab-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-dim);
+  font-family: var(--font-mono);
+}
+
+.collab-list li strong {
+  color: var(--text-primary);
+}
+
+.collab-cta {
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-top: var(--space-lg);
+}
+
+/* --- Infrastructure Section --- */
+.infra {
+  border-top: 1px solid var(--border);
+}
+
+.infra-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-top: var(--space-lg);
+}
+
+.infra-item {
+  background: var(--bg-secondary);
+  padding: var(--space-lg);
+}
+
+.infra-item h3 {
+  margin-bottom: var(--space-sm);
+  font-size: 0.9375rem;
+}
+
+.infra-item p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-md);
+  line-height: 1.6;
+}
+
+.infra-item a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.infra-item a:hover {
+  color: var(--accent);
+}
+
 /* --- Utility Classes --- */
 .text-accent {
   color: var(--accent);
@@ -658,6 +872,15 @@ footer .coordinates {
     gap: var(--space-md);
   }
 
+  .infra-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .theory-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
   footer .container {
     flex-direction: column;
     gap: var(--space-md);
@@ -665,6 +888,11 @@ footer .coordinates {
   }
 
   section[data-index]::before {
+    display: none;
+  }
+
+  /* Hide Earth on mobile for performance */
+  body::after {
     display: none;
   }
 }
