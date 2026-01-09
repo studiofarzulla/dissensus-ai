@@ -202,6 +202,17 @@ section[data-index]::before {
   z-index: 1;
 }
 
+.hero__logo {
+  display: block;
+  margin-bottom: var(--space-lg);
+  filter: drop-shadow(0 0 20px var(--accent-dim));
+  transition: filter var(--transition-base);
+}
+
+.hero__logo:hover {
+  filter: drop-shadow(0 0 30px var(--accent));
+}
+
 .hero__label {
   font-family: var(--font-mono);
   font-size: 0.75rem;
