@@ -245,21 +245,53 @@ section[data-index]::before {
   position: relative;
 }
 
-.hero__logo-animated {
+.hero__logo-svg {
   display: block;
   width: 140px;
   height: 140px;
   transition: transform var(--transition-slow);
 }
 
-.hero__logo-animated:hover {
+.hero__logo-svg:hover {
   transform: scale(1.05);
 }
 
-.hero__logo-fallback {
-  width: 140px;
-  height: 140px;
-  filter: drop-shadow(0 0 12px var(--accent-dim));
+.dissensus-container {
+  transform-origin: 50px 50px;
+  animation: orbit 15s linear infinite;
+}
+
+.dissensus-shape {
+  fill: var(--text-primary); /* Use theme color */
+  transform-origin: 50px 50px;
+  opacity: 0.95;
+}
+
+.shape-yang {
+  animation: pacing-A 5s ease-in-out infinite alternate;
+}
+
+.shape-yin {
+  animation: pacing-B 5s ease-in-out infinite alternate;
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Asymmetric pacing: One speeds up while the other slows down, 
+   creating a gap that opens and closes, but they never touch. */
+@keyframes pacing-A {
+  0% { transform: rotate(0deg) scale(0.96); }
+  50% { transform: rotate(10deg) scale(1.0); }
+  100% { transform: rotate(0deg) scale(0.96); }
+}
+
+@keyframes pacing-B {
+  0% { transform: rotate(0deg) scale(0.96); }
+  50% { transform: rotate(-5deg) scale(0.92); } /* Different scale/rotation to be asymmetric */
+  100% { transform: rotate(0deg) scale(0.96); }
 }
 
 /* Ambient glow ring behind logo */
@@ -731,6 +763,17 @@ section[data-index]::before {
   color: var(--text-primary);
   font-family: var(--font-sans);
   font-weight: 600;
+}
+
+.founder__motto {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: var(--accent);
+  margin-bottom: var(--space-sm);
+  border-left: 2px solid var(--accent-dim);
+  padding-left: var(--space-sm);
+  line-height: 1.4;
 }
 
 .founder__role {

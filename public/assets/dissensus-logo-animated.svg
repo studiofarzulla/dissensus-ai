@@ -1,303 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <defs>
-    <!-- Upper shape gradient: dark at spike tip, rich crimson at bulb -->
-    <linearGradient id="grad-upper" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1a0508"/>
-      <stop offset="15%" stop-color="#2d0a10"/>
-      <stop offset="40%" stop-color="#6b1020"/>
-      <stop offset="65%" stop-color="#9a1428"/>
-      <stop offset="85%" stop-color="#b31830"/>
-      <stop offset="100%" stop-color="#c41c38"/>
-    </linearGradient>
-    
-    <!-- Lower shape gradient: dark at spike tip, rich crimson at bulb -->
-    <linearGradient id="grad-lower" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#1a0508"/>
-      <stop offset="15%" stop-color="#2d0a10"/>
-      <stop offset="40%" stop-color="#6b1020"/>
-      <stop offset="65%" stop-color="#9a1428"/>
-      <stop offset="85%" stop-color="#b31830"/>
-      <stop offset="100%" stop-color="#c41c38"/>
-    </linearGradient>
-    
-    <!-- Inner shadow gradients for 3D depth -->
-    <linearGradient id="inner-upper" x1="30%" y1="30%" x2="70%" y2="70%">
-      <stop offset="0%" stop-color="#2a0810" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
-    </linearGradient>
-    
-    <linearGradient id="inner-lower" x1="70%" y1="70%" x2="30%" y2="30%">
-      <stop offset="0%" stop-color="#2a0810" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
-    </linearGradient>
-    
-    <!-- Highlight for glossy effect -->
-    <linearGradient id="highlight-upper" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#e83050" stop-opacity="0.3"/>
-      <stop offset="50%" stop-color="#d02545" stop-opacity="0.1"/>
-      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
-    </linearGradient>
-    
-    <linearGradient id="highlight-lower" x1="100%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#e83050" stop-opacity="0.3"/>
-      <stop offset="50%" stop-color="#d02545" stop-opacity="0.1"/>
-      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-labelledby="dissensusTitle">
+  <title id="dissensusTitle">Dissensus AI Logo</title>
   <style>
-    /* 
-     * DISSENSUS LOGO ANIMATION
-     * An asymmetric loop that can't quite catch itself
-     * The tempo of someone pacing while thinking
-     * Purposeful but unresolved
-     */
-    
-    /* Upper shape - leads the chase, slightly ahead */
-    .shape-upper {
-      transform-origin: 75px 65px;
-      animation: 
-        chase-upper 8s cubic-bezier(0.4, 0.0, 0.6, 1.0) infinite,
-        breathe-upper 6s ease-in-out infinite;
+    .dissensus-container {
+      transform-origin: 50px 50px;
+      animation: orbit 15s linear infinite;
     }
     
-    /* Lower shape - follows, always just behind, never catching */
-    .shape-lower {
-      transform-origin: 125px 135px;
-      animation: 
-        chase-lower 8s cubic-bezier(0.4, 0.0, 0.6, 1.0) infinite,
-        breathe-lower 6s ease-in-out infinite;
-      /* Offset creates the "chasing but never catching" feel */
-      animation-delay: -0.6s, -1.5s;
+    .dissensus-shape {
+      fill: #ffffff; /* Adjust color as needed, white for dark bg */
+      transform-origin: 50px 50px;
+      opacity: 0.95;
     }
-    
-    /* 
-     * Upper shape orbit - pacing motion
-     * Forward... pause... pivot... back... hesitate... forward
-     * Like walking to a window, stopping, turning back
-     */
-    @keyframes chase-upper {
-      0% {
-        transform: rotate(0deg) translate(0px, 0px);
-      }
-      /* Step forward with purpose */
-      12% {
-        transform: rotate(3deg) translate(4px, -2px);
-      }
-      /* Slight pause, reconsidering */
-      22% {
-        transform: rotate(2.5deg) translate(5px, 0px);
-      }
-      /* Continue but slower */
-      35% {
-        transform: rotate(1deg) translate(3px, 3px);
-      }
-      /* The turn - pivoting thought */
-      50% {
-        transform: rotate(-2deg) translate(-1px, 4px);
-      }
-      /* Walking back */
-      65% {
-        transform: rotate(-3.5deg) translate(-4px, 2px);
-      }
-      /* Another hesitation */
-      78% {
-        transform: rotate(-2deg) translate(-3px, -2px);
-      }
-      /* Returning to start, but not quite the same */
-      90% {
-        transform: rotate(1deg) translate(-1px, -3px);
-      }
-      100% {
-        transform: rotate(0deg) translate(0px, 0px);
-      }
+
+    .shape-yang {
+      animation: pacing-A 5s ease-in-out infinite alternate;
     }
-    
-    /* 
-     * Lower shape orbit - the follower
-     * Always responding to upper, slightly delayed
-     * Creates the "can't quite catch" dynamic
-     */
-    @keyframes chase-lower {
-      0% {
-        transform: rotate(0deg) translate(0px, 0px);
-      }
-      12% {
-        transform: rotate(-2.5deg) translate(-3px, 2px);
-      }
-      22% {
-        transform: rotate(-2deg) translate(-4px, 0px);
-      }
-      35% {
-        transform: rotate(-0.5deg) translate(-2px, -3px);
-      }
-      50% {
-        transform: rotate(2.5deg) translate(2px, -3px);
-      }
-      65% {
-        transform: rotate(3deg) translate(4px, -1px);
-      }
-      78% {
-        transform: rotate(2deg) translate(3px, 2px);
-      }
-      90% {
-        transform: rotate(-0.5deg) translate(1px, 3px);
-      }
-      100% {
-        transform: rotate(0deg) translate(0px, 0px);
-      }
+
+    .shape-yin {
+      animation: pacing-B 5s ease-in-out infinite alternate;
     }
-    
-    /* 
-     * Shape breathing - subtle form oscillation
-     * The shapes slightly change as they move
-     * Like a thought that shifts as you hold it
-     */
-    @keyframes breathe-upper {
-      0%, 100% {
-        transform: scale(1, 1) skewX(0deg);
-      }
-      25% {
-        transform: scale(1.012, 0.988) skewX(0.5deg);
-      }
-      50% {
-        transform: scale(0.992, 1.008) skewX(-0.3deg);
-      }
-      75% {
-        transform: scale(1.008, 0.996) skewX(0.2deg);
-      }
+
+    @keyframes orbit {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
-    
-    @keyframes breathe-lower {
-      0%, 100% {
-        transform: scale(1, 1) skewX(0deg);
-      }
-      25% {
-        transform: scale(0.988, 1.012) skewX(-0.5deg);
-      }
-      50% {
-        transform: scale(1.008, 0.992) skewX(0.3deg);
-      }
-      75% {
-        transform: scale(0.996, 1.008) skewX(-0.2deg);
-      }
+
+    /* Asymmetric pacing: One speeds up while the other slows down, 
+       creating a gap that opens and closes, but they never touch. */
+    @keyframes pacing-A {
+      0% { transform: rotate(0deg) scale(0.96); }
+      50% { transform: rotate(10deg) scale(1.0); }
+      100% { transform: rotate(0deg) scale(0.96); }
     }
-    
-    /* Ambient glow pulse */
-    .logo-container {
-      filter: drop-shadow(0 0 8px rgba(180, 24, 48, 0.3));
-      animation: glow 5s ease-in-out infinite;
-    }
-    
-    @keyframes glow {
-      0%, 100% {
-        filter: drop-shadow(0 0 8px rgba(180, 24, 48, 0.25));
-      }
-      50% {
-        filter: drop-shadow(0 0 14px rgba(180, 24, 48, 0.45));
-      }
+
+    @keyframes pacing-B {
+      0% { transform: rotate(0deg) scale(0.96); }
+      50% { transform: rotate(-5deg) scale(0.92); } /* Different scale/rotation to be asymmetric */
+      100% { transform: rotate(0deg) scale(0.96); }
     }
   </style>
-  
-  <g class="logo-container">
-    <!-- UPPER SHAPE: Bulbous curl left, spike extending upper-right -->
-    <g class="shape-upper">
-      <!-- Main body -->
-      <path fill="url(#grad-upper)" d="
-        M 42 82
-        C 32 62, 44 38, 78 34
-        Q 98 31, 116 42
-        C 132 52, 148 42, 162 20
-        L 160 22
-        C 146 44, 130 54, 114 46
-        Q 94 36, 72 42
-        C 52 50, 44 70, 56 86
-        C 68 102, 96 98, 112 84
-        Q 122 74, 118 62
-        C 114 52, 100 52, 92 62
-        C 84 72, 90 86, 102 88
-        Q 88 92, 74 88
-        C 54 82, 48 64, 58 48
-        Q 68 36, 86 34
-        C 68 38, 54 54, 54 72
-        C 54 88, 66 98, 82 96
-        Q 70 96, 60 90
-        C 46 80, 44 62, 56 48
-        Q 66 38, 82 36
-        C 62 42, 50 60, 52 78
-        Z
-      "/>
-      <!-- Inner shadow for depth -->
-      <path fill="url(#inner-upper)" d="
-        M 58 72
-        C 54 60, 62 48, 80 46
-        Q 92 44, 102 50
-        C 90 46, 74 50, 68 62
-        C 62 74, 68 86, 82 88
-        Q 70 88, 62 82
-        C 52 74, 52 60, 62 50
-        Z
-      "/>
-      <!-- Highlight -->
-      <path fill="url(#highlight-upper)" d="
-        M 52 68
-        C 48 56, 58 44, 78 42
-        Q 88 40, 96 44
-        C 82 42, 66 48, 60 60
-        C 56 70, 58 80, 66 86
-        Q 56 80, 52 68
-        Z
-      "/>
-    </g>
+
+  <g class="dissensus-container">
+    <!-- Shape 1: Top-Right "Yang" style comma -->
+    <path class="dissensus-shape shape-yang" d="M 50 10 A 40 40 0 0 1 50 90 A 20 20 0 0 1 50 50 A 20 20 0 0 0 50 10 Z" />
     
-    <!-- LOWER SHAPE: Spike from lower-left, bulbous curl right -->
-    <g class="shape-lower">
-      <!-- Main body -->
-      <path fill="url(#grad-lower)" d="
-        M 158 118
-        C 168 138, 156 162, 122 166
-        Q 102 169, 84 158
-        C 68 148, 52 158, 38 180
-        L 40 178
-        C 54 156, 70 146, 86 154
-        Q 106 164, 128 158
-        C 148 150, 156 130, 144 114
-        C 132 98, 104 102, 88 116
-        Q 78 126, 82 138
-        C 86 148, 100 148, 108 138
-        C 116 128, 110 114, 98 112
-        Q 112 108, 126 112
-        C 146 118, 152 136, 142 152
-        Q 132 164, 114 166
-        C 132 162, 146 146, 146 128
-        C 146 112, 134 102, 118 104
-        Q 130 104, 140 110
-        C 154 120, 156 138, 144 152
-        Q 134 162, 118 164
-        C 138 158, 150 140, 148 122
-        Z
-      "/>
-      <!-- Inner shadow for depth -->
-      <path fill="url(#inner-lower)" d="
-        M 142 128
-        C 146 140, 138 152, 120 154
-        Q 108 156, 98 150
-        C 110 154, 126 150, 132 138
-        C 138 126, 132 114, 118 112
-        Q 130 112, 138 118
-        C 148 126, 148 140, 138 150
-        Z
-      "/>
-      <!-- Highlight -->
-      <path fill="url(#highlight-lower)" d="
-        M 148 132
-        C 152 144, 142 156, 122 158
-        Q 112 160, 104 156
-        C 118 158, 134 152, 140 140
-        C 144 130, 142 120, 134 114
-        Q 144 120, 148 132
-        Z
-      "/>
-    </g>
+    <!-- Shape 2: Bottom-Left "Yin" style comma (Rotated 180 visually by coordinates) -->
+    <!-- M 50 90 start, outer arc to 50 10 left, inner arc to 50 50, inner arc to 50 90 -->
+    <path class="dissensus-shape shape-yin" d="M 50 90 A 40 40 0 0 1 50 10 A 20 20 0 0 1 50 50 A 20 20 0 0 0 50 90 Z" />
   </g>
 </svg>

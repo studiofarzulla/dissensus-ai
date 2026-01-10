@@ -34,9 +34,13 @@
     <canvas id="network" class="hero__canvas"></canvas>
     <div class="container">
       <div class="hero__logo-wrapper">
-        <object type="image/svg+xml" data="assets/dissensus-logo-animated.svg" class="hero__logo-animated" aria-label="Dissensus Logo - Interlocking shapes in asymmetric orbit">
-          <img src="assets/logo-transparent.png" alt="Dissensus Logo" class="hero__logo-fallback">
-        </object>
+        <svg class="hero__logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-labelledby="dissensusTitle" role="img">
+          <title id="dissensusTitle">Dissensus AI Logo - Interlocking shapes in asymmetric orbit</title>
+          <g class="dissensus-container">
+            <path class="dissensus-shape shape-yang" d="M 50 10 A 40 40 0 0 1 50 90 A 20 20 0 0 1 50 50 A 20 20 0 0 0 50 10 Z" />
+            <path class="dissensus-shape shape-yin" d="M 50 90 A 40 40 0 0 1 50 10 A 20 20 0 0 1 50 50 A 20 20 0 0 0 50 90 Z" />
+          </g>
+        </svg>
       </div>
       <span class="hero__label">Research Lab</span>
       <h1 class="hero__title">DISSENSUS</h1>
@@ -538,13 +542,18 @@
         <img src="assets/headshot-dark.png" alt="Murad Farzulla" class="founder__avatar founder__avatar--img">
         <div class="founder__info">
           <h3 class="founder__name">Murad Farzulla</h3>
+          <p class="founder__motto">"We are more beholden to custom than reason; it is thus reason's task to interrogate custom."</p>
           <p class="founder__bio">
             Independent researcher developing formal frameworks for friction dynamics in complex adaptive systems.
             Creator of the Axiom of Consent framework and the Replicator-Optimization Mechanism.
             Background in finance analytics (MSc King's College London, BSc SOAS).
             Research spans computational finance, political economy, philosophy of mind, and AI alignment—unified
             by the study of how coordination produces measurable overhead in adversarial environments.
-            Seeking institutional partnership to scale these frameworks into dedicated research infrastructure.
+          </p>
+          <p class="founder__bio">
+            <strong>Current Research Program: Adversarial Systems.</strong><br>
+            Defined as any sufficiently complex dynamic network of agents where equilibria are impossible to reach due to formalized friction constraints.
+            These systems function merely through a reduction of friction—drawing from game theory—and are thus adversarial against themselves, yet persist through dissensus.
           </p>
           <div class="founder__links">
             <a href="https://farzulla.org" target="_blank" rel="noopener">Research</a>
