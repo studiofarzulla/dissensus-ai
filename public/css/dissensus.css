@@ -195,6 +195,17 @@ section[data-index]::before {
   }
 }
 
+/* --- Full-page Network Canvas --- */
+.network-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
 /* --- Hero Section --- */
 .hero {
   min-height: 100vh;
@@ -206,18 +217,40 @@ section[data-index]::before {
   overflow: hidden;
 }
 
-.hero__canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
 .hero .container {
   position: relative;
   z-index: 1;
+}
+
+/* Manifesto link */
+.hero__manifesto-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-xl);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.hero__manifesto-link:hover {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+  background: var(--bg-secondary);
+}
+
+.manifesto-arrow {
+  color: var(--accent);
+  transition: transform var(--transition-fast);
+}
+
+.hero__manifesto-link:hover .manifesto-arrow {
+  transform: translateX(4px);
 }
 
 .hero__logo {
@@ -251,7 +284,24 @@ section[data-index]::before {
   flex-shrink: 0;
 }
 
-/* Spin container */
+/* Static logo */
+.hero__logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.35));
+  transition: filter var(--transition-slow), transform var(--transition-slow);
+}
+
+.hero__logo:hover {
+  filter: drop-shadow(0 0 20px rgba(220, 20, 60, 0.6));
+  transform: scale(1.05);
+}
+
+/* ===========================================
+   ANIMATION CODE - COMMENTED FOR FUTURE USE
+   ===========================================
+   
 .hero__logo-spin {
   width: 80px;
   height: 80px;
@@ -264,21 +314,15 @@ section[data-index]::before {
   filter: drop-shadow(0 0 20px rgba(220, 20, 60, 0.6));
 }
 
-/* Logo with heartbeat */
-.hero__logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.hero__logo--animated {
   animation: heartbeat 1.4s ease-in-out infinite;
 }
 
-/* Slow continuous rotation */
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-/* Heartbeat pulse - double beat rhythm */
 @keyframes heartbeat {
   0%, 100% { transform: scale(1); }
   15% { transform: scale(1.06); }
@@ -286,6 +330,9 @@ section[data-index]::before {
   45% { transform: scale(1.1); }
   75% { transform: scale(1); }
 }
+
+   END ANIMATION CODE
+   =========================================== */
 
 /* Ambient glow ring behind logo */
 .hero__logo-wrapper::before {
@@ -334,7 +381,7 @@ section[data-index]::before {
 
 /* Responsive logo sizing */
 @media (min-width: 768px) {
-  .hero__logo-spin {
+  .hero__logo {
     width: 100px;
     height: 100px;
   }
@@ -350,7 +397,7 @@ section[data-index]::before {
 }
 
 @media (min-width: 1024px) {
-  .hero__logo-spin {
+  .hero__logo {
     width: 120px;
     height: 120px;
   }

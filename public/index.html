@@ -28,17 +28,16 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 </head>
 <body>
+  <!-- Full-page network visualization -->
+  <canvas id="network" class="network-canvas"></canvas>
 
   <!-- Hero -->
   <section class="hero">
-    <canvas id="network" class="hero__canvas"></canvas>
     <div class="container">
       <span class="hero__label">Research Lab</span>
       <div class="hero__brand">
         <div class="hero__logo-wrapper">
-          <div class="hero__logo-spin">
-            <img src="assets/logo-transparent.png" alt="Dissensus Logo" class="hero__logo">
-          </div>
+          <img src="assets/dissensus-logo.svg" alt="Dissensus Logo" class="hero__logo">
         </div>
         <h1 class="hero__title">dissensus<span class="hero__title-ai">AI</span></h1>
       </div>
@@ -65,6 +64,9 @@
           <span class="hero__meta-value">Active Research</span>
         </div>
       </div>
+      <a href="manifesto.html" class="hero__manifesto-link">
+        <span class="manifesto-arrow">→</span> Read the Research Manifesto
+      </a>
     </div>
   </section>
 
@@ -604,40 +606,55 @@
     </div>
   </footer>
 
-  <!-- Network Visualization -->
+  <!-- Network Visualization - Full Page -->
   <script>
     (function() {
       const canvas = document.getElementById('network');
       const ctx = canvas.getContext('2d');
 
-      // Colors
-      const NODE_COLOR = 'rgba(220, 20, 60, 0.4)';
-      const NODE_COLOR_ACTIVE = 'rgba(220, 20, 60, 0.8)';
+      // Node types representing friction dynamics
+      const NODE_TYPES = {
+        AGENT: { color: 'rgba(220, 20, 60, 0.5)', size: 2.5 },      // Agents in system
+        FRICTION: { color: 'rgba(180, 24, 48, 0.3)', size: 1.5 },   // Friction points
+        STAKE: { color: 'rgba(255, 64, 96, 0.6)', size: 3.5 }       // High-stakes nodes
+      };
 
       // Config
-      const NODE_COUNT = 80;
-      const CONNECTION_DISTANCE = 180;
-      const NODE_SIZE = 2;
-      const MOUSE_RADIUS = 150;
+      const NODE_COUNT = 120;
+      const CONNECTION_DISTANCE = 200;
+      const MOUSE_RADIUS = 180;
 
       let nodes = [];
       let mouse = { x: null, y: null };
+      let scrollY = 0;
       let animationId;
 
       function resize() {
         canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.height = Math.max(document.body.scrollHeight, window.innerHeight);
       }
 
       function createNodes() {
         nodes = [];
+        const types = Object.keys(NODE_TYPES);
+        
         for (let i = 0; i < NODE_COUNT; i++) {
+          // Distribute nodes across full page height
+          const typeKey = types[Math.floor(Math.random() * types.length)];
+          const type = NODE_TYPES[typeKey];
+          
           nodes.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.3,
-            vy: (Math.random() - 0.5) * 0.3,
-            size: NODE_SIZE + Math.random() * 2
+            vx: (Math.random() - 0.5) * 0.25,
+            vy: (Math.random() - 0.5) * 0.25,
+            size: type.size + Math.random() * 1.5,
+            color: type.color,
+            type: typeKey,
+            // Friction oscillation - nodes slightly "resist" movement
+            friction: 0.98 + Math.random() * 0.02,
+            // Phase for subtle pulsing
+            phase: Math.random() * Math.PI * 2
           });
         }
       }
@@ -646,40 +663,67 @@
         return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
       }
 
-      function update() {
+      function update(time) {
         for (const node of nodes) {
+          // Apply friction to velocity (resistance)
+          node.vx *= node.friction;
+          node.vy *= node.friction;
+          
+          // Add slight random drift (adversarial dynamics)
+          node.vx += (Math.random() - 0.5) * 0.02;
+          node.vy += (Math.random() - 0.5) * 0.02;
+          
           node.x += node.vx;
           node.y += node.vy;
 
+          // Bounce off edges
           if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
           if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
 
           node.x = Math.max(0, Math.min(canvas.width, node.x));
           node.y = Math.max(0, Math.min(canvas.height, node.y));
+          
+          // Update phase for pulsing
+          node.phase += 0.02;
         }
       }
 
-      function draw() {
+      function draw(time) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Draw edges
+        // Adjust mouse position for scroll
+        const adjustedMouse = {
+          x: mouse.x,
+          y: mouse.y !== null ? mouse.y + scrollY : null
+        };
+
+        // Draw edges (friction connections)
         for (let i = 0; i < nodes.length; i++) {
           for (let j = i + 1; j < nodes.length; j++) {
             const d = distance(nodes[i], nodes[j]);
             if (d < CONNECTION_DISTANCE) {
               const opacity = 1 - (d / CONNECTION_DISTANCE);
 
-              const mouseDistI = mouse.x !== null ? distance(nodes[i], mouse) : Infinity;
-              const mouseDistJ = mouse.x !== null ? distance(nodes[j], mouse) : Infinity;
+              const mouseDistI = adjustedMouse.x !== null ? distance(nodes[i], adjustedMouse) : Infinity;
+              const mouseDistJ = adjustedMouse.x !== null ? distance(nodes[j], adjustedMouse) : Infinity;
               const nearMouse = mouseDistI < MOUSE_RADIUS || mouseDistJ < MOUSE_RADIUS;
 
+              // Different connection styles based on node types
+              const isStakeConnection = nodes[i].type === 'STAKE' || nodes[j].type === 'STAKE';
+              
               ctx.beginPath();
               ctx.moveTo(nodes[i].x, nodes[i].y);
               ctx.lineTo(nodes[j].x, nodes[j].y);
-              ctx.strokeStyle = nearMouse
-                ? `rgba(220, 20, 60, ${opacity * 0.4})`
-                : `rgba(220, 20, 60, ${opacity * 0.08})`;
-              ctx.lineWidth = nearMouse ? 1 : 0.5;
+              
+              if (nearMouse) {
+                ctx.strokeStyle = isStakeConnection 
+                  ? `rgba(255, 64, 96, ${opacity * 0.5})`
+                  : `rgba(220, 20, 60, ${opacity * 0.35})`;
+                ctx.lineWidth = isStakeConnection ? 1.5 : 1;
+              } else {
+                ctx.strokeStyle = `rgba(220, 20, 60, ${opacity * 0.06})`;
+                ctx.lineWidth = 0.5;
+              }
               ctx.stroke();
             }
           }
@@ -687,27 +731,35 @@
 
         // Draw nodes
         for (const node of nodes) {
-          const mouseDist = mouse.x !== null ? distance(node, mouse) : Infinity;
+          const mouseDist = adjustedMouse.x !== null ? distance(node, adjustedMouse) : Infinity;
           const nearMouse = mouseDist < MOUSE_RADIUS;
-          const scale = nearMouse ? 1 + (1 - mouseDist / MOUSE_RADIUS) * 0.5 : 1;
+          const proximity = nearMouse ? 1 - (mouseDist / MOUSE_RADIUS) : 0;
+          
+          // Subtle size pulsing
+          const pulse = 1 + Math.sin(node.phase) * 0.1;
+          const scale = (1 + proximity * 0.5) * pulse;
 
+          // Draw node
           ctx.beginPath();
           ctx.arc(node.x, node.y, node.size * scale, 0, Math.PI * 2);
-          ctx.fillStyle = nearMouse ? NODE_COLOR_ACTIVE : NODE_COLOR;
+          ctx.fillStyle = node.color;
           ctx.fill();
 
+          // Glow effect when near mouse
           if (nearMouse) {
             ctx.beginPath();
-            ctx.arc(node.x, node.y, node.size * scale * 2, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(220, 20, 60, 0.1)';
+            ctx.arc(node.x, node.y, node.size * scale * 2.5, 0, Math.PI * 2);
+            ctx.fillStyle = node.type === 'STAKE' 
+              ? 'rgba(255, 64, 96, 0.15)'
+              : 'rgba(220, 20, 60, 0.1)';
             ctx.fill();
           }
         }
       }
 
-      function animate() {
-        update();
-        draw();
+      function animate(time) {
+        update(time);
+        draw(time);
         animationId = requestAnimationFrame(animate);
       }
 
@@ -716,22 +768,28 @@
         mouse.y = e.clientY;
       }
 
-      function handleMouseLeave() {
-        mouse.x = null;
-        mouse.y = null;
+      function handleScroll() {
+        scrollY = window.scrollY;
+        // Resize canvas if document height changed
+        const newHeight = Math.max(document.body.scrollHeight, window.innerHeight);
+        if (canvas.height !== newHeight) {
+          canvas.height = newHeight;
+        }
       }
 
+      // Initialize
       resize();
       createNodes();
       animate();
 
+      // Event listeners
       window.addEventListener('resize', () => {
         resize();
         createNodes();
       });
 
-      canvas.addEventListener('mousemove', handleMouseMove);
-      canvas.addEventListener('mouseleave', handleMouseLeave);
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      document.addEventListener('mousemove', handleMouseMove);
 
       document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
