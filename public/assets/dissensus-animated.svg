@@ -1,0 +1,254 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <!-- Primary gradient for upper shape -->
+    <linearGradient id="grad-upper" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0d0205;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#4a0a15;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8a1528;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#a51a30;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b81c38;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Primary gradient for lower shape -->
+    <linearGradient id="grad-lower" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0205;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#4a0a15;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8a1528;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#a51a30;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b81c38;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Highlight gradient for 3D effect -->
+    <linearGradient id="highlight-upper" x1="20%" y1="20%" x2="80%" y2="80%">
+      <stop offset="0%" style="stop-color:#c92040;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:transparent;stop-opacity:0" />
+    </linearGradient>
+    
+    <linearGradient id="highlight-lower" x1="80%" y1="80%" x2="20%" y2="20%">
+      <stop offset="0%" style="stop-color:#c92040;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:transparent;stop-opacity:0" />
+    </linearGradient>
+    
+    <!-- Inner shadow for depth -->
+    <radialGradient id="inner-shadow" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" style="stop-color:transparent;stop-opacity:0" />
+      <stop offset="100%" style="stop-color:#0a0103;stop-opacity:0.5" />
+    </radialGradient>
+  </defs>
+  
+  <style>
+    /* Container with overall subtle breathing */
+    .logo-group {
+      transform-origin: 100px 100px;
+      animation: container-breathe 10s ease-in-out infinite;
+    }
+    
+    @keyframes container-breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.01); }
+    }
+    
+    /* Upper shape - the "chaser" - orbits asymmetrically */
+    .shape-upper {
+      transform-origin: 85px 70px;
+      animation: 
+        upper-orbit 7s cubic-bezier(0.4, 0, 0.6, 1) infinite,
+        upper-morph 5s ease-in-out infinite alternate;
+    }
+    
+    /* Lower shape - the "pursued" - counter-motion with delay */
+    .shape-lower {
+      transform-origin: 115px 130px;
+      animation: 
+        lower-orbit 7s cubic-bezier(0.4, 0, 0.6, 1) infinite,
+        lower-morph 5s ease-in-out infinite alternate;
+      animation-delay: -1.75s, -1.25s;
+    }
+    
+    /* Pacing motion - purposeful but unresolved 
+       Like walking to the window, pausing, walking back */
+    @keyframes upper-orbit {
+      0% {
+        transform: rotate(0deg) translate(0px, 0px);
+      }
+      15% {
+        transform: rotate(2.5deg) translate(3px, -2px);
+      }
+      35% {
+        transform: rotate(1deg) translate(5px, 1px);
+      }
+      50% {
+        transform: rotate(-1deg) translate(2px, 3px);
+      }
+      65% {
+        transform: rotate(-2.5deg) translate(-2px, 2px);
+      }
+      85% {
+        transform: rotate(-1deg) translate(-3px, -1px);
+      }
+      100% {
+        transform: rotate(0deg) translate(0px, 0px);
+      }
+    }
+    
+    @keyframes lower-orbit {
+      0% {
+        transform: rotate(0deg) translate(0px, 0px);
+      }
+      15% {
+        transform: rotate(-2deg) translate(-2px, 2px);
+      }
+      35% {
+        transform: rotate(-1deg) translate(-4px, 0px);
+      }
+      50% {
+        transform: rotate(1.5deg) translate(-1px, -3px);
+      }
+      65% {
+        transform: rotate(2deg) translate(2px, -2px);
+      }
+      85% {
+        transform: rotate(0.5deg) translate(3px, 1px);
+      }
+      100% {
+        transform: rotate(0deg) translate(0px, 0px);
+      }
+    }
+    
+    /* Shape morphing - subtle oscillating distortion */
+    @keyframes upper-morph {
+      0% {
+        transform: scaleX(1) scaleY(1) skewX(0deg);
+      }
+      33% {
+        transform: scaleX(1.015) scaleY(0.985) skewX(0.8deg);
+      }
+      66% {
+        transform: scaleX(0.99) scaleY(1.01) skewX(-0.5deg);
+      }
+      100% {
+        transform: scaleX(1.01) scaleY(0.995) skewX(0.3deg);
+      }
+    }
+    
+    @keyframes lower-morph {
+      0% {
+        transform: scaleX(1) scaleY(1) skewX(0deg);
+      }
+      33% {
+        transform: scaleX(0.985) scaleY(1.015) skewX(-0.8deg);
+      }
+      66% {
+        transform: scaleX(1.01) scaleY(0.99) skewX(0.5deg);
+      }
+      100% {
+        transform: scaleX(0.995) scaleY(1.01) skewX(-0.3deg);
+      }
+    }
+    
+    /* Glow effect */
+    .glow {
+      filter: drop-shadow(0 0 6px rgba(185, 28, 56, 0.4));
+      animation: glow-pulse 4s ease-in-out infinite;
+    }
+    
+    @keyframes glow-pulse {
+      0%, 100% {
+        filter: drop-shadow(0 0 6px rgba(185, 28, 56, 0.35));
+      }
+      50% {
+        filter: drop-shadow(0 0 12px rgba(185, 28, 56, 0.55));
+      }
+    }
+  </style>
+  
+  <g class="logo-group glow">
+    <!-- Upper swooping shape: bulbous curl at left, spike extending up-right -->
+    <g class="shape-upper">
+      <!-- Main body -->
+      <path 
+        fill="url(#grad-upper)"
+        d="M 38 78
+           C 28 60, 42 38, 72 35
+           Q 92 32, 108 42
+           C 125 52, 140 48, 155 28
+           Q 160 22, 162 18
+           L 158 24
+           Q 152 35, 142 45
+           C 128 58, 110 55, 92 48
+           Q 72 40, 55 50
+           C 38 62, 38 82, 52 94
+           Q 68 108, 98 100
+           C 110 96, 118 88, 115 78
+           Q 112 68, 98 68
+           C 85 68, 78 80, 85 90
+           Q 75 92, 65 88
+           C 48 82, 42 68, 50 55
+           Q 58 45, 75 42
+           C 62 46, 52 58, 52 72
+           Q 52 85, 60 92
+           C 50 88, 42 76, 50 62
+           Q 56 52, 68 48
+           C 55 52, 45 65, 48 78
+           Z"
+      />
+      <!-- Highlight layer -->
+      <path 
+        fill="url(#highlight-upper)"
+        d="M 48 70
+           C 42 58, 52 44, 75 42
+           Q 88 40, 100 46
+           C 85 42, 65 48, 58 62
+           Q 52 74, 60 85
+           C 50 78, 48 65, 55 55
+           Q 62 48, 75 46
+           C 60 50, 50 62, 52 75
+           Z"
+      />
+    </g>
+    
+    <!-- Lower swooping shape: spike from bottom-left, curl at right -->
+    <g class="shape-lower">
+      <!-- Main body -->
+      <path 
+        fill="url(#grad-lower)"
+        d="M 162 122
+           C 172 140, 158 162, 128 165
+           Q 108 168, 92 158
+           C 75 148, 60 152, 45 172
+           Q 40 178, 38 182
+           L 42 176
+           Q 48 165, 58 155
+           C 72 142, 90 145, 108 152
+           Q 128 160, 145 150
+           C 162 138, 162 118, 148 106
+           Q 132 92, 102 100
+           C 90 104, 82 112, 85 122
+           Q 88 132, 102 132
+           C 115 132, 122 120, 115 110
+           Q 125 108, 135 112
+           C 152 118, 158 132, 150 145
+           Q 142 155, 125 158
+           C 138 154, 148 142, 148 128
+           Q 148 115, 140 108
+           C 150 112, 158 124, 150 138
+           Q 144 148, 132 152
+           C 145 148, 155 135, 152 122
+           Z"
+      />
+      <!-- Highlight layer -->
+      <path 
+        fill="url(#highlight-lower)"
+        d="M 152 130
+           C 158 142, 148 156, 125 158
+           Q 112 160, 100 154
+           C 115 158, 135 152, 142 138
+           Q 148 126, 140 115
+           C 150 122, 152 135, 145 145
+           Q 138 152, 125 154
+           C 140 150, 150 138, 148 125
+           Z"
+      />
+    </g>
+  </g>
+</svg>
