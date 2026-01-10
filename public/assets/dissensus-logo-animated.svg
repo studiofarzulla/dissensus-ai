@@ -1,61 +1,121 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-labelledby="dissensusTitle">
   <title id="dissensusTitle">Dissensus AI Logo</title>
   <defs>
-    <linearGradient id="logo-grad-yang" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#dc143c"/>
-      <stop offset="50%" stop-color="#a01028"/>
-      <stop offset="100%" stop-color="#4a0a15"/>
+    <linearGradient id="logo-grad-yang" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#e8254a"/>
+      <stop offset="35%" stop-color="#dc143c"/>
+      <stop offset="70%" stop-color="#8a0c24"/>
+      <stop offset="100%" stop-color="#3a0610"/>
     </linearGradient>
-    <linearGradient id="logo-grad-yin" x1="100%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#dc143c"/>
-      <stop offset="50%" stop-color="#a01028"/>
-      <stop offset="100%" stop-color="#4a0a15"/>
+    <linearGradient id="logo-grad-yin" x1="80%" y1="100%" x2="20%" y2="0%">
+      <stop offset="0%" stop-color="#e8254a"/>
+      <stop offset="35%" stop-color="#dc143c"/>
+      <stop offset="70%" stop-color="#8a0c24"/>
+      <stop offset="100%" stop-color="#3a0610"/>
     </linearGradient>
+    <radialGradient id="dot-light" cx="30%" cy="30%">
+      <stop offset="0%" stop-color="#ff4060"/>
+      <stop offset="100%" stop-color="#dc143c"/>
+    </radialGradient>
+    <radialGradient id="dot-dark" cx="70%" cy="70%">
+      <stop offset="0%" stop-color="#6a0c1c"/>
+      <stop offset="100%" stop-color="#2a0408"/>
+    </radialGradient>
   </defs>
+  
   <style>
     .dissensus-container {
       transform-origin: 50px 50px;
-      animation: orbit 18s linear infinite;
-      filter: drop-shadow(0 0 8px rgba(220, 20, 60, 0.3));
+      animation: orbit 20s linear infinite;
+      filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.35));
     }
     
-    .dissensus-shape {
-      transform-origin: 50px 50px;
-      opacity: 0.95;
-    }
-
     .shape-yang {
-      animation: pacing-A 6s ease-in-out infinite alternate;
+      transform-origin: 50px 50px;
+      animation: 
+        pace-yang 7s cubic-bezier(0.4, 0, 0.6, 1) infinite,
+        breathe-yang 4s ease-in-out infinite alternate;
     }
-
+    
     .shape-yin {
-      animation: pacing-B 6s ease-in-out infinite alternate;
-      animation-delay: -1.5s;
+      transform-origin: 50px 50px;
+      animation: 
+        pace-yin 7s cubic-bezier(0.4, 0, 0.6, 1) infinite,
+        breathe-yin 5s ease-in-out infinite alternate;
+      animation-delay: -1.8s, -1s;
     }
+    
+    .inner-dot { animation: dot-pulse 3s ease-in-out infinite; }
+    .dot-yin { animation-delay: -1.5s; }
+    .edge-highlight { animation: shimmer 4s ease-in-out infinite; }
+    .gap-ring { animation: gap-breathe 6s ease-in-out infinite; }
 
     @keyframes orbit {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
 
-    /* Asymmetric pacing: purposeful but unresolved */
-    @keyframes pacing-A {
-      0% { transform: rotate(0deg) scale(0.97); }
-      30% { transform: rotate(8deg) scale(1.0); }
-      70% { transform: rotate(4deg) scale(0.98); }
-      100% { transform: rotate(0deg) scale(0.97); }
+    @keyframes pace-yang {
+      0% { transform: rotate(0deg) translateX(0px) translateY(0px); }
+      15% { transform: rotate(6deg) translateX(2px) translateY(-1px); }
+      30% { transform: rotate(10deg) translateX(3px) translateY(0px); }
+      45% { transform: rotate(7deg) translateX(1px) translateY(1px); }
+      60% { transform: rotate(2deg) translateX(-1px) translateY(2px); }
+      75% { transform: rotate(-3deg) translateX(-2px) translateY(1px); }
+      90% { transform: rotate(-1deg) translateX(-1px) translateY(-1px); }
+      100% { transform: rotate(0deg) translateX(0px) translateY(0px); }
     }
 
-    @keyframes pacing-B {
-      0% { transform: rotate(0deg) scale(0.97); }
-      30% { transform: rotate(-4deg) scale(0.94); }
-      70% { transform: rotate(-8deg) scale(0.96); }
-      100% { transform: rotate(0deg) scale(0.97); }
+    @keyframes pace-yin {
+      0% { transform: rotate(0deg) translateX(0px) translateY(0px); }
+      12% { transform: rotate(-4deg) translateX(-1px) translateY(1px); }
+      28% { transform: rotate(-8deg) translateX(-2px) translateY(0px); }
+      42% { transform: rotate(-6deg) translateX(-1px) translateY(-1px); }
+      58% { transform: rotate(-2deg) translateX(1px) translateY(-2px); }
+      72% { transform: rotate(4deg) translateX(2px) translateY(-1px); }
+      88% { transform: rotate(2deg) translateX(1px) translateY(1px); }
+      100% { transform: rotate(0deg) translateX(0px) translateY(0px); }
+    }
+
+    @keyframes breathe-yang {
+      0% { transform: scale(1) skewX(0deg); }
+      50% { transform: scale(1.02) skewX(0.5deg); }
+      100% { transform: scale(0.99) skewX(-0.3deg); }
+    }
+
+    @keyframes breathe-yin {
+      0% { transform: scale(1) skewX(0deg); }
+      50% { transform: scale(0.98) skewX(-0.5deg); }
+      100% { transform: scale(1.01) skewX(0.3deg); }
+    }
+
+    @keyframes dot-pulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+
+    @keyframes shimmer {
+      0%, 100% { stroke-opacity: 0.2; }
+      50% { stroke-opacity: 0.5; }
+    }
+
+    @keyframes gap-breathe {
+      0%, 100% { r: 4; stroke-width: 3; }
+      50% { r: 5; stroke-width: 4; }
     }
   </style>
 
   <g class="dissensus-container">
-    <path class="dissensus-shape shape-yang" fill="url(#logo-grad-yang)" d="M 50 10 A 40 40 0 0 1 50 90 A 20 20 0 0 1 50 50 A 20 20 0 0 0 50 10 Z" />
-    <path class="dissensus-shape shape-yin" fill="url(#logo-grad-yin)" d="M 50 90 A 40 40 0 0 1 50 10 A 20 20 0 0 1 50 50 A 20 20 0 0 0 50 90 Z" />
+    <g class="shape-yang">
+      <path fill="url(#logo-grad-yang)" d="M 50 8 A 42 42 0 0 1 50 92 A 21 21 0 0 1 50 50 A 21 21 0 0 0 50 8 Z" />
+      <circle cx="50" cy="29" r="5" fill="url(#dot-dark)" class="inner-dot dot-yang"/>
+      <path fill="none" stroke="#ff4060" stroke-width="0.5" stroke-opacity="0.4" d="M 50 8 A 42 42 0 0 1 92 50" class="edge-highlight"/>
+    </g>
+    <g class="shape-yin">
+      <path fill="url(#logo-grad-yin)" d="M 50 92 A 42 42 0 0 1 50 8 A 21 21 0 0 1 50 50 A 21 21 0 0 0 50 92 Z" />
+      <circle cx="50" cy="71" r="5" fill="url(#dot-light)" class="inner-dot dot-yin"/>
+      <path fill="none" stroke="#ff4060" stroke-width="0.5" stroke-opacity="0.3" d="M 50 92 A 42 42 0 0 1 8 50" class="edge-highlight"/>
+    </g>
+    <circle cx="50" cy="50" r="4" fill="none" stroke="#050505" stroke-width="3" class="gap-ring"/>
   </g>
 </svg>

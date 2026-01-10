@@ -37,20 +37,61 @@
         <svg class="hero__logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-labelledby="dissensusTitle" role="img">
           <title id="dissensusTitle">Dissensus AI Logo - Interlocking shapes in asymmetric orbit</title>
           <defs>
-            <linearGradient id="logo-grad-yang" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#dc143c"/>
-              <stop offset="50%" stop-color="#a01028"/>
-              <stop offset="100%" stop-color="#4a0a15"/>
+            <!-- Yang gradient: bright tip fading to dark -->
+            <linearGradient id="logo-grad-yang" x1="20%" y1="0%" x2="80%" y2="100%">
+              <stop offset="0%" stop-color="#e8254a"/>
+              <stop offset="35%" stop-color="#dc143c"/>
+              <stop offset="70%" stop-color="#8a0c24"/>
+              <stop offset="100%" stop-color="#3a0610"/>
             </linearGradient>
-            <linearGradient id="logo-grad-yin" x1="100%" y1="100%" x2="0%" y2="0%">
-              <stop offset="0%" stop-color="#dc143c"/>
-              <stop offset="50%" stop-color="#a01028"/>
-              <stop offset="100%" stop-color="#4a0a15"/>
+            <!-- Yin gradient: reversed direction for asymmetry -->
+            <linearGradient id="logo-grad-yin" x1="80%" y1="100%" x2="20%" y2="0%">
+              <stop offset="0%" stop-color="#e8254a"/>
+              <stop offset="35%" stop-color="#dc143c"/>
+              <stop offset="70%" stop-color="#8a0c24"/>
+              <stop offset="100%" stop-color="#3a0610"/>
             </linearGradient>
+            <!-- Inner accent dots -->
+            <radialGradient id="dot-light" cx="30%" cy="30%">
+              <stop offset="0%" stop-color="#ff4060"/>
+              <stop offset="100%" stop-color="#dc143c"/>
+            </radialGradient>
+            <radialGradient id="dot-dark" cx="70%" cy="70%">
+              <stop offset="0%" stop-color="#6a0c1c"/>
+              <stop offset="100%" stop-color="#2a0408"/>
+            </radialGradient>
           </defs>
           <g class="dissensus-container">
-            <path class="dissensus-shape shape-yang" fill="url(#logo-grad-yang)" d="M 50 10 A 40 40 0 0 1 50 90 A 20 20 0 0 1 50 50 A 20 20 0 0 0 50 10 Z" />
-            <path class="dissensus-shape shape-yin" fill="url(#logo-grad-yin)" d="M 50 90 A 40 40 0 0 1 50 10 A 20 20 0 0 1 50 50 A 20 20 0 0 0 50 90 Z" />
+            <!-- Yang shape: slightly larger outer arc, more dramatic curve -->
+            <g class="shape-yang">
+              <path fill="url(#logo-grad-yang)" d="
+                M 50 8 
+                A 42 42 0 0 1 50 92 
+                A 21 21 0 0 1 50 50 
+                A 21 21 0 0 0 50 8 
+                Z" />
+              <!-- Inner detail: bright accent dot -->
+              <circle cx="50" cy="29" r="5" fill="url(#dot-dark)" class="inner-dot dot-yang"/>
+              <!-- Edge highlight -->
+              <path fill="none" stroke="#ff4060" stroke-width="0.5" stroke-opacity="0.4" d="
+                M 50 8 A 42 42 0 0 1 92 50" class="edge-highlight"/>
+            </g>
+            <!-- Yin shape: offset slightly for gap, different proportions -->
+            <g class="shape-yin">
+              <path fill="url(#logo-grad-yin)" d="
+                M 50 92 
+                A 42 42 0 0 1 50 8 
+                A 21 21 0 0 1 50 50 
+                A 21 21 0 0 0 50 92 
+                Z" />
+              <!-- Inner detail: dark accent dot -->
+              <circle cx="50" cy="71" r="5" fill="url(#dot-light)" class="inner-dot dot-yin"/>
+              <!-- Edge highlight -->
+              <path fill="none" stroke="#ff4060" stroke-width="0.5" stroke-opacity="0.3" d="
+                M 50 92 A 42 42 0 0 1 8 50" class="edge-highlight"/>
+            </g>
+            <!-- Central gap ring - creates visual separation -->
+            <circle cx="50" cy="50" r="4" fill="none" stroke="#050505" stroke-width="3" class="gap-ring"/>
           </g>
         </svg>
       </div>

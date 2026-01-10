@@ -258,23 +258,53 @@ section[data-index]::before {
 
 .dissensus-container {
   transform-origin: 50px 50px;
-  animation: orbit 18s linear infinite;
-  filter: drop-shadow(0 0 8px rgba(220, 20, 60, 0.3));
+  animation: orbit 20s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.35));
 }
 
 .dissensus-shape {
   transform-origin: 50px 50px;
   opacity: 0.95;
-  /* Fill comes from inline SVG gradient */
 }
 
+/* Yang: leads with confidence, slight hesitation */
 .shape-yang {
-  animation: pacing-A 6s ease-in-out infinite alternate;
+  transform-origin: 50px 50px;
+  animation: 
+    pace-yang 7s cubic-bezier(0.4, 0, 0.6, 1) infinite,
+    breathe-yang 4s ease-in-out infinite alternate;
 }
 
+/* Yin: follows, reactive, slightly off-beat */
 .shape-yin {
-  animation: pacing-B 6s ease-in-out infinite alternate;
+  transform-origin: 50px 50px;
+  animation: 
+    pace-yin 7s cubic-bezier(0.4, 0, 0.6, 1) infinite,
+    breathe-yin 5s ease-in-out infinite alternate;
+  animation-delay: -1.8s, -1s;
+}
+
+/* Inner dots: subtle counter-pulse */
+.inner-dot {
+  animation: dot-pulse 3s ease-in-out infinite;
+}
+
+.dot-yang {
+  animation-delay: 0s;
+}
+
+.dot-yin {
   animation-delay: -1.5s;
+}
+
+/* Edge highlights: shimmer effect */
+.edge-highlight {
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+/* Gap ring: breathing center */
+.gap-ring {
+  animation: gap-breathe 6s ease-in-out infinite;
 }
 
 @keyframes orbit {
@@ -282,21 +312,105 @@ section[data-index]::before {
   to { transform: rotate(360deg); }
 }
 
-/* Asymmetric pacing: purposeful but unresolved
-   Like someone pacing while thinking - gaps open and close
-   but resolution is never reached */
-@keyframes pacing-A {
-  0% { transform: rotate(0deg) scale(0.97); }
-  30% { transform: rotate(8deg) scale(1.0); }
-  70% { transform: rotate(4deg) scale(0.98); }
-  100% { transform: rotate(0deg) scale(0.97); }
+/* Yang pacing: forward-leaning, purposeful
+   Steps forward, pauses to think, continues */
+@keyframes pace-yang {
+  0% { 
+    transform: rotate(0deg) translateX(0px) translateY(0px); 
+  }
+  15% { 
+    transform: rotate(6deg) translateX(2px) translateY(-1px); 
+  }
+  30% { 
+    transform: rotate(10deg) translateX(3px) translateY(0px); 
+  }
+  45% { 
+    transform: rotate(7deg) translateX(1px) translateY(1px); 
+  }
+  60% { 
+    transform: rotate(2deg) translateX(-1px) translateY(2px); 
+  }
+  75% { 
+    transform: rotate(-3deg) translateX(-2px) translateY(1px); 
+  }
+  90% { 
+    transform: rotate(-1deg) translateX(-1px) translateY(-1px); 
+  }
+  100% { 
+    transform: rotate(0deg) translateX(0px) translateY(0px); 
+  }
 }
 
-@keyframes pacing-B {
-  0% { transform: rotate(0deg) scale(0.97); }
-  30% { transform: rotate(-4deg) scale(0.94); }
-  70% { transform: rotate(-8deg) scale(0.96); }
-  100% { transform: rotate(0deg) scale(0.97); }
+/* Yin pacing: reactive, following but never catching
+   Different rhythm creates the gap that opens and closes */
+@keyframes pace-yin {
+  0% { 
+    transform: rotate(0deg) translateX(0px) translateY(0px); 
+  }
+  12% { 
+    transform: rotate(-4deg) translateX(-1px) translateY(1px); 
+  }
+  28% { 
+    transform: rotate(-8deg) translateX(-2px) translateY(0px); 
+  }
+  42% { 
+    transform: rotate(-6deg) translateX(-1px) translateY(-1px); 
+  }
+  58% { 
+    transform: rotate(-2deg) translateX(1px) translateY(-2px); 
+  }
+  72% { 
+    transform: rotate(4deg) translateX(2px) translateY(-1px); 
+  }
+  88% { 
+    transform: rotate(2deg) translateX(1px) translateY(1px); 
+  }
+  100% { 
+    transform: rotate(0deg) translateX(0px) translateY(0px); 
+  }
+}
+
+/* Breathing: subtle scale oscillation for organic feel */
+@keyframes breathe-yang {
+  0% { transform: scale(1) skewX(0deg); }
+  50% { transform: scale(1.02) skewX(0.5deg); }
+  100% { transform: scale(0.99) skewX(-0.3deg); }
+}
+
+@keyframes breathe-yin {
+  0% { transform: scale(1) skewX(0deg); }
+  50% { transform: scale(0.98) skewX(-0.5deg); }
+  100% { transform: scale(1.01) skewX(0.3deg); }
+}
+
+/* Dot pulse: inner life */
+@keyframes dot-pulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.8; 
+  }
+  50% { 
+    transform: scale(1.15); 
+    opacity: 1; 
+  }
+}
+
+/* Edge shimmer */
+@keyframes shimmer {
+  0%, 100% { stroke-opacity: 0.2; }
+  50% { stroke-opacity: 0.5; }
+}
+
+/* Gap breathing: center expansion/contraction */
+@keyframes gap-breathe {
+  0%, 100% { 
+    r: 4; 
+    stroke-width: 3; 
+  }
+  50% { 
+    r: 5; 
+    stroke-width: 4; 
+  }
 }
 
 /* Ambient glow ring behind logo */
