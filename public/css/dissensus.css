@@ -238,24 +238,30 @@ section[data-index]::before {
    Purposeful but unresolved
    ============================================ */
 
-.hero__logo-wrapper {
+/* Brand: logo + title side by side */
+.hero__brand {
   display: flex;
-  justify-content: flex-start;
-  margin-bottom: var(--space-xl);
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.hero__logo-wrapper {
   position: relative;
+  flex-shrink: 0;
 }
 
 /* Spin container */
 .hero__logo-spin {
-  width: 140px;
-  height: 140px;
+  width: 80px;
+  height: 80px;
   animation: spin 25s linear infinite;
-  filter: drop-shadow(0 0 12px rgba(220, 20, 60, 0.35));
+  filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.35));
   transition: filter var(--transition-slow);
 }
 
 .hero__logo-spin:hover {
-  filter: drop-shadow(0 0 25px rgba(220, 20, 60, 0.6));
+  filter: drop-shadow(0 0 20px rgba(220, 20, 60, 0.6));
 }
 
 /* Logo with heartbeat */
@@ -286,35 +292,18 @@ section[data-index]::before {
   content: '';
   position: absolute;
   top: 50%;
-  left: 70px;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 170px;
-  height: 170px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(180, 24, 48, 0.12) 0%,
-    rgba(180, 24, 48, 0.04) 50%,
+    rgba(180, 24, 48, 0.15) 0%,
+    rgba(180, 24, 48, 0.05) 50%,
     transparent 70%
   );
   animation: ambient-pulse 7s ease-in-out infinite;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Secondary outer ring - subtle boundary */
-.hero__logo-wrapper::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 70px;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: 1px solid rgba(180, 24, 48, 0.06);
-  animation: ambient-pulse 7s ease-in-out infinite reverse;
-  animation-delay: -3.5s;
   pointer-events: none;
   z-index: -1;
 }
@@ -326,14 +315,19 @@ section[data-index]::before {
   }
   50% {
     opacity: 0.9;
-    transform: translate(-50%, -50%) scale(1.08);
+    transform: translate(-50%, -50%) scale(1.1);
   }
 }
 
 /* Reduced motion - respect accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .hero__logo-wrapper::before,
-  .hero__logo-wrapper::after {
+  .hero__logo-wrapper::before {
+    animation: none;
+  }
+  .hero__logo-spin {
+    animation: none;
+  }
+  .hero__logo {
     animation: none;
   }
 }
@@ -341,39 +335,29 @@ section[data-index]::before {
 /* Responsive logo sizing */
 @media (min-width: 768px) {
   .hero__logo-spin {
-    width: 170px;
-    height: 170px;
+    width: 100px;
+    height: 100px;
   }
   
   .hero__logo-wrapper::before {
-    width: 200px;
-    height: 200px;
-    left: 85px;
+    width: 130px;
+    height: 130px;
   }
   
-  .hero__logo-wrapper::after {
-    width: 240px;
-    height: 240px;
-    left: 85px;
+  .hero__brand {
+    gap: var(--space-xl);
   }
 }
 
 @media (min-width: 1024px) {
   .hero__logo-spin {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
   }
   
   .hero__logo-wrapper::before {
-    width: 240px;
-    height: 240px;
-    left: 100px;
-  }
-  
-  .hero__logo-wrapper::after {
-    width: 280px;
-    height: 280px;
-    left: 100px;
+    width: 150px;
+    height: 150px;
   }
 }
 
@@ -398,11 +382,11 @@ section[data-index]::before {
 
 .hero__title {
   color: var(--text-primary);
-  margin-bottom: var(--space-md);
+  margin: 0;
   position: relative;
-  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-size: clamp(2rem, 7vw, 3.5rem);
   font-weight: 300;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: lowercase;
   font-family: var(--font-sans);
 }
