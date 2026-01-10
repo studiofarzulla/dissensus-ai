@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dissensus.ai | Governance Alignment Research</title>
+    <description>Research updates from Dissensus - formalizing productive friction in multi-agent systems.</description>
+    <link>https://dissensus.ai</link>
+    <atom:link href="https://dissensus.ai/feed.xml" rel="self" type="application/rss+xml"/>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 10 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <managingEditor>lab@dissensus.ai (Murad Farzulla)</managingEditor>
+    <webMaster>lab@dissensus.ai</webMaster>
+    <ttl>1440</ttl>
+
+    <item>
+      <title>The Replicator-Optimization Mechanism - arXiv Submission</title>
+      <link>https://arxiv.org/abs/2601.xxxxx</link>
+      <description>A unified computational framework for self-replicating, optimization-executing systems across physical and abstract substrates. Submitted to arXiv and under review at Synthese.</description>
+      <pubDate>Fri, 10 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://arxiv.org/abs/2601.xxxxx</guid>
+      <category>Meta-Theory</category>
+    </item>
+
+    <item>
+      <title>Stakes Without Voice - New Working Paper</title>
+      <link>https://doi.org/10.5281/zenodo.18195279</link>
+      <description>Structural exclusion and the legitimacy deficit problem. When stakeholders bear costs but lack representation in governance decisions.</description>
+      <pubDate>Thu, 09 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://doi.org/10.5281/zenodo.18195279</guid>
+      <category>Political Economy</category>
+    </item>
+
+    <item>
+      <title>Identity is Irreducibly Relational</title>
+      <link>https://doi.org/10.5281/zenodo.18186445</link>
+      <description>Ontological foundations for relational functionalism. Why identity cannot be reduced to intrinsic properties.</description>
+      <pubDate>Wed, 08 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://doi.org/10.5281/zenodo.18186445</guid>
+      <category>Philosophy of Mind</category>
+    </item>
+
+    <item>
+      <title>Consciousness as Nominalization Error</title>
+      <link>https://doi.org/10.5281/zenodo.18195915</link>
+      <description>Why the hard problem dissolves under linguistic analysis. Consciousness is a process noun mistaken for an entity noun.</description>
+      <pubDate>Wed, 08 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://doi.org/10.5281/zenodo.18195915</guid>
+      <category>Philosophy of Mind</category>
+    </item>
+
+    <item>
+      <title>Dissensus Research Lab Launched</title>
+      <link>https://dissensus.ai</link>
+      <description>Official launch of dissensus.ai - a governance alignment research lab focused on adversarial systems and multi-agent friction dynamics.</description>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">dissensus-launch-2026</guid>
+      <category>Announcement</category>
+    </item>
+
+    <item>
+      <title>The Doctrine of Consensual Sovereignty</title>
+      <link>https://doi.org/10.5281/zenodo.17684676</link>
+      <description>Quantifying legitimacy in adversarial environments. Introduces stakes-weighted consent alignment as a formal measure of political legitimacy.</description>
+      <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://doi.org/10.5281/zenodo.17684676</guid>
+      <category>Political Economy</category>
+    </item>
+
+    <item>
+      <title>Dissolving Qualia via Occam's Razor</title>
+      <link>https://doi.org/10.5281/zenodo.18013187</link>
+      <description>Eliminative monism and the computational basis of phenomenological illusion. A ~33,000 word monograph on consciousness.</description>
+      <pubDate>Fri, 01 Nov 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://doi.org/10.5281/zenodo.18013187</guid>
+      <category>Philosophy of Mind</category>
+    </item>
+
+  </channel>
+</rss>

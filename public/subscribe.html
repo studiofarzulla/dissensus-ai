@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe | dissensus.ai</title>
+  <meta name="description" content="Subscribe to research updates from Dissensus - governance alignment research lab.">
+  <link rel="stylesheet" href="css/dissensus.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="alternate" type="application/rss+xml" title="Dissensus RSS Feed" href="feed.xml">
+</head>
+<body>
+
+<section class="hero" style="min-height: auto; padding: var(--space-xl) 0;">
+  <div class="container">
+    <a href="index.html" style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-decoration: none;">
+      ← dissensus<span style="color: var(--accent); font-weight: 600;">AI</span>
+    </a>
+    <h1 style="font-size: clamp(1.75rem, 5vw, 2.5rem); margin-top: var(--space-lg); font-weight: 400; letter-spacing: 0.04em;">
+      Subscribe
+    </h1>
+    <p class="hero__tagline" style="margin-top: var(--space-md);">
+      Research updates delivered with minimal friction
+    </p>
+  </div>
+</section>
+
+<section class="about" data-index="01">
+  <div class="container">
+    <h2>Stay Updated</h2>
+    
+    <p>
+      We publish infrequently but substantively. Updates include new papers, framework developments, 
+      and occasional commentary on governance, AI alignment, and friction dynamics.
+    </p>
+
+    <div style="background: var(--bg-secondary); border: 1px solid var(--border); padding: var(--space-xl); margin: var(--space-xl) 0;">
+      <h3 style="color: var(--text-primary); margin-bottom: var(--space-lg); font-family: var(--font-sans); font-size: 1.125rem;">
+        Email Updates
+      </h3>
+      
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display: flex; flex-direction: column; gap: var(--space-md);">
+        <div>
+          <label for="email" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
+            Email Address
+          </label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required
+            placeholder="researcher@institution.edu"
+            style="width: 100%; max-width: 400px; padding: var(--space-sm) var(--space-md); background: var(--bg-primary); border: 1px solid var(--border); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.9375rem;"
+          >
+        </div>
+        
+        <div>
+          <label for="interests" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
+            Research Interests (Optional)
+          </label>
+          <select 
+            id="interests" 
+            name="interests"
+            style="width: 100%; max-width: 400px; padding: var(--space-sm) var(--space-md); background: var(--bg-primary); border: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.875rem;"
+          >
+            <option value="">All updates</option>
+            <option value="consent-mechanics">Consent Mechanics</option>
+            <option value="machine-morality">Machine Morality / AI Ethics</option>
+            <option value="economic-pharmakon">Economic Pharmakon / Finance</option>
+            <option value="crypto-microstructure">Crypto Microstructure</option>
+            <option value="political-economy">Political Economy</option>
+          </select>
+        </div>
+
+        <input type="hidden" name="_subject" value="New Dissensus Subscriber">
+        
+        <button 
+          type="submit"
+          style="width: fit-content; padding: var(--space-sm) var(--space-lg); background: transparent; border: 1px solid var(--accent-dim); color: var(--accent); font-family: var(--font-mono); font-size: 0.8125rem; cursor: pointer; transition: all var(--transition-base); margin-top: var(--space-sm);"
+          onmouseover="this.style.background='var(--accent)'; this.style.color='var(--bg-primary)';"
+          onmouseout="this.style.background='transparent'; this.style.color='var(--accent)';"
+        >
+          Subscribe →
+        </button>
+      </form>
+
+      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: var(--space-lg); font-family: var(--font-mono);">
+        No spam. Unsubscribe anytime. Your data stays with us.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="research" data-index="02">
+  <div class="container">
+    <h2>Alternative: RSS Feed</h2>
+    
+    <p>Prefer syndication? We provide an RSS feed for all research updates.</p>
+
+    <div style="display: flex; gap: var(--space-md); margin-top: var(--space-lg); flex-wrap: wrap;">
+      <a 
+        href="feed.xml" 
+        style="display: inline-flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.8125rem; transition: all var(--transition-base);"
+      >
+        <span style="color: var(--accent);">⟨RSS⟩</span> feed.xml
+      </a>
+      
+      <button 
+        onclick="copyRSSUrl()"
+        style="display: inline-flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.8125rem; cursor: pointer; transition: all var(--transition-base);"
+        id="rss-copy-btn"
+      >
+        Copy URL
+      </button>
+    </div>
+
+    <div style="background: var(--bg-card); border: 1px solid var(--border); padding: var(--space-md); margin-top: var(--space-lg); font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
+      https://dissensus.ai/feed.xml
+    </div>
+  </div>
+</section>
+
+<section class="framework-intro" data-index="03">
+  <div class="container">
+    <h2>What to Expect</h2>
+    
+    <div class="research-grid" style="margin-top: var(--space-lg);">
+      <article class="research-card">
+        <span class="research-card__index">~</span>
+        <h3>Frequency</h3>
+        <p>1-2 emails per month during active research periods. Less during writing phases.</p>
+      </article>
+
+      <article class="research-card">
+        <span class="research-card__index">→</span>
+        <h3>Content</h3>
+        <p>New paper releases, framework updates, preprint announcements, and occasional field commentary.</p>
+      </article>
+
+      <article class="research-card">
+        <span class="research-card__index">⌀</span>
+        <h3>No Noise</h3>
+        <p>We don't do newsletters for the sake of newsletters. Signal only.</p>
+      </article>
+
+      <article class="research-card">
+        <span class="research-card__index">∞</span>
+        <h3>Archive</h3>
+        <p>All past updates available on farzulla.org. Nothing gets lost.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 dissensus<sup>AI</sup></p>
+    <p class="coordinates">
+      <a href="index.html">Home</a> · 
+      <a href="manifesto.html">Manifesto</a> · 
+      <a href="charter.html">Charter</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  function copyRSSUrl() {
+    navigator.clipboard.writeText('https://dissensus.ai/feed.xml').then(() => {
+      const btn = document.getElementById('rss-copy-btn');
+      btn.textContent = 'Copied!';
+      btn.style.color = 'var(--accent)';
+      setTimeout(() => {
+        btn.textContent = 'Copy URL';
+        btn.style.color = '';
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

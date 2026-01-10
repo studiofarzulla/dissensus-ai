@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collaborate | dissensus.ai</title>
+  <meta name="description" content="Submit a collaboration proposal to Dissensus - governance alignment research lab.">
+  <link rel="stylesheet" href="css/dissensus.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+</head>
+<body>
+
+<section class="hero" style="min-height: auto; padding: var(--space-xl) 0;">
+  <div class="container">
+    <a href="index.html" style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-decoration: none;">
+      ← dissensus<span style="color: var(--accent); font-weight: 600;">AI</span>
+    </a>
+    <h1 style="font-size: clamp(1.75rem, 5vw, 2.5rem); margin-top: var(--space-lg); font-weight: 400; letter-spacing: 0.04em;">
+      Collaborate
+    </h1>
+    <p class="hero__tagline" style="margin-top: var(--space-md);">
+      Break things with us
+    </p>
+  </div>
+</section>
+
+<section class="about" data-index="01">
+  <div class="container">
+    <h2>What We're Looking For</h2>
+    
+    <p>
+      We seek collaborators who want to pressure-test the Axiom of Consent framework and related research.
+      The goal is not agreement—it's productive friction. Find where the frameworks break.
+    </p>
+
+    <div class="research-grid" style="margin-top: var(--space-xl);">
+      <article class="research-card">
+        <span class="research-card__index">I</span>
+        <h3>Co-Authorship</h3>
+        <p>Joint papers on consent mechanics, machine morality, or economic microstructure. Empirical or theoretical.</p>
+      </article>
+
+      <article class="research-card">
+        <span class="research-card__index">II</span>
+        <h3>Critical Review</h3>
+        <p>Formal critiques of our frameworks. We'll publish strong counterarguments with full attribution.</p>
+      </article>
+
+      <article class="research-card">
+        <span class="research-card__index">III</span>
+        <h3>Empirical Testing</h3>
+        <p>Apply friction decomposition to new domains. Market data, political systems, agent simulations.</p>
+      </article>
+
+      <article class="research-card">
+        <span class="research-card__index">IV</span>
+        <h3>Institutional Partnership</h3>
+        <p>University affiliations, research grants, doctoral supervision. Scaling beyond independent work.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="research" data-index="02">
+  <div class="container">
+    <h2>Collaboration Proposal</h2>
+
+    <p style="margin-bottom: var(--space-xl);">
+      Complete the form below to submit a collaboration proposal. 
+      We respond to all substantive inquiries within 5 business days.
+    </p>
+
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display: flex; flex-direction: column; gap: var(--space-lg);">
+      
+      <!-- Personal Info -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-md);">
+        <div>
+          <label for="name" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
+            Name *
+          </label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            required
+            style="width: 100%; padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.9375rem;"
+          >
+        </div>
+        
+        <div>
+          <label for="email" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
+            Email *
+          </label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required
+            style="width: 100%; padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.9375rem;"
+          >
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-md);">
+        <div>
+          <label for="affiliation" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
+            Affiliation
+          </label>
+          <input 
+            type="text" 
+            id="affiliation" 
+            name="affiliation"
+            placeholder="Institution / Organization / Independent"
+            style="width: 100%; padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.9375rem;"
+          >
+        </div>
+        
+        <div>
+          <label for="discipline" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
+            Discipline
+          </label>
+          <select 
+            id="discipline" 
+            name="discipline"
+            style="width: 100%; padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.875rem;"
+          >
+            <option value="">Select...</option>
+            <option value="philosophy">Philosophy</option>
+            <option value="economics">Economics / Finance</option>
+            <option value="political-science">Political Science</option>
+            <option value="computer-science">Computer Science / AI</option>
+            <option value="mathematics">Mathematics</option>
+            <option value="sociology">Sociology</option>
+            <option value="law">Law / Governance</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Collaboration Type -->
+      <div>
+        <label style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-sm);">
+          Collaboration Type *
+        </label>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-md);">
+          <label style="display: flex; align-items: center; gap: var(--space-sm); color: var(--text-secondary); font-size: 0.875rem; cursor: pointer;">
+            <input type="radio" name="collab_type" value="co-authorship" required style="accent-color: var(--accent);">
+            Co-Authorship
+          </label>
+          <label style="display: flex; align-items: center; gap: var(--space-sm); color: var(--text-secondary); font-size: 0.875rem; cursor: pointer;">
+            <input type="radio" name="collab_type" value="critical-review" style="accent-color: var(--accent);">
+            Critical Review
+          </label>
+          <label style="display: flex; align-items: center; gap: var(--space-sm); color: var(--text-secondary); font-size: 0.875rem; cursor: pointer;">
+            <input type="radio" name="collab_type" value="empirical-testing" style="accent-color: var(--accent);">
+            Empirical Testing
+          </label>
+          <label style="display: flex; align-items: center; gap: var(--space-sm); color: var(--text-secondary); font-size: 0.875rem; cursor: pointer;">
+            <input type="radio" name="collab_type" value="institutional" style="accent-color: var(--accent);">
+            Institutional Partnership
+          </label>
+          <label style="display: flex; align-items: center; gap: var(--space-sm); color: var(--text-secondary); font-size: 0.875rem; cursor: pointer;">
+            <input type="radio" name="collab_type" value="other" style="accent-color: var(--accent);">
+            Other
+          </label>
+        </div>
+      </div>
+
+      <!-- Research Area -->
+      <div>
+        <label for="research_area" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
+          Relevant Research Area
+        </label>
+        <select 
+          id="research_area" 
+          name="research_area"
+          style="width: 100%; max-width: 400px; padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.875rem;"
+        >
+          <option value="">Select primary area...</option>
+          <option value="consent-mechanics">Consent Mechanics</option>
+          <option value="machine-morality">Machine Morality</option>
+          <option value="economic-pharmakon">Economic Pharmakon</option>
+          <option value="crypto-microstructure">Crypto Microstructure</option>
+          <option value="political-economy">Political Economy</option>
+          <option value="rom-framework">ROM Framework</option>
+          <option value="general">General / Cross-Cutting</option>
+        </select>
+      </div>
+
+      <!-- Proposal -->
+      <div>
+        <label for="proposal" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
+          Proposal Description *
+        </label>
+        <textarea 
+          id="proposal" 
+          name="proposal"
+          required
+          rows="8"
+          placeholder="Describe your proposed collaboration. What do you want to work on? What's your angle? What would you bring to the project?"
+          style="width: 100%; padding: var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.9375rem; line-height: 1.6; resize: vertical;"
+        ></textarea>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <label for="links" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
+          Relevant Links (Optional)
+        </label>
+        <textarea 
+          id="links" 
+          name="links"
+          rows="3"
+          placeholder="ORCID, Google Scholar, personal website, relevant papers, GitHub..."
+          style="width: 100%; padding: var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.875rem; line-height: 1.6; resize: vertical;"
+        ></textarea>
+      </div>
+
+      <input type="hidden" name="_subject" value="Dissensus Collaboration Proposal">
+      
+      <button 
+        type="submit"
+        style="width: fit-content; padding: var(--space-md) var(--space-xl); background: var(--accent); border: none; color: var(--bg-primary); font-family: var(--font-mono); font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all var(--transition-base); letter-spacing: 0.05em;"
+        onmouseover="this.style.background='var(--accent-hover)';"
+        onmouseout="this.style.background='var(--accent)';"
+      >
+        Submit Proposal →
+      </button>
+    </form>
+  </div>
+</section>
+
+<section class="framework-intro" data-index="03">
+  <div class="container">
+    <h2>Alternative: Direct Contact</h2>
+    
+    <p>For informal inquiries or brief questions, email directly:</p>
+
+    <div style="margin-top: var(--space-lg);">
+      <a href="mailto:lab@dissensus.ai" style="font-family: var(--font-mono); font-size: 1.125rem; color: var(--accent);">
+        lab@dissensus.ai
+      </a>
+    </div>
+
+    <p style="margin-top: var(--space-lg); font-size: 0.875rem; color: var(--text-muted);">
+      Please include "Collaboration" in your subject line for faster routing.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 dissensus<sup>AI</sup></p>
+    <p class="coordinates">
+      <a href="index.html">Home</a> · 
+      <a href="manifesto.html">Manifesto</a> · 
+      <a href="charter.html">Charter</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

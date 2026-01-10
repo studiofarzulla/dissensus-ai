@@ -1,0 +1,11 @@
+# dissensus.ai robots.txt
+# Governance Alignment Research Lab
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://dissensus.ai/sitemap.xml
+
+# Crawl-delay for politeness
+Crawl-delay: 1

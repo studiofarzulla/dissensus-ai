@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 | dissensus.ai</title>
+  <link rel="stylesheet" href="css/dissensus.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: var(--space-xl);
+    }
+    .error-code {
+      font-family: var(--font-mono);
+      font-size: clamp(6rem, 20vw, 12rem);
+      font-weight: 800;
+      color: var(--accent-dim);
+      line-height: 1;
+      margin-bottom: var(--space-md);
+    }
+    .error-title {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+      font-weight: 400;
+    }
+    .error-message {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      max-width: 400px;
+      margin-bottom: var(--space-xl);
+    }
+    .error-links {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .error-link {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid var(--border);
+      transition: all var(--transition-base);
+    }
+    .error-link:hover {
+      color: var(--accent);
+      border-color: var(--accent-dim);
+      background: var(--bg-secondary);
+    }
+    .error-equation {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-dim);
+      margin-top: var(--space-xl);
+    }
+  </style>
+</head>
+<body>
+  <main class="error-page">
+    <div class="error-code">404</div>
+    <h1 class="error-title">Coordination Failure</h1>
+    <p class="error-message">
+      The requested resource could not be located. 
+      This is a friction event—delegation to the server produced entropy.
+    </p>
+    <div class="error-links">
+      <a href="/" class="error-link">← Return Home</a>
+      <a href="/manifesto.html" class="error-link">Read Manifesto</a>
+      <a href="/charter.html" class="error-link">View Charter</a>
+    </div>
+    <p class="error-equation">φ(404) = f(misalignment, stake=low, entropy=high)</p>
+  </main>
+</body>
+</html>
