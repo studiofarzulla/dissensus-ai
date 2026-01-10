@@ -565,6 +565,29 @@ section[data-index]::before {
 }
 
 /* --- Research Areas --- */
+.program-intro {
+  margin-bottom: var(--space-lg);
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+}
+
+.program-intro strong {
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+}
+
+.program-intro p {
+  margin: 0;
+  font-size: 1rem;
+}
+
 .research-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
