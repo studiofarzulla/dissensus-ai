@@ -300,6 +300,61 @@ section[data-index]::before {
   color: var(--text-secondary);
 }
 
+/* --- News Banner --- */
+.news-banner {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--accent-dim);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-md) 0;
+}
+
+.news-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  justify-content: center;
+}
+
+.news-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.8125rem;
+}
+
+.news-date {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  padding: 0.125rem 0.5rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.news-text {
+  color: var(--text-secondary);
+}
+
+.news-text strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .news-items {
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: flex-start;
+  }
+
+  .news-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+}
+
 /* --- About Section --- */
 .about p {
   font-size: 1.0625rem;
