@@ -232,10 +232,8 @@ section[data-index]::before {
 }
 
 /* ============================================
-   ANIMATED LOGO SYSTEM
-   Interlocking shapes circling asymmetrically,
-   pacing like someone thinking - purposeful 
-   but unresolved. Subtle shape oscillation.
+   ANIMATED LOGO
+   Using pre-rendered animation with transparency
    ============================================ */
 
 .hero__logo-wrapper {
@@ -243,13 +241,12 @@ section[data-index]::before {
   justify-content: flex-start;
   margin-bottom: var(--space-xl);
   position: relative;
-  perspective: 800px;
 }
 
 .logo-animated-container {
-  position: relative;
-  width: 120px;
-  height: 120px;
+  display: block;
+  width: 140px;
+  height: 140px;
 }
 
 .hero__logo-animated {
@@ -257,135 +254,14 @@ section[data-index]::before {
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 0 15px var(--accent-dim));
-  
-  /* Main animation: asymmetric orbit + morph
-     7s duration = thoughtful pacing tempo
-     cubic-bezier gives unresolved, hesitant feel */
-  animation: 
-    logo-orbit 7s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite,
-    logo-morph 5s ease-in-out infinite alternate,
-    logo-glow 4s ease-in-out infinite;
-  
-  transform-origin: center center;
-  will-change: transform, filter;
+  transition: filter var(--transition-slow), transform var(--transition-slow);
 }
 
-/* Asymmetric orbiting motion - trying to catch itself
-   The varying translate values create the "loop that doesn't close" effect */
-@keyframes logo-orbit {
-  0% {
-    transform: 
-      rotate(0deg) 
-      translateX(0px) 
-      translateY(0px) 
-      rotate(0deg);
-  }
-  12% {
-    transform: 
-      rotate(3deg) 
-      translateX(4px) 
-      translateY(-3px) 
-      rotate(-1.5deg);
-  }
-  28% {
-    transform: 
-      rotate(1deg) 
-      translateX(6px) 
-      translateY(2px) 
-      rotate(1deg);
-  }
-  42% {
-    transform: 
-      rotate(-2deg) 
-      translateX(2px) 
-      translateY(5px) 
-      rotate(2deg);
-  }
-  58% {
-    transform: 
-      rotate(-3.5deg) 
-      translateX(-4px) 
-      translateY(3px) 
-      rotate(-0.5deg);
-  }
-  72% {
-    transform: 
-      rotate(-1deg) 
-      translateX(-5px) 
-      translateY(-2px) 
-      rotate(-2deg);
-  }
-  86% {
-    transform: 
-      rotate(1.5deg) 
-      translateX(-2px) 
-      translateY(-4px) 
-      rotate(1deg);
-  }
-  100% {
-    transform: 
-      rotate(0deg) 
-      translateX(0px) 
-      translateY(0px) 
-      rotate(0deg);
-  }
-}
-
-/* Shape oscillation - subtle scale/skew creates the "mild shape change" effect
-   Different axes morph at different rates for organic feel */
-@keyframes logo-morph {
-  0% {
-    transform: 
-      scale(1, 1) 
-      skewX(0deg) 
-      skewY(0deg);
-  }
-  25% {
-    transform: 
-      scale(1.02, 0.98) 
-      skewX(1deg) 
-      skewY(-0.5deg);
-  }
-  50% {
-    transform: 
-      scale(0.99, 1.01) 
-      skewX(-0.5deg) 
-      skewY(0.8deg);
-  }
-  75% {
-    transform: 
-      scale(1.01, 0.99) 
-      skewX(0.8deg) 
-      skewY(-0.3deg);
-  }
-  100% {
-    transform: 
-      scale(0.98, 1.02) 
-      skewX(-0.8deg) 
-      skewY(0.5deg);
-  }
-}
-
-/* Glow pulse - breathing intensity */
-@keyframes logo-glow {
-  0%, 100% {
-    filter: 
-      drop-shadow(0 0 12px rgba(220, 20, 60, 0.35))
-      drop-shadow(0 0 25px rgba(220, 20, 60, 0.15));
-  }
-  50% {
-    filter: 
-      drop-shadow(0 0 18px rgba(220, 20, 60, 0.5))
-      drop-shadow(0 0 35px rgba(220, 20, 60, 0.25));
-  }
-}
-
-/* Hover state - intensify and slow the animation */
-.logo-animated-container:hover .hero__logo-animated {
-  animation-duration: 10s, 7s, 3s;
+.hero__logo-animated:hover {
   filter: 
     drop-shadow(0 0 25px rgba(220, 20, 60, 0.6))
-    drop-shadow(0 0 45px rgba(220, 20, 60, 0.3));
+    drop-shadow(0 0 40px rgba(220, 20, 60, 0.3));
+  transform: scale(1.03);
 }
 
 /* Ambient glow ring behind logo */
@@ -393,72 +269,36 @@ section[data-index]::before {
   content: '';
   position: absolute;
   top: 50%;
-  left: 60px;
+  left: 70px;
   transform: translate(-50%, -50%);
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(220, 20, 60, 0.12) 0%,
-    rgba(220, 20, 60, 0.05) 40%,
+    rgba(220, 20, 60, 0.1) 0%,
+    rgba(220, 20, 60, 0.04) 50%,
     transparent 70%
   );
-  animation: ambient-ring 8s ease-in-out infinite;
+  animation: ambient-glow 6s ease-in-out infinite;
   pointer-events: none;
   z-index: -1;
 }
 
-/* Subtle secondary ring for depth */
-.hero__logo-wrapper::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 60px;
-  transform: translate(-50%, -50%);
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  border: 1px solid rgba(220, 20, 60, 0.08);
-  animation: ambient-ring-outer 12s ease-in-out infinite reverse;
-  pointer-events: none;
-  z-index: -1;
-}
-
-@keyframes ambient-ring {
+@keyframes ambient-glow {
   0%, 100% {
     opacity: 0.6;
-    transform: translate(-50%, -50%) scale(1) rotate(0deg);
-  }
-  33% {
-    opacity: 0.9;
-    transform: translate(-50%, -50%) scale(1.08) rotate(5deg);
-  }
-  66% {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(1.05) rotate(-3deg);
-  }
-}
-
-@keyframes ambient-ring-outer {
-  0%, 100% {
-    opacity: 0.5;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    opacity: 0.3;
+    opacity: 1;
     transform: translate(-50%, -50%) scale(1.1);
   }
 }
 
-/* Reduced motion preference */
+/* Reduced motion - show static frame */
 @media (prefers-reduced-motion: reduce) {
-  .hero__logo-animated {
-    animation: logo-glow 6s ease-in-out infinite;
-  }
-  
-  .hero__logo-wrapper::before,
-  .hero__logo-wrapper::after {
+  .hero__logo-wrapper::before {
     animation: none;
   }
 }
@@ -466,39 +306,27 @@ section[data-index]::before {
 /* Responsive logo sizing */
 @media (min-width: 768px) {
   .logo-animated-container {
-    width: 150px;
-    height: 150px;
+    width: 170px;
+    height: 170px;
   }
   
   .hero__logo-wrapper::before {
-    width: 180px;
-    height: 180px;
-    left: 75px;
-  }
-  
-  .hero__logo-wrapper::after {
-    width: 220px;
-    height: 220px;
-    left: 75px;
+    width: 200px;
+    height: 200px;
+    left: 85px;
   }
 }
 
 @media (min-width: 1024px) {
   .logo-animated-container {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
   }
   
   .hero__logo-wrapper::before {
-    width: 220px;
-    height: 220px;
-    left: 90px;
-  }
-  
-  .hero__logo-wrapper::after {
-    width: 260px;
-    height: 260px;
-    left: 90px;
+    width: 240px;
+    height: 240px;
+    left: 100px;
   }
 }
 

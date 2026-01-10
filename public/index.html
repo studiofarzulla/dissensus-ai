@@ -34,9 +34,12 @@
     <canvas id="network" class="hero__canvas"></canvas>
     <div class="container">
       <div class="hero__logo-wrapper">
-        <div class="logo-animated-container">
-          <img src="assets/logo.png" alt="Dissensus Logo" class="hero__logo-animated">
-        </div>
+        <picture class="logo-animated-container">
+          <!-- Animated WebP with transparency (best quality) -->
+          <source srcset="assets/dissensus-animated.webp" type="image/webp">
+          <!-- GIF fallback for older browsers -->
+          <img src="assets/dissensus-animated.gif" alt="Dissensus Logo" class="hero__logo-animated">
+        </picture>
       </div>
       <span class="hero__label">Research Lab</span>
       <h1 class="hero__title">DISSENSUS</h1>
