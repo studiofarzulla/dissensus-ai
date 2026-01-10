@@ -258,21 +258,23 @@ section[data-index]::before {
 
 .dissensus-container {
   transform-origin: 50px 50px;
-  animation: orbit 15s linear infinite;
+  animation: orbit 18s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(220, 20, 60, 0.3));
 }
 
 .dissensus-shape {
-  fill: var(--text-primary); /* Use theme color */
   transform-origin: 50px 50px;
   opacity: 0.95;
+  /* Fill comes from inline SVG gradient */
 }
 
 .shape-yang {
-  animation: pacing-A 5s ease-in-out infinite alternate;
+  animation: pacing-A 6s ease-in-out infinite alternate;
 }
 
 .shape-yin {
-  animation: pacing-B 5s ease-in-out infinite alternate;
+  animation: pacing-B 6s ease-in-out infinite alternate;
+  animation-delay: -1.5s;
 }
 
 @keyframes orbit {
@@ -280,18 +282,21 @@ section[data-index]::before {
   to { transform: rotate(360deg); }
 }
 
-/* Asymmetric pacing: One speeds up while the other slows down, 
-   creating a gap that opens and closes, but they never touch. */
+/* Asymmetric pacing: purposeful but unresolved
+   Like someone pacing while thinking - gaps open and close
+   but resolution is never reached */
 @keyframes pacing-A {
-  0% { transform: rotate(0deg) scale(0.96); }
-  50% { transform: rotate(10deg) scale(1.0); }
-  100% { transform: rotate(0deg) scale(0.96); }
+  0% { transform: rotate(0deg) scale(0.97); }
+  30% { transform: rotate(8deg) scale(1.0); }
+  70% { transform: rotate(4deg) scale(0.98); }
+  100% { transform: rotate(0deg) scale(0.97); }
 }
 
 @keyframes pacing-B {
-  0% { transform: rotate(0deg) scale(0.96); }
-  50% { transform: rotate(-5deg) scale(0.92); } /* Different scale/rotation to be asymmetric */
-  100% { transform: rotate(0deg) scale(0.96); }
+  0% { transform: rotate(0deg) scale(0.97); }
+  30% { transform: rotate(-4deg) scale(0.94); }
+  70% { transform: rotate(-8deg) scale(0.96); }
+  100% { transform: rotate(0deg) scale(0.97); }
 }
 
 /* Ambient glow ring behind logo */
@@ -413,8 +418,61 @@ section[data-index]::before {
 
 .hero__title {
   color: var(--text-primary);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
   position: relative;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  font-family: var(--font-sans);
+}
+
+.hero__title-ai {
+  font-size: 0.4em;
+  font-weight: 600;
+  color: var(--accent);
+  vertical-align: super;
+  letter-spacing: 0.05em;
+  margin-left: 0.1em;
+  font-family: var(--font-mono);
+}
+
+/* Etymology / Definition */
+.hero__etymology {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-xl);
+  max-width: 600px;
+  line-height: 1.7;
+  border-left: 2px solid var(--border);
+  padding-left: var(--space-md);
+}
+
+.etymology-term {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.etymology-origin {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.hero__etymology em {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.etymology-key {
+  display: block;
+  margin-top: var(--space-xs);
+  color: var(--accent);
+  font-weight: 500;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
 }
 
 .hero__tagline {
@@ -565,27 +623,94 @@ section[data-index]::before {
 }
 
 /* --- Research Areas --- */
+
+/* Program Intro - styled to match site aesthetic */
 .program-intro {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
   padding: var(--space-lg);
-  background: var(--bg-card);
+  background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
+  position: relative;
+  display: grid;
+  gap: var(--space-md);
 }
 
-.program-intro strong {
-  color: var(--text-primary);
-  display: block;
-  margin-bottom: var(--space-sm);
+.program-intro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-dim) 100%);
+}
+
+.program-intro::after {
+  content: '';
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--accent-dim);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.program-intro__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.program-intro__label {
   font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--accent-dim);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.875rem;
+  letter-spacing: 0.15em;
 }
 
-.program-intro p {
+.program-intro__title {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 600;
   margin: 0;
-  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.program-intro__title::before {
+  content: none;
+}
+
+.program-intro__definition {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+  max-width: none;
+}
+
+.program-intro__status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .research-grid {

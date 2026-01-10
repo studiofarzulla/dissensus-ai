@@ -1,23 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-labelledby="dissensusTitle">
   <title id="dissensusTitle">Dissensus AI Logo</title>
+  <defs>
+    <linearGradient id="logo-grad-yang" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dc143c"/>
+      <stop offset="50%" stop-color="#a01028"/>
+      <stop offset="100%" stop-color="#4a0a15"/>
+    </linearGradient>
+    <linearGradient id="logo-grad-yin" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#dc143c"/>
+      <stop offset="50%" stop-color="#a01028"/>
+      <stop offset="100%" stop-color="#4a0a15"/>
+    </linearGradient>
+  </defs>
   <style>
     .dissensus-container {
       transform-origin: 50px 50px;
-      animation: orbit 15s linear infinite;
+      animation: orbit 18s linear infinite;
+      filter: drop-shadow(0 0 8px rgba(220, 20, 60, 0.3));
     }
     
     .dissensus-shape {
-      fill: #ffffff; /* Adjust color as needed, white for dark bg */
       transform-origin: 50px 50px;
       opacity: 0.95;
     }
 
     .shape-yang {
-      animation: pacing-A 5s ease-in-out infinite alternate;
+      animation: pacing-A 6s ease-in-out infinite alternate;
     }
 
     .shape-yin {
-      animation: pacing-B 5s ease-in-out infinite alternate;
+      animation: pacing-B 6s ease-in-out infinite alternate;
+      animation-delay: -1.5s;
     }
 
     @keyframes orbit {
@@ -25,27 +38,24 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Asymmetric pacing: One speeds up while the other slows down, 
-       creating a gap that opens and closes, but they never touch. */
+    /* Asymmetric pacing: purposeful but unresolved */
     @keyframes pacing-A {
-      0% { transform: rotate(0deg) scale(0.96); }
-      50% { transform: rotate(10deg) scale(1.0); }
-      100% { transform: rotate(0deg) scale(0.96); }
+      0% { transform: rotate(0deg) scale(0.97); }
+      30% { transform: rotate(8deg) scale(1.0); }
+      70% { transform: rotate(4deg) scale(0.98); }
+      100% { transform: rotate(0deg) scale(0.97); }
     }
 
     @keyframes pacing-B {
-      0% { transform: rotate(0deg) scale(0.96); }
-      50% { transform: rotate(-5deg) scale(0.92); } /* Different scale/rotation to be asymmetric */
-      100% { transform: rotate(0deg) scale(0.96); }
+      0% { transform: rotate(0deg) scale(0.97); }
+      30% { transform: rotate(-4deg) scale(0.94); }
+      70% { transform: rotate(-8deg) scale(0.96); }
+      100% { transform: rotate(0deg) scale(0.97); }
     }
   </style>
 
   <g class="dissensus-container">
-    <!-- Shape 1: Top-Right "Yang" style comma -->
-    <path class="dissensus-shape shape-yang" d="M 50 10 A 40 40 0 0 1 50 90 A 20 20 0 0 1 50 50 A 20 20 0 0 0 50 10 Z" />
-    
-    <!-- Shape 2: Bottom-Left "Yin" style comma (Rotated 180 visually by coordinates) -->
-    <!-- M 50 90 start, outer arc to 50 10 left, inner arc to 50 50, inner arc to 50 90 -->
-    <path class="dissensus-shape shape-yin" d="M 50 90 A 40 40 0 0 1 50 10 A 20 20 0 0 1 50 50 A 20 20 0 0 0 50 90 Z" />
+    <path class="dissensus-shape shape-yang" fill="url(#logo-grad-yang)" d="M 50 10 A 40 40 0 0 1 50 90 A 20 20 0 0 1 50 50 A 20 20 0 0 0 50 10 Z" />
+    <path class="dissensus-shape shape-yin" fill="url(#logo-grad-yin)" d="M 50 90 A 40 40 0 0 1 50 10 A 20 20 0 0 1 50 50 A 20 20 0 0 0 50 90 Z" />
   </g>
 </svg>
