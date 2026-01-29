@@ -565,28 +565,116 @@
     </div>
   </section>
 
-  <!-- Lead Investigator -->
+  <!-- Team -->
   <section class="team" data-index="09">
     <div class="container">
-      <h2>Lead Investigator</h2>
-      <div class="founder">
-        <img src="assets/headshot-dark.png" alt="Murad Farzulla" class="founder__avatar founder__avatar--img">
-        <div class="founder__info">
-          <h3 class="founder__name">Murad Farzulla</h3>
-          <p class="founder__motto">"We are more beholden to custom than reason; it is thus reason's task to interrogate custom."</p>
-          <p class="founder__bio">
-            Independent researcher developing formal frameworks for friction dynamics in complex adaptive systems.
-            Creator of the Axiom of Consent framework and the Replicator-Optimization Mechanism.
-            Background in finance analytics (MSc King's College London, BSc SOAS).
-            Research spans computational finance, political economy, philosophy of mind, and AI alignment—unified
-            by the study of how coordination produces measurable overhead in adversarial environments.
-          </p>
-          <div class="founder__links">
-            <a href="https://farzulla.org" target="_blank" rel="noopener">Research</a>
-            <a href="https://resurrexi.io" target="_blank" rel="noopener">Lab</a>
-            <a href="https://resurrexi.dev" target="_blank" rel="noopener">Docs</a>
-            <a href="https://github.com/studiofarzulla" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://orcid.org/0009-0002-7164-8704" target="_blank" rel="noopener">ORCID</a>
+      <h2>Team</h2>
+      <div class="team-grid">
+        <!-- Murad Farzulla -->
+        <div class="team-card">
+          <img src="assets/headshot-dark.png" alt="Murad Farzulla" class="team-card__avatar team-card__avatar--img">
+          <div class="team-card__info">
+            <span class="team-card__role">Lead Investigator</span>
+            <h3 class="team-card__name">Murad Farzulla</h3>
+            <p class="team-card__bio">
+              Creator of the Axiom of Consent framework. MSc Finance Analytics (KCL), BSc Accounting & Finance (SOAS).
+              20+ papers spanning computational finance, political economy, and AI alignment.
+            </p>
+            <div class="team-card__links">
+              <a href="https://farzulla.org" target="_blank" rel="noopener">Research</a>
+              <a href="https://orcid.org/0009-0002-7164-8704" target="_blank" rel="noopener">ORCID</a>
+            </div>
+          </div>
+        </div>
+        <!-- Andrew Maksakov -->
+        <div class="team-card">
+          <div class="team-card__avatar">AM</div>
+          <div class="team-card__info">
+            <span class="team-card__role">Research Collaborator</span>
+            <h3 class="team-card__name">Andrew Maksakov</h3>
+            <p class="team-card__bio">
+              Technical engineer. Co-author on ASRI (DeFi-TradFi systemic risk framework).
+              Builds the infrastructure for high-throughput simulation and agent-based modeling.
+            </p>
+            <div class="team-card__links">
+              <a href="https://resurrexi.io" target="_blank" rel="noopener">Infrastructure</a>
+              <a href="mailto:andrew@resurrexi.io">Email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="about.html" class="team-link">
+        <span class="team-link__arrow">→</span> Full team & lab overview
+      </a>
+    </div>
+  </section>
+
+  <!-- Research Roadmap -->
+  <section class="roadmap" data-index="10">
+    <div class="container">
+      <h2>Research Roadmap</h2>
+      <div class="roadmap-intro">
+        <p>Where we're going, what we're building, and what we need.</p>
+      </div>
+
+      <div class="roadmap-grid">
+        <div class="roadmap-col">
+          <h3 class="roadmap-heading">Current Focus</h3>
+          <div class="roadmap-list">
+            <div class="roadmap-item roadmap-item--active">
+              <span class="roadmap-status">In Progress</span>
+              <span class="roadmap-title">Axiom of Consent Monograph</span>
+              <span class="roadmap-desc">Consolidating the full formal framework (~80 pages, modular sections)</span>
+            </div>
+            <div class="roadmap-item roadmap-item--active">
+              <span class="roadmap-status">Under Review</span>
+              <span class="roadmap-title">ROM Framework (arXiv + Synthese)</span>
+              <span class="roadmap-desc">Replicator-Optimization Mechanism unifying biological and computational substrates</span>
+            </div>
+            <div class="roadmap-item roadmap-item--active">
+              <span class="roadmap-status">Under Review</span>
+              <span class="roadmap-title">Market Reaction Asymmetry</span>
+              <span class="roadmap-desc">Infrastructure vs regulatory event study at Digital Finance Journal (Springer)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="roadmap-col">
+          <h3 class="roadmap-heading">Next Priorities</h3>
+          <div class="roadmap-list">
+            <div class="roadmap-item">
+              <span class="roadmap-title">Privacy-Preserving AML Simulation</span>
+              <span class="roadmap-desc">Agent-based comparison: graph-only vs identity-linked monitoring</span>
+            </div>
+            <div class="roadmap-item">
+              <span class="roadmap-title">Consent Mechanics Formalization</span>
+              <span class="roadmap-desc">Category-theoretic treatment of delegation and authorization</span>
+            </div>
+            <div class="roadmap-item">
+              <span class="roadmap-title">Multi-Agent Coordination Empirics</span>
+              <span class="roadmap-desc">Testing friction predictions in decentralized governance systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-needs">
+        <h3 class="roadmap-heading">Open Needs</h3>
+        <div class="needs-grid">
+          <div class="need-item">
+            <span class="need-type">Academic</span>
+            <span class="need-title">PhD Supervision</span>
+            <span class="need-desc">Seeking institutional affiliation for long-term research program</span>
+          </div>
+          <div class="need-item">
+            <span class="need-type">Collaborators</span>
+            <span class="need-title">Category Theorists</span>
+            <span class="need-desc">Formalize replicator-optimization homomorphism</span>
+          </div>
+          <div class="need-item">
+            <span class="need-type">Resources</span>
+            <span class="need-title">Compute</span>
+            <span class="need-desc">Scale agent-based simulations beyond current capacity</span>
           </div>
         </div>
       </div>
@@ -594,7 +682,7 @@
   </section>
 
   <!-- Stay Updated -->
-  <section class="contact" data-index="10" style="border-bottom: 1px solid var(--border);">
+  <section class="contact" data-index="11" style="border-bottom: 1px solid var(--border);">
     <div class="container">
       <h2>Stay Updated</h2>
       <p style="margin-bottom: var(--space-lg); max-width: 500px;">
@@ -612,7 +700,7 @@
   </section>
 
   <!-- Contact -->
-  <section class="contact" data-index="11">
+  <section class="contact" data-index="12">
     <div class="container">
       <h2>Signal</h2>
       <div class="contact__wrapper">
@@ -627,12 +715,13 @@
     <div class="container">
       <p>&copy; 2026 dissensus<sup>AI</sup> <span style="opacity: 0.5;">· Friction is the cost of existence.</span></p>
       <p class="coordinates">
-        <a href="manifesto.html">Manifesto</a> · 
-        <a href="charter.html">Charter</a> · 
-        <a href="collaborate.html">Collaborate</a> · 
-        <a href="reading.html">Reading</a> · 
-        <a href="press.html">Press</a> · 
-        <a href="subscribe.html">Subscribe</a> · 
+        <a href="about.html">About</a> ·
+        <a href="manifesto.html">Manifesto</a> ·
+        <a href="charter.html">Charter</a> ·
+        <a href="collaborate.html">Collaborate</a> ·
+        <a href="reading.html">Reading</a> ·
+        <a href="press.html">Press</a> ·
+        <a href="subscribe.html">Subscribe</a> ·
         <a href="feed.xml" title="RSS Feed">RSS</a>
       </p>
     </div>

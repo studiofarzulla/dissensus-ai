@@ -7,7 +7,7 @@ Instructions for Claude Code when working in this repository.
 **Site:** dissensus.ai
 **Purpose:** Governance alignment research lab - the formal academic research arm focused on the Axiom of Consent framework.
 
-**Architecture:** Static HTML/CSS site hosted on Cloudflare Workers. No backend, no build step.
+**Architecture:** Static HTML/CSS site hosted on Cloudflare Pages. Auto-deploys from GitHub on push. No backend, no build step.
 
 ## Brand Position
 
@@ -21,15 +21,28 @@ Instructions for Claude Code when working in this repository.
 
 ```
 dissensus-ai/
-├── public/              # Deployed to Cloudflare Workers
-│   ├── index.html       # Single-page site
+├── public/              # Deployed to Cloudflare Pages (auto-deploy on git push)
+│   ├── index.html       # Homepage - research overview, team summary, roadmap
+│   ├── about.html       # Team & lab page - full bios, mission, approach
+│   ├── manifesto.html   # Research manifesto
+│   ├── charter.html     # Lab charter
+│   ├── collaborate.html # Collaboration proposals
+│   ├── reading.html     # Reading list
+│   ├── press.html       # Press/media
+│   ├── subscribe.html   # Newsletter signup
 │   ├── css/
 │   │   └── dissensus.css
 │   ├── assets/          # Images, logos
-│   └── sitemap.xml
-├── wrangler.json        # Cloudflare Workers config
+│   ├── sitemap.xml
+│   └── feed.xml         # RSS feed
+├── wrangler.json        # Cloudflare Pages config (optional manual deploy)
 └── .gitignore
 ```
+
+## Team
+
+- **Murad Farzulla** - Lead Investigator (ORCID: 0009-0002-7164-8704)
+- **Andrew Maksakov** - Research Collaborator (andrew@resurrexi.io)
 
 ## Design System
 
@@ -63,8 +76,9 @@ npx serve public
 
 **Deploy:**
 ```bash
-npx wrangler pages deploy public --project-name dissensus-ai
-# OR push to GitHub (auto-deploys via Cloudflare Pages)
+git push origin master
+# Auto-deploys via Cloudflare Pages
+# Manual deploy (if needed): npx wrangler pages deploy public --project-name dissensus-ai
 ```
 
 **Branch:** Uses `master` (not `main`)
@@ -93,4 +107,4 @@ npx wrangler pages deploy public --project-name dissensus-ai
 
 ---
 
-**Last Updated:** December 2025
+**Last Updated:** January 2026
