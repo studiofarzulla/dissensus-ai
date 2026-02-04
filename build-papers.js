@@ -52,7 +52,7 @@ function generateBibTeX(paper) {
   author = {${paper.authors.map(a => { const parts = a.split(' '); return parts[parts.length-1] + ', ' + parts.slice(0,-1).join(' '); }).join(' and ')}},
   title = {${paper.title}},
   year = {${year}},
-  howpublished = {Dissensus AI Working Paper},
+  howpublished = {Dissensus AI ${paper.wpNumber && paper.wpNumber.startsWith('DP') ? 'Discussion' : 'Working'} Paper${paper.wpNumber ? ' ' + paper.wpNumber : ''}},
 ${doiLine}  url = {https://dissensus.ai/papers/${paper.id}.html}
 }`;
 }
@@ -264,7 +264,7 @@ ${getNavHtml('research')}
       <section class="paper-detail__citation">
         <h2>Suggested Citation</h2>
         <div class="paper-detail__citation-block">
-          ${authors} (${year}). <em>${paper.title}</em>. Dissensus AI${paper.wpNumber ? ` Working Paper No. ${paper.wpNumber}` : ''}. ${doi ? `DOI: ${doi}` : ''}
+          ${authors} (${year}). <em>${paper.title}</em>. Dissensus AI${paper.wpNumber ? ` ${paper.wpNumber.startsWith('DP') ? 'Discussion' : 'Working'} Paper ${paper.wpNumber}` : ''}. ${doi ? `DOI: ${doi}` : ''}
         </div>
         <button class="paper-detail__bibtex-btn" onclick="copyBibTeX(this)">
           <span>&#x27E8;/&#x27E9;</span> Copy BibTeX

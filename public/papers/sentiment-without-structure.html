@@ -16,7 +16,7 @@
   <meta name="citation_pdf_url" content="https://dissensus.ai/papers/Farzulla_2025_Sentiment_Without_Structure.pdf">
   <meta name="citation_doi" content="10.5281/zenodo.18099609">
 
-
+    <meta name="citation_technical_report_number" content="DAI-2507" />
   <meta name="citation_publisher" content="Dissensus AI">
   <meta name="citation_abstract_html_url" content="https://dissensus.ai/papers/sentiment-without-structure.html">
   <meta name="citation_keywords" content="Financial Markets; Cryptocurrency">
@@ -99,8 +99,8 @@
   <nav class="site-nav">
     <div class="site-nav__inner">
       <a href="../index.html" class="site-nav__brand">
-        <img src="../assets/dissensus-mark.svg" alt="" class="site-nav__brand-logo">
-        dissensus<span class="site-nav__brand-ai">ai</span>
+        <img src="../assets/dissensus-logo-white.svg" alt="" class="site-nav__brand-logo">
+        dissensus<span class="site-nav__brand-ai">AI</span>
       </a>
       <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -145,7 +145,7 @@
       <section class="paper-detail__citation">
         <h2>Suggested Citation</h2>
         <div class="paper-detail__citation-block">
-          Murad Farzulla (2025). <em>Sentiment Without Structure</em>. Dissensus AI. DOI: 10.5281/zenodo.18099609
+          Murad Farzulla (2025). <em>Sentiment Without Structure</em>. Dissensus AI Working Paper DAI-2507. DOI: 10.5281/zenodo.18099609
         </div>
         <button class="paper-detail__bibtex-btn" onclick="copyBibTeX(this)">
           <span>&#x27E8;/&#x27E9;</span> Copy BibTeX
@@ -186,7 +186,7 @@
 
   <script>
     function copyBibTeX(btn) {
-      var bibtex = "@misc{farzulla2025sentimentwithoutstructure,\n  author = {Farzulla, Murad},\n  title = {Sentiment Without Structure},\n  year = {2025},\n  howpublished = {Dissensus AI Working Paper},\n  doi = {10.5281/zenodo.18099609},\n  url = {https://dissensus.ai/papers/sentiment-without-structure.html}\n}";
+      var bibtex = "@misc{farzulla2025sentimentwithoutstructure,\n  author = {Farzulla, Murad},\n  title = {Sentiment Without Structure},\n  year = {2025},\n  howpublished = {Dissensus AI Working Paper DAI-2507},\n  doi = {10.5281/zenodo.18099609},\n  url = {https://dissensus.ai/papers/sentiment-without-structure.html}\n}";
       navigator.clipboard.writeText(bibtex).then(function() {
         var original = btn.innerHTML;
         btn.innerHTML = '<span>\u2713</span> Copied!';

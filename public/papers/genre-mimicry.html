@@ -16,7 +16,7 @@
   <meta name="citation_pdf_url" content="https://dissensus.ai/papers/Farzulla_2025_Genre_Mimicry.pdf">
   <meta name="citation_doi" content="10.5281/zenodo.17957694">
 
-
+    <meta name="citation_technical_report_number" content="DP-2503" />
   <meta name="citation_publisher" content="Dissensus AI">
   <meta name="citation_abstract_html_url" content="https://dissensus.ai/papers/genre-mimicry.html">
   <meta name="citation_keywords" content="AI Safety">
@@ -99,8 +99,8 @@
   <nav class="site-nav">
     <div class="site-nav__inner">
       <a href="../index.html" class="site-nav__brand">
-        <img src="../assets/dissensus-mark.svg" alt="" class="site-nav__brand-logo">
-        dissensus<span class="site-nav__brand-ai">ai</span>
+        <img src="../assets/dissensus-logo-white.svg" alt="" class="site-nav__brand-logo">
+        dissensus<span class="site-nav__brand-ai">AI</span>
       </a>
       <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -145,7 +145,7 @@
       <section class="paper-detail__citation">
         <h2>Suggested Citation</h2>
         <div class="paper-detail__citation-block">
-          Murad Farzulla (2025). <em>Genre Mimicry vs. Ethical Reasoning in Abliterated Language Models</em>. Dissensus AI. DOI: 10.5281/zenodo.17957694
+          Murad Farzulla (2025). <em>Genre Mimicry vs. Ethical Reasoning in Abliterated Language Models</em>. Dissensus AI Discussion Paper DP-2503. DOI: 10.5281/zenodo.17957694
         </div>
         <button class="paper-detail__bibtex-btn" onclick="copyBibTeX(this)">
           <span>&#x27E8;/&#x27E9;</span> Copy BibTeX
@@ -185,7 +185,7 @@
 
   <script>
     function copyBibTeX(btn) {
-      var bibtex = "@misc{farzulla2025genremimicry,\n  author = {Farzulla, Murad},\n  title = {Genre Mimicry vs. Ethical Reasoning in Abliterated Language Models},\n  year = {2025},\n  howpublished = {Dissensus AI Working Paper},\n  doi = {10.5281/zenodo.17957694},\n  url = {https://dissensus.ai/papers/genre-mimicry.html}\n}";
+      var bibtex = "@misc{farzulla2025genremimicry,\n  author = {Farzulla, Murad},\n  title = {Genre Mimicry vs. Ethical Reasoning in Abliterated Language Models},\n  year = {2025},\n  howpublished = {Dissensus AI Discussion Paper DP-2503},\n  doi = {10.5281/zenodo.17957694},\n  url = {https://dissensus.ai/papers/genre-mimicry.html}\n}";
       navigator.clipboard.writeText(bibtex).then(function() {
         var original = btn.innerHTML;
         btn.innerHTML = '<span>\u2713</span> Copied!';
