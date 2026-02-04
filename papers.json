@@ -70,8 +70,8 @@
       "github": null,
       "dashboard": null,
       "wpNumber": null,
-      "program": "process-philosophy",
-      "category": "process-philosophy"
+      "program": "computational-cognition",
+      "category": "computational-cognition"
     },
     {
       "id": "replicator-optimization-mechanism",
@@ -150,15 +150,15 @@
     },
     {
       "id": "market-reaction-asymmetry",
-      "title": "Market Reaction Asymmetry: Infrastructure Disruption Dominance Over Regulatory Uncertainty",
-      "subtitle": "Event Study Evidence from Cryptocurrency Volatility",
+      "title": "Infrastructure vs Regulatory Shocks: Asymmetric Volatility Response in Cryptocurrency Markets",
+      "subtitle": null,
       "date": "2025-12-01",
       "status": "peer-review",
       "journal": "Digital Finance (Springer)",
       "tags": ["finance", "crypto", "volatility"],
       "authors": ["Murad Farzulla"],
       "abstract": "Infrastructure failures generate 5.7\u00d7 larger volatility shocks than regulatory announcements in cryptocurrency markets (2.385% vs 0.419%, p=0.0008, Cohen's d=2.753). Using TARCH-X models with decomposed GDELT sentiment indices across 50 events (2019\u20132025) and 6 cryptocurrencies (BTC, ETH, XRP, BNB, LTC, ADA), we demonstrate that markets distinguish between mechanical-disruption events (exchange outages, protocol exploits) and expectation-channel events (enforcement actions, policy changes).",
-      "doi": "10.2139/ssrn.5788082",
+      "doi": "10.21203/rs.3.rs-8323026/v1",
       "zenodo": null,
       "pdf": "Farzulla_2025_Cryptocurrency_Event_Study.pdf",
       "github": "https://github.com/studiofarzulla/crypto-event-study",
