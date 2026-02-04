@@ -3,3 +3,8 @@ node_modules/
 .claude-flow/
 .swarm/
 texput.log
+
+# Tool artifacts
+CLAUDE.md
+**/CLAUDE.md
+.serena/

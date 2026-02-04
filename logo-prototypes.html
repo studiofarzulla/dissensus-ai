@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dissensus AI — Logo Prototypes</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #050505; color: #e8e8e8; font-family: 'SF Mono', 'Fira Code', monospace; padding: 2rem; }
+  h1 { font-size: 1.2rem; font-weight: 400; color: #888; margin-bottom: 2rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+  .card { background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 4px; padding: 2rem; text-align: center; }
+  .card:hover { border-color: #DC143C33; }
+  .card h3 { font-size: 0.75rem; font-weight: 400; color: #DC143C; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .card p { font-size: 0.7rem; color: #666; margin-top: 1rem; line-height: 1.5; }
+  .logo-row { display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 1rem 0; }
+  .size-label { font-size: 0.6rem; color: #444; text-align: center; margin-top: 0.25rem; }
+  .brand-row { display: flex; align-items: center; gap: 0.75rem; justify-content: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #1a1a1a; }
+  .brand-text { font-size: 1.1rem; font-weight: 400; letter-spacing: 0.02em; }
+  .brand-text span { color: #DC143C; }
+  .light-bg { background: #f0f0f0; border-radius: 4px; padding: 1.5rem; margin-top: 1rem; }
+</style>
+</head>
+<body>
+
+<h1>dissensus ai — phi mark prototypes</h1>
+
+<div class="grid">
+
+  <!-- V1: Clean geometric phi -->
+  <div class="card">
+    <h3>01 — Pure Phi</h3>
+    <div class="logo-row">
+      <div>
+        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="50" cy="50" rx="28" ry="24" fill="none" stroke="#DC143C" stroke-width="5"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">80px</div>
+      </div>
+      <div>
+        <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="50" cy="50" rx="28" ry="24" fill="none" stroke="#DC143C" stroke-width="7"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">32px</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <svg width="20" height="20" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="50" cy="50" rx="28" ry="24" fill="none" stroke="#DC143C" stroke-width="7"/>
+        <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-text">dissensus <span>AI</span></div>
+    </div>
+    <p>Classical phi. Clean, legible at any size. Maybe too plain.</p>
+  </div>
+
+  <!-- V2: Split phi (broken circle) -->
+  <div class="card">
+    <h3>02 — Split Phi</h3>
+    <div class="logo-row">
+      <div>
+        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Left half of ellipse -->
+          <path d="M 50 26 A 28 24 0 0 0 50 74" fill="none" stroke="#DC143C" stroke-width="5" stroke-linecap="round"/>
+          <!-- Right half of ellipse, offset slightly -->
+          <path d="M 50 26 A 28 24 0 0 1 50 74" fill="none" stroke="#e8e8e8" stroke-width="5" stroke-linecap="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">80px</div>
+      </div>
+      <div>
+        <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 26 A 28 24 0 0 0 50 74" fill="none" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+          <path d="M 50 26 A 28 24 0 0 1 50 74" fill="none" stroke="#e8e8e8" stroke-width="7" stroke-linecap="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">32px</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <svg width="20" height="20" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 26 A 28 24 0 0 0 50 74" fill="none" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 50 26 A 28 24 0 0 1 50 74" fill="none" stroke="#e8e8e8" stroke-width="7" stroke-linecap="round"/>
+        <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-text">dissensus <span>AI</span></div>
+    </div>
+    <p>Two halves — crimson left, white right. Dissensus = productive split. The vertical line holds them together.</p>
+  </div>
+
+  <!-- V3: Broken phi (gap in circle) -->
+  <div class="card">
+    <h3>03 — Gapped Phi</h3>
+    <div class="logo-row">
+      <div>
+        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Circle with gap at top-right -->
+          <path d="M 62 30 A 28 24 0 1 0 62 70" fill="none" stroke="#DC143C" stroke-width="5" stroke-linecap="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">80px</div>
+      </div>
+      <div>
+        <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 62 30 A 28 24 0 1 0 62 70" fill="none" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">32px</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <svg width="20" height="20" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 62 30 A 28 24 0 1 0 62 70" fill="none" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+        <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-text">dissensus <span>AI</span></div>
+    </div>
+    <p>Phi with an open gap — the circle never closes. Consensus is never reached; that's the point.</p>
+  </div>
+
+  <!-- V4: Phi with opposing arrows -->
+  <div class="card">
+    <h3>04 — Friction Phi</h3>
+    <div class="logo-row">
+      <div>
+        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="50" cy="50" rx="28" ry="24" fill="none" stroke="#DC143C" stroke-width="5"/>
+          <!-- Upward stroke with arrow -->
+          <line x1="50" y1="50" x2="50" y2="8" stroke="#e8e8e8" stroke-width="5" stroke-linecap="round"/>
+          <polyline points="42,18 50,8 58,18" fill="none" stroke="#e8e8e8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Downward stroke with arrow -->
+          <line x1="50" y1="50" x2="50" y2="92" stroke="#DC143C" stroke-width="5" stroke-linecap="round"/>
+          <polyline points="42,82 50,92 58,82" fill="none" stroke="#DC143C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="size-label">80px</div>
+      </div>
+      <div>
+        <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="50" cy="50" rx="28" ry="24" fill="none" stroke="#DC143C" stroke-width="7"/>
+          <line x1="50" y1="50" x2="50" y2="8" stroke="#e8e8e8" stroke-width="7" stroke-linecap="round"/>
+          <polyline points="40,22 50,8 60,22" fill="none" stroke="#e8e8e8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="50" y1="50" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+          <polyline points="40,78 50,92 60,78" fill="none" stroke="#DC143C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="size-label">32px</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <svg width="20" height="20" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="50" cy="50" rx="28" ry="24" fill="none" stroke="#DC143C" stroke-width="7"/>
+        <line x1="50" y1="50" x2="50" y2="8" stroke="#e8e8e8" stroke-width="7" stroke-linecap="round"/>
+        <line x1="50" y1="50" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-text">dissensus <span>AI</span></div>
+    </div>
+    <p>Opposing arrows through the phi — forces pulling apart, held by the ellipse. Friction visualised.</p>
+  </div>
+
+  <!-- V5: Thick angular phi -->
+  <div class="card">
+    <h3>05 — Angular Phi</h3>
+    <div class="logo-row">
+      <div>
+        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Diamond/angular shape instead of ellipse -->
+          <path d="M 50 28 L 76 50 L 50 72 L 24 50 Z" fill="none" stroke="#DC143C" stroke-width="5" stroke-linejoin="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">80px</div>
+      </div>
+      <div>
+        <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 28 L 76 50 L 50 72 L 24 50 Z" fill="none" stroke="#DC143C" stroke-width="7" stroke-linejoin="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">32px</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <svg width="20" height="20" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 28 L 76 50 L 50 72 L 24 50 Z" fill="none" stroke="#DC143C" stroke-width="7" stroke-linejoin="round"/>
+        <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-text">dissensus <span>AI</span></div>
+    </div>
+    <p>Phi with diamond instead of ellipse. Harder edges, more technical. Matches the monospace aesthetic.</p>
+  </div>
+
+  <!-- V6: Triple phi (kernel triple) -->
+  <div class="card">
+    <h3>06 — Kernel Phi</h3>
+    <div class="logo-row">
+      <div>
+        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Three overlapping circles representing α, σ, ε -->
+          <circle cx="40" cy="44" r="16" fill="none" stroke="#DC143C" stroke-width="3.5" opacity="0.7"/>
+          <circle cx="60" cy="44" r="16" fill="none" stroke="#DC143C" stroke-width="3.5" opacity="0.7"/>
+          <circle cx="50" cy="58" r="16" fill="none" stroke="#e8e8e8" stroke-width="3.5" opacity="0.5"/>
+          <!-- Vertical phi line through intersection -->
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="4.5" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">80px</div>
+      </div>
+      <div>
+        <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="44" r="16" fill="none" stroke="#DC143C" stroke-width="5" opacity="0.7"/>
+          <circle cx="60" cy="44" r="16" fill="none" stroke="#DC143C" stroke-width="5" opacity="0.7"/>
+          <circle cx="50" cy="58" r="16" fill="none" stroke="#e8e8e8" stroke-width="5" opacity="0.5"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">32px</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <svg width="22" height="22" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="44" r="16" fill="none" stroke="#DC143C" stroke-width="5" opacity="0.7"/>
+        <circle cx="60" cy="44" r="16" fill="none" stroke="#DC143C" stroke-width="5" opacity="0.7"/>
+        <circle cx="50" cy="58" r="16" fill="none" stroke="#e8e8e8" stroke-width="5" opacity="0.5"/>
+        <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-text">dissensus <span>AI</span></div>
+    </div>
+    <p>Three circles (α, σ, ε) intersecting on the phi axis. The kernel triple made visual. Busier but conceptually dense.</p>
+  </div>
+
+</div>
+
+<h1 style="margin-top: 2rem;">07 — displaced angular phi (your idea)</h1>
+
+<div class="grid">
+
+  <!-- V7a: Subtle offset (4px shift) -->
+  <div class="card">
+    <h3>07a — Subtle Shift</h3>
+    <div class="logo-row">
+      <div>
+        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Left half shifted UP by 4 -->
+          <path d="M 50 24 L 24 46 L 50 68" fill="none" stroke="#DC143C" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- Right half shifted DOWN by 4 -->
+          <path d="M 50 32 L 76 54 L 50 76" fill="none" stroke="#DC143C" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- Vertical line -->
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">80px</div>
+      </div>
+      <div>
+        <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 24 L 24 46 L 50 68" fill="none" stroke="#DC143C" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M 50 32 L 76 54 L 50 76" fill="none" stroke="#DC143C" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">32px</div>
+      </div>
+      <div>
+        <svg width="16" height="16" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 24 L 24 46 L 50 68" fill="none" stroke="#DC143C" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M 50 32 L 76 54 L 50 76" fill="none" stroke="#DC143C" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="10" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">16px</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <svg width="22" height="22" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 24 L 24 46 L 50 68" fill="none" stroke="#DC143C" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M 50 32 L 76 54 L 50 76" fill="none" stroke="#DC143C" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+        <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-text">dissensus <span>AI</span></div>
+    </div>
+    <p>4-unit offset. Displacement is visible but the diamond still reads as a diamond. Tension without chaos.</p>
+  </div>
+
+  <!-- V7b: Medium offset (7px shift) -->
+  <div class="card">
+    <h3>07b — Medium Shift</h3>
+    <div class="logo-row">
+      <div>
+        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Left half shifted UP by 7 -->
+          <path d="M 50 21 L 24 43 L 50 65" fill="none" stroke="#DC143C" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- Right half shifted DOWN by 7 -->
+          <path d="M 50 35 L 76 57 L 50 79" fill="none" stroke="#DC143C" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- Vertical line -->
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">80px</div>
+      </div>
+      <div>
+        <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 21 L 24 43 L 50 65" fill="none" stroke="#DC143C" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M 50 35 L 76 57 L 50 79" fill="none" stroke="#DC143C" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">32px</div>
+      </div>
+      <div>
+        <svg width="16" height="16" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 21 L 24 43 L 50 65" fill="none" stroke="#DC143C" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M 50 35 L 76 57 L 50 79" fill="none" stroke="#DC143C" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="10" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">16px</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <svg width="22" height="22" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 21 L 24 43 L 50 65" fill="none" stroke="#DC143C" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M 50 35 L 76 57 L 50 79" fill="none" stroke="#DC143C" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+        <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-text">dissensus <span>AI</span></div>
+    </div>
+    <p>7-unit offset. Clear displacement. The halves are obviously misaligned — you can't unsee the fault line.</p>
+  </div>
+
+  <!-- V7c: Medium offset, two-tone -->
+  <div class="card">
+    <h3>07c — Two-Tone Shift</h3>
+    <div class="logo-row">
+      <div>
+        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Left half shifted UP by 6, crimson -->
+          <path d="M 50 22 L 24 44 L 50 66" fill="none" stroke="#DC143C" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- Right half shifted DOWN by 6, white -->
+          <path d="M 50 34 L 76 56 L 50 78" fill="none" stroke="#e8e8e8" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- Vertical line, crimson -->
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">80px</div>
+      </div>
+      <div>
+        <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 22 L 24 44 L 50 66" fill="none" stroke="#DC143C" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M 50 34 L 76 56 L 50 78" fill="none" stroke="#e8e8e8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">32px</div>
+      </div>
+      <div>
+        <svg width="16" height="16" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 22 L 24 44 L 50 66" fill="none" stroke="#DC143C" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M 50 34 L 76 56 L 50 78" fill="none" stroke="#e8e8e8" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="10" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">16px</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <svg width="22" height="22" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 22 L 24 44 L 50 66" fill="none" stroke="#DC143C" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M 50 34 L 76 56 L 50 78" fill="none" stroke="#e8e8e8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+        <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-text">dissensus <span>AI</span></div>
+    </div>
+    <p>Same displacement + color split. Left = crimson, right = white. Two parties, same structure, different position.</p>
+  </div>
+
+  <!-- V7d: Medium offset, filled halves -->
+  <div class="card">
+    <h3>07d — Filled Halves</h3>
+    <div class="logo-row">
+      <div>
+        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Left half shifted UP, filled crimson -->
+          <path d="M 50 22 L 24 44 L 50 66 Z" fill="#DC143C" fill-opacity="0.15" stroke="#DC143C" stroke-width="4" stroke-linejoin="round"/>
+          <!-- Right half shifted DOWN, filled white -->
+          <path d="M 50 34 L 76 56 L 50 78 Z" fill="#e8e8e8" fill-opacity="0.08" stroke="#e8e8e8" stroke-width="4" stroke-linejoin="round"/>
+          <!-- Vertical line -->
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="4.5" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">80px</div>
+      </div>
+      <div>
+        <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 22 L 24 44 L 50 66 Z" fill="#DC143C" fill-opacity="0.2" stroke="#DC143C" stroke-width="6" stroke-linejoin="round"/>
+          <path d="M 50 34 L 76 56 L 50 78 Z" fill="#e8e8e8" fill-opacity="0.1" stroke="#e8e8e8" stroke-width="6" stroke-linejoin="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">32px</div>
+      </div>
+      <div>
+        <svg width="16" height="16" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 22 L 24 44 L 50 66 Z" fill="#DC143C" fill-opacity="0.25" stroke="#DC143C" stroke-width="9" stroke-linejoin="round"/>
+          <path d="M 50 34 L 76 56 L 50 78 Z" fill="#e8e8e8" fill-opacity="0.12" stroke="#e8e8e8" stroke-width="9" stroke-linejoin="round"/>
+          <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="9" stroke-linecap="round"/>
+        </svg>
+        <div class="size-label">16px</div>
+      </div>
+    </div>
+    <div class="brand-row">
+      <svg width="22" height="22" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 22 L 24 44 L 50 66 Z" fill="#DC143C" fill-opacity="0.2" stroke="#DC143C" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M 50 34 L 76 56 L 50 78 Z" fill="#e8e8e8" fill-opacity="0.1" stroke="#e8e8e8" stroke-width="6" stroke-linejoin="round"/>
+        <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-text">dissensus <span>AI</span></div>
+    </div>
+    <p>Filled triangular halves with subtle transparency. More presence, still geometric. The overlap zone is where friction lives.</p>
+  </div>
+
+</div>
+
+<h1 style="margin-top: 2rem;">on light background</h1>
+<div class="light-bg">
+  <div style="display: flex; gap: 3rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+    <!-- V2 on light -->
+    <div style="text-align: center;">
+      <svg width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 26 A 28 24 0 0 0 50 74" fill="none" stroke="#DC143C" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 50 26 A 28 24 0 0 1 50 74" fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round"/>
+        <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div style="font-size: 0.6rem; color: #888; margin-top: 0.25rem;">02 split</div>
+    </div>
+    <!-- V3 on light -->
+    <div style="text-align: center;">
+      <svg width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 62 30 A 28 24 0 1 0 62 70" fill="none" stroke="#DC143C" stroke-width="6" stroke-linecap="round"/>
+        <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div style="font-size: 0.6rem; color: #888; margin-top: 0.25rem;">03 gapped</div>
+    </div>
+    <!-- V5 on light -->
+    <div style="text-align: center;">
+      <svg width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50 28 L 76 50 L 50 72 L 24 50 Z" fill="none" stroke="#DC143C" stroke-width="6" stroke-linejoin="round"/>
+        <line x1="50" y1="8" x2="50" y2="92" stroke="#DC143C" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div style="font-size: 0.6rem; color: #888; margin-top: 0.25rem;">05 angular</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

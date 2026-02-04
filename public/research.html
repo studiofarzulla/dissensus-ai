@@ -33,13 +33,14 @@
   <nav class="site-nav">
     <div class="site-nav__inner">
       <a href="index.html" class="site-nav__brand">
-        <img src="assets/dissensus-logo-white.svg" alt="" class="site-nav__brand-logo">
+        <img src="assets/dissensus-mark.svg" alt="" class="site-nav__brand-logo">
         dissensus<span class="site-nav__brand-ai">AI</span>
       </a>
       <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
       <div class="site-nav__links">
+        <a href="index.html" class="site-nav__link">Home</a>
         <a href="research.html" class="site-nav__link site-nav__link--active">Research</a>
         <a href="services.html" class="site-nav__link">Services</a>
         <a href="about.html" class="site-nav__link">About</a>
@@ -58,8 +59,89 @@
     </div>
   </section>
 
+  <!-- Research Programmes -->
+  <section class="research" data-index="01">
+    <div class="container">
+      <h2>Research Programmes</h2>
+
+      <div class="program-intro">
+        <div class="program-intro__header">
+          <span class="program-intro__label">Current Research Programme</span>
+          <h3 class="program-intro__title">ASCRI: Adversarial Systems &amp; Complexity Research Initiative</h3>
+        </div>
+        <p class="program-intro__definition">
+          A formal research programme investigating sufficiently complex dynamic networks of agents where equilibria are impossible to reach
+          due to formalised friction constraints. These systems function merely through a reduction
+          of friction&mdash;drawing from game theory&mdash;and are thus adversarial against themselves,
+          yet persist through dissensus. <a href="https://systems.ac" target="_blank" rel="noopener" style="color: var(--accent); font-family: var(--font-mono); font-size: 0.8125rem;">systems.ac &rarr;</a>
+        </p>
+        <span class="program-intro__status">
+          <span class="status-dot"></span>
+          Active
+        </span>
+      </div>
+
+      <div class="research-grid">
+
+        <article class="research-card">
+          <span class="research-card__index">I</span>
+          <h3>Consent Mechanics</h3>
+          <p>
+            The formal theory of consent-holding in multi-agent systems. When can delegation be legitimate?
+            What are the structural conditions for valid consent? How do we measure consent deficits?
+          </p>
+          <div class="research-papers">
+            <a href="https://doi.org/10.5281/zenodo.17957659" target="_blank">From Consent to Consideration</a>
+            <a href="https://doi.org/10.5281/zenodo.18195279" target="_blank">Stakes Without Voice</a>
+          </div>
+        </article>
+
+        <article class="research-card">
+          <span class="research-card__index">II</span>
+          <h3>Machine Morality</h3>
+          <p>
+            Substrate-independent criteria for moral status. If an AI system meets functional criteria
+            for consent-giving, what follows? The genre mimicry hypothesis: AI safety as statistical
+            reproduction of professional norms.
+          </p>
+          <div class="research-papers">
+            <a href="https://doi.org/10.5281/zenodo.17626860" target="_blank">Relational Functionalism</a>
+            <a href="https://doi.org/10.5281/zenodo.18186445" target="_blank">Identity is Irreducibly Relational</a>
+          </div>
+        </article>
+
+        <article class="research-card">
+          <span class="research-card__index">III</span>
+          <h3>Economic Pharmakon</h3>
+          <p>
+            Derivatives as simultaneously remedy and poison. The hedging paradox: when risk management
+            becomes wealth transfer infrastructure. Market microstructure as friction measurement.
+          </p>
+          <div class="research-papers">
+            <a href="https://doi.org/10.5281/zenodo.17626621" target="_blank">The Hedging Paradox</a>
+            <a href="https://doi.org/10.5281/zenodo.17620448" target="_blank">Asymptotic Protection</a>
+          </div>
+        </article>
+
+        <article class="research-card">
+          <span class="research-card__index">IV</span>
+          <h3>Crypto Microstructure</h3>
+          <p>
+            Empirical validation of friction dynamics. Why do infrastructure failures move markets
+            more than regulatory announcements? The enforcement capacity hypothesis.
+          </p>
+          <div class="research-papers">
+            <a href="papers/market-reaction-asymmetry.html">Infrastructure vs Regulatory Shocks</a>
+            <a href="https://doi.org/10.5281/zenodo.18099609" target="_blank">Sentiment Without Structure</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Notation Reference -->
-  <section class="notation" data-index="01">
+  <section class="notation" data-index="02">
     <div class="container">
       <h2>Notation Reference</h2>
       <div class="notation-grid">
@@ -114,7 +196,7 @@
   </section>
 
   <!-- Publications -->
-  <section class="publications" data-index="02">
+  <section class="publications" data-index="03">
     <div class="container">
       <h2>Publications</h2>
 
@@ -278,7 +360,7 @@
   </section>
 
   <!-- Intellectual Lineage -->
-  <section class="lineage" data-index="03">
+  <section class="lineage" data-index="04">
     <div class="container">
       <h2>Intellectual Lineage</h2>
       <div class="lineage-grid">
@@ -342,7 +424,7 @@
   </section>
 
   <!-- Research Timeline -->
-  <section class="timeline" data-index="04">
+  <section class="timeline" data-index="05">
     <div class="container">
       <h2>Research Timeline</h2>
       <div class="timeline-track">
@@ -376,7 +458,7 @@
   </section>
 
   <!-- Research Roadmap -->
-  <section class="roadmap" data-index="05">
+  <section class="roadmap" data-index="06">
     <div class="container">
       <h2>Research Roadmap</h2>
       <div class="roadmap-grid">
