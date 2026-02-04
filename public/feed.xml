@@ -6,23 +6,32 @@
     <link>https://dissensus.ai</link>
     <atom:link href="https://dissensus.ai/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-gb</language>
-    <lastBuildDate>Fri, 10 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <managingEditor>lab@dissensus.ai (Murad Farzulla)</managingEditor>
-    <webMaster>lab@dissensus.ai</webMaster>
+    <lastBuildDate>Tue, 04 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <managingEditor>research@dissensus.ai (Murad Farzulla)</managingEditor>
+    <webMaster>research@dissensus.ai</webMaster>
     <ttl>1440</ttl>
 
     <item>
+      <title>Paper Archive with Google Scholar Metadata</title>
+      <link>https://dissensus.ai/papers/market-reaction-asymmetry.html</link>
+      <description>Individual paper pages now available with Highwire Press, Dublin Core, and JSON-LD metadata for Google Scholar indexing. 26 papers across all ASCRI programmes.</description>
+      <pubDate>Tue, 04 Feb 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">dissensus-paper-archive-2026</guid>
+      <category>Announcement</category>
+    </item>
+
+    <item>
       <title>The Replicator-Optimization Mechanism - arXiv Submission</title>
-      <link>https://arxiv.org/abs/2601.xxxxx</link>
+      <link>https://dissensus.ai/papers/replicator-optimization-mechanism.html</link>
       <description>A unified computational framework for self-replicating, optimization-executing systems across physical and abstract substrates. Submitted to arXiv and under review at Synthese.</description>
       <pubDate>Fri, 10 Jan 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="true">https://arxiv.org/abs/2601.xxxxx</guid>
+      <guid isPermaLink="true">https://doi.org/10.5281/zenodo.18090979</guid>
       <category>Meta-Theory</category>
     </item>
 
     <item>
       <title>Stakes Without Voice - New Working Paper</title>
-      <link>https://doi.org/10.5281/zenodo.18195279</link>
+      <link>https://dissensus.ai/papers/stakes-without-voice.html</link>
       <description>Structural exclusion and the legitimacy deficit problem. When stakeholders bear costs but lack representation in governance decisions.</description>
       <pubDate>Thu, 09 Jan 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="true">https://doi.org/10.5281/zenodo.18195279</guid>
@@ -31,7 +40,7 @@
 
     <item>
       <title>Identity is Irreducibly Relational</title>
-      <link>https://doi.org/10.5281/zenodo.18186445</link>
+      <link>https://dissensus.ai/papers/identity-thesis.html</link>
       <description>Ontological foundations for relational functionalism. Why identity cannot be reduced to intrinsic properties.</description>
       <pubDate>Wed, 08 Jan 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="true">https://doi.org/10.5281/zenodo.18186445</guid>
@@ -40,7 +49,7 @@
 
     <item>
       <title>Consciousness as Nominalization Error</title>
-      <link>https://doi.org/10.5281/zenodo.18195915</link>
+      <link>https://dissensus.ai/papers/consciousness-nominalization.html</link>
       <description>Why the hard problem dissolves under linguistic analysis. Consciousness is a process noun mistaken for an entity noun.</description>
       <pubDate>Wed, 08 Jan 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="true">https://doi.org/10.5281/zenodo.18195915</guid>
@@ -50,7 +59,7 @@
     <item>
       <title>Dissensus Research Lab Launched</title>
       <link>https://dissensus.ai</link>
-      <description>Official launch of dissensus.ai - a governance alignment research lab focused on adversarial systems and multi-agent friction dynamics.</description>
+      <description>Official launch of dissensus.ai - a governance alignment research lab. Home of the Adversarial Systems &amp; Complexity Research Initiative (ASCRI).</description>
       <pubDate>Mon, 06 Jan 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">dissensus-launch-2026</guid>
       <category>Announcement</category>
@@ -58,7 +67,7 @@
 
     <item>
       <title>The Doctrine of Consensual Sovereignty</title>
-      <link>https://doi.org/10.5281/zenodo.17684676</link>
+      <link>https://dissensus.ai/papers/consensual-sovereignty.html</link>
       <description>Quantifying legitimacy in adversarial environments. Introduces stakes-weighted consent alignment as a formal measure of political legitimacy.</description>
       <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="true">https://doi.org/10.5281/zenodo.17684676</guid>
@@ -67,7 +76,7 @@
 
     <item>
       <title>Dissolving Qualia via Occam's Razor</title>
-      <link>https://doi.org/10.5281/zenodo.18013187</link>
+      <link>https://dissensus.ai/papers/consciousness-monograph.html</link>
       <description>Eliminative monism and the computational basis of phenomenological illusion. A ~33,000 word monograph on consciousness.</description>
       <pubDate>Fri, 01 Nov 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="true">https://doi.org/10.5281/zenodo.18013187</guid>

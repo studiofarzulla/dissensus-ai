@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Composite systemic risk index integrating DeFi and TradFi risk metrics. Real-time monitoring of cross-market contagion, liquidity stress, and protocol-level vul...">
+  <meta name="author" content="Murad Farzulla, Andrew Maksakov">
+  <meta name="keywords" content="Financial Markets, Cryptocurrency, Risk Management">
+  <meta name="theme-color" content="#050505">
+  <meta name="robots" content="index, follow">
+
+  <!-- Highwire Press (Google Scholar) -->
+  <meta name="citation_title" content="ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets">
+    <meta name="citation_author" content="Murad Farzulla">
+    <meta name="citation_author" content="Andrew Maksakov">
+  <meta name="citation_publication_date" content="2025/12/01">
+  <meta name="citation_pdf_url" content="https://dissensus.ai/papers/Farzulla_Maksakov_2025_ASRI.pdf">
+  <meta name="citation_doi" content="10.5281/zenodo.17918239">
+
+    <meta name="citation_technical_report_number" content="2025-07" />
+  <meta name="citation_publisher" content="Dissensus AI">
+  <meta name="citation_abstract_html_url" content="https://dissensus.ai/papers/asri.html">
+  <meta name="citation_keywords" content="Financial Markets; Cryptocurrency; Risk Management">
+  <meta name="citation_language" content="en">
+
+  <!-- Dublin Core -->
+  <meta name="DC.title" content="ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets">
+  <meta name="DC.creator" content="Murad Farzulla, Andrew Maksakov">
+  <meta name="DC.date" content="2025-12-01">
+  <meta name="DC.publisher" content="Dissensus AI">
+  <meta name="DC.description" content="Composite systemic risk index integrating DeFi and TradFi risk metrics. Real-time monitoring of cross-market contagion, liquidity stress, and protocol-level vulnerabilities through a weighted aggregation methodology designed for the unique characteristics of decentralized financial infrastructure....">
+  <meta name="DC.type" content="Text">
+  <meta name="DC.format" content="text/html">
+  <meta name="DC.language" content="en">
+  <meta name="DC.identifier" content="doi:10.5281/zenodo.17918239">
+  <meta name="DC.rights" content="CC BY 4.0">
+
+  <!-- Schema.org ScholarlyArticle -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets",
+    "author": [
+        {
+          "@type": "Person",
+          "name": "Murad Farzulla",
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "ORCID",
+            "value": "0009-0002-7164-8704"
+          },
+          "url": "https://orcid.org/0009-0002-7164-8704",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "Dissensus AI",
+            "url": "https://dissensus.ai"
+          }
+        },
+        {"@type": "Person", "name": "Andrew Maksakov"}
+    ],
+    "datePublished": "2025-12-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Dissensus AI",
+      "url": "https://dissensus.ai"
+    },
+    "description": "Composite systemic risk index integrating DeFi and TradFi risk metrics. Real-time monitoring of cross-market contagion, liquidity stress, and protocol-level vulnerabilities through a weighted aggregation methodology designed for the unique characteristics of decentralized financial infrastructure.",
+    "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.17918239"},
+    "url": "https://dissensus.ai/papers/asri.html",
+    "inLanguage": "en"
+  }
+  </script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://dissensus.ai/papers/asri.html">
+  <meta property="og:title" content="ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets">
+  <meta property="og:description" content="Composite systemic risk index integrating DeFi and TradFi risk metrics. Real-time monitoring of cross-market contagion, liquidity stress, and protocol-level vulnerabilities through a weighted aggregat...">
+  <meta property="og:site_name" content="Dissensus AI">
+  <meta property="og:image" content="https://dissensus.ai/assets/logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets">
+  <meta name="twitter:description" content="Composite systemic risk index integrating DeFi and TradFi risk metrics. Real-time monitoring of cross-market contagion, liquidity stress, and protocol-level vulnerabilities through a weighted aggregat...">
+  <meta name="twitter:image" content="https://dissensus.ai/assets/logo.png">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://dissensus.ai/papers/asri.html">
+
+  <title>ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets — Dissensus AI</title>
+
+  <link rel="stylesheet" href="../css/dissensus.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+</head>
+<body class="has-nav">
+  <!-- Site Navigation -->
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="../index.html" class="site-nav__brand">
+        <img src="../assets/dissensus-logo-white.svg" alt="" class="site-nav__brand-logo">
+        dissensus<span class="site-nav__brand-ai">AI</span>
+      </a>
+      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-nav__links">
+        <a href="../index.html" class="site-nav__link site-nav__link--active">Research</a>
+        <a href="../services.html" class="site-nav__link">Services</a>
+        <a href="../about.html" class="site-nav__link">About</a>
+        <a href="../collaborate.html" class="site-nav__link">Collaborate</a>
+        <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact &rarr;</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="paper-detail">
+    <div class="container">
+      <a href="../index.html#publications" class="paper-detail__back">&larr; Back to publications</a>
+
+      <header class="paper-detail__header">
+        <div class="paper-detail__meta">
+          <span class="paper-detail__date">1 December 2025</span>
+          <span class="paper-detail__status paper-detail__status--preprint">Preprint</span>
+          <span class="paper-detail__program">Crypto Microstructure</span>
+        </div>
+        <h1 class="paper-detail__title">ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets</h1>
+        
+        <p class="paper-detail__authors">Murad Farzulla, Andrew Maksakov</p>
+      </header>
+
+      <div class="paper-detail__actions">
+        <a href="Farzulla_Maksakov_2025_ASRI.pdf" class="paper-detail__action" download>Download PDF</a>
+        <a href="https://doi.org/10.5281/zenodo.17918239" class="paper-detail__action" target="_blank" rel="noopener">DOI</a>
+        
+        <a href="https://dissensus.ai/asri/" class="paper-detail__action--secondary paper-detail__action" target="_blank" rel="noopener">Dashboard</a>
+      </div>
+
+      <section class="paper-detail__abstract">
+        <h2>Abstract</h2>
+        <p>Composite systemic risk index integrating DeFi and TradFi risk metrics. Real-time monitoring of cross-market contagion, liquidity stress, and protocol-level vulnerabilities through a weighted aggregation methodology designed for the unique characteristics of decentralized financial infrastructure.</p>
+      </section>
+
+      <section class="paper-detail__citation">
+        <h2>Suggested Citation</h2>
+        <div class="paper-detail__citation-block">
+          Murad Farzulla, Andrew Maksakov (2025). <em>ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets</em>. Dissensus AI Working Paper No. 2025-07. DOI: 10.5281/zenodo.17918239
+        </div>
+        <button class="paper-detail__bibtex-btn" onclick="copyBibTeX(this)">
+          <span>&#x27E8;/&#x27E9;</span> Copy BibTeX
+        </button>
+      </section>
+
+      <section class="paper-detail__tags">
+        <h2>Topics</h2>
+        <div class="paper-detail__tag-list">
+          <span class="paper-detail__tag">Financial Markets</span>
+          <span class="paper-detail__tag">Cryptocurrency</span>
+          <span class="paper-detail__tag">Risk Management</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>
+        <p>&copy; 2026 Dissensus AI Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
+        <p class="footer__company">Incorporation pending &middot; England &amp; Wales</p>
+      </div>
+      <div>
+        <div class="footer-links">
+          <a href="../index.html">Research</a> &middot;
+          <a href="../services.html">Services</a> &middot;
+          <a href="../about.html">About</a> &middot;
+          <a href="../collaborate.html">Collaborate</a> &middot;
+          <a href="../manifesto.html">Manifesto</a> &middot;
+          <a href="../subscribe.html">Subscribe</a> &middot;
+          <a href="../privacy.html">Privacy</a> &middot;
+          <a href="../terms.html">Terms</a> &middot;
+          <a href="../feed.xml" title="RSS Feed">RSS</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function copyBibTeX(btn) {
+      var bibtex = "@misc{farzulla2025asri,\n  author = {Farzulla, Murad and Maksakov, Andrew},\n  title = {ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets},\n  year = {2025},\n  howpublished = {Dissensus AI Working Paper},\n  doi = {10.5281/zenodo.17918239},\n  url = {https://dissensus.ai/papers/asri.html}\n}";
+      navigator.clipboard.writeText(bibtex).then(function() {
+        var original = btn.innerHTML;
+        btn.innerHTML = '<span>\u2713</span> Copied!';
+        btn.classList.add('paper-detail__bibtex-btn--copied');
+        setTimeout(function() {
+          btn.innerHTML = original;
+          btn.classList.remove('paper-detail__bibtex-btn--copied');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

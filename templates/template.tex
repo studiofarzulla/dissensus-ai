@@ -1,0 +1,97 @@
+\documentclass{dai-working-paper}
+
+%% ---- Metadata ----
+\dai{2026}{001}
+\programme{Consent Mechanics}
+\doidoi{10.5281/zenodo.00000000}
+\correspondingauthor{author@dissensus.ai}
+\orcid{0000-0000-0000-0000}
+\keywords{friction dynamics, multi-agent coordination, consent mechanics, delegation cost}
+\jelcodes{C72, D82, O33}
+
+\title{Example Working Paper: Friction Dynamics in Agent Coordination}
+\author{Author Name\\{\normalsize Dissensus AI}}
+\date{February 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper investigates friction dynamics arising from delegation and coordination
+in multi-agent systems. We formalise a decomposition of coordination overhead into
+alignment, stake, and entropy components, and derive conditions under which
+delegation produces net welfare gains despite non-trivial friction costs. The
+framework is applied to both computational and institutional settings.
+\end{abstract}
+
+\section{Introduction}
+
+Coordination among autonomous agents---whether human, institutional, or
+computational---incurs overhead that existing game-theoretic models treat as
+exogenous \citep{Ostrom1990}. This paper argues that coordination friction is
+endogenous to the delegation structure itself and admits a tractable
+decomposition.
+
+Following \citet{Williamson1985}, we distinguish between alignment friction
+(preference divergence between principal and agent) and entropic friction
+(irreducible uncertainty in the coordination channel). Our contribution is a
+formal bridge between these transaction-cost concepts and contemporary
+multi-agent system design.
+
+\section{Friction Decomposition}
+
+\begin{definition}[Coordination Friction]
+Let $\mathcal{A} = \{a_1, \ldots, a_n\}$ be a set of agents and $\delta$
+a delegation mapping. The \emph{total friction} of $\delta$ is
+\begin{equation}\label{eq:friction}
+  \Phi(\delta) \;=\; \underbrace{\alpha(\delta)}_{\text{alignment}}
+    \;+\; \underbrace{\sigma(\delta)}_{\text{stake}}
+    \;+\; \underbrace{\eta(\delta)}_{\text{entropy}}.
+\end{equation}
+\end{definition}
+
+\begin{proposition}\label{prop:bound}
+Under Assumptions~\ref{asm:bounded}--\ref{asm:mono}, the total friction
+$\Phi(\delta)$ is bounded above by
+$\Phi(\delta) \leq \kappa \cdot \log|\mathcal{A}|$
+for a constant $\kappa$ depending only on the entropy of the delegation channel.
+\end{proposition}
+
+\begin{proof}
+The alignment component satisfies $\alpha(\delta) \leq H(\delta)$ by
+construction. Combining with the monotonicity of $\sigma$ (Assumption~\ref{asm:mono})
+yields the logarithmic bound. Full derivation in Appendix~A.
+\end{proof}
+
+\begin{assumption}\label{asm:bounded}
+Agent preferences are bounded: $|u_i| \leq M$ for all $i$.
+\end{assumption}
+
+\begin{assumption}\label{asm:mono}
+Stake friction $\sigma$ is monotonically non-decreasing in delegation depth.
+\end{assumption}
+
+\section{Discussion}
+
+Equation~\eqref{eq:friction} provides an operational decomposition applicable to
+both institutional governance \citep{Ostrom1990} and computational multi-agent
+systems. The logarithmic bound in Proposition~\ref{prop:bound} suggests that
+friction scales favourably with agent count, provided entropy remains controlled.
+
+\section*{Acknowledgements}
+
+The authors thank the Dissensus AI research group for comments on earlier drafts.
+
+\begin{thebibliography}{9}
+\bibitem[Ostrom(1990)]{Ostrom1990}
+Ostrom, E. (1990).
+\textit{Governing the Commons: The Evolution of Institutions for Collective Action}.
+Cambridge University Press.
+
+\bibitem[Williamson(1985)]{Williamson1985}
+Williamson, O.~E. (1985).
+\textit{The Economic Institutions of Capitalism}.
+Free Press, New York.
+\end{thebibliography}
+
+\end{document}

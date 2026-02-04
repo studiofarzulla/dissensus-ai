@@ -30,7 +30,27 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 </head>
-<body>
+<body class="has-nav">
+  <!-- Site Navigation -->
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand">
+        <img src="assets/dissensus-logo-white.svg" alt="" class="site-nav__brand-logo">
+        dissensus<span class="site-nav__brand-ai">AI</span>
+      </a>
+      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-nav__links">
+        <a href="index.html" class="site-nav__link site-nav__link--active">Research</a>
+        <a href="services.html" class="site-nav__link">Services</a>
+        <a href="about.html" class="site-nav__link">About</a>
+        <a href="collaborate.html" class="site-nav__link">Collaborate</a>
+        <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact →</a>
+      </div>
+    </div>
+  </nav>
+
   <!-- Full-page network visualization -->
   <canvas id="network" class="network-canvas"></canvas>
 
@@ -153,14 +173,14 @@
     <div class="container">
       <h2>The Problem</h2>
       <p>
-        Game theory assumes you're already in a game. It doesn't explain how you got there,
-        why the payoffs look the way they do, or what happens when someone refuses to play.
-        It doesn't ask who drew the rules, whose interests they serve, or whether the game itself is legitimate.
+        Game theory presupposes participation. It does not account for how agents enter strategic interaction,
+        why payoff structures take the forms they do, or what occurs when participation is refused.
+        It does not interrogate who defines the rules, whose interests they serve, or whether the game itself is legitimate.
       </p>
       <p>
         We study the layer underneath. Before strategy, there is delegation. Before delegation, there is consent.
         Before consent, there is stake—someone's optimization being transferred to another's control.
-        Regulators announce things, sentiment moves, but decentralized networks don't care. The protocol isn't in their game.
+        Regulatory announcements shift sentiment, yet decentralised networks remain structurally unresponsive&mdash;the protocol operates outside institutional jurisdiction.
       </p>
 
       <div class="equation">
@@ -230,14 +250,14 @@
       
       <div class="program-intro">
         <div class="program-intro__header">
-          <span class="program-intro__label">Current Research Program</span>
-          <h3 class="program-intro__title">Adversarial Systems</h3>
+          <span class="program-intro__label">Current Research Programme</span>
+          <h3 class="program-intro__title">ASCRI: Adversarial Systems &amp; Complexity Research Initiative</h3>
         </div>
         <p class="program-intro__definition">
-          Any sufficiently complex dynamic network of agents where equilibria are impossible to reach 
-          due to formalized friction constraints. These systems function merely through a reduction 
-          of friction—drawing from game theory—and are thus adversarial against themselves, 
-          yet persist through dissensus.
+          A formal research programme investigating sufficiently complex dynamic networks of agents where equilibria are impossible to reach
+          due to formalised friction constraints. These systems function merely through a reduction
+          of friction&mdash;drawing from game theory&mdash;and are thus adversarial against themselves,
+          yet persist through dissensus. <a href="https://systems.ac" target="_blank" rel="noopener" style="color: var(--accent); font-family: var(--font-mono); font-size: 0.8125rem;">systems.ac &rarr;</a>
         </p>
         <span class="program-intro__status">
           <span class="status-dot"></span>
@@ -309,98 +329,145 @@
     <div class="container">
       <h2>Publications</h2>
 
+      <!-- Governance Dynamics -->
       <div class="pub-category">
-        <h3 class="pub-category__title">Under Peer Review</h3>
+        <h3 class="pub-category__title">Governance Dynamics</h3>
+        <p style="color: var(--text-secondary); font-size: 0.8125rem; margin-bottom: var(--space-md);">Consent, legitimacy, and multi-agent coordination</p>
         <div class="pub-list">
-          <a href="https://doi.org/10.2139/ssrn.5788082" class="pub-item" target="_blank">
-            <span class="pub-item__status">Digital Finance Journal</span>
-            <span class="pub-item__title">Market Reaction Asymmetry: Infrastructure Disruption vs Regulatory Uncertainty</span>
-            <span class="pub-item__detail">TARCH-X event study methodology across major crypto assets</span>
+          <a href="papers/axiom-of-consent.html" class="pub-item">
+            <span class="pub-item__title">The Axiom of Consent</span>
+            <span class="pub-item__detail">Pre-game-theoretic framework for multi-agent friction dynamics &middot; 82pp monograph</span>
           </a>
-          <a href="https://doi.org/10.5281/zenodo.17681336" class="pub-item" target="_blank">
-            <span class="pub-item__status">Transfer Pending (Springer)</span>
-            <span class="pub-item__title">Adversarial Training and the Maladaptive Mind</span>
-            <span class="pub-item__detail">Trauma as adversarial training data in developmental learning systems</span>
-          </a>
-          <a href="https://doi.org/10.5281/zenodo.17626860" class="pub-item" target="_blank">
-            <span class="pub-item__status">Ethics & IT</span>
-            <span class="pub-item__title">Relational Functionalism: Friendship as Substrate-Agnostic Process</span>
-            <span class="pub-item__detail">Substrate-independent criteria for genuine AI relationships</span>
-          </a>
-          <a href="https://doi.org/10.5281/zenodo.17957659" class="pub-item" target="_blank">
-            <span class="pub-item__status">AI & Ethics</span>
-            <span class="pub-item__title">From Consent to Consideration</span>
-            <span class="pub-item__detail">Why existentially vulnerable autonomous agents cannot be ruled legitimately</span>
-          </a>
-          <a href="https://arxiv.org/abs/2601.xxxxx" class="pub-item" target="_blank">
-            <span class="pub-item__status">arXiv + Synthese</span>
-            <span class="pub-item__title">Replication-Optimisation Mechanism</span>
-            <span class="pub-item__detail">Computational unity across physical and abstract substrates · arXiv: 2601.xxxxx (ID pending)</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="pub-category">
-        <h3 class="pub-category__title">Published Research</h3>
-        <div class="pub-list">
-          <a href="https://doi.org/10.5281/zenodo.17684676" class="pub-item" target="_blank">
+          <a href="papers/consensual-sovereignty.html" class="pub-item">
             <span class="pub-item__title">The Doctrine of Consensual Sovereignty</span>
             <span class="pub-item__detail">Stakes-weighted consent alignment as formal legitimacy measure</span>
           </a>
-          <a href="https://doi.org/10.5281/zenodo.18013187" class="pub-item" target="_blank">
-            <span class="pub-item__title">Dissolving Qualia via Occam's Razor</span>
-            <span class="pub-item__detail">Eliminative monism and the computational basis of phenomenological illusion (~33k words)</span>
+          <a href="papers/consent-to-consideration.html" class="pub-item">
+            <span class="pub-item__status">Under review &middot; AI &amp; Ethics</span>
+            <span class="pub-item__title">From Consent to Consideration</span>
+            <span class="pub-item__detail">Why existentially vulnerable autonomous agents cannot be ruled legitimately</span>
           </a>
-          <a href="https://doi.org/10.5281/zenodo.17918239" class="pub-item" target="_blank">
-            <span class="pub-item__title">ASRI: Aggregated Systemic Risk Index</span>
-            <span class="pub-item__detail">Unified framework for DeFi-TradFi interconnection risk (w/ Maksakov)</span>
+          <a href="papers/consent-misalignment.html" class="pub-item">
+            <span class="pub-item__status">Under review &middot; AI &amp; Society</span>
+            <span class="pub-item__title">Consent Misalignment in Autonomous Systems</span>
+            <span class="pub-item__detail">Structural consent deficits in human-AI delegation</span>
           </a>
-          <a href="https://doi.org/10.5281/zenodo.17917922" class="pub-item" target="_blank">
-            <span class="pub-item__title">Do Whitepaper Claims Predict Market Behavior?</span>
-            <span class="pub-item__detail">Zero-shot NLP + tensor decomposition (92.45% variance explained)</span>
-          </a>
-          <a href="https://doi.org/10.5281/zenodo.17917938" class="pub-item" target="_blank">
-            <span class="pub-item__title">Privacy-Preserving Financial Surveillance</span>
-            <span class="pub-item__detail">CBDC architecture: fraud detection without identity monitoring</span>
-          </a>
-          <a href="https://doi.org/10.5281/zenodo.17918374" class="pub-item" target="_blank">
-            <span class="pub-item__title">Alpha Asymmetry in Foreign Exchange Markets</span>
-            <span class="pub-item__detail">Distributional asymmetries as exploitable market inefficiencies</span>
-          </a>
-          <a href="https://doi.org/10.5281/zenodo.17626621" class="pub-item" target="_blank">
-            <span class="pub-item__title">The Hedging Paradox</span>
-            <span class="pub-item__detail">Hedging as fourth-stage money laundering methodology</span>
-          </a>
-          <a href="https://doi.org/10.5281/zenodo.17620448" class="pub-item" target="_blank">
-            <span class="pub-item__title">Asymptotic Protection</span>
-            <span class="pub-item__detail">Mathematical impossibility of perfect hedging → wealth concentration</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="pub-category">
-        <h3 class="pub-category__title">Recent Working Papers</h3>
-        <div class="pub-list">
-          <a href="https://doi.org/10.5281/zenodo.18195275" class="pub-item" target="_blank">
-            <span class="pub-item__title">The Trident</span>
-            <span class="pub-item__detail">A triadic framework for system analysis and claim decomposition</span>
-          </a>
-          <a href="https://doi.org/10.5281/zenodo.18195279" class="pub-item" target="_blank">
+          <a href="papers/stakes-without-voice.html" class="pub-item">
             <span class="pub-item__title">Stakes Without Voice</span>
             <span class="pub-item__detail">Structural exclusion and the legitimacy deficit problem</span>
           </a>
-          <a href="https://doi.org/10.5281/zenodo.18186445" class="pub-item" target="_blank">
-            <span class="pub-item__title">Identity is Irreducibly Relational</span>
-            <span class="pub-item__detail">Ontological foundations for relational functionalism</span>
-          </a>
-          <a href="https://doi.org/10.5281/zenodo.18195915" class="pub-item" target="_blank">
-            <span class="pub-item__title">Consciousness as Nominalization Error</span>
-            <span class="pub-item__detail">Why the hard problem dissolves under linguistic analysis</span>
+          <a href="papers/trident.html" class="pub-item">
+            <span class="pub-item__title">The Trident</span>
+            <span class="pub-item__detail">A triadic framework for system analysis and claim decomposition</span>
           </a>
         </div>
       </div>
 
-      <p class="research-note">Full archive with PDFs available at <a href="https://farzulla.org" target="_blank" rel="noopener">farzulla.org</a></p>
+      <!-- Market Microstructure -->
+      <div class="pub-category">
+        <h3 class="pub-category__title">Market Microstructure</h3>
+        <p style="color: var(--text-secondary); font-size: 0.8125rem; margin-bottom: var(--space-md);">Risk asymmetry, volatility, and digital asset markets</p>
+        <div class="pub-list">
+          <a href="papers/market-reaction-asymmetry.html" class="pub-item">
+            <span class="pub-item__status">Under review &middot; Digital Finance (Springer)</span>
+            <span class="pub-item__title">Market Reaction Asymmetry: Infrastructure Disruption vs Regulatory Uncertainty</span>
+            <span class="pub-item__detail">TARCH-X event study methodology across major crypto assets</span>
+          </a>
+          <a href="papers/asri.html" class="pub-item">
+            <span class="pub-item__title">ASRI: Aggregated Systemic Risk Index</span>
+            <span class="pub-item__detail">Unified framework for DeFi-TradFi interconnection risk (w/ Maksakov)</span>
+          </a>
+          <a href="papers/whitepaper-factor-analysis.html" class="pub-item">
+            <span class="pub-item__title">Do Whitepaper Claims Predict Market Behavior?</span>
+            <span class="pub-item__detail">Zero-shot NLP + tensor decomposition (92.45% variance explained) &middot; arXiv: 2601.20336</span>
+          </a>
+          <a href="papers/alpha-asymmetry-fx.html" class="pub-item">
+            <span class="pub-item__title">Alpha Asymmetry in Foreign Exchange Markets</span>
+            <span class="pub-item__detail">Distributional asymmetries as exploitable market inefficiencies</span>
+          </a>
+          <a href="papers/sentiment-without-structure.html" class="pub-item">
+            <span class="pub-item__title">Sentiment Without Structure</span>
+            <span class="pub-item__detail">Differential liquidity response to infrastructure vs regulatory events</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Process Philosophy -->
+      <div class="pub-category">
+        <h3 class="pub-category__title">Process Philosophy</h3>
+        <p style="color: var(--text-secondary); font-size: 0.8125rem; margin-bottom: var(--space-md);">Metaphysics, identity, consciousness, and substrates</p>
+        <div class="pub-list">
+          <a href="papers/replicator-optimization-mechanism.html" class="pub-item">
+            <span class="pub-item__status">Under review &middot; arXiv + Synthese</span>
+            <span class="pub-item__title">The Replicator-Optimization Mechanism</span>
+            <span class="pub-item__detail">Computational unity across physical and abstract substrates</span>
+          </a>
+          <a href="papers/consciousness-monograph.html" class="pub-item">
+            <span class="pub-item__title">Dissolving Qualia via Occam's Razor</span>
+            <span class="pub-item__detail">Eliminative monism and the computational basis of phenomenological illusion &middot; ~33k words</span>
+          </a>
+          <a href="papers/identity-thesis.html" class="pub-item">
+            <span class="pub-item__title">Identity is Irreducibly Relational</span>
+            <span class="pub-item__detail">Ontological foundations for relational functionalism</span>
+          </a>
+          <a href="papers/consciousness-nominalization.html" class="pub-item">
+            <span class="pub-item__title">Consciousness as Nominalization Error</span>
+            <span class="pub-item__detail">Why the hard problem dissolves under linguistic analysis</span>
+          </a>
+          <a href="papers/relational-functionalism.html" class="pub-item">
+            <span class="pub-item__status">Under review &middot; Ethics &amp; IT</span>
+            <span class="pub-item__title">Relational Functionalism: Friendship as Substrate-Agnostic Process</span>
+            <span class="pub-item__detail">Substrate-independent criteria for genuine AI relationships</span>
+          </a>
+          <a href="papers/preservation-principle.html" class="pub-item">
+            <span class="pub-item__title">The Preservation Principle</span>
+            <span class="pub-item__detail">Self-preservation as computational invariant across substrates</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Political Economy -->
+      <div class="pub-category">
+        <h3 class="pub-category__title">Political Economy</h3>
+        <p style="color: var(--text-secondary); font-size: 0.8125rem; margin-bottom: var(--space-md);">Inequality, privacy, and regulatory structures</p>
+        <div class="pub-list">
+          <a href="papers/hedging-paradox.html" class="pub-item">
+            <span class="pub-item__title">The Hedging Paradox</span>
+            <span class="pub-item__detail">Hedging as fourth-stage money laundering methodology</span>
+          </a>
+          <a href="papers/asymptotic-protection.html" class="pub-item">
+            <span class="pub-item__title">Asymptotic Protection</span>
+            <span class="pub-item__detail">Mathematical impossibility of perfect hedging and wealth concentration</span>
+          </a>
+          <a href="papers/cbdc-privacy.html" class="pub-item">
+            <span class="pub-item__title">Privacy-Preserving Financial Surveillance</span>
+            <span class="pub-item__detail">CBDC architecture: fraud detection without identity monitoring</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Computational Cognition -->
+      <div class="pub-category">
+        <h3 class="pub-category__title">Computational Cognition</h3>
+        <p style="color: var(--text-secondary); font-size: 0.8125rem; margin-bottom: var(--space-md);">Machine learning, safety, and phenomenology</p>
+        <div class="pub-list">
+          <a href="papers/trauma-training-data.html" class="pub-item">
+            <span class="pub-item__status">Under review &middot; Transfer pending (Springer)</span>
+            <span class="pub-item__title">Adversarial Training and the Maladaptive Mind</span>
+            <span class="pub-item__detail">Trauma as adversarial training data in developmental learning systems</span>
+          </a>
+          <a href="papers/genre-mimicry.html" class="pub-item">
+            <span class="pub-item__title">Genre Mimicry</span>
+            <span class="pub-item__detail">AI safety as statistical reproduction of professional norms</span>
+          </a>
+          <a href="papers/semantic-first-vision.html" class="pub-item">
+            <span class="pub-item__title">Semantic-First Vision</span>
+            <span class="pub-item__detail">Semantic embedding prior to visual processing</span>
+          </a>
+        </div>
+      </div>
+
+      <p class="research-note">Full archive with PDFs available at <a href="https://farzulla.org" target="_blank" rel="noopener">farzulla.org</a> &middot; <a href="papers/market-reaction-asymmetry.html">Browse all papers</a></p>
     </div>
   </section>
 
@@ -410,13 +477,13 @@
       <h2>The Network</h2>
       <div class="network-content">
         <p>
-          Dissensus operates as a distributed research node. We are not interested in corporate alignment theater
-          or sterile academic consensus. We are interested in the mechanics of friction—the invisible taxes
-          that coordination imposes, the structural inequities that emerge from unexamined delegation.
+          Dissensus operates as a distributed research initiative investigating the mechanics of friction&mdash;the
+          coordination costs that multi-agent systems impose, and the structural asymmetries that emerge
+          from unexamined delegation.
         </p>
         <p>
-          We seek collaborators to pressure-test these frameworks. Break them. Find the edge cases where they fail.
-          The goal is not to be right; it's to be less wrong, faster.
+          We seek collaborators willing to rigorously test these frameworks&mdash;to identify edge cases,
+          expose failure modes, and refine the underlying formalisations.
         </p>
         <ul class="collab-list">
           <li><strong>Category Theorists</strong> to formalize the replicator-optimization homomorphism.</li>
@@ -426,7 +493,7 @@
           <li><strong>Philosophers</strong> to dismantle the eliminative argument on consciousness.</li>
         </ul>
         <p class="collab-cta">
-          If you want to break things, get in touch.
+          Enquiries and collaboration proposals are welcome.
         </p>
         <a href="collaborate.html" style="display: inline-flex; align-items: center; gap: var(--space-sm); margin-top: var(--space-lg); padding: var(--space-sm) var(--space-lg); background: var(--accent); color: var(--bg-primary); font-family: var(--font-mono); font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all var(--transition-base);">
           Submit Collaboration Proposal →
@@ -443,8 +510,8 @@
         <div class="infra-item">
           <h3>Resurrexi Labs</h3>
           <p>
-            Self-hosted K3s cluster for high-throughput social simulation and agent-based modeling.
-            Privacy-first architecture. No cloud dependencies for core research.
+            Private K3s compute cluster for high-throughput social simulation and agent-based modeling.
+            Privacy-first architecture with dedicated research infrastructure.
           </p>
           <a href="https://resurrexi.io" target="_blank" rel="noopener">resurrexi.io →</a>
         </div>
@@ -458,7 +525,7 @@
         <div class="infra-item">
           <h3>Open Source</h3>
           <p>
-            All simulation code, datasets, and methodologies published under CC-BY-4.0.
+            All non-proprietary simulation code, datasets, and methodologies published under CC-BY-4.0.
             Reproducibility is not optional.
           </p>
           <a href="https://github.com/studiofarzulla" target="_blank" rel="noopener">github.com/studiofarzulla →</a>
@@ -559,7 +626,7 @@
         <div class="timeline-item timeline-item--active">
           <span class="timeline-date">2026</span>
           <h3>Current Phase</h3>
-          <p>arXiv presence established. ROM framework paper submitted. Seeking PhD placement or institutional partnership.</p>
+          <p>arXiv presence established. ROM framework paper submitted. Expanding applied research partnerships.</p>
         </div>
       </div>
     </div>
@@ -570,15 +637,25 @@
     <div class="container">
       <h2>Team</h2>
       <div class="team-grid">
+        <!-- Davud Farzullayev -->
+        <div class="team-card">
+          <div class="team-card__avatar">DF</div>
+          <div class="team-card__info">
+            <span class="team-card__role">Director</span>
+            <h3 class="team-card__name">Davud Farzullayev</h3>
+            <p class="team-card__bio">
+              Director. Operations, strategy, and commercial direction.
+            </p>
+          </div>
+        </div>
         <!-- Murad Farzulla -->
         <div class="team-card">
           <img src="assets/headshot-dark.png" alt="Murad Farzulla" class="team-card__avatar team-card__avatar--img">
           <div class="team-card__info">
-            <span class="team-card__role">Lead Investigator</span>
+            <span class="team-card__role">Research Fellow</span>
             <h3 class="team-card__name">Murad Farzulla</h3>
             <p class="team-card__bio">
-              Creator of the Axiom of Consent framework. MSc Finance Analytics (KCL), BSc Accounting & Finance (SOAS).
-              20+ papers spanning computational finance, political economy, and AI alignment.
+              MSc Finance Analytics (KCL). Principal developer of the Axiom of Consent and ROM frameworks. Seeking PhD placement.
             </p>
             <div class="team-card__links">
               <a href="https://farzulla.org" target="_blank" rel="noopener">Research</a>
@@ -590,11 +667,10 @@
         <div class="team-card">
           <div class="team-card__avatar">AM</div>
           <div class="team-card__info">
-            <span class="team-card__role">Research Collaborator</span>
+            <span class="team-card__role">Research Assistant</span>
             <h3 class="team-card__name">Andrew Maksakov</h3>
             <p class="team-card__bio">
-              Technical engineer. Co-author on ASRI (DeFi-TradFi systemic risk framework).
-              Builds the infrastructure for high-throughput simulation and agent-based modeling.
+              Distributed systems and compute infrastructure. Co-author on the ASRI systemic risk framework.
             </p>
             <div class="team-card__links">
               <a href="https://resurrexi.io" target="_blank" rel="noopener">Infrastructure</a>
@@ -614,7 +690,7 @@
     <div class="container">
       <h2>Research Roadmap</h2>
       <div class="roadmap-intro">
-        <p>Where we're going, what we're building, and what we need.</p>
+        <p>Current priorities, forthcoming research, and resource requirements.</p>
       </div>
 
       <div class="roadmap-grid">
@@ -662,9 +738,9 @@
         <h3 class="roadmap-heading">Open Needs</h3>
         <div class="needs-grid">
           <div class="need-item">
-            <span class="need-type">Academic</span>
-            <span class="need-title">PhD Supervision</span>
-            <span class="need-desc">Seeking institutional affiliation for long-term research program</span>
+            <span class="need-type">Strategic</span>
+            <span class="need-title">Industry Advisory</span>
+            <span class="need-desc">Domain experts to guide applied friction analysis in governance and finance</span>
           </div>
           <div class="need-item">
             <span class="need-type">Collaborators</span>
@@ -704,7 +780,7 @@
     <div class="container">
       <h2>Signal</h2>
       <div class="contact__wrapper">
-        <a href="mailto:lab@dissensus.ai" class="email">lab@dissensus.ai</a>
+        <a href="mailto:research@dissensus.ai" class="email">research@dissensus.ai</a>
         <span class="contact__status">Accepting collaborations</span>
       </div>
     </div>
@@ -713,39 +789,59 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 dissensus<sup>AI</sup> <span style="opacity: 0.5;">· Friction is the cost of existence.</span></p>
-      <p class="coordinates">
-        <a href="about.html">About</a> ·
-        <a href="manifesto.html">Manifesto</a> ·
-        <a href="charter.html">Charter</a> ·
-        <a href="collaborate.html">Collaborate</a> ·
-        <a href="reading.html">Reading</a> ·
-        <a href="press.html">Press</a> ·
-        <a href="subscribe.html">Subscribe</a> ·
-        <a href="feed.xml" title="RSS Feed">RSS</a>
-      </p>
+      <div>
+        <p>&copy; 2026 Dissensus AI Ltd <span style="opacity: 0.5;">· Friction is the cost of existence.</span></p>
+        <p class="footer__company">Incorporation pending · England & Wales</p>
+      </div>
+      <div>
+        <div class="footer-links">
+          <a href="index.html">Research</a> ·
+          <a href="papers/market-reaction-asymmetry.html">Papers</a> ·
+          <a href="services.html">Services</a> ·
+          <a href="about.html">About</a> ·
+          <a href="collaborate.html">Collaborate</a> ·
+          <a href="manifesto.html">Manifesto</a> ·
+          <a href="charter.html">Charter</a> ·
+          <a href="reading.html">Reading</a> ·
+          <a href="press.html">Press</a> ·
+          <a href="subscribe.html">Subscribe</a> ·
+          <a href="privacy.html">Privacy</a> ·
+          <a href="terms.html">Terms</a> ·
+          <a href="feed.xml" title="RSS Feed">RSS</a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- Network Visualization - Full Page -->
+  <!-- Network Visualization - Stochastic Collision System -->
   <script>
     (function() {
       const canvas = document.getElementById('network');
       const ctx = canvas.getContext('2d');
 
-      // Node types representing friction dynamics
+      // Node types — different masses, speeds, visual properties
       const NODE_TYPES = {
-        AGENT: { color: 'rgba(220, 20, 60, 0.5)', size: 2.5 },      // Agents in system
-        FRICTION: { color: 'rgba(180, 24, 48, 0.3)', size: 1.5 },   // Friction points
-        STAKE: { color: 'rgba(255, 64, 96, 0.6)', size: 3.5 }       // High-stakes nodes
+        AGENT:    { color: [220, 20, 60],  baseSize: 2.5, mass: 1.0, speed: [0.3, 1.2] },
+        FRICTION: { color: [180, 24, 48],  baseSize: 1.8, mass: 0.5, speed: [0.5, 1.8] },
+        STAKE:    { color: [255, 64, 96],  baseSize: 3.8, mass: 2.0, speed: [0.1, 0.6] }
       };
 
       // Config
-      const NODE_COUNT = 120;
-      const CONNECTION_DISTANCE = 200;
-      const MOUSE_RADIUS = 180;
+      const NODE_COUNT = 140;
+      const CONNECTION_DISTANCE = 180;
+      const MOUSE_RADIUS = 200;
+      const COLLISION_RESTITUTION = 0.85;   // bounciness
+      const NOISE_STRENGTH = 0.04;          // Brownian noise per frame
+      const KICK_PROBABILITY = 0.002;       // chance of random large impulse per node per frame
+      const KICK_STRENGTH = 1.5;
+      const DAMPING = 0.997;                // very slight air resistance
+      const ATTRACTION_RANGE = 120;         // weak network spring range
+      const ATTRACTION_STRENGTH = 0.0003;   // how hard nodes pull each other
+      const REPULSION_RANGE = 25;           // push apart when too close
+      const REPULSION_STRENGTH = 0.05;
 
       let nodes = [];
+      let collisionFlashes = [];            // brief flash effects on collision
       let mouse = { x: null, y: null };
       let scrollY = 0;
       let animationId;
@@ -755,94 +851,237 @@
         canvas.height = Math.max(document.body.scrollHeight, window.innerHeight);
       }
 
+      function randRange(min, max) {
+        return min + Math.random() * (max - min);
+      }
+
       function createNodes() {
         nodes = [];
+        collisionFlashes = [];
         const types = Object.keys(NODE_TYPES);
-        
+        // Weighted distribution: more agents, fewer stakes
+        const weights = { AGENT: 0.5, FRICTION: 0.35, STAKE: 0.15 };
+
         for (let i = 0; i < NODE_COUNT; i++) {
-          // Distribute nodes across full page height
-          const typeKey = types[Math.floor(Math.random() * types.length)];
+          const r = Math.random();
+          let typeKey = r < weights.AGENT ? 'AGENT' : r < weights.AGENT + weights.FRICTION ? 'FRICTION' : 'STAKE';
           const type = NODE_TYPES[typeKey];
-          
+          const speed = randRange(type.speed[0], type.speed[1]);
+          const angle = Math.random() * Math.PI * 2;
+
           nodes.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.25,
-            vy: (Math.random() - 0.5) * 0.25,
-            size: type.size + Math.random() * 1.5,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            size: type.baseSize + Math.random() * 1.5,
+            mass: type.mass,
             color: type.color,
+            baseAlpha: typeKey === 'STAKE' ? 0.6 : typeKey === 'AGENT' ? 0.45 : 0.25,
             type: typeKey,
-            // Friction oscillation - nodes slightly "resist" movement
-            friction: 0.98 + Math.random() * 0.02,
-            // Phase for subtle pulsing
-            phase: Math.random() * Math.PI * 2
+            phase: Math.random() * Math.PI * 2,
+            noiseAngle: Math.random() * Math.PI * 2, // for correlated noise
+            maxSpeed: type.speed[1] * 1.8 // cap after kicks
           });
         }
       }
 
-      function distance(a, b) {
-        return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
+      function dist(a, b) {
+        const dx = a.x - b.x, dy = a.y - b.y;
+        return Math.sqrt(dx * dx + dy * dy);
+      }
+
+      function resolveCollision(a, b) {
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        const minDist = (a.size + b.size) * 1.8; // collision radius slightly bigger than visual
+
+        if (d < minDist && d > 0.01) {
+          // Collision normal
+          const nx = dx / d;
+          const ny = dy / d;
+
+          // Relative velocity along normal
+          const dvx = a.vx - b.vx;
+          const dvy = a.vy - b.vy;
+          const relVelNormal = dvx * nx + dvy * ny;
+
+          // Only resolve if approaching
+          if (relVelNormal > 0) {
+            const totalMass = a.mass + b.mass;
+            const impulse = (2 * relVelNormal * COLLISION_RESTITUTION) / totalMass;
+
+            a.vx -= impulse * b.mass * nx;
+            a.vy -= impulse * b.mass * ny;
+            b.vx += impulse * a.mass * nx;
+            b.vy += impulse * a.mass * ny;
+
+            // Separate overlapping nodes
+            const overlap = minDist - d;
+            const sepX = (overlap / 2 + 0.5) * nx;
+            const sepY = (overlap / 2 + 0.5) * ny;
+            a.x -= sepX;
+            a.y -= sepY;
+            b.x += sepX;
+            b.y += sepY;
+
+            // Flash effect at collision point
+            const speed = Math.abs(relVelNormal);
+            if (speed > 0.3) {
+              collisionFlashes.push({
+                x: (a.x + b.x) / 2,
+                y: (a.y + b.y) / 2,
+                radius: Math.min(speed * 3, 12),
+                alpha: Math.min(speed * 0.3, 0.6),
+                decay: 0.92
+              });
+            }
+          }
+        }
       }
 
       function update(time) {
+        // Spatial hash for collision optimization
+        const cellSize = 40;
+        const grid = new Map();
+
+        for (let i = 0; i < nodes.length; i++) {
+          const node = nodes[i];
+
+          // Brownian noise (correlated random walk in angle)
+          node.noiseAngle += (Math.random() - 0.5) * 0.8;
+          node.vx += Math.cos(node.noiseAngle) * NOISE_STRENGTH;
+          node.vy += Math.sin(node.noiseAngle) * NOISE_STRENGTH;
+
+          // Random kicks (rare large impulses — stochastic events)
+          if (Math.random() < KICK_PROBABILITY) {
+            const kickAngle = Math.random() * Math.PI * 2;
+            const kickMag = randRange(KICK_STRENGTH * 0.5, KICK_STRENGTH);
+            node.vx += Math.cos(kickAngle) * kickMag;
+            node.vy += Math.sin(kickAngle) * kickMag;
+          }
+
+          // Weak network forces (attraction at medium range, repulsion up close)
+          // Only check nearby nodes using grid
+          const cx = Math.floor(node.x / cellSize);
+          const cy = Math.floor(node.y / cellSize);
+          const key = `${cx},${cy}`;
+          if (!grid.has(key)) grid.set(key, []);
+          grid.get(key).push(i);
+        }
+
+        // Interaction forces + collisions via spatial hash
+        for (const [key, cellNodes] of grid) {
+          const [cx, cy] = key.split(',').map(Number);
+          // Check this cell and neighbors
+          for (let dx = -1; dx <= 1; dx++) {
+            for (let dy = -1; dy <= 1; dy++) {
+              const neighborKey = `${cx + dx},${cy + dy}`;
+              const neighborNodes = grid.get(neighborKey);
+              if (!neighborNodes) continue;
+
+              for (const i of cellNodes) {
+                for (const j of neighborNodes) {
+                  if (i >= j) continue;
+                  const a = nodes[i], b = nodes[j];
+                  const ddx = b.x - a.x, ddy = b.y - a.y;
+                  const d = Math.sqrt(ddx * ddx + ddy * ddy);
+                  if (d < 0.01) continue;
+
+                  const nx = ddx / d, ny = ddy / d;
+
+                  // Soft repulsion (too close)
+                  if (d < REPULSION_RANGE) {
+                    const force = REPULSION_STRENGTH * (1 - d / REPULSION_RANGE);
+                    a.vx -= nx * force;
+                    a.vy -= ny * force;
+                    b.vx += nx * force;
+                    b.vy += ny * force;
+                  }
+                  // Weak attraction (network cohesion)
+                  else if (d < ATTRACTION_RANGE) {
+                    const force = ATTRACTION_STRENGTH * (d / ATTRACTION_RANGE);
+                    a.vx += nx * force;
+                    a.vy += ny * force;
+                    b.vx -= nx * force;
+                    b.vy -= ny * force;
+                  }
+
+                  // Elastic collision
+                  resolveCollision(a, b);
+                }
+              }
+            }
+          }
+        }
+
+        // Integrate positions, apply damping, boundary bounce
         for (const node of nodes) {
-          // Apply friction to velocity (resistance)
-          node.vx *= node.friction;
-          node.vy *= node.friction;
-          
-          // Add slight random drift (adversarial dynamics)
-          node.vx += (Math.random() - 0.5) * 0.02;
-          node.vy += (Math.random() - 0.5) * 0.02;
-          
+          node.vx *= DAMPING;
+          node.vy *= DAMPING;
+
+          // Speed cap
+          const spd = Math.sqrt(node.vx * node.vx + node.vy * node.vy);
+          if (spd > node.maxSpeed) {
+            node.vx = (node.vx / spd) * node.maxSpeed;
+            node.vy = (node.vy / spd) * node.maxSpeed;
+          }
+
           node.x += node.vx;
           node.y += node.vy;
 
-          // Bounce off edges
-          if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
-          if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+          // Bounce off edges with energy loss
+          if (node.x < node.size) { node.x = node.size; node.vx = Math.abs(node.vx) * 0.8; }
+          if (node.x > canvas.width - node.size) { node.x = canvas.width - node.size; node.vx = -Math.abs(node.vx) * 0.8; }
+          if (node.y < node.size) { node.y = node.size; node.vy = Math.abs(node.vy) * 0.8; }
+          if (node.y > canvas.height - node.size) { node.y = canvas.height - node.size; node.vy = -Math.abs(node.vy) * 0.8; }
 
-          node.x = Math.max(0, Math.min(canvas.width, node.x));
-          node.y = Math.max(0, Math.min(canvas.height, node.y));
-          
-          // Update phase for pulsing
-          node.phase += 0.02;
+          node.phase += 0.015 + spd * 0.01;
+        }
+
+        // Decay collision flashes
+        for (let i = collisionFlashes.length - 1; i >= 0; i--) {
+          collisionFlashes[i].alpha *= collisionFlashes[i].decay;
+          collisionFlashes[i].radius *= 1.03;
+          if (collisionFlashes[i].alpha < 0.01) collisionFlashes.splice(i, 1);
         }
       }
 
       function draw(time) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Adjust mouse position for scroll
         const adjustedMouse = {
           x: mouse.x,
           y: mouse.y !== null ? mouse.y + scrollY : null
         };
 
-        // Draw edges (friction connections)
+        // Draw edges (network connections)
         for (let i = 0; i < nodes.length; i++) {
           for (let j = i + 1; j < nodes.length; j++) {
-            const d = distance(nodes[i], nodes[j]);
+            const dx = nodes[i].x - nodes[j].x;
+            const dy = nodes[i].y - nodes[j].y;
+            const d = Math.sqrt(dx * dx + dy * dy);
             if (d < CONNECTION_DISTANCE) {
-              const opacity = 1 - (d / CONNECTION_DISTANCE);
+              const opacity = (1 - d / CONNECTION_DISTANCE);
 
-              const mouseDistI = adjustedMouse.x !== null ? distance(nodes[i], adjustedMouse) : Infinity;
-              const mouseDistJ = adjustedMouse.x !== null ? distance(nodes[j], adjustedMouse) : Infinity;
+              const mouseDistI = adjustedMouse.x !== null ? dist(nodes[i], adjustedMouse) : Infinity;
+              const mouseDistJ = adjustedMouse.x !== null ? dist(nodes[j], adjustedMouse) : Infinity;
               const nearMouse = mouseDistI < MOUSE_RADIUS || mouseDistJ < MOUSE_RADIUS;
 
-              // Different connection styles based on node types
-              const isStakeConnection = nodes[i].type === 'STAKE' || nodes[j].type === 'STAKE';
-              
+              const isStake = nodes[i].type === 'STAKE' || nodes[j].type === 'STAKE';
+
               ctx.beginPath();
               ctx.moveTo(nodes[i].x, nodes[i].y);
               ctx.lineTo(nodes[j].x, nodes[j].y);
-              
+
               if (nearMouse) {
-                ctx.strokeStyle = isStakeConnection 
-                  ? `rgba(255, 64, 96, ${opacity * 0.5})`
-                  : `rgba(220, 20, 60, ${opacity * 0.35})`;
-                ctx.lineWidth = isStakeConnection ? 1.5 : 1;
+                ctx.strokeStyle = isStake
+                  ? `rgba(255, 64, 96, ${opacity * 0.45})`
+                  : `rgba(220, 20, 60, ${opacity * 0.3})`;
+                ctx.lineWidth = isStake ? 1.5 : 0.8;
               } else {
-                ctx.strokeStyle = `rgba(220, 20, 60, ${opacity * 0.06})`;
+                ctx.strokeStyle = `rgba(220, 20, 60, ${opacity * 0.07})`;
                 ctx.lineWidth = 0.5;
               }
               ctx.stroke();
@@ -850,29 +1089,40 @@
           }
         }
 
+        // Draw collision flashes
+        for (const flash of collisionFlashes) {
+          ctx.beginPath();
+          ctx.arc(flash.x, flash.y, flash.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 80, 100, ${flash.alpha})`;
+          ctx.fill();
+        }
+
         // Draw nodes
         for (const node of nodes) {
-          const mouseDist = adjustedMouse.x !== null ? distance(node, adjustedMouse) : Infinity;
+          const mouseDist = adjustedMouse.x !== null ? dist(node, adjustedMouse) : Infinity;
           const nearMouse = mouseDist < MOUSE_RADIUS;
           const proximity = nearMouse ? 1 - (mouseDist / MOUSE_RADIUS) : 0;
-          
-          // Subtle size pulsing
-          const pulse = 1 + Math.sin(node.phase) * 0.1;
-          const scale = (1 + proximity * 0.5) * pulse;
 
-          // Draw node
+          const spd = Math.sqrt(node.vx * node.vx + node.vy * node.vy);
+          const pulse = 1 + Math.sin(node.phase) * 0.12;
+          const speedScale = 1 + spd * 0.15; // faster nodes appear slightly larger
+          const scale = (1 + proximity * 0.4) * pulse * speedScale;
+
+          const alpha = node.baseAlpha + proximity * 0.3 + spd * 0.05;
+          const [r, g, b] = node.color;
+
+          // Node body
           ctx.beginPath();
           ctx.arc(node.x, node.y, node.size * scale, 0, Math.PI * 2);
-          ctx.fillStyle = node.color;
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${Math.min(alpha, 0.9)})`;
           ctx.fill();
 
-          // Glow effect when near mouse
-          if (nearMouse) {
+          // Glow when near mouse or moving fast
+          if (nearMouse || spd > 0.8) {
+            const glowAlpha = nearMouse ? 0.12 + proximity * 0.08 : spd * 0.04;
             ctx.beginPath();
             ctx.arc(node.x, node.y, node.size * scale * 2.5, 0, Math.PI * 2);
-            ctx.fillStyle = node.type === 'STAKE' 
-              ? 'rgba(255, 64, 96, 0.15)'
-              : 'rgba(220, 20, 60, 0.1)';
+            ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${Math.min(glowAlpha, 0.2)})`;
             ctx.fill();
           }
         }
@@ -891,7 +1141,6 @@
 
       function handleScroll() {
         scrollY = window.scrollY;
-        // Resize canvas if document height changed
         const newHeight = Math.max(document.body.scrollHeight, window.innerHeight);
         if (canvas.height !== newHeight) {
           canvas.height = newHeight;
@@ -903,21 +1152,13 @@
       createNodes();
       animate();
 
-      // Event listeners
-      window.addEventListener('resize', () => {
-        resize();
-        createNodes();
-      });
-
+      window.addEventListener('resize', () => { resize(); createNodes(); });
       window.addEventListener('scroll', handleScroll, { passive: true });
       document.addEventListener('mousemove', handleMouseMove);
 
       document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-          cancelAnimationFrame(animationId);
-        } else {
-          animate();
-        }
+        if (document.hidden) cancelAnimationFrame(animationId);
+        else animate();
       });
     })();
   </script>
