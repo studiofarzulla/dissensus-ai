@@ -8,14 +8,30 @@
   <link rel="stylesheet" href="css/dissensus.css">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 </head>
-<body>
+<body class="has-nav">
+  <!-- Site Navigation -->
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand">
+        <img src="assets/dissensus-logo-white.svg" alt="" class="site-nav__brand-logo">
+        dissensus<span class="site-nav__brand-ai">AI</span>
+      </a>
+      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-nav__links">
+        <a href="research.html" class="site-nav__link">Research</a>
+        <a href="services.html" class="site-nav__link">Services</a>
+        <a href="about.html" class="site-nav__link">About</a>
+        <a href="collaborate.html" class="site-nav__link">Collaborate</a>
+        <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact &rarr;</a>
+      </div>
+    </div>
+  </nav>
 
 <section class="hero" style="min-height: auto; padding: var(--space-xl) 0;">
   <div class="container">
-    <a href="index.html" style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-decoration: none;">
-      ← dissensus<span style="color: var(--accent); font-weight: 600;">AI</span>
-    </a>
-    <h1 style="font-size: clamp(1.75rem, 5vw, 2.5rem); margin-top: var(--space-lg); font-weight: 400; letter-spacing: 0.04em;">
+    <h1 style="font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 400; letter-spacing: 0.04em;">
       Press Kit
     </h1>
     <p class="hero__tagline" style="margin-top: var(--space-md);">
@@ -129,9 +145,9 @@
         Short Description (50 words)
       </h3>
       <p style="color: var(--text-primary); font-size: 0.9375rem; line-height: 1.8;">
-        Dissensus is a governance alignment research lab focused on adversarial systems—complex agent networks 
-        where equilibria are structurally impossible. We formalize friction dynamics across political economy, 
-        AI alignment, and financial microstructure, developing substrate-independent frameworks for measuring 
+        Dissensus AI is a UK-based governance alignment research lab. Through its Adversarial Systems &amp; Complexity Research Initiative (ASCRI), it investigates complex agent networks
+        where equilibria are structurally impossible. We formalize friction dynamics across political economy,
+        AI alignment, and financial microstructure, developing substrate-independent frameworks for measuring
         coordination overhead.
       </p>
       <button onclick="copyText('short')" style="margin-top: var(--space-md); font-family: var(--font-mono); font-size: 0.75rem; padding: var(--space-xs) var(--space-sm); background: transparent; border: 1px solid var(--border); color: var(--text-muted); cursor: pointer;" id="short-btn">Copy</button>
@@ -142,8 +158,8 @@
         Long Description (150 words)
       </h3>
       <p style="color: var(--text-primary); font-size: 0.9375rem; line-height: 1.8;">
-        Dissensus is a governance alignment research lab investigating adversarial systems—any sufficiently 
-        complex dynamic network of agents where equilibria are impossible to reach due to formalized friction 
+        Dissensus AI is a UK-based governance alignment research lab. Its principal research programme, the Adversarial Systems &amp; Complexity Research Initiative (ASCRI), investigates any sufficiently
+        complex dynamic network of agents where equilibria are impossible to reach due to formalized friction
         constraints. These systems function through friction reduction rather than friction elimination, 
         making them structurally adversarial yet persistently functional.
       </p>
@@ -151,7 +167,7 @@
         Founded in 2026, the lab develops formal frameworks including the Axiom of Consent (a pre-game-theoretic 
         framework for delegation analysis) and the Replicator-Optimization Mechanism (computational unity across 
         biological and abstract substrates). Research spans consent mechanics, machine morality, economic 
-        microstructure, and political legitimacy quantification. All outputs are published open-access under 
+        microstructure, and political legitimacy quantification. All non-proprietary outputs are published open-access under
         CC-BY 4.0 licensing.
       </p>
       <button onclick="copyText('long')" style="margin-top: var(--space-md); font-family: var(--font-mono); font-size: 0.75rem; padding: var(--space-xs) var(--space-sm); background: transparent; border: 1px solid var(--border); color: var(--text-muted); cursor: pointer;" id="long-btn">Copy</button>
@@ -188,8 +204,8 @@
         <p style="color: var(--text-primary); font-size: 1.125rem; margin-top: var(--space-xs);">20+ Papers</p>
       </div>
       <div style="background: var(--bg-secondary); padding: var(--space-lg);">
-        <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim); text-transform: uppercase;">Lead</span>
-        <p style="color: var(--text-primary); font-size: 1.125rem; margin-top: var(--space-xs);">Murad Farzulla</p>
+        <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim); text-transform: uppercase;">Director</span>
+        <p style="color: var(--text-primary); font-size: 1.125rem; margin-top: var(--space-xs);">Davud Farzullayev</p>
       </div>
     </div>
   </div>
@@ -200,7 +216,7 @@
   <div class="container">
     <h2>Media Contact</h2>
     <div class="contact__wrapper">
-      <a href="mailto:lab@dissensus.ai" class="email">lab@dissensus.ai</a>
+      <a href="mailto:research@dissensus.ai" class="email">research@dissensus.ai</a>
       <span class="contact__status">Include "Press" in subject</span>
     </div>
   </div>
@@ -208,21 +224,35 @@
 
 <footer>
   <div class="container">
-    <p>&copy; 2026 dissensus<sup>AI</sup></p>
-    <p class="coordinates">
-      <a href="index.html">Home</a> · 
-      <a href="manifesto.html">Manifesto</a> · 
-      <a href="charter.html">Charter</a>
-    </p>
+    <div>
+      <p>&copy; 2026 Dissensus AI Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
+      <p class="footer__company">Incorporation pending &middot; England & Wales</p>
+    </div>
+    <div>
+      <div class="footer-links">
+        <a href="index.html">Research</a> &middot;
+        <a href="services.html">Services</a> &middot;
+        <a href="about.html">About</a> &middot;
+        <a href="collaborate.html">Collaborate</a> &middot;
+        <a href="manifesto.html">Manifesto</a> &middot;
+        <a href="charter.html">Charter</a> &middot;
+        <a href="reading.html">Reading</a> &middot;
+        <a href="press.html">Press</a> &middot;
+        <a href="subscribe.html">Subscribe</a> &middot;
+        <a href="privacy.html">Privacy</a> &middot;
+        <a href="terms.html">Terms</a> &middot;
+        <a href="feed.xml" title="RSS Feed">RSS</a>
+      </div>
+    </div>
   </div>
 </footer>
 
 <script>
 const texts = {
-  short: `Dissensus is a governance alignment research lab focused on adversarial systems—complex agent networks where equilibria are structurally impossible. We formalize friction dynamics across political economy, AI alignment, and financial microstructure, developing substrate-independent frameworks for measuring coordination overhead.`,
-  long: `Dissensus is a governance alignment research lab investigating adversarial systems—any sufficiently complex dynamic network of agents where equilibria are impossible to reach due to formalized friction constraints. These systems function through friction reduction rather than friction elimination, making them structurally adversarial yet persistently functional.
+  short: `Dissensus AI is a UK-based governance alignment research lab. Through its Adversarial Systems & Complexity Research Initiative (ASCRI), it investigates complex agent networks where equilibria are structurally impossible. We formalise friction dynamics across political economy, AI alignment, and financial microstructure, developing substrate-independent frameworks for measuring coordination overhead.`,
+  long: `Dissensus AI is a UK-based governance alignment research lab. Its principal research programme, the Adversarial Systems & Complexity Research Initiative (ASCRI), investigates any sufficiently complex dynamic network of agents where equilibria are impossible to reach due to formalised friction constraints. These systems function through friction reduction rather than friction elimination, making them structurally adversarial yet persistently functional.
 
-Founded in 2026, the lab develops formal frameworks including the Axiom of Consent (a pre-game-theoretic framework for delegation analysis) and the Replicator-Optimization Mechanism (computational unity across biological and abstract substrates). Research spans consent mechanics, machine morality, economic microstructure, and political legitimacy quantification. All outputs are published open-access under CC-BY 4.0 licensing.`,
+Founded in 2026, the lab develops formal frameworks including the Axiom of Consent (a pre-game-theoretic framework for delegation analysis) and the Replicator-Optimization Mechanism (computational unity across biological and abstract substrates). Research spans consent mechanics, machine morality, economic microstructure, and political legitimacy quantification. All non-proprietary outputs are published open-access under CC-BY 4.0 licensing.`,
   oneliner: `Dissensus formalizes the mechanics of friction in multi-agent systems.`
 };
 

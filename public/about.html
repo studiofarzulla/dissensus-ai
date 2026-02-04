@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dissensus Research Lab - Team and mission. Governance alignment research for multi-agent systems.">
+  <meta name="description" content="Dissensus AI - UK-based research lab investigating friction dynamics in multi-agent coordination. Incorporation pending.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="About | Dissensus Research Lab">
+  <meta property="og:title" content="About | Dissensus AI">
   <meta property="og:description" content="Meet the team behind Dissensus - governance alignment research for multi-agent systems.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dissensus.ai/about.html">
@@ -14,11 +14,11 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About | Dissensus Research Lab">
+  <meta name="twitter:title" content="About | Dissensus AI">
   <meta name="twitter:description" content="Meet the team behind Dissensus - governance alignment research for multi-agent systems.">
   <meta name="twitter:image" content="https://dissensus.ai/assets/logo.png">
 
-  <title>About | Dissensus Research Lab</title>
+  <title>About | Dissensus AI</title>
 
   <link rel="stylesheet" href="css/dissensus.css">
 
@@ -27,21 +27,38 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 </head>
-<body>
+<body class="has-nav">
+  <!-- Site Navigation -->
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand">
+        <img src="assets/dissensus-logo-white.svg" alt="" class="site-nav__brand-logo">
+        dissensus<span class="site-nav__brand-ai">AI</span>
+      </a>
+      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-nav__links">
+        <a href="research.html" class="site-nav__link">Research</a>
+        <a href="services.html" class="site-nav__link">Services</a>
+        <a href="about.html" class="site-nav__link site-nav__link--active">About</a>
+        <a href="collaborate.html" class="site-nav__link">Collaborate</a>
+        <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact &rarr;</a>
+      </div>
+    </div>
+  </nav>
+
   <!-- Full-page network visualization -->
   <canvas id="network" class="network-canvas"></canvas>
 
   <!-- Header -->
   <section class="hero" style="min-height: auto; padding: var(--space-xl) 0;">
     <div class="container">
-      <a href="index.html" class="hero__back-link" style="display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--space-lg); text-decoration: none;">
-        <span style="color: var(--accent);">&larr;</span> dissensus.ai
-      </a>
       <span class="hero__label">About</span>
       <h1 style="font-size: clamp(2rem, 5vw, 2.5rem); letter-spacing: 0.05em; margin-bottom: var(--space-md);">The Lab</h1>
       <p class="hero__etymology" style="margin-bottom: 0;">
-        Independent research initiative investigating friction dynamics in multi-agent coordination.
-        Self-funded. Open-source. Seeking institutional partnership.
+        Early-stage research lab investigating friction dynamics in multi-agent coordination.
+        Currently under formulation.
       </p>
     </div>
   </section>
@@ -51,7 +68,7 @@
     <div class="container">
       <h2>Mission</h2>
       <p>
-        Dissensus is not a company. It's a research program investigating what happens
+        Dissensus is a research-focused company investigating what happens
         <em>before</em> strategic interaction&mdash;before the game starts, before payoffs are assigned,
         before anyone agrees to play.
       </p>
@@ -73,12 +90,12 @@
     <div class="container">
       <h2>Approach</h2>
       <div class="framework-intro">
-        <p>Most research silos. We cross-pollinate.</p>
+        <p>The research programme is interdisciplinary by design rather than default.</p>
         <blockquote>
-          Finance teaches that risk is information about future states.
-          Philosophy teaches that consent is information about legitimate states.
-          AI alignment teaches that preferences are information about valued states.
-          We're building tools to measure all three.
+          Finance treats risk as information about future states.
+          Philosophy treats consent as information about legitimate states.
+          AI alignment treats preferences as information about valued states.
+          We are developing methodologies to formalise and measure all three.
         </blockquote>
       </div>
       <div class="infra-grid" style="margin-top: var(--space-lg);">
@@ -93,13 +110,13 @@
           <h3>Empirical Validation</h3>
           <p>
             Market microstructure studies, agent-based simulations, event studies.
-            If a framework can't survive contact with data, it's not ready.
+            Frameworks that cannot survive empirical contact are revised or discarded.
           </p>
         </div>
         <div class="infra-item">
           <h3>Open Infrastructure</h3>
           <p>
-            Self-hosted compute. Reproducible workflows. All code and methodologies
+            Private compute cluster. Reproducible workflows. Non-proprietary code and methodologies
             published under CC-BY-4.0. Reproducibility is not optional.
           </p>
         </div>
@@ -112,27 +129,45 @@
     <div class="container">
       <h2>Team</h2>
 
+      <!-- Davud Farzullayev -->
+      <div class="founder" style="margin-bottom: var(--space-2xl);">
+        <div class="founder__avatar" style="display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 1.5rem; color: var(--accent-dim);">DF</div>
+        <div class="founder__info">
+          <span class="founder__role">Director &middot; Management Oversight Committee</span>
+          <h3 class="founder__name">Davud Farzullayev</h3>
+          <p class="founder__bio">
+            Director responsible for operations, strategy, and commercial direction.
+            Chair of the Management Oversight Committee.
+          </p>
+          <div class="founder__links">
+            <a href="mailto:director@dissensus.ai">director@dissensus.ai</a>
+          </div>
+        </div>
+      </div>
+
       <!-- Murad Farzulla -->
       <div class="founder" style="margin-bottom: var(--space-2xl);">
-        <img src="assets/headshot-dark.png" alt="Murad Farzulla" class="founder__avatar founder__avatar--img">
+        <div class="founder__avatar" style="display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 1.5rem; color: var(--accent-dim);">MF</div>
         <div class="founder__info">
-          <span class="founder__role">Lead Investigator</span>
+          <span class="founder__role">Research Fellow</span>
           <h3 class="founder__name">Murad Farzulla</h3>
-          <p class="founder__motto">"We are more beholden to custom than reason; it is thus reason's task to interrogate custom."</p>
+          <p class="founder__motto">"We are more beholden to custom than reason; it is thus reason&rsquo;s task to interrogate custom."</p>
           <p class="founder__bio">
-            Independent researcher developing formal frameworks for friction dynamics in complex adaptive systems.
-            Creator of the Axiom of Consent framework and the Replicator-Optimization Mechanism.
-            Background in finance analytics (MSc King's College London, BSc SOAS).
+            Recent MSc Finance Analytics graduate (King&rsquo;s College London) and BSc Accounting &amp; Finance (SOAS, First Class).
+            Research interests span computational finance, political philosophy, and AI alignment, unified under
+            the Adversarial Systems &amp; Complexity Research Initiative
+            (<a href="https://systems.ac" target="_blank" rel="noopener" style="color: var(--accent);">ASCRI</a>)&mdash;the formal study of friction dynamics in
+            multi-agent coordination.
           </p>
           <p class="founder__bio" style="margin-top: var(--space-sm);">
-            Research spans computational finance, political economy, philosophy of mind, and AI alignment&mdash;unified
-            by the study of how coordination produces measurable overhead in adversarial environments.
-            20+ publications across Zenodo, SSRN, and arXiv. Multiple papers under peer review at Springer journals.
+            Currently seeking a PhD placement and research fellowship to develop these frameworks further.
+            Author of 20+ working papers across Zenodo, SSRN, and arXiv, with manuscripts under peer review
+            at Springer journals. Principal developer of the Axiom of Consent and Replicator-Optimization Mechanism
+            frameworks around which Dissensus is organised.
           </p>
           <div class="founder__links">
             <a href="https://farzulla.org" target="_blank" rel="noopener">Research</a>
             <a href="https://resurrexi.io" target="_blank" rel="noopener">Lab</a>
-            <a href="https://resurrexi.dev" target="_blank" rel="noopener">Docs</a>
             <a href="https://github.com/studiofarzulla" target="_blank" rel="noopener">GitHub</a>
             <a href="https://orcid.org/0009-0002-7164-8704" target="_blank" rel="noopener">ORCID</a>
           </div>
@@ -143,16 +178,11 @@
       <div class="founder">
         <div class="founder__avatar" style="display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 1.5rem; color: var(--accent-dim);">AM</div>
         <div class="founder__info">
-          <span class="founder__role">Research Collaborator</span>
+          <span class="founder__role">Research Assistant</span>
           <h3 class="founder__name">Andrew Maksakov</h3>
           <p class="founder__bio">
-            Technical engineer specializing in distributed systems, GPU compute infrastructure, and inference optimization.
+            Responsible for distributed systems, GPU compute infrastructure, and simulation pipelines.
             Co-author on the ASRI framework (Aggregated Systemic Risk Index) for measuring DeFi-TradFi interconnection risk.
-          </p>
-          <p class="founder__bio" style="margin-top: var(--space-sm);">
-            Builds the infrastructure that makes high-throughput simulation and agent-based modeling possible.
-            Background in hardware engineering and systems architecture. Childhood friend and long-time collaborator
-            on technical research projects.
           </p>
           <div class="founder__links">
             <a href="https://resurrexi.io" target="_blank" rel="noopener">Infrastructure</a>
@@ -163,46 +193,71 @@
     </div>
   </section>
 
+  <!-- Affiliates -->
+  <section class="foundation" data-index="04" style="padding-top: 0;">
+    <div class="container">
+      <h2>Affiliates</h2>
+      <p style="margin-bottom: var(--space-lg);">
+        Independent researchers and colleagues with whom we maintain ongoing intellectual exchange. No formal employment or contractual relationship.
+      </p>
+
+      <div class="infra-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="infra-item">
+          <h3>Charles Mitteregger, MSc</h3>
+          <p>
+            MSc Finance Analytics, King&rsquo;s College London. Collaborates on quantitative methodology and market microstructure research.
+          </p>
+        </div>
+        <div class="infra-item">
+          <h3>Felipe Pachano Azuaje, PhD</h3>
+          <p>
+            Cross-disciplinary collaborator contributing methodological perspectives across the research programme.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Current Status -->
-  <section class="infra" data-index="04">
+  <section class="infra" data-index="05">
     <div class="container">
       <h2>Current Status</h2>
       <div class="program-intro">
         <div class="program-intro__header">
-          <span class="program-intro__label">Operational Mode</span>
-          <h3 class="program-intro__title">Independent Research</h3>
+          <span class="program-intro__label">Stage</span>
+          <h3 class="program-intro__title">Early-Stage Research Lab</h3>
         </div>
         <p class="program-intro__definition">
-          Dissensus operates as a self-funded independent research initiative. All infrastructure is self-hosted.
-          All outputs are open-access. We are actively seeking PhD placement or institutional partnership to
-          scale the research program while maintaining intellectual independence.
+          Dissensus AI is a UK-based research initiative preparing to incorporate as a private limited company.
+          We are developing research infrastructure, publishing working papers, and seeking institutional
+          partnerships for doctoral-level research.
         </p>
         <span class="program-intro__status">
           <span class="status-dot"></span>
-          Accepting Collaborations
+          Under Formulation
         </span>
       </div>
 
       <div class="infra-grid" style="margin-top: var(--space-lg);">
         <div class="infra-item">
-          <h3>What We Offer</h3>
+          <h3>What We&rsquo;re Building</h3>
           <p>
-            Novel theoretical frameworks, empirical methodologies, and cross-disciplinary synthesis.
-            A willingness to attack hard problems others avoid.
+            Formal frameworks for friction dynamics, empirical methodologies for cross-domain validation,
+            and the infrastructure to run it all independently.
           </p>
         </div>
         <div class="infra-item">
-          <h3>What We Seek</h3>
+          <h3>What We&rsquo;re Looking For</h3>
           <p>
-            Academic supervision, institutional affiliation, compute resources, and collaborators
-            who want to break things and find edge cases.
+            PhD supervision, research fellowships, and collaborators interested in stress-testing
+            formal frameworks against empirical evidence.
           </p>
         </div>
         <div class="infra-item">
-          <h3>How to Engage</h3>
+          <h3>Get Involved</h3>
           <p>
-            Reach out via <a href="mailto:lab@dissensus.ai">lab@dissensus.ai</a> or submit a formal
-            <a href="collaborate.html">collaboration proposal</a>.
+            Enquiries may be directed to <a href="mailto:research@dissensus.ai">research@dissensus.ai</a> or via the
+            <a href="collaborate.html">collaboration proposal</a> form.
           </p>
         </div>
       </div>
@@ -210,12 +265,12 @@
   </section>
 
   <!-- Contact -->
-  <section class="contact" data-index="05">
+  <section class="contact" data-index="06">
     <div class="container">
       <h2>Signal</h2>
       <div class="contact__wrapper">
-        <a href="mailto:lab@dissensus.ai" class="email">lab@dissensus.ai</a>
-        <span class="contact__status">Accepting collaborations</span>
+        <a href="mailto:research@dissensus.ai" class="email">research@dissensus.ai</a>
+        <span class="contact__status">Open to collaboration</span>
       </div>
     </div>
   </section>
@@ -223,17 +278,26 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 dissensus<sup>AI</sup> <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
-      <p class="coordinates">
-        <a href="index.html">Home</a> &middot;
-        <a href="manifesto.html">Manifesto</a> &middot;
-        <a href="charter.html">Charter</a> &middot;
-        <a href="collaborate.html">Collaborate</a> &middot;
-        <a href="reading.html">Reading</a> &middot;
-        <a href="press.html">Press</a> &middot;
-        <a href="subscribe.html">Subscribe</a> &middot;
-        <a href="feed.xml" title="RSS Feed">RSS</a>
-      </p>
+      <div>
+        <p>&copy; 2026 Dissensus AI Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
+        <p class="footer__company">Incorporation pending &middot; England & Wales</p>
+      </div>
+      <div>
+        <div class="footer-links">
+          <a href="index.html">Research</a> &middot;
+          <a href="services.html">Services</a> &middot;
+          <a href="about.html">About</a> &middot;
+          <a href="collaborate.html">Collaborate</a> &middot;
+          <a href="manifesto.html">Manifesto</a> &middot;
+          <a href="charter.html">Charter</a> &middot;
+          <a href="reading.html">Reading</a> &middot;
+          <a href="press.html">Press</a> &middot;
+          <a href="subscribe.html">Subscribe</a> &middot;
+          <a href="privacy.html">Privacy</a> &middot;
+          <a href="terms.html">Terms</a> &middot;
+          <a href="feed.xml" title="RSS Feed">RSS</a>
+        </div>
+      </div>
     </div>
   </footer>
 

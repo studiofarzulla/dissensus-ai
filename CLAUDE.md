@@ -5,7 +5,8 @@ Instructions for Claude Code when working in this repository.
 ## Project Overview
 
 **Site:** dissensus.ai
-**Purpose:** Governance alignment research lab - the formal academic research arm focused on the Axiom of Consent framework.
+**Entity:** Dissensus AI (incorporation pending, England & Wales)
+**Purpose:** UK-based governance alignment research lab. Early-stage, currently under formulation. Home of the Adversarial Systems & Complexity Research Initiative (ASCRI, systems.ac). Focused on the Axiom of Consent framework and friction dynamics formalisation.
 
 **Architecture:** Static HTML/CSS site hosted on Cloudflare Pages. Auto-deploys from GitHub on push. No backend, no build step.
 
@@ -24,12 +25,16 @@ dissensus-ai/
 ├── public/              # Deployed to Cloudflare Pages (auto-deploy on git push)
 │   ├── index.html       # Homepage - research overview, team summary, roadmap
 │   ├── about.html       # Team & lab page - full bios, mission, approach
+│   ├── services.html    # Services & capabilities - commercial engagement paths
 │   ├── manifesto.html   # Research manifesto
-│   ├── charter.html     # Lab charter
+│   ├── charter.html     # Lab charter (UK Ltd governance)
 │   ├── collaborate.html # Collaboration proposals
 │   ├── reading.html     # Reading list
-│   ├── press.html       # Press/media
+│   ├── press.html       # Press/media kit
 │   ├── subscribe.html   # Newsletter signup
+│   ├── privacy.html     # Privacy policy (UK GDPR compliant)
+│   ├── terms.html       # Terms of use
+│   ├── 404.html         # Error page
 │   ├── css/
 │   │   └── dissensus.css
 │   ├── assets/          # Images, logos
@@ -41,8 +46,14 @@ dissensus-ai/
 
 ## Team
 
-- **Murad Farzulla** - Lead Investigator (ORCID: 0009-0002-7164-8704)
-- **Andrew Maksakov** - Research Collaborator (andrew@resurrexi.io)
+- **Davud Farzullayev** - Director
+- **Murad Farzulla** - Research Fellow (ORCID: 0009-0002-7164-8704)
+- **Andrew Maksakov** - Research Assistant (andrew@resurrexi.io)
+
+## Affiliates
+
+- **Charles Mitteregger, MSc** - KCL Finance Analytics cohort
+- **Felipe Pachano Azuaje, PhD** - Cross-disciplinary collaborator
 
 ## Design System
 
@@ -58,12 +69,21 @@ dissensus-ai/
 - Monospace throughout (research lab vibe)
 - Equation blocks with distinctive styling
 
-## Key Content Sections
+## Navigation
 
-1. **Hero** - Title + satirically verbose academic tagline + simple translation
+```
+[Logo] dissensusAI     Research | Services | About | Collaborate | [Contact →]
+```
+
+Footer: Research · Services · About · Collaborate · Manifesto · Charter · Reading · Press · Subscribe · Privacy · Terms · RSS
+
+## Key Content Sections (Homepage)
+
+1. **Hero** - Title + satirically verbose academic tagline + simple translation + network viz
 2. **The Problem** - Why game theory isn't enough, friction equation
 3. **Current Work** - Four research areas (market microstructure, computational methods, formal framework, applied domains)
-4. **About** - Lab context, PhD discussions, contact
+4. **Team** - Director & Head of Engineering
+5. **Roadmap** - Research timeline and open needs
 
 ## Development
 
@@ -89,7 +109,7 @@ git push origin master
 - Technical infrastructure: resurrexi.io
 - Technical docs: resurrexi.dev
 - Personal: farzulla.com
-- Contact: lab@dissensus.ai
+- Contact: research@dissensus.ai
 - GitHub: studiofarzulla/dissensus-ai
 
 ## Content Guidelines
@@ -107,4 +127,4 @@ git push origin master
 
 ---
 
-**Last Updated:** January 2026
+**Last Updated:** February 2026
