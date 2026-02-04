@@ -1,2 +1,0 @@
-# Subdomain routing for ASRI dashboard
-https://asri.dissensus.ai/* /asri/:splat 200
