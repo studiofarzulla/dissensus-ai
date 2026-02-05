@@ -112,7 +112,7 @@ function generatePaperPage(paper) {
   const year = new Date(paper.date).getFullYear();
   const doi = paper.doi || paper.zenodo || '';
   const doiUrl = doi ? (doi.startsWith('10.') ? `https://doi.org/${doi}` : doi) : '';
-  const pdfUrl = paper.pdf ? `https://dissensus.ai/papers/${paper.pdf}` : '';
+  const pdfUrl = paper.pdf ? `https://farzulla.org/papers/${paper.pdf}` : '';
   const tags = paper.tags.map(t => tagLabels[t] || t).join(', ');
   const programLabel = programs[paper.program] ? programs[paper.program].title : '';
 
