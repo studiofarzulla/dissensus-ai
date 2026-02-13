@@ -81,7 +81,7 @@
         </div>
         <div class="hero__meta-item">
           <span class="hero__meta-label">Publications</span>
-          <span class="hero__meta-value">20+ Papers</span>
+          <span class="hero__meta-value">25+ Papers</span>
         </div>
         <div class="hero__meta-item">
           <span class="hero__meta-label">Status</span>
@@ -302,7 +302,7 @@
   </section>
 
   <!-- Infrastructure -->
-  <section class="infra" data-index="06">
+  <section class="infra" data-index="07">
     <div class="container">
       <h2>Infrastructure</h2>
       <div class="infra-grid">
@@ -726,16 +726,33 @@
       // Initialize
       resize();
       createNodes();
-      animate();
 
-      window.addEventListener('resize', () => { resize(); createNodes(); });
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      document.addEventListener('mousemove', handleMouseMove);
+      // Respect prefers-reduced-motion: render one static frame instead of animating
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) cancelAnimationFrame(animationId);
-        else animate();
-      });
+      if (prefersReducedMotion.matches) {
+        draw(0);
+      } else {
+        animate();
+
+        window.addEventListener('resize', () => { resize(); createNodes(); });
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        document.addEventListener('mousemove', handleMouseMove);
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) cancelAnimationFrame(animationId);
+          else animate();
+        });
+
+        // Listen for changes to the preference
+        prefersReducedMotion.addEventListener('change', (e) => {
+          if (e.matches) {
+            cancelAnimationFrame(animationId);
+          } else {
+            animate();
+          }
+        });
+      }
     })();
   </script>
 

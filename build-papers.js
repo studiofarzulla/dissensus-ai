@@ -64,14 +64,15 @@ function getNavHtml(activeLink) {
   <nav class="site-nav">
     <div class="site-nav__inner">
       <a href="../index.html" class="site-nav__brand">
-        <img src="../assets/dissensus-logo-white.svg" alt="" class="site-nav__brand-logo">
-        dissensus<span class="site-nav__brand-ai">AI</span>
+        <img src="../assets/dissensus-mark.svg" alt="" class="site-nav__brand-logo">
+        dissensus<span class="site-nav__brand-ai">ai</span>
       </a>
       <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
       <div class="site-nav__links">
-        <a href="../index.html" class="site-nav__link${activeLink === 'research' ? ' site-nav__link--active' : ''}">Research</a>
+        <a href="../index.html" class="site-nav__link">Home</a>
+        <a href="../research.html" class="site-nav__link${activeLink === 'research' ? ' site-nav__link--active' : ''}">Research</a>
         <a href="../services.html" class="site-nav__link">Services</a>
         <a href="../about.html" class="site-nav__link">About</a>
         <a href="../collaborate.html" class="site-nav__link">Collaborate</a>
@@ -90,11 +91,15 @@ function getFooterHtml() {
       </div>
       <div>
         <div class="footer-links">
-          <a href="../index.html">Research</a> &middot;
+          <a href="../index.html">Home</a> &middot;
+          <a href="../research.html">Research</a> &middot;
           <a href="../services.html">Services</a> &middot;
           <a href="../about.html">About</a> &middot;
           <a href="../collaborate.html">Collaborate</a> &middot;
           <a href="../manifesto.html">Manifesto</a> &middot;
+          <a href="../charter.html">Charter</a> &middot;
+          <a href="../reading.html">Reading</a> &middot;
+          <a href="../press.html">Press</a> &middot;
           <a href="../subscribe.html">Subscribe</a> &middot;
           <a href="../privacy.html">Privacy</a> &middot;
           <a href="../terms.html">Terms</a> &middot;
@@ -236,7 +241,7 @@ ${getNavHtml('research')}
 
   <main class="paper-detail">
     <div class="container">
-      <a href="../index.html#publications" class="paper-detail__back">&larr; Back to publications</a>
+      <a href="../research.html" class="paper-detail__back">&larr; Back to publications</a>
 
       <header class="paper-detail__header">
         <div class="paper-detail__meta">
