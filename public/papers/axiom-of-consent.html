@@ -14,7 +14,7 @@
     <meta name="citation_author" content="Murad Farzulla">
   <meta name="citation_publication_date" content="2026/01/01">
   <meta name="citation_pdf_url" content="https://farzulla.org/papers/Farzulla_2026_Axiom_of_Consent.pdf">
-  
+  <meta name="citation_doi" content="10.48550/arXiv.2601.06692">
 
     <meta name="citation_technical_report_number" content="DAI-2601" />
   <meta name="citation_publisher" content="Dissensus AI">
@@ -31,7 +31,7 @@
   <meta name="DC.type" content="Text">
   <meta name="DC.format" content="text/html">
   <meta name="DC.language" content="en">
-  
+  <meta name="DC.identifier" content="doi:10.48550/arXiv.2601.06692">
   <meta name="DC.rights" content="CC BY 4.0">
 
   <!-- Schema.org ScholarlyArticle -->
@@ -64,7 +64,7 @@
       "url": "https://dissensus.ai"
     },
     "description": "Multi-agent systems face a fundamental coordination problem: agents must coordinate despite heterogeneous preferences, asymmetric stakes, and imperfect information. When coordination fails, friction emerges—measurable resistance manifesting as deadlock, thrashing, communication overhead, or outright conflict. This paper derives a formal framework for analyzing coordination friction from a single axiom: actions affecting agents require authorization from those agents in proportion to stakes. From this axiom of consent, we establish the kernel triple (α, σ, ε)—alignment, stake, and entropy—characterizing any resource allocation configuration. The friction equation F = σ·(1+ε)/(1+α) predicts coordination difficulty. The Replicator-Optimization Mechanism (ROM) governs evolutionary selection over coordination strategies: configurations generating less friction persist longer, establishing consent-respecting arrangements as dynamical attractors rather than normative ideals.",
-    
+    "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": "10.48550/arXiv.2601.06692"},
     "url": "https://dissensus.ai/papers/axiom-of-consent.html",
     "inLanguage": "en"
   }
@@ -132,7 +132,7 @@
 
       <div class="paper-detail__actions">
         <a href="Farzulla_2026_Axiom_of_Consent.pdf" class="paper-detail__action" download>Download PDF</a>
-        
+        <a href="https://doi.org/10.48550/arXiv.2601.06692" class="paper-detail__action" target="_blank" rel="noopener">DOI</a>
         
         
       </div>
@@ -145,7 +145,7 @@
       <section class="paper-detail__citation">
         <h2>Suggested Citation</h2>
         <div class="paper-detail__citation-block">
-          Murad Farzulla (2026). <em>The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination</em>. Dissensus AI Working Paper DAI-2601. 
+          Murad Farzulla (2026). <em>The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination</em>. Dissensus AI Working Paper DAI-2601. DOI: 10.48550/arXiv.2601.06692
         </div>
         <button class="paper-detail__bibtex-btn" onclick="copyBibTeX(this)">
           <span>&#x27E8;/&#x27E9;</span> Copy BibTeX
@@ -187,7 +187,7 @@
 
   <script>
     function copyBibTeX(btn) {
-      var bibtex = "@misc{farzulla2026axiomofconsent,\n  author = {Farzulla, Murad},\n  title = {The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination},\n  year = {2026},\n  howpublished = {Dissensus AI Working Paper DAI-2601},\n  url = {https://dissensus.ai/papers/axiom-of-consent.html}\n}";
+      var bibtex = "@misc{farzulla2026axiomofconsent,\n  author = {Farzulla, Murad},\n  title = {The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination},\n  year = {2026},\n  howpublished = {Dissensus AI Working Paper DAI-2601},\n  doi = {10.48550/arXiv.2601.06692},\n  url = {https://dissensus.ai/papers/axiom-of-consent.html}\n}";
       navigator.clipboard.writeText(bibtex).then(function() {
         var original = btn.innerHTML;
         btn.innerHTML = '<span>\u2713</span> Copied!';

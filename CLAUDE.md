@@ -52,7 +52,6 @@ dissensus-ai/
 
 ## Affiliates
 
-- **Charles Mitteregger, MSc** - KCL Finance Analytics cohort
 - **Felipe Pachano Azuaje, PhD** - Cross-disciplinary collaborator
 
 ## Design System
