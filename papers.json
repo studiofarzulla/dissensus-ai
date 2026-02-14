@@ -193,10 +193,10 @@
     },
     {
       "id": "sentiment-without-structure",
-      "title": "Sentiment Without Structure",
-      "subtitle": "Differential Liquidity Response to Infrastructure vs Regulatory Events in Cryptocurrency Markets",
+      "title": "Same Returns, Different Risks",
+      "subtitle": "How Cryptocurrency Markets Process Infrastructure vs Regulatory Shocks",
       "date": "2025-12-01",
-      "status": "with-editor",
+      "status": "transferring",
       "journal": "Digital Finance",
       "tags": [
         "finance",
@@ -260,7 +260,7 @@
       "zenodo": "10.5281/zenodo.17918239",
       "pdf": "Farzulla_Maksakov_2025_ASRI.pdf",
       "github": null,
-      "dashboard": "https://dissensus.ai/asri/",
+      "dashboard": "https://asri.dissensus.ai/",
       "wpNumber": "DAI-2509",
       "program": "crypto-microstructure",
       "category": "market-microstructure"
