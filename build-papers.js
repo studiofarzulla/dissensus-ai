@@ -257,6 +257,7 @@ ${getNavHtml('research')}
       <div class="paper-detail__actions">
         ${paper.pdf ? `<a href="${paper.pdf}" class="paper-detail__action" download>Download PDF</a>` : ''}
         ${doiUrl ? `<a href="${doiUrl}" class="paper-detail__action" target="_blank" rel="noopener">DOI</a>` : ''}
+        ${paper.arxiv ? `<a href="https://arxiv.org/abs/${paper.arxiv}" class="paper-detail__action" target="_blank" rel="noopener">arXiv: ${paper.arxiv}</a>` : ''}
         ${paper.github ? `<a href="${paper.github}" class="paper-detail__action--secondary paper-detail__action" target="_blank" rel="noopener">GitHub</a>` : ''}
         ${paper.dashboard ? `<a href="${paper.dashboard}" class="paper-detail__action--secondary paper-detail__action" target="_blank" rel="noopener">Dashboard</a>` : ''}
       </div>
@@ -275,6 +276,13 @@ ${getNavHtml('research')}
           <span>&#x27E8;/&#x27E9;</span> Copy BibTeX
         </button>
       </section>
+
+      ${paper.methods && paper.methods.length > 0 ? `<section class="paper-detail__methods">
+        <h2>Methodology</h2>
+        <div class="paper-detail__tag-list">
+          ${paper.methods.map(m => `<span class="paper-detail__tag">${m}</span>`).join('\n          ')}
+        </div>
+      </section>` : ''}
 
       <section class="paper-detail__tags">
         <h2>Topics</h2>

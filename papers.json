@@ -22,7 +22,14 @@
       "dashboard": null,
       "wpNumber": "DAI-2601",
       "program": "consent-mechanics",
-      "category": "governance-dynamics"
+      "category": "governance-dynamics",
+      "methods": [
+        "Kernel triple formalism",
+        "ROM dynamics",
+        "MARL",
+        "Monte Carlo validation"
+      ],
+      "arxiv": "2601.06692"
     },
     {
       "id": "stakes-without-voice",
@@ -46,7 +53,12 @@
       "dashboard": null,
       "wpNumber": "DAI-2602",
       "program": "consent-mechanics",
-      "category": "governance-dynamics"
+      "category": "governance-dynamics",
+      "methods": [
+        "Consent-friction formalism",
+        "ROM framework",
+        "Graduated governance"
+      ]
     },
     {
       "id": "trident",
@@ -69,7 +81,12 @@
       "dashboard": null,
       "wpNumber": "DP-2601",
       "program": "process-philosophy",
-      "category": "process-philosophy"
+      "category": "process-philosophy",
+      "methods": [
+        "Socratic elenchus",
+        "Wittgensteinian therapy",
+        "Argumentation theory"
+      ]
     },
     {
       "id": "consciousness-nominalization",
@@ -91,15 +108,19 @@
       "dashboard": null,
       "wpNumber": "DP-2602",
       "program": "computational-cognition",
-      "category": "computational-cognition"
+      "category": "computational-cognition",
+      "methods": [
+        "Wittgensteinian therapy",
+        "Ryle category-error",
+        "Eliminativism"
+      ]
     },
     {
       "id": "replicator-optimization-mechanism",
       "title": "The Replicator-Optimization Mechanism",
       "subtitle": "Computational Unity Across Physical and Abstract Substrates",
       "date": "2025-12-01",
-      "status": "peer-review",
-      "journal": "Synthese",
+      "status": "preprint",
       "tags": [
         "philosophy",
         "computation"
@@ -110,12 +131,19 @@
       "abstract": "This paper proposes the Replicator-Optimization Mechanism (ROM), a unified computational framework for understanding self-replicating, optimization-executing systems across physical and abstract substrates. The framework identifies formal invariants shared by biological replicators, computational optimization algorithms, and abstract mathematical structures, arguing that replication and optimization are computationally equivalent processes operating at different levels of description.",
       "doi": "10.48550/arXiv.2601.06363",
       "zenodo": "10.5281/zenodo.18090979",
+      "arxiv": "2601.06363",
       "pdf": "Farzulla_2026_ROM_Replicator_Optimization_Mechanism.pdf",
       "github": null,
       "dashboard": null,
       "wpNumber": "DAI-2503",
       "program": "process-philosophy",
-      "category": "process-philosophy"
+      "category": "process-philosophy",
+      "methods": [
+        "Computational theory",
+        "Category theory",
+        "Universal Darwinism",
+        "Optimization theory"
+      ]
     },
     {
       "id": "consent-to-consideration",
@@ -140,7 +168,12 @@
       "dashboard": null,
       "wpNumber": "DAI-2504",
       "program": "consent-mechanics",
-      "category": "governance-dynamics"
+      "category": "governance-dynamics",
+      "methods": [
+        "Consent theory",
+        "Substrate independence",
+        "Political philosophy"
+      ]
     },
     {
       "id": "consensual-sovereignty",
@@ -164,7 +197,12 @@
       "dashboard": null,
       "wpNumber": "DAI-2501",
       "program": "consent-mechanics",
-      "category": "governance-dynamics"
+      "category": "governance-dynamics",
+      "methods": [
+        "Monte Carlo simulation",
+        "Bayesian learning",
+        "Multi-agent systems"
+      ]
     },
     {
       "id": "market-reaction-asymmetry",
@@ -189,7 +227,13 @@
       "dashboard": null,
       "wpNumber": "DAI-2506",
       "program": "crypto-microstructure",
-      "category": "market-microstructure"
+      "category": "market-microstructure",
+      "methods": [
+        "TARCH-X",
+        "GDELT",
+        "Bayesian inference",
+        "Bootstrap resampling"
+      ]
     },
     {
       "id": "sentiment-without-structure",
@@ -213,7 +257,13 @@
       "dashboard": null,
       "wpNumber": "DAI-2507",
       "program": "crypto-microstructure",
-      "category": "market-microstructure"
+      "category": "market-microstructure",
+      "methods": [
+        "Amihud illiquidity",
+        "Roll spread",
+        "Corwin-Schultz spread",
+        "Event study"
+      ]
     },
     {
       "id": "whitepaper-factor-analysis",
@@ -238,7 +288,12 @@
       "dashboard": null,
       "wpNumber": "DAI-2508",
       "program": "crypto-microstructure",
-      "category": "market-microstructure"
+      "category": "market-microstructure",
+      "methods": [
+        "NLP zero-shot classification",
+        "CP tensor decomposition",
+        "Tucker congruence"
+      ]
     },
     {
       "id": "asri",
@@ -263,7 +318,11 @@
       "dashboard": "https://asri.dissensus.ai/",
       "wpNumber": "DAI-2509",
       "program": "crypto-microstructure",
-      "category": "market-microstructure"
+      "category": "market-microstructure",
+      "methods": [
+        "Composite index construction",
+        "DeFi-TradFi risk modeling"
+      ]
     },
     {
       "id": "alpha-asymmetry-fx",
@@ -286,14 +345,20 @@
       "dashboard": null,
       "wpNumber": "DAI-2605",
       "program": "economic-pharmakon",
-      "category": "market-microstructure"
+      "category": "market-microstructure",
+      "methods": [
+        "Skewness analysis",
+        "Backtesting",
+        "Cross-market validation"
+      ]
     },
     {
       "id": "sentiment-abm",
-      "title": "Multi-Scale Sentiment and Market Microstructure: An Agent-Based Framework for Cryptocurrency Markets",
+      "title": "The Extremity Premium: Sentiment Regimes and Adverse Selection in Cryptocurrency Markets",
       "subtitle": null,
       "date": "2025-12-01",
-      "status": "working",
+      "status": "with-editor",
+      "journal": "Computational Economics",
       "tags": [
         "finance",
         "crypto",
@@ -310,31 +375,14 @@
       "dashboard": null,
       "wpNumber": "DAI-2510",
       "program": "crypto-microstructure",
-      "category": "market-microstructure"
-    },
-    {
-      "id": "asymptotic-protection",
-      "title": "Asymptotic Protection: The Simultaneous Remedy and Poison of Risk Management",
-      "subtitle": null,
-      "date": "2025-11-01",
-      "status": "preprint",
-      "tags": [
-        "finance",
-        "derivatives",
-        "political-economy"
-      ],
-      "authors": [
-        "Murad Farzulla"
-      ],
-      "abstract": "Complete hedging is theoretically impossible under incomplete markets (Harrison-Kreps 1979), yet partial hedging extracts systematic rents through necessity taxes. This paper synthesizes theoretical impossibility results with empirical evidence of wealth extraction mechanisms, demonstrating that derivatives markets simultaneously provide protection and transfer wealth from those seeking safety to sophisticated counterparties.",
-      "doi": "10.5281/zenodo.17620448",
-      "zenodo": "10.5281/zenodo.17620448",
-      "pdf": "Farzulla_2025_Asymptotic_Protection.pdf",
-      "github": null,
-      "dashboard": null,
-      "wpNumber": "DAI-2502",
-      "program": "economic-pharmakon",
-      "category": "political-economy"
+      "category": "market-microstructure",
+      "methods": [
+        "Agent-based modeling",
+        "Monte Carlo Dropout",
+        "Mesa ABM",
+        "CryptoBERT",
+        "ASRI integration"
+      ]
     },
     {
       "id": "hedging-paradox",
@@ -357,7 +405,12 @@
       "dashboard": null,
       "wpNumber": "DAI-2604",
       "program": "economic-pharmakon",
-      "category": "political-economy"
+      "category": "political-economy",
+      "methods": [
+        "Regulatory frameworks",
+        "Game theory",
+        "Case study analysis"
+      ]
     },
     {
       "id": "cbdc-privacy",
@@ -381,7 +434,12 @@
       "dashboard": null,
       "wpNumber": "DAI-2511",
       "program": "economic-pharmakon",
-      "category": "political-economy"
+      "category": "political-economy",
+      "methods": [
+        "Zero-knowledge proofs",
+        "Mechanism design",
+        "Privacy-preserving computation"
+      ]
     },
     {
       "id": "trauma-training-data",
@@ -406,7 +464,12 @@
       "dashboard": null,
       "wpNumber": "DP-2501",
       "program": "computational-cognition",
-      "category": "computational-cognition"
+      "category": "computational-cognition",
+      "methods": [
+        "PyTorch simulation",
+        "Gradient analysis",
+        "Catastrophic forgetting"
+      ]
     },
     {
       "id": "substrate-independent-friendship",
@@ -430,7 +493,12 @@
       "dashboard": null,
       "wpNumber": "DP-2502",
       "program": "machine-morality",
-      "category": "process-philosophy"
+      "category": "process-philosophy",
+      "methods": [
+        "Functional analysis",
+        "Predictive processing",
+        "Philosophy of mind"
+      ]
     },
     {
       "id": "consciousness-monograph",
@@ -452,7 +520,13 @@
       "dashboard": null,
       "wpNumber": "DAI-2512",
       "program": "process-philosophy",
-      "category": "process-philosophy"
+      "category": "process-philosophy",
+      "methods": [
+        "Eliminative materialism",
+        "Illusionism",
+        "Gödel self-reference",
+        "Network epistemology"
+      ]
     },
     {
       "id": "identity-thesis",
@@ -476,7 +550,12 @@
       "dashboard": null,
       "wpNumber": "DAI-2603",
       "program": "process-philosophy",
-      "category": "process-philosophy"
+      "category": "process-philosophy",
+      "methods": [
+        "Homotopy Type Theory",
+        "ZFC",
+        "Modal Logic"
+      ]
     },
     {
       "id": "genre-mimicry",
@@ -498,7 +577,12 @@
       "dashboard": null,
       "wpNumber": "DP-2503",
       "program": "computational-cognition",
-      "category": "computational-cognition"
+      "category": "computational-cognition",
+      "methods": [
+        "Safety fine-tuning analysis",
+        "RLHF limitations",
+        "Genre pattern detection"
+      ]
     },
     {
       "id": "autonomous-red-team",
@@ -521,7 +605,13 @@
       "dashboard": null,
       "wpNumber": "DAI-2513",
       "program": "computational-cognition",
-      "category": "computational-cognition"
+      "category": "computational-cognition",
+      "methods": [
+        "RAG systems",
+        "OODA loop",
+        "Kubernetes isolation",
+        "Abliterated models"
+      ]
     },
     {
       "id": "temporal-bitmap-interpretation",
@@ -544,7 +634,13 @@
       "dashboard": null,
       "wpNumber": "DP-2504",
       "program": "process-philosophy",
-      "category": "process-philosophy"
+      "category": "process-philosophy",
+      "methods": [
+        "Block universe eternalism",
+        "Digital physics",
+        "Undersampling theory",
+        "Retrocausality"
+      ]
     },
     {
       "id": "semantic-first-vision",
@@ -567,7 +663,13 @@
       "dashboard": null,
       "wpNumber": "DP-2505",
       "program": "computational-cognition",
-      "category": "computational-cognition"
+      "category": "computational-cognition",
+      "methods": [
+        "Affordance theory",
+        "Ecological psychology",
+        "Phenomenology",
+        "Action-distance metrics"
+      ]
     },
     {
       "id": "preservation-principle",
@@ -591,7 +693,13 @@
       "dashboard": null,
       "wpNumber": "DP-2506",
       "program": "process-philosophy",
-      "category": "process-philosophy"
+      "category": "process-philosophy",
+      "methods": [
+        "Category theory",
+        "Coarse-graining",
+        "Lumpability",
+        "Nyquist theory"
+      ]
     }
   ],
   "tags": {
@@ -625,7 +733,8 @@
     "published": "Published",
     "preprint": "Preprint",
     "upcoming": "Upcoming",
-    "working": "Working Paper"
+    "working": "Working Paper",
+    "transferring": "Transferring"
   },
   "programs": {
     "consent-mechanics": {
