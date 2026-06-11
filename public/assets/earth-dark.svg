@@ -2,8 +2,8 @@
   <defs>
     <!-- Subtle glow for the globe -->
     <radialGradient id="globe-glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#DC143C" stop-opacity="0.03"/>
-      <stop offset="70%" stop-color="#DC143C" stop-opacity="0.01"/>
+      <stop offset="0%" stop-color="#800020" stop-opacity="0.03"/>
+      <stop offset="70%" stop-color="#800020" stop-opacity="0.01"/>
       <stop offset="100%" stop-color="#050505" stop-opacity="0"/>
     </radialGradient>
 
@@ -16,8 +16,8 @@
     <!-- Atmosphere edge -->
     <radialGradient id="atmosphere" cx="50%" cy="50%" r="50%">
       <stop offset="85%" stop-color="transparent"/>
-      <stop offset="95%" stop-color="#DC143C" stop-opacity="0.05"/>
-      <stop offset="100%" stop-color="#DC143C" stop-opacity="0.02"/>
+      <stop offset="95%" stop-color="#800020" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#800020" stop-opacity="0.02"/>
     </radialGradient>
   </defs>
 
@@ -31,7 +31,7 @@
   <circle cx="400" cy="400" r="280" fill="url(#sphere)"/>
 
   <!-- Continent outlines - very subtle -->
-  <g fill="none" stroke="#DC143C" stroke-opacity="0.08" stroke-width="0.8">
+  <g fill="none" stroke="#800020" stroke-opacity="0.08" stroke-width="0.8">
     <!-- North America -->
     <path d="M180,200 Q200,180 230,190 Q260,185 280,200 Q300,215 290,250 Q280,280 260,300 Q240,320 220,310 Q200,300 190,270 Q180,240 180,200"/>
 
@@ -52,7 +52,7 @@
   </g>
 
   <!-- Latitude/longitude grid - extremely subtle -->
-  <g fill="none" stroke="#DC143C" stroke-opacity="0.03" stroke-width="0.3">
+  <g fill="none" stroke="#800020" stroke-opacity="0.03" stroke-width="0.3">
     <ellipse cx="400" cy="400" rx="280" ry="140"/>
     <ellipse cx="400" cy="400" rx="280" ry="70"/>
     <ellipse cx="400" cy="400" rx="140" ry="280"/>
@@ -65,5 +65,5 @@
   <circle cx="400" cy="400" r="280" fill="url(#atmosphere)"/>
 
   <!-- Highlight on sphere edge -->
-  <circle cx="400" cy="400" r="280" fill="none" stroke="#DC143C" stroke-opacity="0.04" stroke-width="2"/>
+  <circle cx="400" cy="400" r="280" fill="none" stroke="#800020" stroke-opacity="0.04" stroke-width="2"/>
 </svg>

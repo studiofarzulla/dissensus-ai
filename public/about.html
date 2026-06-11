@@ -316,9 +316,9 @@
       const ctx = canvas.getContext('2d');
 
       const NODE_TYPES = {
-        AGENT: { color: 'rgba(220, 20, 60, 0.5)', size: 2.5 },
-        FRICTION: { color: 'rgba(180, 24, 48, 0.3)', size: 1.5 },
-        STAKE: { color: 'rgba(255, 64, 96, 0.6)', size: 3.5 }
+        AGENT: { color: 'rgba(192, 64, 85, 0.5)', size: 2.5 },
+        FRICTION: { color: 'rgba(128, 0, 32, 0.3)', size: 1.5 },
+        STAKE: { color: 'rgba(216, 84, 108, 0.6)', size: 3.5 }
       };
 
       const NODE_COUNT = 80;
@@ -403,11 +403,11 @@
 
               if (nearMouse) {
                 ctx.strokeStyle = isStakeConnection
-                  ? `rgba(255, 64, 96, ${opacity * 0.5})`
-                  : `rgba(220, 20, 60, ${opacity * 0.35})`;
+                  ? `rgba(216, 84, 108, ${opacity * 0.5})`
+                  : `rgba(192, 64, 85, ${opacity * 0.35})`;
                 ctx.lineWidth = isStakeConnection ? 1.5 : 1;
               } else {
-                ctx.strokeStyle = `rgba(220, 20, 60, ${opacity * 0.06})`;
+                ctx.strokeStyle = `rgba(192, 64, 85, ${opacity * 0.06})`;
                 ctx.lineWidth = 0.5;
               }
               ctx.stroke();
@@ -431,8 +431,8 @@
             ctx.beginPath();
             ctx.arc(node.x, node.y, node.size * scale * 2.5, 0, Math.PI * 2);
             ctx.fillStyle = node.type === 'STAKE'
-              ? 'rgba(255, 64, 96, 0.15)'
-              : 'rgba(220, 20, 60, 0.1)';
+              ? 'rgba(216, 84, 108, 0.15)'
+              : 'rgba(192, 64, 85, 0.1)';
             ctx.fill();
           }
         }
@@ -459,23 +459,39 @@
 
       resize();
       createNodes();
-      animate();
 
-      window.addEventListener('resize', () => {
-        resize();
-        createNodes();
-      });
+      // Respect prefers-reduced-motion: render one static frame instead of animating
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      document.addEventListener('mousemove', handleMouseMove);
+      if (prefersReducedMotion.matches) {
+        draw(0);
+      } else {
+        animate();
 
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-          cancelAnimationFrame(animationId);
-        } else {
-          animate();
-        }
-      });
+        window.addEventListener('resize', () => {
+          resize();
+          createNodes();
+        });
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        document.addEventListener('mousemove', handleMouseMove);
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) {
+            cancelAnimationFrame(animationId);
+          } else {
+            animate();
+          }
+        });
+
+        prefersReducedMotion.addEventListener('change', (e) => {
+          if (e.matches) {
+            cancelAnimationFrame(animationId);
+          } else {
+            animate();
+          }
+        });
+      }
     })();
   </script>
 

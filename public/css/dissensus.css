@@ -1,27 +1,32 @@
 /* ============================================
    DISSENSUS - Governance Alignment Research Lab
-   Dark theme + Crimson accent
+   Dark theme + Burgundy accent (brand standard)
    Data/Systems Aesthetic
    ============================================ */
 
 /* --- CSS Custom Properties --- */
 :root {
-  /* Colors */
+  /* Colors
+     Brand accent is burgundy (#800020). On this near-black surface a pure
+     burgundy is too dark to read (≈1.9:1), so the interactive accent is a
+     burgundy-toned wine (#C04055, ≈4:1 on bg) while the deep #800020 base is
+     used for dims, borders and glows. */
   --bg-primary: #050505;
   --bg-secondary: #0a0a0a;
   --bg-tertiary: #111111;
   --bg-card: rgba(15, 15, 15, 0.8);
-  --text-primary: #e5e5e5;
-  --text-secondary: #888888;
-  --text-muted: #555555;
-  --accent: #DC143C;
-  --accent-hover: #ff1a4a;
-  --accent-dim: rgba(220, 20, 60, 0.4);
-  --accent-subtle: rgba(220, 20, 60, 0.1);
-  --grid-color: rgba(220, 20, 60, 0.06);
-  --node-color: rgba(220, 20, 60, 0.3);
-  --border: rgba(220, 20, 60, 0.15);
-  --border-hover: rgba(220, 20, 60, 0.4);
+  --text-primary: #ededed;
+  --text-secondary: #9a9a9a;
+  --text-muted: #6e6e6e;
+  --burgundy: 128, 0, 32;          /* #800020 — true brand burgundy */
+  --accent: #C04055;               /* wine: burgundy expressed on dark */
+  --accent-hover: #D8546C;
+  --accent-dim: rgba(var(--burgundy), 0.55);
+  --accent-subtle: rgba(192, 64, 85, 0.12);
+  --grid-color: rgba(var(--burgundy), 0.08);
+  --node-color: rgba(192, 64, 85, 0.35);
+  --border: rgba(var(--burgundy), 0.22);
+  --border-hover: rgba(192, 64, 85, 0.45);
 
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, Oxygen, Ubuntu, sans-serif;
@@ -56,8 +61,11 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: 72px; /* clear the fixed nav on anchor jumps */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -95,7 +103,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at 50% 0%, rgba(220, 20, 60, 0.03) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(var(--burgundy), 0.03) 0%, transparent 60%);
   pointer-events: none;
   z-index: -1;
 }
@@ -287,12 +295,12 @@ section[data-index]::before {
   width: 70px;
   height: 70px;
   object-fit: contain;
-  filter: drop-shadow(0 0 15px rgba(220, 20, 60, 0.3));
+  filter: drop-shadow(0 0 15px rgba(var(--burgundy), 0.3));
   transition: filter var(--transition-slow), transform var(--transition-slow);
 }
 
 .hero__logo:hover {
-  filter: drop-shadow(0 0 25px rgba(220, 20, 60, 0.5));
+  filter: drop-shadow(0 0 25px rgba(var(--burgundy), 0.5));
   transform: scale(1.05);
 }
 
@@ -304,12 +312,12 @@ section[data-index]::before {
   width: 80px;
   height: 80px;
   animation: spin 25s linear infinite;
-  filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.35));
+  filter: drop-shadow(0 0 10px rgba(var(--burgundy), 0.35));
   transition: filter var(--transition-slow);
 }
 
 .hero__logo-spin:hover {
-  filter: drop-shadow(0 0 20px rgba(220, 20, 60, 0.6));
+  filter: drop-shadow(0 0 20px rgba(var(--burgundy), 0.6));
 }
 
 .hero__logo--animated {
@@ -344,8 +352,8 @@ section[data-index]::before {
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(180, 24, 48, 0.15) 0%,
-    rgba(180, 24, 48, 0.05) 50%,
+    rgba(var(--burgundy), 0.15) 0%,
+    rgba(var(--burgundy), 0.05) 50%,
     transparent 70%
   );
   animation: ambient-pulse 7s ease-in-out infinite;
@@ -1973,7 +1981,7 @@ body.has-nav {
   width: 24px;
   height: 24px;
   object-fit: contain;
-  filter: drop-shadow(0 0 6px rgba(220, 20, 60, 0.3));
+  filter: drop-shadow(0 0 6px rgba(var(--burgundy), 0.3));
 }
 
 .site-nav__links {
@@ -2595,5 +2603,25 @@ footer .footer-links a:hover {
   .paper-detail__action {
     text-align: center;
     justify-content: center;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION — global accessibility guard
+   Disables decorative animation and smooth scroll
+   for users who request reduced motion.
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
