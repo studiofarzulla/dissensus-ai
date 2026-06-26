@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Dissensus AI — Paper Page Generator
+ * Dissensus — Paper Page Generator
  * Generates individual paper pages with Google Scholar metadata from papers.json
  * Zero npm dependencies (Node.js fs + path only)
  *
@@ -52,7 +52,7 @@ function generateBibTeX(paper) {
   author = {${paper.authors.map(a => { const parts = a.split(' '); return parts[parts.length-1] + ', ' + parts.slice(0,-1).join(' '); }).join(' and ')}},
   title = {${paper.title}},
   year = {${year}},
-  howpublished = {Dissensus AI ${paper.wpNumber && paper.wpNumber.startsWith('DP') ? 'Discussion' : 'Working'} Paper${paper.wpNumber ? ' ' + paper.wpNumber : ''}},
+  howpublished = {Dissensus ${paper.wpNumber && paper.wpNumber.startsWith('DP') ? 'Discussion' : 'Working'} Paper${paper.wpNumber ? ' ' + paper.wpNumber : ''}},
 ${doiLine}  url = {https://dissensus.ai/papers/${paper.id}.html}
 }`;
 }
@@ -65,7 +65,7 @@ function getNavHtml(activeLink) {
     <div class="site-nav__inner">
       <a href="../index.html" class="site-nav__brand">
         <img src="../assets/dissensus-mark.svg" alt="" class="site-nav__brand-logo">
-        dissensus<span class="site-nav__brand-ai">ai</span>
+        dissensus
       </a>
       <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -76,6 +76,7 @@ function getNavHtml(activeLink) {
         <a href="../services.html" class="site-nav__link">Services</a>
         <a href="../about.html" class="site-nav__link">About</a>
         <a href="../collaborate.html" class="site-nav__link">Collaborate</a>
+        <a href="https://systems.ac" class="site-nav__link" target="_blank" rel="noopener">ASCRI &rarr;</a>
         <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact &rarr;</a>
       </div>
     </div>
@@ -86,8 +87,8 @@ function getFooterHtml() {
   return `  <footer>
     <div class="container">
       <div>
-        <p>&copy; 2026 Dissensus AI Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
-        <p class="footer__company">Incorporation pending &middot; England &amp; Wales</p>
+        <p>&copy; 2026 Dissensus Research Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
+        <p class="footer__company">Incorporation pending &middot; England &amp; Wales &middot; Research programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
       </div>
       <div>
         <div class="footer-links">
@@ -96,6 +97,7 @@ function getFooterHtml() {
           <a href="../services.html">Services</a> &middot;
           <a href="../about.html">About</a> &middot;
           <a href="../collaborate.html">Collaborate</a> &middot;
+          <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
           <a href="../manifesto.html">Manifesto</a> &middot;
           <a href="../charter.html">Charter</a> &middot;
           <a href="../reading.html">Reading</a> &middot;
@@ -115,9 +117,16 @@ function getFooterHtml() {
 function generatePaperPage(paper) {
   const authors = paper.authors.join(', ');
   const year = new Date(paper.date).getFullYear();
+  // Metadata DOI: prefer a real DOI, fall back to the Zenodo concept DOI for Scholar/DC tags.
   const doi = paper.doi || paper.zenodo || '';
-  const doiUrl = doi ? (doi.startsWith('10.') ? `https://doi.org/${doi}` : doi) : '';
-  const pdfUrl = paper.pdf ? `https://farzulla.org/papers/${paper.pdf}` : '';
+  const pdfUrl = paper.pdf ? `https://dissensus.ai/papers/${paper.pdf}` : '';
+
+  // Identifier action links (rendered in fixed order: arXiv -> DOI -> Zenodo -> SSRN -> PhilPapers -> GitHub -> Dashboard)
+  const arxivUrl = paper.arxiv ? `https://arxiv.org/abs/${paper.arxiv}` : '';
+  const doiOnlyUrl = paper.doi ? `https://doi.org/${paper.doi}` : '';
+  const zenodoUrl = paper.zenodo ? `https://doi.org/${paper.zenodo}` : '';
+  const ssrnUrl = paper.ssrn ? `https://papers.ssrn.com/sol3/papers.cfm?abstract_id=${paper.ssrn}` : '';
+  const philpapersUrl = paper.philpapers ? `https://philpapers.org/rec/${paper.philpapers}` : '';
   const tags = paper.tags.map(t => tagLabels[t] || t).join(', ');
   const programLabel = programs[paper.program] ? programs[paper.program].title : '';
 
@@ -135,7 +144,7 @@ function generatePaperPage(paper) {
           "url": "https://orcid.org/0009-0002-7164-8704",
           "affiliation": {
             "@type": "Organization",
-            "name": "Dissensus AI",
+            "name": "Dissensus",
             "url": "https://dissensus.ai"
           }
         }`;
@@ -173,7 +182,7 @@ function generatePaperPage(paper) {
   ${doi ? `<meta name="citation_doi" content="${doi}">` : ''}
 ${journalMeta}
 ${reportMeta}
-  <meta name="citation_publisher" content="Dissensus AI">
+  <meta name="citation_publisher" content="Dissensus">
   <meta name="citation_abstract_html_url" content="https://dissensus.ai/papers/${paper.id}.html">
   <meta name="citation_keywords" content="${paper.tags.map(t => tagLabels[t] || t).join('; ')}">
   <meta name="citation_language" content="en">
@@ -182,7 +191,7 @@ ${reportMeta}
   <meta name="DC.title" content="${escapeHtml(paper.title)}">
   <meta name="DC.creator" content="${escapeHtml(authors)}">
   <meta name="DC.date" content="${paper.date}">
-  <meta name="DC.publisher" content="Dissensus AI">
+  <meta name="DC.publisher" content="Dissensus">
   <meta name="DC.description" content="${escapeHtml(paper.abstract.substring(0, 300))}...">
   <meta name="DC.type" content="Text">
   <meta name="DC.format" content="text/html">
@@ -202,7 +211,7 @@ ${reportMeta}
     "datePublished": "${paper.date}",
     "publisher": {
       "@type": "Organization",
-      "name": "Dissensus AI",
+      "name": "Dissensus",
       "url": "https://dissensus.ai"
     },
     "description": "${escapeHtml(paper.abstract.replace(/\n/g, ' '))}",
@@ -217,7 +226,7 @@ ${reportMeta}
   <meta property="og:url" content="https://dissensus.ai/papers/${paper.id}.html">
   <meta property="og:title" content="${escapeHtml(paper.title)}">
   <meta property="og:description" content="${escapeHtml(paper.abstract.substring(0, 200))}...">
-  <meta property="og:site_name" content="Dissensus AI">
+  <meta property="og:site_name" content="Dissensus">
   <meta property="og:image" content="https://dissensus.ai/assets/logo.png">
 
   <!-- Twitter -->
@@ -229,7 +238,7 @@ ${reportMeta}
   <!-- Canonical -->
   <link rel="canonical" href="https://dissensus.ai/papers/${paper.id}.html">
 
-  <title>${escapeHtml(paper.title)} — Dissensus AI</title>
+  <title>${escapeHtml(paper.title)} — Dissensus</title>
 
   <link rel="stylesheet" href="../css/dissensus.css">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
@@ -256,8 +265,11 @@ ${getNavHtml('research')}
 
       <div class="paper-detail__actions">
         ${paper.pdf ? `<a href="${paper.pdf}" class="paper-detail__action" download>Download PDF</a>` : ''}
-        ${doiUrl ? `<a href="${doiUrl}" class="paper-detail__action" target="_blank" rel="noopener">DOI</a>` : ''}
-        ${paper.arxiv ? `<a href="https://arxiv.org/abs/${paper.arxiv}" class="paper-detail__action" target="_blank" rel="noopener">arXiv: ${paper.arxiv}</a>` : ''}
+        ${arxivUrl ? `<a href="${arxivUrl}" class="paper-detail__action" target="_blank" rel="noopener">arXiv: ${paper.arxiv}</a>` : ''}
+        ${doiOnlyUrl ? `<a href="${doiOnlyUrl}" class="paper-detail__action" target="_blank" rel="noopener">DOI</a>` : ''}
+        ${zenodoUrl ? `<a href="${zenodoUrl}" class="paper-detail__action" target="_blank" rel="noopener">Zenodo</a>` : ''}
+        ${ssrnUrl ? `<a href="${ssrnUrl}" class="paper-detail__action" target="_blank" rel="noopener">SSRN</a>` : ''}
+        ${philpapersUrl ? `<a href="${philpapersUrl}" class="paper-detail__action" target="_blank" rel="noopener">PhilPapers</a>` : ''}
         ${paper.github ? `<a href="${paper.github}" class="paper-detail__action--secondary paper-detail__action" target="_blank" rel="noopener">GitHub</a>` : ''}
         ${paper.dashboard ? `<a href="${paper.dashboard}" class="paper-detail__action--secondary paper-detail__action" target="_blank" rel="noopener">Dashboard</a>` : ''}
       </div>
@@ -270,7 +282,7 @@ ${getNavHtml('research')}
       <section class="paper-detail__citation">
         <h2>Suggested Citation</h2>
         <div class="paper-detail__citation-block">
-          ${authors} (${year}). <em>${paper.title}</em>. Dissensus AI${paper.wpNumber ? ` ${paper.wpNumber.startsWith('DP') ? 'Discussion' : 'Working'} Paper ${paper.wpNumber}` : ''}. ${doi ? `DOI: ${doi}` : ''}
+          ${authors} (${year}). <em>${paper.title}</em>. Dissensus${paper.wpNumber ? ` ${paper.wpNumber.startsWith('DP') ? 'Discussion' : 'Working'} Paper ${paper.wpNumber}` : ''}. ${doi ? `DOI: ${doi}` : ''}
         </div>
         <button class="paper-detail__bibtex-btn" onclick="copyBibTeX(this)">
           <span>&#x27E8;/&#x27E9;</span> Copy BibTeX
@@ -313,6 +325,75 @@ ${getFooterHtml()}
 </html>`;
 }
 
+// ─── Regenerate research.html publication list from papers.json ───────────────
+
+function pubItemStatus(paper) {
+  if (paper.status === 'under-review') {
+    return `            <span class="pub-item__status">Under Review${paper.journal ? ' &middot; ' + paper.journal : ''}</span>\n`;
+  }
+  if (paper.arxiv) {
+    return `            <span class="pub-item__status">arXiv: ${paper.arxiv}</span>\n`;
+  }
+  return `            <span class="pub-item__status">Preprint</span>\n`;
+}
+
+function pubItemDetail(paper) {
+  if (paper.subtitle) return paper.subtitle;
+  if (paper.methods && paper.methods.length) return paper.methods.slice(0, 3).join(' &middot; ');
+  return paper.tags.map(t => tagLabels[t] || t).join(', ');
+}
+
+function generateResearchPublications() {
+  // Ordered category sections with their descriptive sub-line.
+  const categoryOrder = [
+    ['governance-dynamics', 'Consent, legitimacy, and multi-agent coordination'],
+    ['market-microstructure', 'Risk asymmetry, volatility, and digital asset markets'],
+    ['process-philosophy', 'Metaphysics, identity, consciousness, and substrates'],
+    ['political-economy', 'Inequality, privacy, and regulatory structures'],
+    ['computational-cognition', 'Machine learning, safety, and phenomenology'],
+  ];
+  const categoryLabels = papersData.categories;
+
+  let out = '';
+  categoryOrder.forEach(([cat, blurb]) => {
+    const items = papers.filter(p => p.category === cat);
+    if (!items.length) return;
+    out += `      <div class="pub-category">\n`;
+    out += `        <h3 class="pub-category__title">${categoryLabels[cat] || cat}</h3>\n`;
+    out += `        <p style="color: var(--text-secondary); font-size: 0.8125rem; margin-bottom: var(--space-md);">${blurb}</p>\n`;
+    out += `        <div class="pub-list">\n`;
+    items.forEach(paper => {
+      out += `          <a href="papers/${paper.id}.html" class="pub-item">\n`;
+      out += pubItemStatus(paper);
+      out += `            <span class="pub-item__title">${paper.title}</span>\n`;
+      out += `            <span class="pub-item__detail">${pubItemDetail(paper)}</span>\n`;
+      out += `          </a>\n`;
+    });
+    out += `        </div>\n`;
+    out += `      </div>\n\n`;
+  });
+  return out;
+}
+
+function updateResearchPage() {
+  const file = path.join('public', 'research.html');
+  if (!fs.existsSync(file)) {
+    console.log('  (research.html not found — skipped)');
+    return;
+  }
+  let html = fs.readFileSync(file, 'utf8');
+  const block = generateResearchPublications();
+  // Replace everything between the Publications heading and the closing research-note paragraph.
+  const re = /(<h2>Publications<\/h2>\n)[\s\S]*?(\n\s*<p class="research-note">)/;
+  if (!re.test(html)) {
+    console.log('  (research.html publications anchors not found — skipped)');
+    return;
+  }
+  html = html.replace(re, `$1\n${block}$2`);
+  fs.writeFileSync(file, html);
+  console.log('  research.html (publications list regenerated)');
+}
+
 // ─── Generate Sitemap ────────────────────────────────────────────────────────
 
 function generateSitemap() {
@@ -321,6 +402,7 @@ function generateSitemap() {
   // Static pages
   const staticPages = [
     { loc: 'https://dissensus.ai/', priority: '1.0', changefreq: 'weekly' },
+    { loc: 'https://dissensus.ai/research.html', priority: '0.8', changefreq: 'weekly' },
     { loc: 'https://dissensus.ai/about.html', priority: '0.7', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/services.html', priority: '0.7', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/collaborate.html', priority: '0.7', changefreq: 'monthly' },
@@ -369,7 +451,7 @@ function generateSitemap() {
 
 // ─── Main ────────────────────────────────────────────────────────────────────
 
-console.log('Dissensus AI — Paper Page Generator');
+console.log('Dissensus — Paper Page Generator');
 console.log('───────────────────────────────────');
 
 // Ensure output directory exists
@@ -386,6 +468,10 @@ papers.forEach(paper => {
   fs.writeFileSync(filepath, html);
   console.log(`  ${paper.id}.html`);
 });
+
+// Regenerate research.html publication list from papers.json
+console.log('\nResearch page:');
+updateResearchPage();
 
 // Generate sitemap
 console.log('\nSitemap:');

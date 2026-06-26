@@ -8,3 +8,7 @@ texput.log
 CLAUDE.md
 **/CLAUDE.md
 .serena/
+
+# claude-mem activity logs must never deploy
+public/CLAUDE.md
+public/**/CLAUDE.md

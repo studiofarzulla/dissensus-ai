@@ -12,11 +12,13 @@ Instructions for Claude Code when working in this repository.
 
 ## Brand Position
 
-**Dissensus** is the research lab brand. Grounded in pre-game theory formalization of friction dynamics in multi-agent systems.
+**Dissensus** is the research lab/org brand (legal: **Dissensus Research Ltd**, incorporation pending). Lead with "Dissensus" — never "Dissensus AI". Grounded in pre-game theory formalization of friction dynamics in multi-agent systems.
 
 **Core thesis:** Coordination has overhead. Delegation produces friction. Friction decomposes into alignment, stake, and entropy.
 
-**NOT:** Personal content (→ farzulla.com), technical infrastructure (→ resurrexi.io/dev), or paper hosting (→ farzulla.org)
+**This site IS the canonical paper host** (June 2026): `dissensus.ai/papers/<id>` hosts the landing pages + PDFs; `citation_pdf_url` points here. systems.ac (programme landing) and farzulla.org (résumé) link IN; they no longer host papers.
+
+**NOT:** Personal content (→ farzulla.com); the research programme is surfaced via systems.ac (ASCRI).
 
 ## Site Structure
 

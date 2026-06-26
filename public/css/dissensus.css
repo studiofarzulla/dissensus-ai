@@ -2394,6 +2394,7 @@ footer .footer-links a:hover {
 }
 
 .paper-detail__status--peer-review { background: #2e7d32; }
+.paper-detail__status--under-review { background: #2e7d32; }
 .paper-detail__status--preprint { background: var(--accent-dim); }
 .paper-detail__status--published { background: var(--accent); }
 .paper-detail__status--working { background: #444; }

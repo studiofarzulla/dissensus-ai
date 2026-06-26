@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-labelledby="dissensusTitle">
-  <title id="dissensusTitle">Dissensus AI Logo</title>
+  <title id="dissensusTitle">Dissensus Logo</title>
   <defs>
     <linearGradient id="logo-grad-yang" x1="20%" y1="0%" x2="80%" y2="100%">
       <stop offset="0%" stop-color="#e8254a"/>
