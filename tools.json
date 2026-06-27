@@ -1,0 +1,74 @@
+{
+  "tools": [
+    {
+      "id": "gjr-garch-x",
+      "name": "GJR-GARCH-X",
+      "category": "packages",
+      "status": "released",
+      "kind": "Python package",
+      "version": "0.1.0",
+      "tagline": "Student-t GJR-GARCH with exogenous regressors in the variance equation",
+      "description": "A small, dependency-light Python implementation of the asymmetric GJR-GARCH(1,1,1) volatility model with Student-t innovations and arbitrary exogenous regressors (the X) entering the conditional variance equation. Built for the lab's cryptocurrency event-study pipeline, where infrastructure and regulatory shocks are encoded as exogenous variance covariates and tested for asymmetric volatility response.",
+      "install": "pip install gjr-garch-x",
+      "language": "Python",
+      "pypi": "gjr-garch-x",
+      "zenodo": "10.5281/zenodo.17988193",
+      "github": "https://github.com/studiofarzulla/gjr-garch-x",
+      "dashboard": null,
+      "arxiv": null,
+      "docs": null,
+      "features": [
+        "Asymmetric leverage effect via the GJR indicator term",
+        "Student-t innovations for heavy-tailed crypto returns",
+        "Exogenous regressors in the variance equation (the -X)",
+        "Maximum-likelihood estimation, NumPy/SciPy only"
+      ],
+      "metrics": [],
+      "relatedPapers": ["market-reaction-asymmetry"]
+    },
+    {
+      "id": "asri",
+      "name": "ASRI — Aggregated Systemic Risk Index",
+      "category": "indices",
+      "status": "live",
+      "kind": "Live index &amp; dashboard",
+      "version": null,
+      "tagline": "A composite early-warning index for systemic risk at the DeFi–TradFi boundary",
+      "description": "ASRI aggregates four weighted sub-indices — Stablecoin Concentration, DeFi Liquidity, Contagion, and Regulatory Opacity — into a single 0–100 systemic-risk score for cryptocurrency markets. Validated against the Terra/Luna (2022-05), Celsius/3AC (2022-06), FTX (2022-11), and SVB (2023-03) crises, it correctly flagged the February 2025 Bybit hack ($1.5B, the largest exchange theft in history) as non-systemic — ASRI did not spike, because no contagion channels were active. The live dashboard tracks the index, its sub-components, and the HMM risk regime in real time.",
+      "install": null,
+      "language": null,
+      "pypi": null,
+      "zenodo": null,
+      "github": null,
+      "dashboard": "https://asri.dissensus.ai",
+      "arxiv": "2602.03874",
+      "docs": null,
+      "features": [
+        "Four-channel composite score: Stablecoin · DeFi Liquidity · Contagion · Opacity",
+        "Alert bands — Low &lt;30 · Moderate 30–50 · Elevated 50–70 · High ≥70",
+        "Three-regime hidden Markov model: Low Risk · Moderate · Crisis",
+        "Lead time ≈19d (fixed threshold) / ≈26d (walk-forward) before crisis onset"
+      ],
+      "metrics": [
+        { "label": "AUROC (ASRI / D-Y)", "value": "0.866 / 0.670" },
+        { "label": "AUPRC (ASRI / D-Y)", "value": "0.298 / 0.121" },
+        { "label": "Precision @ Youden", "value": "35.2% / 14.9%" }
+      ],
+      "relatedPapers": ["asri"]
+    }
+  ],
+  "toolStatuses": {
+    "live": "Live",
+    "released": "Released",
+    "beta": "Beta",
+    "wip": "In Development"
+  },
+  "toolCategories": {
+    "packages": "Software Packages",
+    "indices": "Live Indices &amp; Dashboards"
+  },
+  "categoryOrder": [
+    ["packages", "Open-source libraries implementing the lab's quantitative methods"],
+    ["indices", "Hosted indices and interactive risk dashboards"]
+  ]
+}

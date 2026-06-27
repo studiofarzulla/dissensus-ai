@@ -18,6 +18,12 @@ const tagLabels = papersData.tags;
 const statusLabels = papersData.statuses;
 const programs = papersData.programs;
 
+// Tools/packages catalog (mirrors papers.json). Optional — page is skipped if absent.
+const toolsData = fs.existsSync('tools.json')
+  ? JSON.parse(fs.readFileSync('tools.json', 'utf8'))
+  : null;
+const papersById = Object.fromEntries(papers.map(p => [p.id, p]));
+
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function escapeHtml(str) {
@@ -73,9 +79,11 @@ function getNavHtml(activeLink) {
       <div class="site-nav__links">
         <a href="../index.html" class="site-nav__link">Home</a>
         <a href="../research.html" class="site-nav__link${activeLink === 'research' ? ' site-nav__link--active' : ''}">Research</a>
+        <a href="../tools.html" class="site-nav__link${activeLink === 'tools' ? ' site-nav__link--active' : ''}">Tools</a>
         <a href="../services.html" class="site-nav__link">Services</a>
         <a href="../about.html" class="site-nav__link">About</a>
         <a href="../collaborate.html" class="site-nav__link">Collaborate</a>
+        <a href="https://asri.dissensus.ai" class="site-nav__link" target="_blank" rel="noopener">ASRI &rarr;</a>
         <a href="https://systems.ac" class="site-nav__link" target="_blank" rel="noopener">ASCRI &rarr;</a>
         <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact &rarr;</a>
       </div>
@@ -94,9 +102,11 @@ function getFooterHtml() {
         <div class="footer-links">
           <a href="../index.html">Home</a> &middot;
           <a href="../research.html">Research</a> &middot;
+          <a href="../tools.html">Tools</a> &middot;
           <a href="../services.html">Services</a> &middot;
           <a href="../about.html">About</a> &middot;
           <a href="../collaborate.html">Collaborate</a> &middot;
+          <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
           <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
           <a href="../manifesto.html">Manifesto</a> &middot;
           <a href="../charter.html">Charter</a> &middot;
@@ -394,6 +404,222 @@ function updateResearchPage() {
   console.log('  research.html (publications list regenerated)');
 }
 
+// ─── Generate Tools / Packages page (data-driven from tools.json) ─────────────
+
+function toolsNavHtml() {
+  return `  <!-- Site Navigation -->
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand">
+        <img src="assets/dissensus-mark.svg" alt="" class="site-nav__brand-logo">
+        dissensus
+      </a>
+      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="site-nav__links">
+        <a href="index.html" class="site-nav__link">Home</a>
+        <a href="research.html" class="site-nav__link">Research</a>
+        <a href="tools.html" class="site-nav__link site-nav__link--active">Tools</a>
+        <a href="services.html" class="site-nav__link">Services</a>
+        <a href="about.html" class="site-nav__link">About</a>
+        <a href="collaborate.html" class="site-nav__link">Collaborate</a>
+        <a href="https://asri.dissensus.ai" class="site-nav__link" target="_blank" rel="noopener">ASRI &rarr;</a>
+        <a href="https://systems.ac" class="site-nav__link" target="_blank" rel="noopener">ASCRI &rarr;</a>
+        <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact &rarr;</a>
+      </div>
+    </div>
+  </nav>`;
+}
+
+function toolsFooterHtml() {
+  return `  <footer>
+    <div class="container">
+      <div>
+        <p>&copy; 2026 Dissensus Research Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
+        <p class="footer__company">Incorporation pending &middot; England &amp; Wales</p>
+      </div>
+      <div>
+        <div class="footer-links">
+          <a href="index.html">Home</a> &middot;
+          <a href="research.html">Research</a> &middot;
+          <a href="tools.html">Tools</a> &middot;
+          <a href="services.html">Services</a> &middot;
+          <a href="about.html">About</a> &middot;
+          <a href="collaborate.html">Collaborate</a> &middot;
+          <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+          <a href="manifesto.html">Manifesto</a> &middot;
+          <a href="charter.html">Charter</a> &middot;
+          <a href="reading.html">Reading</a> &middot;
+          <a href="press.html">Press</a> &middot;
+          <a href="subscribe.html">Subscribe</a> &middot;
+          <a href="privacy.html">Privacy</a> &middot;
+          <a href="terms.html">Terms</a> &middot;
+          <a href="feed.xml" title="RSS Feed">RSS</a>
+        </div>
+      </div>
+    </div>
+  </footer>`;
+}
+
+function toolActionButtons(tool) {
+  const btns = [];
+  if (tool.dashboard) {
+    btns.push(`<a href="${tool.dashboard}" class="paper-detail__action" target="_blank" rel="noopener">Open dashboard &rarr;</a>`);
+  }
+  if (tool.pypi) {
+    btns.push(`<a href="https://pypi.org/project/${tool.pypi}/" class="paper-detail__action" target="_blank" rel="noopener">PyPI: ${tool.pypi}</a>`);
+  }
+  if (tool.arxiv) {
+    btns.push(`<a href="https://arxiv.org/abs/${tool.arxiv}" class="paper-detail__action" target="_blank" rel="noopener">arXiv: ${tool.arxiv}</a>`);
+  }
+  if (tool.zenodo) {
+    btns.push(`<a href="https://doi.org/${tool.zenodo}" class="paper-detail__action" target="_blank" rel="noopener">DOI</a>`);
+  }
+  if (tool.github) {
+    btns.push(`<a href="${tool.github}" class="paper-detail__action--secondary paper-detail__action" target="_blank" rel="noopener">GitHub</a>`);
+  }
+  if (tool.docs) {
+    btns.push(`<a href="${tool.docs}" class="paper-detail__action--secondary paper-detail__action" target="_blank" rel="noopener">Docs</a>`);
+  }
+  (tool.relatedPapers || []).forEach(id => {
+    const p = papersById[id];
+    if (!p) return;
+    btns.push(`<a href="papers/${id}.html" class="paper-detail__action--secondary paper-detail__action" title="${escapeHtml(p.title)}">Paper &rarr;</a>`);
+  });
+  if (!btns.length) return '';
+  return `        <div class="paper-detail__actions" style="border-bottom: none; padding-bottom: 0;">
+          ${btns.join('\n          ')}
+        </div>`;
+}
+
+function toolIdentifierBadges(tool) {
+  const badges = [];
+  if (tool.version) badges.push(['Version', `v${tool.version}`]);
+  if (tool.zenodo) badges.push(['DOI', tool.zenodo]);
+  if (tool.arxiv) badges.push(['arXiv', tool.arxiv]);
+  if (!badges.length) return '';
+  return `        <div class="tool-badge-row">
+          ${badges.map(([l, v]) => `<span class="doi-badge"><span class="doi-badge__label">${l}</span><span class="doi-badge__value">${v}</span></span>`).join('\n          ')}
+        </div>`;
+}
+
+function toolMetricBadges(tool) {
+  if (!tool.metrics || !tool.metrics.length) return '';
+  return `        <div class="tool-badge-row">
+          ${tool.metrics.map(m => `<span class="doi-badge"><span class="doi-badge__label">${m.label}</span><span class="doi-badge__value">${m.value}</span></span>`).join('\n          ')}
+        </div>`;
+}
+
+function generateToolCard(tool) {
+  const statusLabel = (toolsData.toolStatuses && toolsData.toolStatuses[tool.status]) || tool.status;
+  const labelBits = [tool.kind, tool.version ? `v${tool.version}` : null].filter(Boolean).join(' &middot; ');
+  return `        <div class="service-card">
+          <div class="tool-card__head">
+            <span class="service-card__label">${labelBits}</span>
+            <span class="paper-detail__status paper-detail__status--${tool.status}">${statusLabel}</span>
+          </div>
+          <h3>${tool.name}</h3>
+          <p class="tool-card__tagline">${tool.tagline}</p>
+          <p>${tool.description}</p>
+${tool.install ? `          <code class="tool-install">${tool.install}</code>\n` : ''}${tool.features && tool.features.length ? `          <ul class="service-card__features">
+            ${tool.features.map(f => `<li>${f}</li>`).join('\n            ')}
+          </ul>\n` : ''}${toolMetricBadges(tool)}
+${toolActionButtons(tool)}
+${toolIdentifierBadges(tool)}
+        </div>`;
+}
+
+function generateToolsPage() {
+  if (!toolsData || !toolsData.tools || !toolsData.tools.length) {
+    console.log('  (tools.json absent or empty — tools.html skipped)');
+    return;
+  }
+  const cats = toolsData.toolCategories || {};
+  const order = toolsData.categoryOrder || Object.keys(cats).map(c => [c, '']);
+
+  let sections = '';
+  order.forEach(([cat, blurb], i) => {
+    const items = toolsData.tools.filter(t => t.category === cat);
+    if (!items.length) return;
+    sections += `  <section class="research" data-index="${String(i + 1).padStart(2, '0')}">
+    <div class="container">
+      <h2>${cats[cat] || cat}</h2>
+      ${blurb ? `<p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: var(--space-md);">${blurb}</p>` : ''}
+      <div class="services-grid">
+
+${items.map(generateToolCard).join('\n\n')}
+
+      </div>
+    </div>
+  </section>
+
+`;
+  });
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tools &amp; Packages | Dissensus</title>
+  <meta name="description" content="Open-source software packages, indices, and live dashboards from Dissensus — implementing the lab's quantitative methods for friction analysis and systemic risk.">
+  <meta name="theme-color" content="#050505">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tools &amp; Packages | Dissensus">
+  <meta property="og:description" content="Open-source packages and live indices implementing the lab's quantitative methods.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dissensus.ai/tools.html">
+  <meta property="og:image" content="https://dissensus.ai/assets/logo.png">
+
+  <link rel="canonical" href="https://dissensus.ai/tools.html">
+  <link rel="stylesheet" href="css/dissensus.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+</head>
+<body class="has-nav">
+${toolsNavHtml()}
+
+  <!-- Hero -->
+  <section class="hero" style="min-height: auto; padding: var(--space-xl) 0;">
+    <div class="container">
+      <span class="hero__label">Tools &amp; Packages</span>
+      <h1 style="font-size: clamp(2rem, 5vw, 2.5rem); letter-spacing: 0.05em; margin-bottom: var(--space-md);">
+        Open Tooling
+      </h1>
+      <p class="hero__etymology" style="margin-bottom: 0;">
+        Software, indices, and live dashboards that implement the lab's quantitative methods.
+        Everything here is open-access and citable; install commands and DOIs are listed per package.
+      </p>
+    </div>
+  </section>
+
+${sections}  <!-- Contribute -->
+  <section class="contact" data-index="${String(order.length + 1).padStart(2, '0')}">
+    <div class="container">
+      <h2>Build With Us</h2>
+      <p style="margin-bottom: var(--space-lg); max-width: 540px;">
+        These packages are released CC-BY / open-source as the research that produced them is published.
+        If a tool is useful to your work&mdash;or broken in an interesting way&mdash;we want to hear about it.
+      </p>
+      <div class="contact__wrapper">
+        <a href="mailto:research@dissensus.ai" class="email">research@dissensus.ai</a>
+        <span class="contact__status">Issues &amp; collaboration welcome</span>
+      </div>
+    </div>
+  </section>
+
+${toolsFooterHtml()}
+
+</body>
+</html>`;
+
+  fs.writeFileSync(path.join('public', 'tools.html'), html);
+  console.log(`  tools.html (${toolsData.tools.length} tools)`);
+}
+
 // ─── Generate Sitemap ────────────────────────────────────────────────────────
 
 function generateSitemap() {
@@ -403,6 +629,7 @@ function generateSitemap() {
   const staticPages = [
     { loc: 'https://dissensus.ai/', priority: '1.0', changefreq: 'weekly' },
     { loc: 'https://dissensus.ai/research.html', priority: '0.8', changefreq: 'weekly' },
+    { loc: 'https://dissensus.ai/tools.html', priority: '0.7', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/about.html', priority: '0.7', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/services.html', priority: '0.7', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/collaborate.html', priority: '0.7', changefreq: 'monthly' },
@@ -473,10 +700,14 @@ papers.forEach(paper => {
 console.log('\nResearch page:');
 updateResearchPage();
 
+// Generate tools / packages catalog page from tools.json
+console.log('\nTools page:');
+generateToolsPage();
+
 // Generate sitemap
 console.log('\nSitemap:');
 generateSitemap();
 
 // Summary
-console.log(`\n✓ Generated ${papers.length} paper pages + sitemap`);
+console.log(`\n✓ Generated ${papers.length} paper pages${toolsData ? ' + tools.html' : ''} + sitemap`);
 console.log('  Run: python -m http.server 8000 --directory public');

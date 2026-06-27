@@ -4,6 +4,8 @@
    Data/Systems Aesthetic
    ============================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
 /* --- CSS Custom Properties --- */
 :root {
   /* Colors
@@ -30,7 +32,7 @@
 
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, Oxygen, Ubuntu, sans-serif;
-  --font-mono: 'SF Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
 
   /* Spacing */
   --space-xs: 0.25rem;
@@ -2082,6 +2084,51 @@ body.has-nav {
   border: 1px solid var(--border);
 }
 
+/* --- Tools / Packages catalog (tools.html) --- */
+.tool-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.tool-card__tagline {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin-bottom: var(--space-md);
+}
+
+.tool-install {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  border: 1px solid var(--border);
+  padding: var(--space-sm) var(--space-md);
+  margin: var(--space-md) 0;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.tool-install::before {
+  content: '$ ';
+  color: var(--accent-dim);
+}
+
+.tool-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.tool-badge-row .doi-badge {
+  margin-top: 0;
+}
+
 .service-card {
   background: var(--bg-secondary);
   padding: var(--space-xl);
@@ -2398,6 +2445,10 @@ footer .footer-links a:hover {
 .paper-detail__status--preprint { background: var(--accent-dim); }
 .paper-detail__status--published { background: var(--accent); }
 .paper-detail__status--working { background: #444; }
+.paper-detail__status--live { background: #2e7d32; }
+.paper-detail__status--released { background: var(--accent); }
+.paper-detail__status--beta { background: var(--accent-dim); }
+.paper-detail__status--wip { background: #444; }
 
 .paper-detail__program {
   font-family: var(--font-mono);
