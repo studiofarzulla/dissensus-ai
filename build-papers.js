@@ -95,7 +95,7 @@ function getFooterHtml() {
   return `  <footer>
     <div class="container">
       <div>
-        <p>&copy; 2026 Dissensus Research Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
+        <p>&copy; 2026 Dissensus Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
         <p class="footer__company">Incorporation pending &middot; England &amp; Wales &middot; Research programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
       </div>
       <div>
@@ -436,7 +436,7 @@ function toolsFooterHtml() {
   return `  <footer>
     <div class="container">
       <div>
-        <p>&copy; 2026 Dissensus Research Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
+        <p>&copy; 2026 Dissensus Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
         <p class="footer__company">Incorporation pending &middot; England &amp; Wales</p>
       </div>
       <div>

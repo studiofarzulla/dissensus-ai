@@ -5,14 +5,14 @@ Instructions for Claude Code when working in this repository.
 ## Project Overview
 
 **Site:** dissensus.ai
-**Entity:** Dissensus AI (incorporation pending, England & Wales)
+**Entity:** Dissensus (legal: Dissensus Ltd; incorporation pending, England & Wales)
 **Purpose:** UK-based governance alignment research lab. Early-stage, currently under formulation. Home of the Adversarial Systems & Complexity Research Initiative (ASCRI, systems.ac). Focused on the Axiom of Consent framework and friction dynamics formalisation.
 
 **Architecture:** Static HTML/CSS site hosted on Cloudflare Pages. Auto-deploys from GitHub on push. No backend, no build step.
 
 ## Brand Position
 
-**Dissensus** is the research lab/org brand (legal: **Dissensus Research Ltd**, incorporation pending). Lead with "Dissensus" — never "Dissensus AI". Grounded in pre-game theory formalization of friction dynamics in multi-agent systems.
+**Dissensus** is the research lab/org brand (legal: **Dissensus Ltd**, incorporation pending). Lead with "Dissensus" — never "Dissensus AI" or "Dissensus Research Ltd". Grounded in pre-game theory formalization of friction dynamics in multi-agent systems.
 
 **Core thesis:** Coordination has overhead. Delegation produces friction. Friction decomposes into alignment, stake, and entropy.
 
@@ -48,8 +48,7 @@ dissensus-ai/
 
 ## Team
 
-- **Davud Farzullayev** - Director
-- **Murad Farzulla** - Research Fellow (ORCID: 0009-0002-7164-8704)
+- **Murad Farzulla** - Founder & Director / Research Lead (ORCID: 0009-0002-7164-8704); sole director + PSC of Dissensus Ltd
 - **Andrew Maksakov** - Research Assistant (andrew@resurrexi.io)
 
 ## Affiliates
@@ -73,7 +72,7 @@ dissensus-ai/
 ## Navigation
 
 ```
-[Logo] dissensusAI     Research | Services | About | Collaborate | [Contact →]
+[Logo] dissensus     Research | Services | About | Collaborate | [Contact →]
 ```
 
 Footer: Research · Services · About · Collaborate · Manifesto · Charter · Reading · Press · Subscribe · Privacy · Terms · RSS
@@ -83,7 +82,7 @@ Footer: Research · Services · About · Collaborate · Manifesto · Charter · 
 1. **Hero** - Title + satirically verbose academic tagline + simple translation + network viz
 2. **The Problem** - Why game theory isn't enough, friction equation
 3. **Current Work** - Four research areas (market microstructure, computational methods, formal framework, applied domains)
-4. **Team** - Director & Head of Engineering
+4. **Team** - Founder & research lead (Murad) + research assistant (Andrew)
 5. **Roadmap** - Research timeline and open needs
 
 ## Development
