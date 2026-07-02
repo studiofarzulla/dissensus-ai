@@ -3,275 +3,216 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curated bibliography supporting the Adversarial Systems &amp; Complexity Research Initiative (ASCRI): friction dynamics, governance alignment, and multi-agent coordination.">
   <title>Reading List | Dissensus</title>
-  <meta name="description" content="Curated bibliography supporting the Adversarial Systems &amp; Complexity Research Initiative (ASCRI) - friction dynamics, governance alignment, and multi-agent coordination.">
-  <link rel="stylesheet" href="css/dissensus.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/theme.js"></script>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 </head>
-<body class="has-nav">
-  <!-- Site Navigation -->
-  <nav class="site-nav">
-    <div class="site-nav__inner">
-      <a href="index.html" class="site-nav__brand">
-        <img src="assets/dissensus-mark.svg" alt="" class="site-nav__brand-logo">
-        dissensus
-      </a>
-      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="site-nav__links">
-        <a href="index.html" class="site-nav__link">Home</a>
-        <a href="research.html" class="site-nav__link">Research</a>
-        <a href="tools.html" class="site-nav__link">Tools</a>
-        <a href="services.html" class="site-nav__link">Services</a>
-        <a href="about.html" class="site-nav__link">About</a>
-        <a href="collaborate.html" class="site-nav__link">Collaborate</a>
-        <a href="https://asri.dissensus.ai" class="site-nav__link" target="_blank" rel="noopener">ASRI &rarr;</a>
-        <a href="https://systems.ac" class="site-nav__link" target="_blank" rel="noopener">ASCRI &rarr;</a>
-        <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact &rarr;</a>
-      </div>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <div class="nav__links">
+      <a href="research.html">Research</a>
+      <a href="tools.html" class="hide-sm">Tools</a>
+      <a href="about.html" class="hide-sm">About</a>
+      <a href="services.html" class="hide-sm">Services</a>
+      <a href="collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
 
-<section class="hero" style="min-height: auto; padding: var(--space-xl) 0;">
-  <div class="container">
-    <h1 style="font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 400; letter-spacing: 0.04em;">
-      Reading List
-    </h1>
-    <p class="hero__tagline" style="margin-top: var(--space-md);">
-      Intellectual foundations and recommended resources
-    </p>
-  </div>
-</section>
+  <!-- Hero -->
+  <header class="container hero">
+    <span class="kicker">Intellectual Foundations</span>
+    <h1>Reading List</h1>
+    <p class="lead">Works that inform the theoretical substrate of Dissensus research. These are not endorsements, they are starting points for productive disagreement.</p>
+  </header>
 
-<!-- Foundations -->
-<section class="about" data-index="01">
-  <div class="container">
-    <h2>Foundations</h2>
-    
-    <p>
-      Works that inform the theoretical substrate of Dissensus research. 
-      These aren't endorsements—they're starting points for productive disagreement.
-    </p>
-
-    <div style="margin-top: var(--space-xl);">
-      
-      <!-- Economics & Game Theory -->
-      <div style="margin-bottom: var(--space-2xl);">
-        <h3 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: var(--space-lg); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--border);">
-          Economics & Coordination
-        </h3>
-        
-        <div style="display: flex; flex-direction: column; gap: var(--space-md);">
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">COASE, 1937</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">The Nature of the Firm</h4>
-            <p style="font-size: 0.875rem;">Why do firms exist? Transaction costs. The origin of friction economics.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">WILLIAMSON, 1985</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">The Economic Institutions of Capitalism</h4>
-            <p style="font-size: 0.875rem;">Transaction cost economics extended. Opportunism, asset specificity, governance structures.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">ARROW, 1951</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">Social Choice and Individual Values</h4>
-            <p style="font-size: 0.875rem;">The impossibility theorem. Why aggregating preferences is structurally constrained.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">OSTROM, 1990</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">Governing the Commons</h4>
-            <p style="font-size: 0.875rem;">Self-governance without centralization. Empirical counterexamples to tragedy of the commons.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">HURWICZ, 1960</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">Optimality and Informational Efficiency in Resource Allocation</h4>
-            <p style="font-size: 0.875rem;">Mechanism design origins. How to structure interactions for desired outcomes.</p>
-          </div>
-        </div>
+  <!-- Economics & Coordination -->
+  <section class="section container">
+    <span class="index">01 &middot; Economics</span>
+    <h2>Economics &amp; Coordination</h2>
+    <div class="refgroup">
+      <div class="ref">
+        <span class="ref__cite">COASE, 1937</span>
+        <h4>The Nature of the Firm</h4>
+        <p>Why do firms exist? Transaction costs. The origin of friction economics.</p>
       </div>
-
-      <!-- Political Philosophy -->
-      <div style="margin-bottom: var(--space-2xl);">
-        <h3 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: var(--space-lg); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--border);">
-          Political Philosophy & Legitimacy
-        </h3>
-        
-        <div style="display: flex; flex-direction: column; gap: var(--space-md);">
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">RANCIÈRE, 1995</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">Disagreement: Politics and Philosophy</h4>
-            <p style="font-size: 0.875rem;">The original dissensus. Politics as the disruption of consensus, not its achievement.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">MOUFFE, 2000</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">The Democratic Paradox</h4>
-            <p style="font-size: 0.875rem;">Agonistic pluralism. Why consensus democracy is structurally exclusionary.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">RAWLS, 1971</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">A Theory of Justice</h4>
-            <p style="font-size: 0.875rem;">The veil of ignorance. Procedural legitimacy under uncertainty.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">HABERMAS, 1981</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">The Theory of Communicative Action</h4>
-            <p style="font-size: 0.875rem;">Discourse ethics. Legitimacy through ideal speech conditions. (We're skeptical.)</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">WEBER, 1922</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">Economy and Society</h4>
-            <p style="font-size: 0.875rem;">Types of legitimate authority. Traditional, charismatic, rational-legal.</p>
-          </div>
-        </div>
+      <div class="ref">
+        <span class="ref__cite">WILLIAMSON, 1985</span>
+        <h4>The Economic Institutions of Capitalism</h4>
+        <p>Transaction cost economics extended. Opportunism, asset specificity, governance structures.</p>
       </div>
-
-      <!-- Philosophy of Mind -->
-      <div style="margin-bottom: var(--space-2xl);">
-        <h3 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: var(--space-lg); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--border);">
-          Philosophy of Mind & Agency
-        </h3>
-        
-        <div style="display: flex; flex-direction: column; gap: var(--space-md);">
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">DENNETT, 1987</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">The Intentional Stance</h4>
-            <p style="font-size: 0.875rem;">Agency as predictive attribution. Substrate-independent approach to mental states.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">HURLEY, 1998</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">Consciousness in Action</h4>
-            <p style="font-size: 0.875rem;">The input-output picture. Perception and action as continuous loop.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">CLARK & CHALMERS, 1998</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">The Extended Mind</h4>
-            <p style="font-size: 0.875rem;">Cognition beyond the skull. Tools and environment as part of cognitive systems.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">FLORIDI, 2013</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">The Ethics of Information</h4>
-            <p style="font-size: 0.875rem;">Information as fundamental. Moral status based on informational structure.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">METZINGER, 2003</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">Being No One</h4>
-            <p style="font-size: 0.875rem;">Self-model theory. The phenomenal self as representational construct.</p>
-          </div>
-        </div>
+      <div class="ref">
+        <span class="ref__cite">ARROW, 1951</span>
+        <h4>Social Choice and Individual Values</h4>
+        <p>The impossibility theorem. Why aggregating preferences is structurally constrained.</p>
       </div>
-
-      <!-- Evolutionary & Complexity -->
-      <div style="margin-bottom: var(--space-2xl);">
-        <h3 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: var(--space-lg); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--border);">
-          Evolution & Complex Systems
-        </h3>
-        
-        <div style="display: flex; flex-direction: column; gap: var(--space-md);">
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">DAWKINS, 1982</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">The Extended Phenotype</h4>
-            <p style="font-size: 0.875rem;">Replication beyond organisms. Genes as optimization targets, bodies as vehicles.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">KAUFFMAN, 1993</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">The Origins of Order</h4>
-            <p style="font-size: 0.875rem;">Self-organization in evolution. Order for free. Complexity at the edge of chaos.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">HOLLAND, 1995</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">Hidden Order</h4>
-            <p style="font-size: 0.875rem;">Complex adaptive systems. Emergence, aggregation, nonlinearity.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">AXELROD, 1984</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">The Evolution of Cooperation</h4>
-            <p style="font-size: 0.875rem;">Iterated prisoner's dilemma. How cooperation emerges without central authority.</p>
-          </div>
-        </div>
+      <div class="ref">
+        <span class="ref__cite">OSTROM, 1990</span>
+        <h4>Governing the Commons</h4>
+        <p>Self-governance without centralisation. Empirical counterexamples to tragedy of the commons.</p>
       </div>
-
-      <!-- AI & Alignment -->
-      <div style="margin-bottom: var(--space-xl);">
-        <h3 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: var(--space-lg); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--border);">
-          AI & Alignment
-        </h3>
-        
-        <div style="display: flex; flex-direction: column; gap: var(--space-md);">
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">BOSTROM, 2014</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">Superintelligence</h4>
-            <p style="font-size: 0.875rem;">The control problem. Orthogonality thesis. Instrumental convergence.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">RUSSELL, 2019</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">Human Compatible</h4>
-            <p style="font-size: 0.875rem;">Value alignment problem. Inverse reward design. Uncertainty about objectives.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">CHRISTIANO ET AL., 2017</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">Deep Reinforcement Learning from Human Feedback</h4>
-            <p style="font-size: 0.875rem;">RLHF origins. Training AI systems from human preferences rather than explicit reward.</p>
-          </div>
-
-          <div style="padding: var(--space-md) 0; border-bottom: 1px solid var(--border);">
-            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim);">GABRIEL, 2020</span>
-            <h4 style="color: var(--text-primary); font-size: 1rem; margin: var(--space-xs) 0;">Artificial Intelligence, Values, and Alignment</h4>
-            <p style="font-size: 0.875rem;">Whose values? Which alignment? The political philosophy of AI safety.</p>
-          </div>
-        </div>
+      <div class="ref">
+        <span class="ref__cite">HURWICZ, 1960</span>
+        <h4>Optimality and Informational Efficiency in Resource Allocation</h4>
+        <p>Mechanism design origins. How to structure interactions for desired outcomes.</p>
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Dissensus Papers -->
-<section class="research" data-index="02">
-  <div class="container">
-    <h2>Our Work</h2>
-    
-    <p>For our own publications, see:</p>
-
-    <div style="display: flex; gap: var(--space-md); margin-top: var(--space-lg); flex-wrap: wrap;">
-      <a href="research.html" style="display: inline-flex; padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.8125rem;">
-        dissensus.ai/research →
-      </a>
-      <a href="https://farzulla.org" target="_blank" style="display: inline-flex; padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.8125rem;">
-        farzulla.org →
-      </a>
-      <a href="https://zenodo.org/communities/farzulla" target="_blank" style="display: inline-flex; padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.8125rem;">
-        Zenodo Archive →
-      </a>
+  <!-- Political Philosophy & Legitimacy -->
+  <section class="section container">
+    <span class="index">02 &middot; Political Philosophy</span>
+    <h2>Political Philosophy &amp; Legitimacy</h2>
+    <div class="refgroup">
+      <div class="ref">
+        <span class="ref__cite">RANCI&Eacute;RE, 1995</span>
+        <h4>Disagreement: Politics and Philosophy</h4>
+        <p>The original dissensus. Politics as the disruption of consensus, not its achievement.</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">MOUFFE, 2000</span>
+        <h4>The Democratic Paradox</h4>
+        <p>Agonistic pluralism. Why consensus democracy is structurally exclusionary.</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">RAWLS, 1971</span>
+        <h4>A Theory of Justice</h4>
+        <p>The veil of ignorance. Procedural legitimacy under uncertainty.</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">HABERMAS, 1981</span>
+        <h4>The Theory of Communicative Action</h4>
+        <p>Discourse ethics. Legitimacy through ideal speech conditions. (We are sceptical.)</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">WEBER, 1922</span>
+        <h4>Economy and Society</h4>
+        <p>Types of legitimate authority. Traditional, charismatic, rational-legal.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="container">
-    <div>
-      <p>&copy; 2026 Dissensus Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
-      <p class="footer__company">Registered in England &amp; Wales, company no. 17309927</p>
+  <!-- Philosophy of Mind & Agency -->
+  <section class="section container">
+    <span class="index">03 &middot; Philosophy of Mind</span>
+    <h2>Philosophy of Mind &amp; Agency</h2>
+    <div class="refgroup">
+      <div class="ref">
+        <span class="ref__cite">DENNETT, 1987</span>
+        <h4>The Intentional Stance</h4>
+        <p>Agency as predictive attribution. Substrate-independent approach to mental states.</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">HURLEY, 1998</span>
+        <h4>Consciousness in Action</h4>
+        <p>The input-output picture. Perception and action as continuous loop.</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">CLARK &amp; CHALMERS, 1998</span>
+        <h4>The Extended Mind</h4>
+        <p>Cognition beyond the skull. Tools and environment as part of cognitive systems.</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">FLORIDI, 2013</span>
+        <h4>The Ethics of Information</h4>
+        <p>Information as fundamental. Moral status based on informational structure.</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">METZINGER, 2003</span>
+        <h4>Being No One</h4>
+        <p>Self-model theory. The phenomenal self as representational construct.</p>
+      </div>
     </div>
-    <div>
-      <div class="footer-links">
+  </section>
+
+  <!-- Evolution & Complex Systems -->
+  <section class="section container">
+    <span class="index">04 &middot; Evolution</span>
+    <h2>Evolution &amp; Complex Systems</h2>
+    <div class="refgroup">
+      <div class="ref">
+        <span class="ref__cite">DAWKINS, 1982</span>
+        <h4>The Extended Phenotype</h4>
+        <p>Replication beyond organisms. Genes as optimisation targets, bodies as vehicles.</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">KAUFFMAN, 1993</span>
+        <h4>The Origins of Order</h4>
+        <p>Self-organisation in evolution. Order for free. Complexity at the edge of chaos.</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">HOLLAND, 1995</span>
+        <h4>Hidden Order</h4>
+        <p>Complex adaptive systems. Emergence, aggregation, nonlinearity.</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">AXELROD, 1984</span>
+        <h4>The Evolution of Cooperation</h4>
+        <p>Iterated prisoner's dilemma. How cooperation emerges without central authority.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI & Alignment -->
+  <section class="section container">
+    <span class="index">05 &middot; AI &amp; Alignment</span>
+    <h2>AI &amp; Alignment</h2>
+    <div class="refgroup">
+      <div class="ref">
+        <span class="ref__cite">BOSTROM, 2014</span>
+        <h4>Superintelligence</h4>
+        <p>The control problem. Orthogonality thesis. Instrumental convergence.</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">RUSSELL, 2019</span>
+        <h4>Human Compatible</h4>
+        <p>Value alignment problem. Inverse reward design. Uncertainty about objectives.</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">CHRISTIANO ET AL., 2017</span>
+        <h4>Deep Reinforcement Learning from Human Feedback</h4>
+        <p>RLHF origins. Training AI systems from human preferences rather than explicit reward.</p>
+      </div>
+      <div class="ref">
+        <span class="ref__cite">GABRIEL, 2020</span>
+        <h4>Artificial Intelligence, Values, and Alignment</h4>
+        <p>Whose values? Which alignment? The political philosophy of AI safety.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Work -->
+  <section class="section container">
+    <span class="index">06 &middot; Our work</span>
+    <h2>Our work</h2>
+    <p class="lead">For the lab's own publications, see:</p>
+    <div class="btn-row">
+      <a class="btn" href="research.html">Research &rarr;</a>
+      <a class="btn btn--ghost" href="https://farzulla.org" target="_blank" rel="noopener">farzulla.org &rarr;</a>
+      <a class="btn btn--ghost" href="https://zenodo.org/communities/farzulla" target="_blank" rel="noopener">Zenodo archive &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+      <div>
+        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+        <p>Registered in England and Wales, company no. 17309927</p>
+      </div>
+      <div style="max-width:560px;">
         <a href="index.html">Home</a> &middot;
         <a href="research.html">Research</a> &middot;
         <a href="tools.html">Tools</a> &middot;
@@ -279,6 +220,7 @@
         <a href="about.html">About</a> &middot;
         <a href="collaborate.html">Collaborate</a> &middot;
         <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
         <a href="manifesto.html">Manifesto</a> &middot;
         <a href="charter.html">Charter</a> &middot;
         <a href="reading.html">Reading</a> &middot;
@@ -289,8 +231,7 @@
         <a href="feed.xml" title="RSS Feed">RSS</a>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>

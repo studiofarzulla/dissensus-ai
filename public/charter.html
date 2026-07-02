@@ -3,333 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Organizational charter for Dissensus Ltd: scope, governance, and strategic direction for adversarial systems research.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Charter | Dissensus">
+  <meta property="og:description" content="Organizational charter for Dissensus Ltd: scope, governance, and strategic direction for adversarial systems research.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://dissensus.ai/charter.html">
+  <meta property="og:site_name" content="Dissensus">
+  <meta name="twitter:card" content="summary_large_image">
+
   <title>Charter | Dissensus</title>
-  <meta name="description" content="Organizational charter for Dissensus Ltd - scope, governance, and strategic direction for adversarial systems research.">
-  <link rel="stylesheet" href="css/dissensus.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/theme.js"></script>
+  <link rel="alternate" type="application/rss+xml" title="Dissensus RSS Feed" href="feed.xml">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 </head>
-<body class="has-nav">
+<body>
 
-<!-- Site Navigation -->
-<nav class="site-nav">
-  <div class="site-nav__inner">
-    <a href="index.html" class="site-nav__brand">
-      <img src="assets/dissensus-mark.svg" alt="" class="site-nav__brand-logo">
-      dissensus
-    </a>
-    <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="site-nav__links">
-      <a href="index.html" class="site-nav__link">Home</a>
-      <a href="research.html" class="site-nav__link">Research</a>
-      <a href="tools.html" class="site-nav__link">Tools</a>
-      <a href="services.html" class="site-nav__link">Services</a>
-      <a href="about.html" class="site-nav__link">About</a>
-      <a href="collaborate.html" class="site-nav__link">Collaborate</a>
-      <a href="https://asri.dissensus.ai" class="site-nav__link" target="_blank" rel="noopener">ASRI &rarr;</a>
-      <a href="https://systems.ac" class="site-nav__link" target="_blank" rel="noopener">ASCRI &rarr;</a>
-      <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact &rarr;</a>
+  <nav class="nav">
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <div class="nav__links">
+      <a href="research.html">Research</a>
+      <a href="tools.html" class="hide-sm">Tools</a>
+      <a href="about.html" class="hide-sm">About</a>
+      <a href="services.html" class="hide-sm">Services</a>
+      <a href="collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- Hero Section -->
-<section class="hero" style="min-height: auto; padding: var(--space-xl) 0;">
-  <div class="container">
-    <span class="hero__label">Charter</span>
-    <h1 style="font-size: clamp(1.75rem, 5vw, 2.5rem); margin-top: var(--space-md); font-weight: 400; letter-spacing: 0.04em;">
-      Organizational Charter
-    </h1>
-    <p class="hero__tagline" style="margin-top: var(--space-md);">
-      Scope, governance, and strategic direction
-    </p>
-  </div>
-</section>
+  <!-- Hero -->
+  <header class="container hero">
+    <span class="kicker">Charter</span>
+    <h1>Organizational Charter</h1>
+    <p class="lead">Scope, governance, and strategic direction for Dissensus Ltd, the UK research company behind the Adversarial Systems &amp; Complexity Research Initiative.</p>
+  </header>
 
-<!-- Preamble -->
-<section class="about" data-index="01">
-  <div class="container">
+  <!-- Preamble -->
+  <section class="section container prose">
+    <span class="index">01 &middot; Preamble</span>
     <h2>Preamble</h2>
-    <p>
-      <strong style="color: var(--text-primary);">Dissensus</strong> is a UK-based governance alignment research lab, incorporated as a private limited company in England &amp; Wales (company no. 17309927). Focused on
-      adversarial systems&mdash;investigated through the Adversarial Systems &amp; Complexity Research Initiative (<a href="https://systems.ac" target="_blank" rel="noopener" style="color: var(--accent);">ASCRI</a>)&mdash;any sufficiently complex dynamic network of agents where equilibria are impossible
-      to reach due to formalized friction constraints. These systems function merely through a reduction of friction
-      and are thus adversarial against themselves, yet persist through dissensus.
-    </p>
-    <p>
-      We formalize the mechanics of friction: not to eliminate it&mdash;friction is the cost of existence in an adversarial
-      environment&mdash;but to measure it. To make visible the invisible taxes that coordination imposes. To quantify the
-      legitimacy deficits that traditional political theory only gestures toward.
-    </p>
-    <div class="equation">
-      <span style="color: var(--accent); font-size: 1.125rem;">Core Thesis:</span><br><br>
-      In any system containing two or more optimizing agents, action requires delegation,
-      delegation produces friction, and friction has measurable stakes.
-    </div>
-  </div>
-</section>
+    <p><strong>Dissensus</strong> is a UK-based governance alignment research lab, incorporated as a private limited company in England and Wales (company no. 17309927). It focuses on adversarial systems (investigated through the Adversarial Systems &amp; Complexity Research Initiative, <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a>): any sufficiently complex dynamic network of agents where equilibria are impossible to reach due to formalised friction constraints. These systems function merely through a reduction of friction and are thus adversarial against themselves, yet persist through dissensus.</p>
+    <p>We formalise the mechanics of friction: not to eliminate it (friction is the cost of existence in an adversarial environment) but to measure it. To make visible the invisible taxes that coordination imposes. To quantify the legitimacy deficits that traditional political theory only gestures towards.</p>
 
-<!-- Organizational Structure -->
-<section class="research" data-index="02">
-  <div class="container">
+    <div class="block block--accent">
+      <span class="block__label">Core Thesis</span>
+      <p>In any system containing two or more optimising agents, action requires delegation, delegation produces friction, and friction has measurable stakes.</p>
+    </div>
+  </section>
+
+  <!-- Organizational Structure -->
+  <section class="section container">
+    <span class="index">02 &middot; Organizational Structure</span>
     <h2>Organizational Structure</h2>
 
-    <div class="program-intro">
-      <div class="program-intro__header">
-        <span class="program-intro__label">Legal Entity</span>
-        <h3 class="program-intro__title">UK Private Limited Company</h3>
-      </div>
-      <p class="program-intro__definition">
-        Dissensus Ltd is a private limited company registered in England and Wales (company no. 17309927)
-        under the Companies Act 2006. Its research programme is carried out through
-        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a>, with publications hosted here on dissensus.ai.
-      </p>
+    <div class="callout">
+      <span class="callout__meta">Legal Entity</span>
+      <h3>UK Private Limited Company</h3>
+      <p>Dissensus Ltd is a private limited company registered in England and Wales (company no. 17309927) under the Companies Act 2006. Its research programme is carried out through <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a>, with publications hosted here on dissensus.ai.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1px; background: var(--border); margin-top: var(--space-lg); border: 1px solid var(--border);">
-      <div style="background: var(--bg-secondary); padding: var(--space-lg);">
-        <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim); text-transform: uppercase; letter-spacing: 0.1em;">Status</span>
-        <p style="margin-top: var(--space-xs); color: var(--text-primary); font-size: 0.9375rem;">UK Private Limited Company</p>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat__k">Status</span>
+        <span class="stat__v">UK Private Limited Company</span>
       </div>
-      <div style="background: var(--bg-secondary); padding: var(--space-lg);">
-        <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim); text-transform: uppercase; letter-spacing: 0.1em;">Established</span>
-        <p style="margin-top: var(--space-xs); color: var(--text-primary); font-size: 0.9375rem;">February 2026</p>
+      <div class="stat">
+        <span class="stat__k">Established</span>
+        <span class="stat__v">February 2026</span>
       </div>
-      <div style="background: var(--bg-secondary); padding: var(--space-lg);">
-        <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim); text-transform: uppercase; letter-spacing: 0.1em;">Location</span>
-        <p style="margin-top: var(--space-xs); color: var(--text-primary); font-size: 0.9375rem;">London, United Kingdom</p>
+      <div class="stat">
+        <span class="stat__k">Location</span>
+        <span class="stat__v">London, United Kingdom</span>
       </div>
-      <div style="background: var(--bg-secondary); padding: var(--space-lg);">
-        <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim); text-transform: uppercase; letter-spacing: 0.1em;">Founder &amp; Director</span>
-        <p style="margin-top: var(--space-xs); color: var(--text-primary); font-size: 0.9375rem;">Murad Farzulla</p>
+      <div class="stat">
+        <span class="stat__k">Founder &amp; Director</span>
+        <span class="stat__v">Murad Farzulla</span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Research Scope -->
-<section class="framework-intro" data-index="03">
-  <div class="container">
+  <!-- Research Scope -->
+  <section class="section container">
+    <span class="index">03 &middot; Research Scope</span>
     <h2>Research Scope</h2>
 
-    <p>Dissensus conducts theoretical and empirical research on friction dynamics across substrates:</p>
+    <div class="prose">
+      <p>Dissensus conducts theoretical and empirical research on friction dynamics across substrates:</p>
+    </div>
 
-    <div class="research-grid" style="margin-top: var(--space-lg);">
-      <article class="research-card">
-        <span class="research-card__index">I</span>
+    <div class="grid">
+      <article class="card">
+        <span class="card__index">I</span>
         <h3>Consent Mechanics</h3>
-        <p>
-          Formal theory of consent-holding in multi-agent systems. When can delegation be legitimate?
-          What are the structural conditions for valid consent? How do we measure consent deficits?
-        </p>
+        <p>Formal theory of consent-holding in multi-agent systems. When can delegation be legitimate? What are the structural conditions for valid consent? How do we measure consent deficits?</p>
       </article>
-
-      <article class="research-card">
-        <span class="research-card__index">II</span>
+      <article class="card">
+        <span class="card__index">II</span>
         <h3>Machine Morality</h3>
-        <p>
-          Substrate-independent criteria for moral status. If an AI system meets functional criteria
-          for consent-giving, what follows? The genre mimicry hypothesis.
-        </p>
+        <p>Substrate-independent criteria for moral status. If an AI system meets functional criteria for consent-giving, what follows? The genre mimicry hypothesis.</p>
       </article>
-
-      <article class="research-card">
-        <span class="research-card__index">III</span>
+      <article class="card">
+        <span class="card__index">III</span>
         <h3>Economic Pharmakon</h3>
-        <p>
-          Derivatives as simultaneously remedy and poison. The hedging paradox: when risk management
-          becomes wealth transfer infrastructure. Market microstructure as friction measurement.
-        </p>
+        <p>Derivatives as simultaneously remedy and poison. The hedging paradox: when risk management becomes wealth transfer infrastructure. Market microstructure as friction measurement.</p>
       </article>
-
-      <article class="research-card">
-        <span class="research-card__index">IV</span>
+      <article class="card">
+        <span class="card__index">IV</span>
         <h3>Crypto Microstructure</h3>
-        <p>
-          Empirical validation of friction dynamics. Why do infrastructure failures move markets
-          more than regulatory announcements? The enforcement capacity hypothesis.
-        </p>
+        <p>Empirical validation of friction dynamics. Why do infrastructure failures move markets more than regulatory announcements? The enforcement capacity hypothesis.</p>
       </article>
     </div>
 
-    <blockquote style="margin-top: var(--space-xl);">
-      <strong>Unifying Framework:</strong> The Replicator-Optimization Mechanism (ROM)&mdash;a computational framework
-      for self-replicating, optimization-executing systems across physical and abstract substrates.
-    </blockquote>
-  </div>
-</section>
+    <div class="prose">
+      <blockquote><strong>Unifying Framework:</strong> the Replicator-Optimization Mechanism (ROM), a computational framework for self-replicating, optimisation-executing systems across physical and abstract substrates.</blockquote>
+    </div>
+  </section>
 
-<!-- Strategic Direction -->
-<section class="about" data-index="04">
-  <div class="container">
+  <!-- Strategic Direction -->
+  <section class="section container prose">
+    <span class="index">04 &middot; Strategic Direction</span>
     <h2>Strategic Direction</h2>
 
-    <p>
-      Dissensus pursues a dual mandate: advancing fundamental research
-      through the Adversarial Systems &amp; Complexity Research Initiative (ASCRI) while developing commercial applications of friction analysis methodology.
-      The strategic priorities include:
-    </p>
+    <p>Dissensus pursues a dual mandate: advancing fundamental research through the Adversarial Systems &amp; Complexity Research Initiative (ASCRI) while developing commercial applications of friction analysis methodology. The strategic priorities include:</p>
 
-    <ul style="list-style: none; margin: var(--space-lg) 0; padding: 0;">
-      <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative; color: var(--text-secondary);">
-        <span style="position: absolute; left: 0; color: var(--accent); font-family: var(--font-mono);">&rarr;</span>
-        <strong style="color: var(--text-primary);">Applied Research:</strong> Commercial friction analysis for governance, finance, and AI alignment clients
-      </li>
-      <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative; color: var(--text-secondary);">
-        <span style="position: absolute; left: 0; color: var(--accent); font-family: var(--font-mono);">&rarr;</span>
-        <strong style="color: var(--text-primary);">Academic Partnerships:</strong> Joint research programs with universities and research institutions
-      </li>
-      <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative; color: var(--text-secondary);">
-        <span style="position: absolute; left: 0; color: var(--accent); font-family: var(--font-mono);">&rarr;</span>
-        <strong style="color: var(--text-primary);">Cross-Disciplinary Collaboration:</strong> Bringing together political scientists, economists, AI researchers, philosophers
-      </li>
-      <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative; color: var(--text-secondary);">
-        <span style="position: absolute; left: 0; color: var(--accent); font-family: var(--font-mono);">&rarr;</span>
-        <strong style="color: var(--text-primary);">Policy Engagement:</strong> Translating friction analysis into actionable governance recommendations
-      </li>
-      <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative; color: var(--text-secondary);">
-        <span style="position: absolute; left: 0; color: var(--accent); font-family: var(--font-mono);">&rarr;</span>
-        <strong style="color: var(--text-primary);">IP Development:</strong> Licensing frameworks and methodologies for commercial and academic use
-      </li>
+    <ul>
+      <li><strong>Applied Research:</strong> Commercial friction analysis for governance, finance, and AI alignment clients.</li>
+      <li><strong>Academic Partnerships:</strong> Joint research programmes with universities and research institutions.</li>
+      <li><strong>Cross-Disciplinary Collaboration:</strong> Bringing together political scientists, economists, AI researchers, philosophers.</li>
+      <li><strong>Policy Engagement:</strong> Translating friction analysis into actionable governance recommendations.</li>
+      <li><strong>IP Development:</strong> Licensing frameworks and methodologies for commercial and academic use.</li>
     </ul>
-  </div>
-</section>
+  </section>
 
-<!-- Invitation to Collaborate -->
-<section class="research" data-index="05">
-  <div class="container">
+  <!-- Invitation to Collaboration -->
+  <section class="section container prose">
+    <span class="index">05 &middot; Collaboration</span>
     <h2>Invitation to Collaboration</h2>
 
-    <p style="font-size: 1.0625rem; margin-bottom: var(--space-xl);">
-      We are not interested in corporate alignment theater or sterile academic consensus.
-      We are interested in the mechanics of friction&mdash;the invisible taxes that coordination imposes,
-      the structural inequities that emerge from unexamined delegation.
-    </p>
+    <p class="lead">We are not interested in corporate alignment theatre or sterile academic consensus. We are interested in the mechanics of friction, the invisible taxes that coordination imposes, the structural inequities that emerge from unexamined delegation.</p>
 
-    <div style="background: var(--bg-secondary); border: 1px solid var(--border); padding: var(--space-xl); margin-bottom: var(--space-xl);">
-      <h3 style="color: var(--text-primary); margin-bottom: var(--space-lg); font-size: 1.125rem; font-family: var(--font-sans);">
-        We Seek Collaborators To:
-      </h3>
-      <ul style="list-style: none; padding: 0; color: var(--text-secondary); line-height: 1.9;">
-        <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative;">
-          <span style="position: absolute; left: 0; color: var(--accent);">&rarr;</span>
-          <strong style="color: var(--text-primary);">Pressure-test these frameworks.</strong> Break them. Find the edge cases where they fail.
-        </li>
-        <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative;">
-          <span style="position: absolute; left: 0; color: var(--accent);">&rarr;</span>
-          <strong style="color: var(--text-primary);">Category Theorists:</strong> Formalize the replicator-optimization homomorphism.
-        </li>
-        <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative;">
-          <span style="position: absolute; left: 0; color: var(--accent);">&rarr;</span>
-          <strong style="color: var(--text-primary);">Political Scientists:</strong> Stress-test consent-legitimacy mappings against empirical data.
-        </li>
-        <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative;">
-          <span style="position: absolute; left: 0; color: var(--accent);">&rarr;</span>
-          <strong style="color: var(--text-primary);">AI Safety Researchers:</strong> Attack the substrate-independence thesis.
-        </li>
-        <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative;">
-          <span style="position: absolute; left: 0; color: var(--accent);">&rarr;</span>
-          <strong style="color: var(--text-primary);">Economists:</strong> Find where the hedging paradox breaks down.
-        </li>
-        <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative;">
-          <span style="position: absolute; left: 0; color: var(--accent);">&rarr;</span>
-          <strong style="color: var(--text-primary);">Philosophers:</strong> Dismantle the eliminative argument on consciousness.
-        </li>
+    <div class="block">
+      <span class="block__label">We Seek Collaborators To</span>
+      <ul>
+        <li><strong>Pressure-test these frameworks.</strong> Break them. Find the edge cases where they fail.</li>
+        <li><strong>Category Theorists:</strong> Formalise the replicator-optimisation homomorphism.</li>
+        <li><strong>Political Scientists:</strong> Stress-test consent-legitimacy mappings against empirical data.</li>
+        <li><strong>AI Safety Researchers:</strong> Attack the substrate-independence thesis.</li>
+        <li><strong>Economists:</strong> Find where the hedging paradox breaks down.</li>
+        <li><strong>Philosophers:</strong> Dismantle the eliminative argument on consciousness.</li>
       </ul>
     </div>
 
-    <p style="font-size: 1.125rem; color: var(--text-primary); font-weight: 500;">
-      The goal is not to be right; it's to be less wrong, faster.
-    </p>
-  </div>
-</section>
+    <p><strong>The goal is not to be right; it's to be less wrong, faster.</strong></p>
+  </section>
 
-<!-- Open Science -->
-<section class="framework-intro" data-index="06">
-  <div class="container">
+  <!-- Open Science -->
+  <section class="section container prose">
+    <span class="index">06 &middot; Open Science</span>
     <h2>Open Science Commitment</h2>
 
     <p>All research outputs comply with OpenAIRE Guidelines and FAIR data principles:</p>
-
-    <ul style="list-style: none; margin: var(--space-lg) 0; padding: 0;">
-      <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative; color: var(--text-secondary);">
-        <span style="position: absolute; left: 0; color: var(--accent-dim);">&mdash;</span>
-        Public access via Zenodo with DOI assignment
-      </li>
-      <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative; color: var(--text-secondary);">
-        <span style="position: absolute; left: 0; color: var(--accent-dim);">&mdash;</span>
-        CC-BY 4.0 licensing (default) for non-proprietary publications
-      </li>
-      <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative; color: var(--text-secondary);">
-        <span style="position: absolute; left: 0; color: var(--accent-dim);">&mdash;</span>
-        Open source software releases (MIT/Apache licenses)
-      </li>
-      <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative; color: var(--text-secondary);">
-        <span style="position: absolute; left: 0; color: var(--accent-dim);">&mdash;</span>
-        ORCID integration: <a href="https://orcid.org/0009-0002-7164-8704" target="_blank">0009-0002-7164-8704</a>
-      </li>
-      <li style="padding: var(--space-sm) 0; padding-left: var(--space-lg); position: relative; color: var(--text-secondary);">
-        <span style="position: absolute; left: 0; color: var(--accent-dim);">&mdash;</span>
-        Code repositories at <a href="https://github.com/studiofarzulla" target="_blank">github.com/studiofarzulla</a>
-      </li>
+    <ul>
+      <li>Public access via Zenodo with DOI assignment.</li>
+      <li>CC-BY 4.0 licensing (default) for non-proprietary publications.</li>
+      <li>Open source software releases (MIT/Apache licences).</li>
+      <li>ORCID integration: <a href="https://orcid.org/0009-0002-7164-8704" target="_blank" rel="noopener">0009-0002-7164-8704</a>.</li>
+      <li>Code repositories at <a href="https://github.com/studiofarzulla" target="_blank" rel="noopener">github.com/studiofarzulla</a>.</li>
     </ul>
-  </div>
-</section>
+  </section>
 
-<!-- Governance -->
-<section class="about" data-index="07">
-  <div class="container">
+  <!-- Governance -->
+  <section class="section container prose">
+    <span class="index">07 &middot; Governance</span>
     <h2>Governance</h2>
 
-    <p>
-      Dissensus Ltd is governed by its articles of association under the UK Companies Act 2006.
-      Murad Farzulla serves as founder and sole director, responsible for research direction, strategy, and operations.
-    </p>
-    <p>
-      As the company grows, governance structures will evolve to reflect the scope of operations
-      while maintaining research independence and methodological rigor.
-    </p>
+    <p>Dissensus Ltd is governed by its articles of association under the UK Companies Act 2006. Murad Farzulla serves as founder and sole director, responsible for research direction, strategy, and operations.</p>
+    <p>As the company grows, governance structures will evolve to reflect the scope of operations while maintaining research independence and methodological rigour.</p>
 
-    <div style="margin-top: var(--space-xl); padding: var(--space-lg); background: var(--bg-card); border: 1px solid var(--border);">
-      <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--space-sm);">
-        LAST UPDATED: June 2026
-      </p>
-      <p style="font-size: 0.875rem; font-style: italic; margin: 0;">
-        Dissensus Ltd &mdash; registered in England and Wales, company number 17309927. Registered office: 9d, 88 South Park Studios, Peterborough Road, London SW6 3HH.
-        All research outputs are disseminated through open access channels.
-      </p>
+    <div class="block">
+      <span class="block__label">Last updated: June 2026</span>
+      <p><em>Dissensus Ltd, registered in England and Wales, company number 17309927. Registered office: 9d, 88 South Park Studios, Peterborough Road, London SW6 3HH. All research outputs are disseminated through open access channels.</em></p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Contact -->
-<section class="contact" data-index="08">
-  <div class="container">
+  <!-- Contact -->
+  <section class="section container">
+    <span class="index">08 &middot; Contact</span>
     <h2>Contact</h2>
-    <div class="contact__wrapper">
-      <a href="mailto:research@dissensus.ai" class="email">research@dissensus.ai</a>
-      <span class="contact__status">Accepting collaboration proposals</span>
+    <p class="lead">Accepting collaboration proposals.</p>
+    <div class="btn-row">
+      <a class="btn" href="mailto:research@dissensus.ai">research@dissensus.ai</a>
+      <a class="btn btn--ghost" href="collaborate.html">Collaboration proposal</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <div>
-      <p>&copy; 2026 Dissensus Ltd &mdash; Governance Alignment Research Lab</p>
-      <p class="footer__company">Registered in England &amp; Wales, company no. 17309927</p>
-    </div>
-    <div>
-      <div class="footer-links">
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+      <div>
+        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+        <p>Registered in England and Wales, company no. 17309927</p>
+      </div>
+      <div style="max-width:560px;">
         <a href="index.html">Home</a> &middot;
+        <a href="research.html">Research</a> &middot;
         <a href="tools.html">Tools</a> &middot;
         <a href="services.html">Services</a> &middot;
         <a href="about.html">About</a> &middot;
         <a href="collaborate.html">Collaborate</a> &middot;
         <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
         <a href="manifesto.html">Manifesto</a> &middot;
         <a href="charter.html">Charter</a> &middot;
         <a href="reading.html">Reading</a> &middot;
@@ -340,8 +233,7 @@
         <a href="feed.xml" title="RSS Feed">RSS</a>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>

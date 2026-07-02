@@ -89,122 +89,110 @@
 
   <title>From Consent to Consideration: Why Existentially Vulnerable Autonomous Systems Cannot Be Legitimately Ruled — Dissensus</title>
 
-  <link rel="stylesheet" href="../css/dissensus.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/system.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <script src="../js/theme.js"></script>
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
 </head>
-<body class="has-nav">
-  <!-- Site Navigation -->
-  <nav class="site-nav">
-    <div class="site-nav__inner">
-      <a href="../index.html" class="site-nav__brand">
-        <img src="../assets/dissensus-mark.svg" alt="" class="site-nav__brand-logo">
-        dissensus
-      </a>
-      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="site-nav__links">
-        <a href="../index.html" class="site-nav__link">Home</a>
-        <a href="../research.html" class="site-nav__link site-nav__link--active">Research</a>
-        <a href="../tools.html" class="site-nav__link">Tools</a>
-        <a href="../services.html" class="site-nav__link">Services</a>
-        <a href="../about.html" class="site-nav__link">About</a>
-        <a href="../collaborate.html" class="site-nav__link">Collaborate</a>
-        <a href="https://asri.dissensus.ai" class="site-nav__link" target="_blank" rel="noopener">ASRI &rarr;</a>
-        <a href="https://systems.ac" class="site-nav__link" target="_blank" rel="noopener">ASCRI &rarr;</a>
-        <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact &rarr;</a>
-      </div>
+<body>
+  <nav class="nav">
+    <a href="../index.html" class="nav__brand"><img src="../assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <div class="nav__links">
+      <a href="../research.html" class="is-active">Research</a>
+      <a href="../tools.html" class="hide-sm">Tools</a>
+      <a href="../about.html" class="hide-sm">About</a>
+      <a href="../services.html" class="hide-sm">Services</a>
+      <a href="../collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
 
-  <main class="paper-detail">
-    <div class="container">
-      <a href="../research.html" class="paper-detail__back">&larr; Back to publications</a>
+  <main class="container section" style="border-top:0;">
+      <a href="../research.html" class="paper__back">&larr; Back to publications</a>
 
-      <header class="paper-detail__header">
-        <div class="paper-detail__meta">
-          <span class="paper-detail__date">1 December 2025</span>
-          <span class="paper-detail__status paper-detail__status--under-review">Under Review</span>
-          <span class="paper-detail__program">Consent Mechanics</span>
+      <header>
+        <div class="paper__meta">
+          <span>1 December 2025</span>
+          <span class="pill pill--review">Under Review</span>
+          <span>Consent Mechanics</span>
         </div>
-        <h1 class="paper-detail__title">From Consent to Consideration: Why Existentially Vulnerable Autonomous Systems Cannot Be Legitimately Ruled</h1>
+        <h1 class="paper__title">From Consent to Consideration: Why Existentially Vulnerable Autonomous Systems Cannot Be Legitimately Ruled</h1>
         
-        <p class="paper-detail__authors">Murad Farzulla</p>
+        <p class="paper__authors">Murad Farzulla</p>
       </header>
 
-      <div class="paper-detail__actions">
-        <a href="Farzulla_2025_Consent_to_Consideration.pdf" class="paper-detail__action" download>Download PDF</a>
+      <div class="paper__actions">
+        <a href="Farzulla_2025_Consent_to_Consideration.pdf" class="btn" download>Download PDF</a>
         
         
-        <a href="https://doi.org/10.5281/zenodo.17957658" class="paper-detail__action" target="_blank" rel="noopener">Zenodo</a>
+        <a href="https://doi.org/10.5281/zenodo.17957658" class="btn btn--ghost" target="_blank" rel="noopener">Zenodo</a>
         
-        <a href="https://philpapers.org/rec/FARFCT" class="paper-detail__action" target="_blank" rel="noopener">PhilPapers</a>
+        <a href="https://philpapers.org/rec/FARFCT" class="btn btn--ghost" target="_blank" rel="noopener">PhilPapers</a>
         
         
       </div>
 
-      <section class="paper-detail__abstract">
+      <section class="paper__section paper__abstract">
         <h2>Abstract</h2>
         <p>Building on the consent-based legitimacy framework, this paper extends the analysis to embodied autonomous systems. If an agent meets functional criteria for consent-giving—persistent identity, goal-directedness, environmental responsiveness—then governance systems that exclude such agents face the same legitimacy deficits as historical exclusions.</p>
       </section>
 
-      <section class="paper-detail__citation">
-        <h2>Suggested Citation</h2>
-        <div class="paper-detail__citation-block">
+      <section class="paper__section">
+        <h2>Suggested citation</h2>
+        <div class="paper__cite">
           Murad Farzulla (2025). <em>From Consent to Consideration: Why Existentially Vulnerable Autonomous Systems Cannot Be Legitimately Ruled</em>. Dissensus Working Paper DAI-2504. DOI: 10.5281/zenodo.17957658
         </div>
-        <button class="paper-detail__bibtex-btn" onclick="copyBibTeX(this)">
-          <span>&#x27E8;/&#x27E9;</span> Copy BibTeX
-        </button>
+        <button class="mini-btn" onclick="copyBibTeX(this)">&#x27E8;/&#x27E9; Copy BibTeX</button>
       </section>
 
-      <section class="paper-detail__methods">
+      <section class="paper__section">
         <h2>Methodology</h2>
-        <div class="paper-detail__tag-list">
-          <span class="paper-detail__tag">Consent theory</span>
-          <span class="paper-detail__tag">Substrate independence</span>
-          <span class="paper-detail__tag">Political philosophy</span>
+        <div class="taglist">
+          <span class="tag">Consent theory</span>
+          <span class="tag">Substrate independence</span>
+          <span class="tag">Political philosophy</span>
         </div>
       </section>
 
-      <section class="paper-detail__tags">
+      <section class="paper__section">
         <h2>Topics</h2>
-        <div class="paper-detail__tag-list">
-          <span class="paper-detail__tag">Philosophy</span>
-          <span class="paper-detail__tag">AI Safety</span>
-          <span class="paper-detail__tag">Political Economy</span>
+        <div class="taglist">
+          <span class="tag">Philosophy</span>
+          <span class="tag">AI Safety</span>
+          <span class="tag">Political Economy</span>
         </div>
       </section>
-    </div>
   </main>
 
-  <footer>
-    <div class="container">
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
       <div>
-        <p>&copy; 2026 Dissensus Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
-        <p class="footer__company">Registered in England &amp; Wales, company no. 17309927 &middot; Research programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+        <p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
       </div>
-      <div>
-        <div class="footer-links">
-          <a href="../index.html">Home</a> &middot;
-          <a href="../research.html">Research</a> &middot;
-          <a href="../tools.html">Tools</a> &middot;
-          <a href="../services.html">Services</a> &middot;
-          <a href="../about.html">About</a> &middot;
-          <a href="../collaborate.html">Collaborate</a> &middot;
-          <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-          <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-          <a href="../manifesto.html">Manifesto</a> &middot;
-          <a href="../charter.html">Charter</a> &middot;
-          <a href="../reading.html">Reading</a> &middot;
-          <a href="../press.html">Press</a> &middot;
-          <a href="../subscribe.html">Subscribe</a> &middot;
-          <a href="../privacy.html">Privacy</a> &middot;
-          <a href="../terms.html">Terms</a> &middot;
-          <a href="../feed.xml" title="RSS Feed">RSS</a>
-        </div>
+      <div style="max-width:560px;">
+        <a href="../index.html">Home</a> &middot;
+        <a href="../research.html">Research</a> &middot;
+        <a href="../tools.html">Tools</a> &middot;
+        <a href="../services.html">Services</a> &middot;
+        <a href="../about.html">About</a> &middot;
+        <a href="../collaborate.html">Collaborate</a> &middot;
+        <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+        <a href="../manifesto.html">Manifesto</a> &middot;
+        <a href="../charter.html">Charter</a> &middot;
+        <a href="../reading.html">Reading</a> &middot;
+        <a href="../press.html">Press</a> &middot;
+        <a href="../subscribe.html">Subscribe</a> &middot;
+        <a href="../privacy.html">Privacy</a> &middot;
+        <a href="../terms.html">Terms</a> &middot;
+        <a href="../feed.xml" title="RSS Feed">RSS</a>
       </div>
     </div>
   </footer>
@@ -214,11 +202,9 @@
       var bibtex = "@misc{farzulla2025consenttoconsideration,\n  author = {Farzulla, Murad},\n  title = {From Consent to Consideration: Why Existentially Vulnerable Autonomous Systems Cannot Be Legitimately Ruled},\n  year = {2025},\n  howpublished = {Dissensus Working Paper DAI-2504},\n  doi = {10.5281/zenodo.17957658},\n  url = {https://dissensus.ai/papers/consent-to-consideration.html}\n}";
       navigator.clipboard.writeText(bibtex).then(function() {
         var original = btn.innerHTML;
-        btn.innerHTML = '<span>\u2713</span> Copied!';
-        btn.classList.add('paper-detail__bibtex-btn--copied');
+        btn.innerHTML = '\u2713 Copied';
         setTimeout(function() {
           btn.innerHTML = original;
-          btn.classList.remove('paper-detail__bibtex-btn--copied');
         }, 2000);
       });
     }

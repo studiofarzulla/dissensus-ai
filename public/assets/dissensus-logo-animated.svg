@@ -3,19 +3,19 @@
   <defs>
     <linearGradient id="logo-grad-yang" x1="20%" y1="0%" x2="80%" y2="100%">
       <stop offset="0%" stop-color="#e8254a"/>
-      <stop offset="35%" stop-color="#dc143c"/>
+      <stop offset="35%" stop-color="#800020"/>
       <stop offset="70%" stop-color="#8a0c24"/>
       <stop offset="100%" stop-color="#3a0610"/>
     </linearGradient>
     <linearGradient id="logo-grad-yin" x1="80%" y1="100%" x2="20%" y2="0%">
       <stop offset="0%" stop-color="#e8254a"/>
-      <stop offset="35%" stop-color="#dc143c"/>
+      <stop offset="35%" stop-color="#800020"/>
       <stop offset="70%" stop-color="#8a0c24"/>
       <stop offset="100%" stop-color="#3a0610"/>
     </linearGradient>
     <radialGradient id="dot-light" cx="30%" cy="30%">
       <stop offset="0%" stop-color="#ff4060"/>
-      <stop offset="100%" stop-color="#dc143c"/>
+      <stop offset="100%" stop-color="#800020"/>
     </radialGradient>
     <radialGradient id="dot-dark" cx="70%" cy="70%">
       <stop offset="0%" stop-color="#6a0c1c"/>

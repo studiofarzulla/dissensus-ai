@@ -3,189 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Subscribe to research updates from Dissensus, the lab formalising friction dynamics in multi-agent systems.">
   <title>Subscribe | Dissensus</title>
-  <meta name="description" content="Subscribe to research updates from Dissensus - governance alignment research lab.">
-  <link rel="stylesheet" href="css/dissensus.css">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/theme.js"></script>
   <link rel="alternate" type="application/rss+xml" title="Dissensus RSS Feed" href="feed.xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 </head>
-<body class="has-nav">
-  <!-- Site Navigation -->
-  <nav class="site-nav">
-    <div class="site-nav__inner">
-      <a href="index.html" class="site-nav__brand">
-        <img src="assets/dissensus-mark.svg" alt="" class="site-nav__brand-logo">
-        dissensus
-      </a>
-      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="site-nav__links">
-        <a href="index.html" class="site-nav__link">Home</a>
-        <a href="research.html" class="site-nav__link">Research</a>
-        <a href="tools.html" class="site-nav__link">Tools</a>
-        <a href="services.html" class="site-nav__link">Services</a>
-        <a href="about.html" class="site-nav__link">About</a>
-        <a href="collaborate.html" class="site-nav__link">Collaborate</a>
-        <a href="https://asri.dissensus.ai" class="site-nav__link" target="_blank" rel="noopener">ASRI &rarr;</a>
-        <a href="https://systems.ac" class="site-nav__link" target="_blank" rel="noopener">ASCRI &rarr;</a>
-        <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact &rarr;</a>
-      </div>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <div class="nav__links">
+      <a href="research.html">Research</a>
+      <a href="tools.html" class="hide-sm">Tools</a>
+      <a href="about.html" class="hide-sm">About</a>
+      <a href="services.html" class="hide-sm">Services</a>
+      <a href="collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
 
-<section class="hero" style="min-height: auto; padding: var(--space-xl) 0;">
-  <div class="container">
-    <h1 style="font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 400; letter-spacing: 0.04em;">
-      Subscribe
-    </h1>
-    <p class="hero__tagline" style="margin-top: var(--space-md);">
-      Research updates delivered with minimal friction
-    </p>
-  </div>
-</section>
+  <!-- Hero -->
+  <header class="container hero">
+    <span class="kicker">Subscribe</span>
+    <h1>Research updates delivered with minimal friction</h1>
+    <p class="lead">Follow the lab's output by email or RSS. Infrequent, substantive, and easy to leave. We publish when there is something worth reading, not on a schedule.</p>
+  </header>
 
-<section class="about" data-index="01">
-  <div class="container">
-    <h2>Stay Updated</h2>
-    
-    <p>
-      We publish infrequently but substantively. Updates include new papers, framework developments, 
-      and occasional commentary on governance, AI alignment, and friction dynamics.
-    </p>
+  <!-- Stay updated -->
+  <section class="section container prose">
+    <span class="index">01 &middot; Stay updated</span>
+    <h2>Stay updated</h2>
+    <p>We publish infrequently but substantively. Updates include new papers, framework developments, and occasional commentary on governance, AI alignment, and friction dynamics.</p>
 
-    <div style="background: var(--bg-secondary); border: 1px solid var(--border); padding: var(--space-xl); margin: var(--space-xl) 0;">
-      <h3 style="color: var(--text-primary); margin-bottom: var(--space-lg); font-family: var(--font-sans); font-size: 1.125rem;">
-        Email Updates
-      </h3>
-      
-      <form action="https://formspree.io/f/xbddrpyq" method="POST" style="display: flex; flex-direction: column; gap: var(--space-md);">
-        <div>
-          <label for="email" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
-            Email Address
-          </label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            required
-            placeholder="researcher@institution.edu"
-            style="width: 100%; max-width: 400px; padding: var(--space-sm) var(--space-md); background: var(--bg-primary); border: 1px solid var(--border); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.9375rem;"
-          >
-        </div>
-        
-        <div>
-          <label for="interests" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
-            Research Interests (Optional)
-          </label>
-          <select 
-            id="interests" 
-            name="interests"
-            style="width: 100%; max-width: 400px; padding: var(--space-sm) var(--space-md); background: var(--bg-primary); border: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.875rem;"
-          >
-            <option value="">All updates</option>
-            <option value="consent-mechanics">Consent Mechanics</option>
-            <option value="machine-morality">Machine Morality / AI Ethics</option>
-            <option value="economic-pharmakon">Economic Pharmakon / Finance</option>
-            <option value="crypto-microstructure">Crypto Microstructure</option>
-            <option value="political-economy">Political Economy</option>
-          </select>
-        </div>
+    <form class="form" action="https://formspree.io/f/xbddrpyq" method="POST">
+      <div>
+        <label class="label" for="email">Email Address</label>
+        <input class="input" type="email" id="email" name="email" required placeholder="researcher@institution.edu">
+      </div>
+      <div>
+        <label class="label" for="interests">Research Interests (Optional)</label>
+        <select class="select" id="interests" name="interests">
+          <option value="">All updates</option>
+          <option value="consent-mechanics">Consent Mechanics</option>
+          <option value="machine-morality">Machine Morality / AI Ethics</option>
+          <option value="economic-pharmakon">Economic Pharmakon / Finance</option>
+          <option value="crypto-microstructure">Crypto Microstructure</option>
+          <option value="political-economy">Political Economy</option>
+        </select>
+      </div>
 
-        <input type="hidden" name="_subject" value="New Dissensus Subscriber">
-        
-        <button 
-          type="submit"
-          style="width: fit-content; padding: var(--space-sm) var(--space-lg); background: transparent; border: 1px solid var(--accent-dim); color: var(--accent); font-family: var(--font-mono); font-size: 0.8125rem; cursor: pointer; transition: all var(--transition-base); margin-top: var(--space-sm);"
-          onmouseover="this.style.background='var(--accent)'; this.style.color='var(--bg-primary)';"
-          onmouseout="this.style.background='transparent'; this.style.color='var(--accent)';"
-        >
-          Subscribe →
-        </button>
-      </form>
+      <input type="hidden" name="_subject" value="New Dissensus Subscriber">
 
-      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: var(--space-lg); font-family: var(--font-mono);">
-        No spam. Unsubscribe anytime. See our <a href="privacy.html" style="color: var(--accent);">privacy policy</a>.
-      </p>
+      <button type="submit" class="btn">Subscribe &rarr;</button>
+      <p class="form-note">No spam. Unsubscribe anytime. See our <a href="privacy.html">privacy policy</a>.</p>
+    </form>
+  </section>
+
+  <!-- RSS feed -->
+  <section class="section container">
+    <span class="index">02 &middot; Feed</span>
+    <h2>RSS feed</h2>
+    <p class="lead">Prefer syndication? We provide an RSS feed for all research updates.</p>
+    <div class="block">
+      <span class="block__label">Feed URL</span>
+      <div class="eq">https://dissensus.ai/feed.xml</div>
+      <div class="btn-row">
+        <a class="btn btn--ghost" href="feed.xml">Open feed.xml &rarr;</a>
+        <button class="btn" id="rss-copy-btn" onclick="copyRSSUrl()">Copy URL</button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="research" data-index="02">
-  <div class="container">
-    <h2>Alternative: RSS Feed</h2>
-    
-    <p>Prefer syndication? We provide an RSS feed for all research updates.</p>
-
-    <div style="display: flex; gap: var(--space-md); margin-top: var(--space-lg); flex-wrap: wrap;">
-      <a 
-        href="feed.xml" 
-        style="display: inline-flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.8125rem; transition: all var(--transition-base);"
-      >
-        <span style="color: var(--accent);">⟨RSS⟩</span> feed.xml
-      </a>
-      
-      <button 
-        onclick="copyRSSUrl()"
-        style="display: inline-flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.8125rem; cursor: pointer; transition: all var(--transition-base);"
-        id="rss-copy-btn"
-      >
-        Copy URL
-      </button>
-    </div>
-
-    <div style="background: var(--bg-card); border: 1px solid var(--border); padding: var(--space-md); margin-top: var(--space-lg); font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
-      https://dissensus.ai/feed.xml
-    </div>
-  </div>
-</section>
-
-<section class="framework-intro" data-index="03">
-  <div class="container">
-    <h2>What to Expect</h2>
-    
-    <div class="research-grid" style="margin-top: var(--space-lg);">
-      <article class="research-card">
-        <span class="research-card__index">~</span>
+  <!-- What to expect -->
+  <section class="section container">
+    <span class="index">03 &middot; What to expect</span>
+    <h2>What to expect</h2>
+    <div class="grid">
+      <article class="card">
+        <span class="card__index">~</span>
         <h3>Frequency</h3>
         <p>1-2 emails per month during active research periods. Less during writing phases.</p>
       </article>
-
-      <article class="research-card">
-        <span class="research-card__index">→</span>
+      <article class="card">
+        <span class="card__index">&rarr;</span>
         <h3>Content</h3>
         <p>New paper releases, framework updates, preprint announcements, and occasional field commentary.</p>
       </article>
-
-      <article class="research-card">
-        <span class="research-card__index">⌀</span>
+      <article class="card">
+        <span class="card__index">&empty;</span>
         <h3>No Noise</h3>
         <p>We don't do newsletters for the sake of newsletters. Signal only.</p>
       </article>
-
-      <article class="research-card">
-        <span class="research-card__index">∞</span>
+      <article class="card">
+        <span class="card__index">&infin;</span>
         <h3>Archive</h3>
         <p>All past updates available on farzulla.org. Nothing gets lost.</p>
       </article>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="container">
-    <div>
-      <p>&copy; 2026 Dissensus Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
-      <p class="footer__company">Registered in England &amp; Wales, company no. 17309927</p>
-    </div>
-    <div>
-      <div class="footer-links">
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+      <div>
+        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+        <p>Registered in England and Wales, company no. 17309927</p>
+      </div>
+      <div style="max-width:560px;">
         <a href="index.html">Home</a> &middot;
+        <a href="research.html">Research</a> &middot;
         <a href="tools.html">Tools</a> &middot;
         <a href="services.html">Services</a> &middot;
         <a href="about.html">About</a> &middot;
         <a href="collaborate.html">Collaborate</a> &middot;
         <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
         <a href="manifesto.html">Manifesto</a> &middot;
         <a href="charter.html">Charter</a> &middot;
         <a href="reading.html">Reading</a> &middot;
@@ -196,22 +137,21 @@
         <a href="feed.xml" title="RSS Feed">RSS</a>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  function copyRSSUrl() {
-    navigator.clipboard.writeText('https://dissensus.ai/feed.xml').then(() => {
-      const btn = document.getElementById('rss-copy-btn');
-      btn.textContent = 'Copied!';
-      btn.style.color = 'var(--accent)';
-      setTimeout(() => {
-        btn.textContent = 'Copy URL';
-        btn.style.color = '';
-      }, 2000);
-    });
-  }
-</script>
+  <script>
+    function copyRSSUrl() {
+      navigator.clipboard.writeText('https://dissensus.ai/feed.xml').then(() => {
+        const btn = document.getElementById('rss-copy-btn');
+        btn.textContent = 'Copied!';
+        btn.style.color = 'var(--accent)';
+        setTimeout(() => {
+          btn.textContent = 'Copy URL';
+          btn.style.color = '';
+        }, 2000);
+      });
+    }
+  </script>
 
 </body>
 </html>

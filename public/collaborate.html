@@ -3,147 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Submit a collaboration proposal to Dissensus, a UK research lab formalising friction dynamics in multi-agent systems.">
   <title>Collaborate | Dissensus</title>
-  <meta name="description" content="Submit a collaboration proposal to Dissensus - governance alignment research lab.">
-  <link rel="stylesheet" href="css/dissensus.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/theme.js"></script>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 </head>
-<body class="has-nav">
-  <!-- Site Navigation -->
-  <nav class="site-nav">
-    <div class="site-nav__inner">
-      <a href="index.html" class="site-nav__brand">
-        <img src="assets/dissensus-mark.svg" alt="" class="site-nav__brand-logo">
-        dissensus
-      </a>
-      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="site-nav__links">
-        <a href="index.html" class="site-nav__link">Home</a>
-        <a href="research.html" class="site-nav__link">Research</a>
-        <a href="tools.html" class="site-nav__link">Tools</a>
-        <a href="services.html" class="site-nav__link">Services</a>
-        <a href="about.html" class="site-nav__link">About</a>
-        <a href="collaborate.html" class="site-nav__link site-nav__link--active">Collaborate</a>
-        <a href="https://asri.dissensus.ai" class="site-nav__link" target="_blank" rel="noopener">ASRI &rarr;</a>
-        <a href="https://systems.ac" class="site-nav__link" target="_blank" rel="noopener">ASCRI &rarr;</a>
-        <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact &rarr;</a>
-      </div>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <div class="nav__links">
+      <a href="research.html">Research</a>
+      <a href="tools.html" class="hide-sm">Tools</a>
+      <a href="about.html" class="hide-sm">About</a>
+      <a href="services.html" class="hide-sm">Services</a>
+      <a href="collaborate.html" class="hide-sm is-active">Collaborate</a>
+      <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
 
-<section class="hero" style="min-height: auto; padding: var(--space-xl) 0;">
-  <div class="container">
-    <h1 style="font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 400; letter-spacing: 0.04em;">
-      Collaborate
-    </h1>
-    <p class="hero__tagline" style="margin-top: var(--space-md);">
-      Research partnerships and collaboration proposals
-    </p>
-  </div>
-</section>
+  <!-- Hero -->
+  <header class="container hero">
+    <span class="kicker">Collaborate</span>
+    <h1>Research partnerships and collaboration proposals</h1>
+    <p class="lead">We work with researchers who want to test, extend, or break the frameworks Dissensus builds. Co-authorship, critique, empirical testing, and institutional partnership are all on the table.</p>
+  </header>
 
-<section class="about" data-index="01">
-  <div class="container">
-    <h2>What We're Looking For</h2>
-    
-    <p>
-      We seek collaborators interested in rigorously testing the Axiom of Consent framework and related research.
-      The objective is not consensus but productive dissensus&mdash;identifying failure modes and refining formalisations.
-    </p>
-
-    <div class="research-grid" style="margin-top: var(--space-xl);">
-      <article class="research-card">
-        <span class="research-card__index">I</span>
+  <!-- What we're looking for -->
+  <section class="section container prose">
+    <span class="index">01 &middot; What we're looking for</span>
+    <h2>What we're looking for</h2>
+    <p>We seek collaborators interested in rigorously testing the Axiom of Consent framework and related research. The objective is not consensus but productive dissensus, identifying failure modes and refining formalisations.</p>
+    <div class="grid">
+      <article class="card">
+        <span class="card__index">I</span>
         <h3>Co-Authorship</h3>
         <p>Joint papers on consent mechanics, machine morality, or economic microstructure. Empirical or theoretical.</p>
       </article>
-
-      <article class="research-card">
-        <span class="research-card__index">II</span>
+      <article class="card">
+        <span class="card__index">II</span>
         <h3>Critical Review</h3>
-        <p>Formal critiques of our frameworks. We'll publish strong counterarguments with full attribution.</p>
+        <p>Formal critiques of our frameworks. We publish strong counterarguments with full attribution.</p>
       </article>
-
-      <article class="research-card">
-        <span class="research-card__index">III</span>
+      <article class="card">
+        <span class="card__index">III</span>
         <h3>Empirical Testing</h3>
         <p>Apply friction decomposition to new domains. Market data, political systems, agent simulations.</p>
       </article>
-
-      <article class="research-card">
-        <span class="research-card__index">IV</span>
+      <article class="card">
+        <span class="card__index">IV</span>
         <h3>Institutional Partnership</h3>
         <p>University affiliations, research grants, doctoral supervision. Scaling beyond independent work.</p>
       </article>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="research" data-index="02">
-  <div class="container">
-    <h2>Collaboration Proposal</h2>
+  <!-- Collaboration proposal form -->
+  <section class="section container">
+    <span class="index">02 &middot; Proposal</span>
+    <h2>Collaboration proposal</h2>
+    <p class="lead">Complete the form below to submit a collaboration proposal. We respond to all substantive enquiries within 5 business days.</p>
 
-    <p style="margin-bottom: var(--space-xl);">
-      Complete the form below to submit a collaboration proposal. 
-      We respond to all substantive inquiries within 5 business days.
-    </p>
+    <form class="form" action="https://formspree.io/f/mreezoko" method="POST">
 
-    <form action="https://formspree.io/f/mreezoko" method="POST" style="display: flex; flex-direction: column; gap: var(--space-lg);">
-      
-      <!-- Personal Info -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-md);">
+      <div class="form__row">
         <div>
-          <label for="name" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
-            Name *
-          </label>
-          <input 
-            type="text" 
-            id="name" 
-            name="name" 
-            required
-            style="width: 100%; padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.9375rem;"
-          >
+          <label class="label" for="name">Name *</label>
+          <input class="input" type="text" id="name" name="name" required>
         </div>
-        
         <div>
-          <label for="email" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
-            Email *
-          </label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            required
-            style="width: 100%; padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.9375rem;"
-          >
+          <label class="label" for="email">Email *</label>
+          <input class="input" type="email" id="email" name="email" required>
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-md);">
+      <div class="form__row">
         <div>
-          <label for="affiliation" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
-            Affiliation
-          </label>
-          <input 
-            type="text" 
-            id="affiliation" 
-            name="affiliation"
-            placeholder="Institution / Organization / Independent"
-            style="width: 100%; padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.9375rem;"
-          >
+          <label class="label" for="affiliation">Affiliation</label>
+          <input class="input" type="text" id="affiliation" name="affiliation" placeholder="Institution / Organisation / Independent">
         </div>
-        
         <div>
-          <label for="discipline" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
-            Discipline
-          </label>
-          <select 
-            id="discipline" 
-            name="discipline"
-            style="width: 100%; padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.875rem;"
-          >
+          <label class="label" for="discipline">Discipline</label>
+          <select class="select" id="discipline" name="discipline">
             <option value="">Select...</option>
             <option value="philosophy">Philosophy</option>
             <option value="economics">Economics / Finance</option>
@@ -157,49 +106,21 @@
         </div>
       </div>
 
-      <!-- Collaboration Type -->
       <div>
-        <label style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-sm);">
-          Collaboration Type *
-        </label>
-        <div style="display: flex; flex-wrap: wrap; gap: var(--space-md);">
-          <label style="display: flex; align-items: center; gap: var(--space-sm); color: var(--text-secondary); font-size: 0.875rem; cursor: pointer;">
-            <input type="radio" name="collab_type" value="co-authorship" required style="accent-color: var(--accent);">
-            Co-Authorship
-          </label>
-          <label style="display: flex; align-items: center; gap: var(--space-sm); color: var(--text-secondary); font-size: 0.875rem; cursor: pointer;">
-            <input type="radio" name="collab_type" value="critical-review" style="accent-color: var(--accent);">
-            Critical Review
-          </label>
-          <label style="display: flex; align-items: center; gap: var(--space-sm); color: var(--text-secondary); font-size: 0.875rem; cursor: pointer;">
-            <input type="radio" name="collab_type" value="empirical-testing" style="accent-color: var(--accent);">
-            Empirical Testing
-          </label>
-          <label style="display: flex; align-items: center; gap: var(--space-sm); color: var(--text-secondary); font-size: 0.875rem; cursor: pointer;">
-            <input type="radio" name="collab_type" value="institutional" style="accent-color: var(--accent);">
-            Institutional Partnership
-          </label>
-          <label style="display: flex; align-items: center; gap: var(--space-sm); color: var(--text-secondary); font-size: 0.875rem; cursor: pointer;">
-            <input type="radio" name="collab_type" value="industry-advisory" style="accent-color: var(--accent);">
-            Industry Advisory
-          </label>
-          <label style="display: flex; align-items: center; gap: var(--space-sm); color: var(--text-secondary); font-size: 0.875rem; cursor: pointer;">
-            <input type="radio" name="collab_type" value="other" style="accent-color: var(--accent);">
-            Other
-          </label>
+        <label class="label">Collaboration Type *</label>
+        <div class="radios">
+          <label><input type="radio" name="collab_type" value="co-authorship" required> Co-Authorship</label>
+          <label><input type="radio" name="collab_type" value="critical-review"> Critical Review</label>
+          <label><input type="radio" name="collab_type" value="empirical-testing"> Empirical Testing</label>
+          <label><input type="radio" name="collab_type" value="institutional"> Institutional Partnership</label>
+          <label><input type="radio" name="collab_type" value="industry-advisory"> Industry Advisory</label>
+          <label><input type="radio" name="collab_type" value="other"> Other</label>
         </div>
       </div>
 
-      <!-- Research Area -->
       <div>
-        <label for="research_area" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
-          Relevant Research Area
-        </label>
-        <select 
-          id="research_area" 
-          name="research_area"
-          style="width: 100%; max-width: 400px; padding: var(--space-sm) var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.875rem;"
-        >
+        <label class="label" for="research_area">Relevant Research Area</label>
+        <select class="select" id="research_area" name="research_area">
           <option value="">Select primary area...</option>
           <option value="consent-mechanics">Consent Mechanics</option>
           <option value="machine-morality">Machine Morality</option>
@@ -211,81 +132,49 @@
         </select>
       </div>
 
-      <!-- Proposal -->
       <div>
-        <label for="proposal" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
-          Proposal Description *
-        </label>
-        <textarea 
-          id="proposal" 
-          name="proposal"
-          required
-          rows="8"
-          placeholder="Describe your proposed collaboration. What do you want to work on? What's your angle? What would you bring to the project?"
-          style="width: 100%; padding: var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.9375rem; line-height: 1.6; resize: vertical;"
-        ></textarea>
+        <label class="label" for="proposal">Proposal Description *</label>
+        <textarea class="textarea" id="proposal" name="proposal" required rows="8" placeholder="Describe your proposed collaboration. What do you want to work on? What is your angle? What would you bring to the project?"></textarea>
       </div>
 
-      <!-- Links -->
       <div>
-        <label for="links" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: var(--space-xs);">
-          Relevant Links (Optional)
-        </label>
-        <textarea 
-          id="links" 
-          name="links"
-          rows="3"
-          placeholder="ORCID, Google Scholar, personal website, relevant papers, GitHub..."
-          style="width: 100%; padding: var(--space-md); background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.875rem; line-height: 1.6; resize: vertical;"
-        ></textarea>
+        <label class="label" for="links">Relevant Links (Optional)</label>
+        <textarea class="textarea" id="links" name="links" rows="3" placeholder="ORCID, Google Scholar, personal website, relevant papers, GitHub..."></textarea>
       </div>
 
       <input type="hidden" name="_subject" value="Dissensus Collaboration Proposal">
-      
-      <button 
-        type="submit"
-        style="width: fit-content; padding: var(--space-md) var(--space-xl); background: var(--accent); border: none; color: var(--bg-primary); font-family: var(--font-mono); font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all var(--transition-base); letter-spacing: 0.05em;"
-        onmouseover="this.style.background='var(--accent-hover)';"
-        onmouseout="this.style.background='var(--accent)';"
-      >
-        Submit Proposal →
-      </button>
+
+      <button type="submit" class="btn">Submit Proposal &rarr;</button>
     </form>
-  </div>
-</section>
+  </section>
 
-<section class="framework-intro" data-index="03">
-  <div class="container">
-    <h2>Alternative: Direct Contact</h2>
-    
-    <p>For informal inquiries or brief questions, email directly:</p>
-
-    <div style="margin-top: var(--space-lg);">
-      <a href="mailto:research@dissensus.ai" style="font-family: var(--font-mono); font-size: 1.125rem; color: var(--accent);">
-        research@dissensus.ai
-      </a>
+  <!-- Direct contact -->
+  <section class="section container prose">
+    <span class="index">03 &middot; Direct contact</span>
+    <h2>Alternative: direct contact</h2>
+    <p>For informal enquiries or brief questions, email directly:</p>
+    <div class="btn-row">
+      <a class="btn" href="mailto:research@dissensus.ai">research@dissensus.ai</a>
     </div>
+    <p class="form-note">Please include "Collaboration" in your subject line for faster routing.</p>
+  </section>
 
-    <p style="margin-top: var(--space-lg); font-size: 0.875rem; color: var(--text-muted);">
-      Please include "Collaboration" in your subject line for faster routing.
-    </p>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div>
-      <p>&copy; 2026 Dissensus Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
-      <p class="footer__company">Registered in England &amp; Wales, company no. 17309927</p>
-    </div>
-    <div>
-      <div class="footer-links">
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+      <div>
+        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+        <p>Registered in England and Wales, company no. 17309927</p>
+      </div>
+      <div style="max-width:560px;">
         <a href="index.html">Home</a> &middot;
+        <a href="research.html">Research</a> &middot;
         <a href="tools.html">Tools</a> &middot;
         <a href="services.html">Services</a> &middot;
         <a href="about.html">About</a> &middot;
         <a href="collaborate.html">Collaborate</a> &middot;
         <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
         <a href="manifesto.html">Manifesto</a> &middot;
         <a href="charter.html">Charter</a> &middot;
         <a href="reading.html">Reading</a> &middot;
@@ -296,8 +185,7 @@
         <a href="feed.xml" title="RSS Feed">RSS</a>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>

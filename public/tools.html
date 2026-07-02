@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tools &amp; Packages | Dissensus</title>
-  <meta name="description" content="Open-source software packages, indices, and live dashboards from Dissensus — implementing the lab's quantitative methods for friction analysis and systemic risk.">
-  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Open-source software packages, indices, and live dashboards from Dissensus, implementing the lab's quantitative methods for friction analysis and systemic risk.">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Tools &amp; Packages | Dissensus">
@@ -15,166 +14,145 @@
   <meta property="og:image" content="https://dissensus.ai/assets/logo.png">
 
   <link rel="canonical" href="https://dissensus.ai/tools.html">
-  <link rel="stylesheet" href="css/dissensus.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/theme.js"></script>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 </head>
-<body class="has-nav">
-  <!-- Site Navigation -->
-  <nav class="site-nav">
-    <div class="site-nav__inner">
-      <a href="index.html" class="site-nav__brand">
-        <img src="assets/dissensus-mark.svg" alt="" class="site-nav__brand-logo">
-        dissensus
-      </a>
-      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="site-nav__links">
-        <a href="index.html" class="site-nav__link">Home</a>
-        <a href="research.html" class="site-nav__link">Research</a>
-        <a href="tools.html" class="site-nav__link site-nav__link--active">Tools</a>
-        <a href="services.html" class="site-nav__link">Services</a>
-        <a href="about.html" class="site-nav__link">About</a>
-        <a href="collaborate.html" class="site-nav__link">Collaborate</a>
-        <a href="https://asri.dissensus.ai" class="site-nav__link" target="_blank" rel="noopener">ASRI &rarr;</a>
-        <a href="https://systems.ac" class="site-nav__link" target="_blank" rel="noopener">ASCRI &rarr;</a>
-        <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact &rarr;</a>
-      </div>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <div class="nav__links">
+      <a href="research.html">Research</a>
+      <a href="tools.html" class="is-active">Tools</a>
+      <a href="about.html" class="hide-sm">About</a>
+      <a href="services.html" class="hide-sm">Services</a>
+      <a href="collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section class="hero" style="min-height: auto; padding: var(--space-xl) 0;">
-    <div class="container">
-      <span class="hero__label">Tools &amp; Packages</span>
-      <h1 style="font-size: clamp(2rem, 5vw, 2.5rem); letter-spacing: 0.05em; margin-bottom: var(--space-md);">
-        Open Tooling
-      </h1>
-      <p class="hero__etymology" style="margin-bottom: 0;">
-        Software, indices, and live dashboards that implement the lab's quantitative methods.
-        Everything here is open-access and citable; install commands and DOIs are listed per package.
-      </p>
-    </div>
-  </section>
+  <header class="container hero" style="padding-block: clamp(3rem, 8vw, 6rem);">
+    <span class="kicker">Tools &amp; Packages</span>
+    <h1>Open tooling</h1>
+    <p class="lead">Software, indices, and live dashboards that implement the lab's quantitative methods. Everything here is open-access and citable; install commands and DOIs are listed per package.</p>
+  </header>
 
-  <section class="research" data-index="01">
-    <div class="container">
-      <h2>Software Packages</h2>
-      <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: var(--space-md);">Open-source libraries implementing the lab's quantitative methods</p>
-      <div class="services-grid">
+  <section class="section container">
+    <span class="index">01 &middot; Software Packages</span>
+    <h2>Software Packages</h2>
+    <p class="pubgroup__blurb">Open-source libraries implementing the lab's quantitative methods</p>
+    <div class="grid">
 
-        <div class="service-card">
-          <div class="tool-card__head">
-            <span class="service-card__label">Python package &middot; v0.1.0</span>
-            <span class="paper-detail__status paper-detail__status--released">Released</span>
+        <div class="card">
+          <div class="tool__head">
+            <span class="card__meta">Python package &middot; v0.1.0</span>
+            <span class="pill pill--review">Released</span>
           </div>
           <h3>GJR-GARCH-X</h3>
-          <p class="tool-card__tagline">Student-t GJR-GARCH with exogenous regressors in the variance equation</p>
+          <p class="tool__tagline">Student-t GJR-GARCH with exogenous regressors in the variance equation</p>
           <p>A small, dependency-light Python implementation of the asymmetric GJR-GARCH(1,1,1) volatility model with Student-t innovations and arbitrary exogenous regressors (the X) entering the conditional variance equation. Built for the lab's cryptocurrency event-study pipeline, where infrastructure and regulatory shocks are encoded as exogenous variance covariates and tested for asymmetric volatility response.</p>
-          <code class="tool-install">pip install gjr-garch-x</code>
-          <ul class="service-card__features">
+          <code class="tool__install">pip install gjr-garch-x</code>
+          <ul class="tool__features">
             <li>Asymmetric leverage effect via the GJR indicator term</li>
             <li>Student-t innovations for heavy-tailed crypto returns</li>
             <li>Exogenous regressors in the variance equation (the -X)</li>
             <li>Maximum-likelihood estimation, NumPy/SciPy only</li>
           </ul>
 
-        <div class="paper-detail__actions" style="border-bottom: none; padding-bottom: 0;">
-          <a href="https://pypi.org/project/gjr-garch-x/" class="paper-detail__action" target="_blank" rel="noopener">PyPI: gjr-garch-x</a>
-          <a href="https://doi.org/10.5281/zenodo.17988193" class="paper-detail__action" target="_blank" rel="noopener">DOI</a>
-          <a href="https://github.com/studiofarzulla/gjr-garch-x" class="paper-detail__action--secondary paper-detail__action" target="_blank" rel="noopener">GitHub</a>
-          <a href="papers/market-reaction-asymmetry.html" class="paper-detail__action--secondary paper-detail__action" title="Do Cryptocurrency Markets Differentiate Infrastructure from Regulatory Shocks? A Multi-Moment Event Study with Dependence-Robust Inference">Paper &rarr;</a>
-        </div>
-        <div class="tool-badge-row">
-          <span class="doi-badge"><span class="doi-badge__label">Version</span><span class="doi-badge__value">v0.1.0</span></span>
-          <span class="doi-badge"><span class="doi-badge__label">DOI</span><span class="doi-badge__value">10.5281/zenodo.17988193</span></span>
-        </div>
+          <div class="btn-row">
+            <a href="https://pypi.org/project/gjr-garch-x/" class="btn btn--ghost" target="_blank" rel="noopener">PyPI: gjr-garch-x</a>
+            <a href="https://doi.org/10.5281/zenodo.17988193" class="btn btn--ghost" target="_blank" rel="noopener">DOI</a>
+            <a href="https://github.com/studiofarzulla/gjr-garch-x" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>
+            <a href="papers/market-reaction-asymmetry.html" class="btn btn--ghost" title="Do Cryptocurrency Markets Differentiate Infrastructure from Regulatory Shocks? A Multi-Moment Event Study with Dependence-Robust Inference">Paper &rarr;</a>
+          </div>
+          <div class="badges">
+            <span class="badge"><span class="badge__k">Version</span><span class="badge__v">v0.1.0</span></span>
+            <span class="badge"><span class="badge__k">DOI</span><span class="badge__v">10.5281/zenodo.17988193</span></span>
+          </div>
         </div>
 
-      </div>
     </div>
   </section>
 
-  <section class="research" data-index="02">
-    <div class="container">
-      <h2>Live Indices &amp; Dashboards</h2>
-      <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: var(--space-md);">Hosted indices and interactive risk dashboards</p>
-      <div class="services-grid">
+  <section class="section container">
+    <span class="index">02 &middot; Live Indices &amp; Dashboards</span>
+    <h2>Live Indices &amp; Dashboards</h2>
+    <p class="pubgroup__blurb">Hosted indices and interactive risk dashboards</p>
+    <div class="grid">
 
-        <div class="service-card">
-          <div class="tool-card__head">
-            <span class="service-card__label">Live index &amp; dashboard</span>
-            <span class="paper-detail__status paper-detail__status--live">Live</span>
+        <div class="card">
+          <div class="tool__head">
+            <span class="card__meta">Live index &amp; dashboard</span>
+            <span class="pill pill--review">Live</span>
           </div>
           <h3>ASRI — Aggregated Systemic Risk Index</h3>
-          <p class="tool-card__tagline">A composite early-warning index for systemic risk at the DeFi–TradFi boundary</p>
+          <p class="tool__tagline">A composite early-warning index for systemic risk at the DeFi–TradFi boundary</p>
           <p>ASRI aggregates four weighted sub-indices — Stablecoin Concentration, DeFi Liquidity, Contagion, and Regulatory Opacity — into a single 0–100 systemic-risk score for cryptocurrency markets. Validated against the Terra/Luna (2022-05), Celsius/3AC (2022-06), FTX (2022-11), and SVB (2023-03) crises, it correctly flagged the February 2025 Bybit hack ($1.5B, the largest exchange theft in history) as non-systemic — ASRI did not spike, because no contagion channels were active. The live dashboard tracks the index, its sub-components, and the HMM risk regime in real time.</p>
-          <ul class="service-card__features">
+          <ul class="tool__features">
             <li>Four-channel composite score: Stablecoin · DeFi Liquidity · Contagion · Opacity</li>
             <li>Alert bands — Low &lt;30 · Moderate 30–50 · Elevated 50–70 · High ≥70</li>
             <li>Three-regime hidden Markov model: Low Risk · Moderate · Crisis</li>
             <li>Lead time ≈19d (fixed threshold) / ≈26d (walk-forward) before crisis onset</li>
           </ul>
-        <div class="tool-badge-row">
-          <span class="doi-badge"><span class="doi-badge__label">AUROC (ASRI / D-Y)</span><span class="doi-badge__value">0.866 / 0.670</span></span>
-          <span class="doi-badge"><span class="doi-badge__label">AUPRC (ASRI / D-Y)</span><span class="doi-badge__value">0.298 / 0.121</span></span>
-          <span class="doi-badge"><span class="doi-badge__label">Precision @ Youden</span><span class="doi-badge__value">35.2% / 14.9%</span></span>
-        </div>
-        <div class="paper-detail__actions" style="border-bottom: none; padding-bottom: 0;">
-          <a href="https://asri.dissensus.ai" class="paper-detail__action" target="_blank" rel="noopener">Open dashboard &rarr;</a>
-          <a href="https://arxiv.org/abs/2602.03874" class="paper-detail__action" target="_blank" rel="noopener">arXiv: 2602.03874</a>
-          <a href="papers/asri.html" class="paper-detail__action--secondary paper-detail__action" title="ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets">Paper &rarr;</a>
-        </div>
-        <div class="tool-badge-row">
-          <span class="doi-badge"><span class="doi-badge__label">arXiv</span><span class="doi-badge__value">2602.03874</span></span>
-        </div>
+          <div class="badges">
+            <span class="badge"><span class="badge__k">AUROC (ASRI / D-Y)</span><span class="badge__v">0.866 / 0.670</span></span>
+            <span class="badge"><span class="badge__k">AUPRC (ASRI / D-Y)</span><span class="badge__v">0.298 / 0.121</span></span>
+            <span class="badge"><span class="badge__k">Precision @ Youden</span><span class="badge__v">35.2% / 14.9%</span></span>
+          </div>
+          <div class="btn-row">
+            <a href="https://asri.dissensus.ai" class="btn" target="_blank" rel="noopener">Open dashboard &rarr;</a>
+            <a href="https://arxiv.org/abs/2602.03874" class="btn btn--ghost" target="_blank" rel="noopener">arXiv: 2602.03874</a>
+            <a href="papers/asri.html" class="btn btn--ghost" title="ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets">Paper &rarr;</a>
+          </div>
+          <div class="badges">
+            <span class="badge"><span class="badge__k">arXiv</span><span class="badge__v">2602.03874</span></span>
+          </div>
         </div>
 
-      </div>
     </div>
   </section>
 
   <!-- Contribute -->
-  <section class="contact" data-index="03">
-    <div class="container">
-      <h2>Build With Us</h2>
-      <p style="margin-bottom: var(--space-lg); max-width: 540px;">
-        These packages are released CC-BY / open-source as the research that produced them is published.
-        If a tool is useful to your work&mdash;or broken in an interesting way&mdash;we want to hear about it.
-      </p>
-      <div class="contact__wrapper">
-        <a href="mailto:research@dissensus.ai" class="email">research@dissensus.ai</a>
-        <span class="contact__status">Issues &amp; collaboration welcome</span>
-      </div>
+  <section class="section container">
+    <span class="index">03 &middot; Contribute</span>
+    <h2>Build with us</h2>
+    <p class="lead">These packages are released open-access as the research that produced them is published. If a tool is useful to your work, or broken in an interesting way, we want to hear about it.</p>
+    <div class="btn-row">
+      <a href="mailto:research@dissensus.ai" class="btn">research@dissensus.ai</a>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
       <div>
-        <p>&copy; 2026 Dissensus Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
-        <p class="footer__company">Registered in England &amp; Wales, company no. 17309927</p>
+        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+        <p>Registered in England and Wales, company no. 17309927</p>
       </div>
-      <div>
-        <div class="footer-links">
-          <a href="index.html">Home</a> &middot;
-          <a href="research.html">Research</a> &middot;
-          <a href="tools.html">Tools</a> &middot;
-          <a href="services.html">Services</a> &middot;
-          <a href="about.html">About</a> &middot;
-          <a href="collaborate.html">Collaborate</a> &middot;
-          <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-          <a href="manifesto.html">Manifesto</a> &middot;
-          <a href="charter.html">Charter</a> &middot;
-          <a href="reading.html">Reading</a> &middot;
-          <a href="press.html">Press</a> &middot;
-          <a href="subscribe.html">Subscribe</a> &middot;
-          <a href="privacy.html">Privacy</a> &middot;
-          <a href="terms.html">Terms</a> &middot;
-          <a href="feed.xml" title="RSS Feed">RSS</a>
-        </div>
+      <div style="max-width:560px;">
+        <a href="index.html">Home</a> &middot;
+        <a href="research.html">Research</a> &middot;
+        <a href="tools.html">Tools</a> &middot;
+        <a href="services.html">Services</a> &middot;
+        <a href="about.html">About</a> &middot;
+        <a href="collaborate.html">Collaborate</a> &middot;
+        <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+        <a href="manifesto.html">Manifesto</a> &middot;
+        <a href="charter.html">Charter</a> &middot;
+        <a href="reading.html">Reading</a> &middot;
+        <a href="press.html">Press</a> &middot;
+        <a href="subscribe.html">Subscribe</a> &middot;
+        <a href="privacy.html">Privacy</a> &middot;
+        <a href="terms.html">Terms</a> &middot;
+        <a href="feed.xml" title="RSS Feed">RSS</a>
       </div>
     </div>
   </footer>

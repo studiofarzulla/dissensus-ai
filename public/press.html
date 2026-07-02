@@ -3,237 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Press kit for Dissensus: logos, brand guidelines, and boilerplate for media use.">
   <title>Press Kit | Dissensus</title>
-  <meta name="description" content="Press kit for Dissensus - logos, brand guidelines, and boilerplate text for media use.">
-  <link rel="stylesheet" href="css/dissensus.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/theme.js"></script>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 </head>
-<body class="has-nav">
-  <!-- Site Navigation -->
-  <nav class="site-nav">
-    <div class="site-nav__inner">
-      <a href="index.html" class="site-nav__brand">
-        <img src="assets/dissensus-mark.svg" alt="" class="site-nav__brand-logo">
-        dissensus
-      </a>
-      <button class="site-nav__toggle" onclick="document.querySelector('.site-nav__links').classList.toggle('is-open')" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="site-nav__links">
-        <a href="index.html" class="site-nav__link">Home</a>
-        <a href="research.html" class="site-nav__link">Research</a>
-        <a href="tools.html" class="site-nav__link">Tools</a>
-        <a href="services.html" class="site-nav__link">Services</a>
-        <a href="about.html" class="site-nav__link">About</a>
-        <a href="collaborate.html" class="site-nav__link">Collaborate</a>
-        <a href="https://asri.dissensus.ai" class="site-nav__link" target="_blank" rel="noopener">ASRI &rarr;</a>
-        <a href="https://systems.ac" class="site-nav__link" target="_blank" rel="noopener">ASCRI &rarr;</a>
-        <a href="mailto:research@dissensus.ai" class="site-nav__cta">Contact &rarr;</a>
-      </div>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <div class="nav__links">
+      <a href="research.html">Research</a>
+      <a href="tools.html" class="hide-sm">Tools</a>
+      <a href="about.html" class="hide-sm">About</a>
+      <a href="services.html" class="hide-sm">Services</a>
+      <a href="collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
 
-<section class="hero" style="min-height: auto; padding: var(--space-xl) 0;">
-  <div class="container">
-    <h1 style="font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 400; letter-spacing: 0.04em;">
-      Press Kit
-    </h1>
-    <p class="hero__tagline" style="margin-top: var(--space-md);">
-      Logos, brand guidelines, and media resources
-    </p>
-  </div>
-</section>
+  <!-- Hero -->
+  <header class="container hero">
+    <span class="kicker">Media Resources</span>
+    <h1>Press Kit</h1>
+    <p class="lead">Logos, brand guidelines, and boilerplate for media use.</p>
+  </header>
 
-<!-- Logo Downloads -->
-<section class="about" data-index="01">
-  <div class="container">
-    <h2>Logo Assets</h2>
-    
-    <p>
-      The Dissensus logo represents two interlocking forms in productive tension—dissensus as function, 
-      not dysfunction. Use the version appropriate for your background.
-    </p>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-lg); margin-top: var(--space-xl);">
-      
-      <!-- Logo on Dark -->
-      <div style="background: var(--bg-primary); border: 1px solid var(--border); padding: var(--space-xl); text-align: center;">
-        <div style="background: var(--bg-secondary); padding: var(--space-xl); margin-bottom: var(--space-lg); display: flex; align-items: center; justify-content: center; min-height: 120px;">
-          <img src="assets/dissensus-mark.svg" alt="Dissensus Logo - White" style="max-width: 80px; filter: drop-shadow(0 0 15px rgba(128, 0, 32, 0.3));">
+  <!-- Logo Assets -->
+  <section class="section container">
+    <span class="index">01 &middot; Assets</span>
+    <h2>Logo assets</h2>
+    <p class="lead">The Dissensus logo represents two interlocking forms in productive tension: dissensus as function, not dysfunction. Use the version appropriate for your background.</p>
+    <div class="grid">
+      <div class="swatch">
+        <div class="swatch__stage">
+          <img src="assets/dissensus-mark.svg" alt="Dissensus logo, white">
         </div>
-        <h3 style="font-size: 0.9375rem; margin-bottom: var(--space-sm);">White Logo (Dark Backgrounds)</h3>
-        <div style="display: flex; gap: var(--space-sm); justify-content: center; margin-top: var(--space-md);">
-          <a href="assets/dissensus-mark.svg" download style="font-family: var(--font-mono); font-size: 0.75rem; padding: var(--space-xs) var(--space-sm); border: 1px solid var(--border); color: var(--text-muted);">SVG</a>
-          <a href="assets/dissensus-logo-white.png" download style="font-family: var(--font-mono); font-size: 0.75rem; padding: var(--space-xs) var(--space-sm); border: 1px solid var(--border); color: var(--text-muted);">PNG</a>
+        <h3>White logo (dark backgrounds)</h3>
+        <div class="btn-row" style="justify-content:center;">
+          <a class="btn btn--ghost" href="assets/dissensus-mark.svg" download>SVG</a>
+          <a class="btn btn--ghost" href="assets/dissensus-logo-white.png" download>PNG</a>
         </div>
       </div>
-
-      <!-- Logo on Light -->
-      <div style="background: var(--bg-primary); border: 1px solid var(--border); padding: var(--space-xl); text-align: center;">
-        <div style="background: #f5f5f5; padding: var(--space-xl); margin-bottom: var(--space-lg); display: flex; align-items: center; justify-content: center; min-height: 120px;">
-          <img src="assets/dissensus-logo.svg" alt="Dissensus Logo - Crimson" style="max-width: 80px;">
+      <div class="swatch">
+        <div class="swatch__stage" style="background:#f5f5f5">
+          <img src="assets/dissensus-logo.svg" alt="Dissensus logo, crimson">
         </div>
-        <h3 style="font-size: 0.9375rem; margin-bottom: var(--space-sm);">Crimson Logo (Light Backgrounds)</h3>
-        <div style="display: flex; gap: var(--space-sm); justify-content: center; margin-top: var(--space-md);">
-          <a href="assets/dissensus-logo.svg" download style="font-family: var(--font-mono); font-size: 0.75rem; padding: var(--space-xs) var(--space-sm); border: 1px solid var(--border); color: var(--text-muted);">SVG</a>
-          <a href="assets/dissensus-logo.png" download style="font-family: var(--font-mono); font-size: 0.75rem; padding: var(--space-xs) var(--space-sm); border: 1px solid var(--border); color: var(--text-muted);">PNG</a>
+        <h3>Crimson logo (light backgrounds)</h3>
+        <div class="btn-row" style="justify-content:center;">
+          <a class="btn btn--ghost" href="assets/dissensus-logo.svg" download>SVG</a>
+          <a class="btn btn--ghost" href="assets/dissensus-logo.png" download>PNG</a>
         </div>
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Brand Guidelines -->
-<section class="research" data-index="02">
-  <div class="container">
-    <h2>Brand Guidelines</h2>
-
-    <div class="research-grid" style="margin-top: var(--space-lg);">
-      
-      <article class="research-card">
-        <span class="research-card__index">01</span>
-        <h3>Primary Color</h3>
-        <div style="display: flex; align-items: center; gap: var(--space-md); margin-top: var(--space-sm);">
-          <div style="width: 40px; height: 40px; background: #800020; border-radius: 2px;"></div>
-          <div>
-            <p style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--text-primary); margin: 0;">Burgundy</p>
-            <p style="font-family: var(--font-mono); font-size: 0.75rem; margin: 0;">#800020</p>
-          </div>
-        </div>
+  <!-- Brand Guidelines -->
+  <section class="section container">
+    <span class="index">02 &middot; Brand</span>
+    <h2>Brand guidelines</h2>
+    <div class="grid">
+      <article class="card">
+        <span class="card__index">01</span>
+        <h3>Primary colour</h3>
+        <p>Burgundy<br>#800020</p>
       </article>
-
-      <article class="research-card">
-        <span class="research-card__index">02</span>
+      <article class="card">
+        <span class="card__index">02</span>
         <h3>Background</h3>
-        <div style="display: flex; align-items: center; gap: var(--space-md); margin-top: var(--space-sm);">
-          <div style="width: 40px; height: 40px; background: #050505; border: 1px solid var(--border); border-radius: 2px;"></div>
-          <div>
-            <p style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--text-primary); margin: 0;">Near Black</p>
-            <p style="font-family: var(--font-mono); font-size: 0.75rem; margin: 0;">#050505</p>
-          </div>
-        </div>
+        <p>Near black<br>#0b0b0d</p>
       </article>
-
-      <article class="research-card">
-        <span class="research-card__index">03</span>
+      <article class="card">
+        <span class="card__index">03</span>
         <h3>Typography</h3>
-        <p style="font-size: 0.875rem;">
-          <strong>Sans:</strong> System fonts (-apple-system, Inter)<br>
-          <strong>Mono:</strong> SF Mono, Fira Code
-        </p>
+        <p><strong>Sans:</strong> Inter<br><strong>Mono:</strong> IBM Plex Mono</p>
       </article>
-
-      <article class="research-card">
-        <span class="research-card__index">04</span>
-        <h3>Logo Usage</h3>
-        <p style="font-size: 0.875rem;">
-          Minimum clear space: 50% of logo width.<br>
-          Do not distort, rotate, or add effects.
-        </p>
+      <article class="card">
+        <span class="card__index">04</span>
+        <h3>Logo usage</h3>
+        <p>Minimum clear space: 50% of logo width. Do not distort, rotate, or add effects.</p>
       </article>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Boilerplate Text -->
-<section class="framework-intro" data-index="03">
-  <div class="container">
-    <h2>Boilerplate Text</h2>
-    
-    <p>Use these descriptions when referencing Dissensus in publications or media.</p>
+  <!-- Boilerplate Text -->
+  <section class="section container">
+    <span class="index">03 &middot; Boilerplate</span>
+    <h2>Boilerplate text</h2>
+    <p class="lead">Use these descriptions when referencing Dissensus in publications or media.</p>
 
-    <div style="background: var(--bg-secondary); border: 1px solid var(--border); padding: var(--space-xl); margin-top: var(--space-xl);">
-      <h3 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-dim); margin-bottom: var(--space-md); text-transform: uppercase; letter-spacing: 0.1em;">
-        Short Description (50 words)
-      </h3>
-      <p style="color: var(--text-primary); font-size: 0.9375rem; line-height: 1.8;">
-        Dissensus is a UK-based governance alignment research lab. Through its Adversarial Systems &amp; Complexity Research Initiative (ASCRI), it investigates complex agent networks
-        where equilibria are structurally impossible. We formalize friction dynamics across political economy,
-        AI alignment, and financial microstructure, developing substrate-independent frameworks for measuring
-        coordination overhead.
-      </p>
-      <button onclick="copyText('short')" style="margin-top: var(--space-md); font-family: var(--font-mono); font-size: 0.75rem; padding: var(--space-xs) var(--space-sm); background: transparent; border: 1px solid var(--border); color: var(--text-muted); cursor: pointer;" id="short-btn">Copy</button>
+    <div class="copybox">
+      <span class="card__meta">Short description (~50 words)</span>
+      <p>Dissensus is a UK-based governance alignment research lab. Through its Adversarial Systems &amp; Complexity Research Initiative (ASCRI), it investigates complex agent networks where equilibria are structurally impossible. We formalise friction dynamics across political economy, AI alignment, and financial microstructure, developing substrate-independent frameworks for measuring coordination overhead.</p>
+      <button class="mini-btn" onclick="copyText('short')" id="short-btn">Copy</button>
     </div>
 
-    <div style="background: var(--bg-secondary); border: 1px solid var(--border); padding: var(--space-xl); margin-top: var(--space-lg);">
-      <h3 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-dim); margin-bottom: var(--space-md); text-transform: uppercase; letter-spacing: 0.1em;">
-        Long Description (150 words)
-      </h3>
-      <p style="color: var(--text-primary); font-size: 0.9375rem; line-height: 1.8;">
-        Dissensus is a UK-based governance alignment research lab. Its principal research programme, the Adversarial Systems &amp; Complexity Research Initiative (ASCRI), investigates any sufficiently
-        complex dynamic network of agents where equilibria are impossible to reach due to formalized friction
-        constraints. These systems function through friction reduction rather than friction elimination, 
-        making them structurally adversarial yet persistently functional.
-      </p>
-      <p style="color: var(--text-primary); font-size: 0.9375rem; line-height: 1.8; margin-top: var(--space-md);">
-        Founded in 2026, the lab develops formal frameworks including the Axiom of Consent (a pre-game-theoretic 
-        framework for delegation analysis) and the Replicator-Optimization Mechanism (computational unity across 
-        biological and abstract substrates). Research spans consent mechanics, machine morality, economic 
-        microstructure, and political legitimacy quantification. All non-proprietary outputs are published open-access under
-        CC-BY 4.0 licensing.
-      </p>
-      <button onclick="copyText('long')" style="margin-top: var(--space-md); font-family: var(--font-mono); font-size: 0.75rem; padding: var(--space-xs) var(--space-sm); background: transparent; border: 1px solid var(--border); color: var(--text-muted); cursor: pointer;" id="long-btn">Copy</button>
+    <div class="copybox">
+      <span class="card__meta">Long description (~150 words)</span>
+      <p>Dissensus is a UK-based governance alignment research lab. Its principal research programme, the Adversarial Systems &amp; Complexity Research Initiative (ASCRI), investigates any sufficiently complex dynamic network of agents where equilibria are impossible to reach due to formalised friction constraints. These systems function through friction reduction rather than friction elimination, making them structurally adversarial yet persistently functional.</p>
+      <p>Founded in 2026, the lab develops formal frameworks including the Axiom of Consent (a pre-game-theoretic framework for delegation analysis) and the Replicator-Optimization Mechanism (computational unity across biological and abstract substrates). Research spans consent mechanics, machine morality, economic microstructure, and political legitimacy quantification. All non-proprietary outputs are published open-access under CC-BY 4.0 licensing.</p>
+      <button class="mini-btn" onclick="copyText('long')" id="long-btn">Copy</button>
     </div>
 
-    <div style="background: var(--bg-secondary); border: 1px solid var(--border); padding: var(--space-xl); margin-top: var(--space-lg);">
-      <h3 style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-dim); margin-bottom: var(--space-md); text-transform: uppercase; letter-spacing: 0.1em;">
-        One-Liner
-      </h3>
-      <p style="color: var(--text-primary); font-size: 1rem; font-style: italic;">
-        "Dissensus formalizes the mechanics of friction in multi-agent systems."
-      </p>
-      <button onclick="copyText('oneliner')" style="margin-top: var(--space-md); font-family: var(--font-mono); font-size: 0.75rem; padding: var(--space-xs) var(--space-sm); background: transparent; border: 1px solid var(--border); color: var(--text-muted); cursor: pointer;" id="oneliner-btn">Copy</button>
+    <div class="copybox">
+      <span class="card__meta">One-liner</span>
+      <p><em>"Dissensus formalises the mechanics of friction in multi-agent systems."</em></p>
+      <button class="mini-btn" onclick="copyText('oneliner')" id="oneliner-btn">Copy</button>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Key Facts -->
-<section class="about" data-index="04">
-  <div class="container">
-    <h2>Key Facts</h2>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: var(--space-lg);">
-      <div style="background: var(--bg-secondary); padding: var(--space-lg);">
-        <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim); text-transform: uppercase;">Founded</span>
-        <p style="color: var(--text-primary); font-size: 1.125rem; margin-top: var(--space-xs);">January 2026</p>
+  <!-- Key Facts -->
+  <section class="section container">
+    <span class="index">04 &middot; Facts</span>
+    <h2>Key facts</h2>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat__k">Founded</span>
+        <div class="stat__v">January 2026</div>
       </div>
-      <div style="background: var(--bg-secondary); padding: var(--space-lg);">
-        <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim); text-transform: uppercase;">Location</span>
-        <p style="color: var(--text-primary); font-size: 1.125rem; margin-top: var(--space-xs);">London, UK</p>
+      <div class="stat">
+        <span class="stat__k">Location</span>
+        <div class="stat__v">London, UK</div>
       </div>
-      <div style="background: var(--bg-secondary); padding: var(--space-lg);">
-        <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim); text-transform: uppercase;">Publications</span>
-        <p style="color: var(--text-primary); font-size: 1.125rem; margin-top: var(--space-xs);">20+ Papers</p>
+      <div class="stat">
+        <span class="stat__k">Publications</span>
+        <div class="stat__v">20+ Papers</div>
       </div>
-      <div style="background: var(--bg-secondary); padding: var(--space-lg);">
-        <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-dim); text-transform: uppercase;">Founder &amp; Director</span>
-        <p style="color: var(--text-primary); font-size: 1.125rem; margin-top: var(--space-xs);">Murad Farzulla</p>
+      <div class="stat">
+        <span class="stat__k">Founder &amp; Director</span>
+        <div class="stat__v">Murad Farzulla</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Contact -->
-<section class="contact" data-index="05">
-  <div class="container">
-    <h2>Media Contact</h2>
-    <div class="contact__wrapper">
-      <a href="mailto:research@dissensus.ai" class="email">research@dissensus.ai</a>
-      <span class="contact__status">Include "Press" in subject</span>
+  <!-- Media Contact -->
+  <section class="section container">
+    <span class="index">05 &middot; Contact</span>
+    <h2>Media contact</h2>
+    <p class="lead">Include "Press" in the subject line.</p>
+    <div class="btn-row">
+      <a class="btn" href="mailto:research@dissensus.ai">research@dissensus.ai</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="container">
-    <div>
-      <p>&copy; 2026 Dissensus Ltd <span style="opacity: 0.5;">&middot; Friction is the cost of existence.</span></p>
-      <p class="footer__company">Registered in England &amp; Wales, company no. 17309927</p>
-    </div>
-    <div>
-      <div class="footer-links">
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+      <div>
+        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+        <p>Registered in England and Wales, company no. 17309927</p>
+      </div>
+      <div style="max-width:560px;">
         <a href="index.html">Home</a> &middot;
         <a href="research.html">Research</a> &middot;
         <a href="tools.html">Tools</a> &middot;
@@ -241,6 +170,7 @@
         <a href="about.html">About</a> &middot;
         <a href="collaborate.html">Collaborate</a> &middot;
         <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
         <a href="manifesto.html">Manifesto</a> &middot;
         <a href="charter.html">Charter</a> &middot;
         <a href="reading.html">Reading</a> &middot;
@@ -251,30 +181,29 @@
         <a href="feed.xml" title="RSS Feed">RSS</a>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-const texts = {
-  short: `Dissensus is a UK-based governance alignment research lab. Through its Adversarial Systems & Complexity Research Initiative (ASCRI), it investigates complex agent networks where equilibria are structurally impossible. We formalise friction dynamics across political economy, AI alignment, and financial microstructure, developing substrate-independent frameworks for measuring coordination overhead.`,
-  long: `Dissensus is a UK-based governance alignment research lab. Its principal research programme, the Adversarial Systems & Complexity Research Initiative (ASCRI), investigates any sufficiently complex dynamic network of agents where equilibria are impossible to reach due to formalised friction constraints. These systems function through friction reduction rather than friction elimination, making them structurally adversarial yet persistently functional.
+  <script>
+  const texts = {
+    short: `Dissensus is a UK-based governance alignment research lab. Through its Adversarial Systems & Complexity Research Initiative (ASCRI), it investigates complex agent networks where equilibria are structurally impossible. We formalise friction dynamics across political economy, AI alignment, and financial microstructure, developing substrate-independent frameworks for measuring coordination overhead.`,
+    long: `Dissensus is a UK-based governance alignment research lab. Its principal research programme, the Adversarial Systems & Complexity Research Initiative (ASCRI), investigates any sufficiently complex dynamic network of agents where equilibria are impossible to reach due to formalised friction constraints. These systems function through friction reduction rather than friction elimination, making them structurally adversarial yet persistently functional.
 
 Founded in 2026, the lab develops formal frameworks including the Axiom of Consent (a pre-game-theoretic framework for delegation analysis) and the Replicator-Optimization Mechanism (computational unity across biological and abstract substrates). Research spans consent mechanics, machine morality, economic microstructure, and political legitimacy quantification. All non-proprietary outputs are published open-access under CC-BY 4.0 licensing.`,
-  oneliner: `Dissensus formalizes the mechanics of friction in multi-agent systems.`
-};
+    oneliner: `Dissensus formalises the mechanics of friction in multi-agent systems.`
+  };
 
-function copyText(key) {
-  navigator.clipboard.writeText(texts[key]).then(() => {
-    const btn = document.getElementById(key + '-btn');
-    btn.textContent = 'Copied!';
-    btn.style.color = 'var(--accent)';
-    setTimeout(() => {
-      btn.textContent = 'Copy';
-      btn.style.color = '';
-    }, 2000);
-  });
-}
-</script>
+  function copyText(key) {
+    navigator.clipboard.writeText(texts[key]).then(() => {
+      const btn = document.getElementById(key + '-btn');
+      btn.textContent = 'Copied!';
+      btn.style.color = 'var(--accent)';
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.style.color = '';
+      }, 2000);
+    });
+  }
+  </script>
 
 </body>
 </html>
