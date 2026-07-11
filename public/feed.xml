@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dissensus.ai | Governance Alignment Research</title>
-    <description>Research updates from Dissensus - formalizing productive friction in multi-agent systems.</description>
-    <link>https://dissensus.ai</link>
+    <title>Dissensus — Research Updates</title>
+    <description>Research updates from Dissensus — formalising productive friction in multi-agent systems.</description>
+    <link>https://dissensus.ai/</link>
     <atom:link href="https://dissensus.ai/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 04 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jul 2026 00:00:00 +0000</lastBuildDate>
     <managingEditor>research@dissensus.ai (Murad Farzulla)</managingEditor>
     <webMaster>research@dissensus.ai</webMaster>
     <ttl>1440</ttl>

@@ -3,214 +3,210 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Research focus, methodology, and collaboration paths at Dissensus, a research lab formalising friction dynamics in multi-agent systems.">
+  <meta name="description" content="Applied adversarial-systems work from Dissensus: friction analysis, bespoke systemic-risk indices, Lean 4 formal verification, robustness evaluation, and econometric volatility modelling.">
+  <link rel="canonical" href="https://dissensus.ai/services.html">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="What We're Building | Dissensus">
-  <meta property="og:description" content="Research focus and collaboration opportunities at Dissensus, formalising friction dynamics in multi-agent systems.">
+  <meta property="og:title" content="Services — Dissensus">
+  <meta property="og:description" content="The methods behind the papers, applied to your problem: risk indices, formal verification, adversarial evaluation, volatility modelling.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dissensus.ai/services.html">
-  <meta property="og:image" content="https://dissensus.ai/assets/logo.png">
+  <meta property="og:image" content="https://dissensus.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Dissensus">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="What We're Building | Dissensus">
-  <meta name="twitter:description" content="Research focus and collaboration opportunities at Dissensus, formalising friction dynamics in multi-agent systems.">
-  <meta name="twitter:image" content="https://dissensus.ai/assets/logo.png">
+  <meta name="twitter:title" content="Services — Dissensus">
+  <meta name="twitter:description" content="The methods behind the papers, applied to your problem: risk indices, formal verification, adversarial evaluation, volatility modelling.">
+  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
 
-  <title>What We're Building | Dissensus</title>
+  <title>Services — Dissensus</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/system.css">
   <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/index.css">
   <script src="js/theme.js"></script>
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <script src="js/motion.js" defer></script>
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
 </head>
 <body>
 
+  <div id="progress"></div>
+
   <nav class="nav">
-    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
     <div class="nav__links">
       <a href="research.html">Research</a>
       <a href="tools.html" class="hide-sm">Tools</a>
       <a href="about.html" class="hide-sm">About</a>
       <a href="services.html" class="hide-sm is-active">Services</a>
       <a href="collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="partners.html" class="hide-sm">Partners</a>
       <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="container hero">
-    <span class="kicker">Research Focus</span>
-    <h1>What We're Building</h1>
-    <p class="lead">An overview of our current research focus and intended direction.</p>
-  </header>
+  <main class="home">
 
-  <!-- The Research -->
-  <section class="section container prose">
-    <span class="index">01 &middot; The research</span>
-    <h2>The Research</h2>
-    <p>We are developing formal methods for friction analysis in multi-agent systems. The work spans 20 academic publications and is grounded in the Axiom of Consent, a pre-game-theoretic framework for understanding why systems produce friction, where it concentrates, and what it costs.</p>
-    <p>The core insight is substrate-neutral: the same mathematics that predicts market volatility asymmetry can diagnose institutional legitimacy deficits. We are building the tooling and methodology to make that practical.</p>
-  </section>
-
-  <!-- Research Focus -->
-  <section class="section container">
-    <span class="index">02 &middot; Research focus</span>
-    <h2>Research Focus</h2>
-    <div class="grid">
-      <article class="card">
-        <span class="card__meta">Methodology</span>
-        <h3>Quantitative Tooling</h3>
-        <div class="prose">
-          <p>Building the analytical infrastructure for friction decomposition, from event study design to simulation frameworks.</p>
-          <ul>
-            <li>TARCH-X event study methodology</li>
-            <li>Stakeholder friction mapping</li>
-            <li>Legitimacy quantification models</li>
-            <li>Agent-based simulation design</li>
-          </ul>
+    <!-- Hero -->
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Services</p>
+        <h1 data-reveal>The methods behind the papers, for hire.</h1>
+        <p class="lede" data-reveal>Organisations engage Dissensus for applied work where competing interests meet quantitative rigour: systemic-risk indices, machine-checked verification, adversarial evaluation of multi-agent systems, volatility modelling. The same methods as the research programme, pointed at your problem.</p>
+        <p class="simple" data-reveal>Or simply: <b>we measure friction for a living.</b></p>
+        <div class="cta-row" data-reveal>
+          <a class="btn btn-primary" href="mailto:research@dissensus.ai">Discuss an engagement &rarr;</a>
+          <a class="btn" href="#versus">How this differs from funding</a>
         </div>
-      </article>
-      <article class="card">
-        <span class="card__meta">Frameworks</span>
-        <h3>Theoretical Development</h3>
-        <div class="prose">
-          <p>Active development of the formal frameworks underlying the research programme. Open-access publications with rigorous formalisation.</p>
-          <ul>
-            <li>Axiom of Consent framework</li>
-            <li>ROM computational formalism</li>
-            <li>Friction decomposition algebra</li>
-            <li>Cross-domain validation</li>
-          </ul>
-        </div>
-      </article>
-      <article class="card">
-        <span class="card__meta">Collaboration</span>
-        <h3>Research Partnerships</h3>
-        <div class="prose">
-          <p>Joint research programmes, co-authorship on peer-reviewed publications, and shared infrastructure for empirical validation.</p>
-          <ul>
-            <li>Joint papers and co-authorship</li>
-            <li>Shared compute infrastructure</li>
-            <li>Cross-disciplinary methodology</li>
-            <li>Empirical validation programmes</li>
-          </ul>
-        </div>
-      </article>
-      <article class="card">
-        <span class="card__meta">Application</span>
-        <h3>Applied Domains</h3>
-        <div class="prose">
-          <p>Target domains where friction analysis yields empirically grounded, actionable insight.</p>
-          <ul>
-            <li>AI governance and alignment</li>
-            <li>Financial market microstructure</li>
-            <li>Institutional legitimacy analysis</li>
-            <li>Multi-stakeholder coordination</li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </section>
+      </div>
+    </header>
 
-  <!-- Capabilities -->
-  <section class="section container">
-    <span class="index">03 &middot; Capabilities</span>
-    <h2>Capabilities</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>Finance</h3>
-        <p>Market microstructure, volatility modelling, systemic risk, event studies, crypto infrastructure analysis.</p>
-      </article>
-      <article class="card">
-        <h3>AI and Alignment</h3>
-        <p>Consent mechanics for autonomous systems, substrate-independence analysis, multi-agent coordination.</p>
-      </article>
-      <article class="card">
-        <h3>Political Economy</h3>
-        <p>Legitimacy quantification, governance design, regulatory friction, stakeholder consent mapping.</p>
-      </article>
-      <article class="card">
-        <h3>Infrastructure</h3>
-        <p>Self-hosted compute clusters, agent-based modelling, high-throughput simulation, privacy-first architecture.</p>
-      </article>
-    </div>
-  </section>
+    <!-- 01 · Capabilities -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>01</b> &middot; Capabilities</div>
+        <h2 data-reveal>What you can engage us to do</h2>
+        <p class="body-text" data-reveal>Everything below exists because a paper needed it first. The estimators are published, the proofs are machine-checked, and the index architecture runs in production &mdash; we are offering the workshop, not a slide deck about one.</p>
 
-  <!-- Research Approach -->
-  <section class="section container">
-    <span class="index">04 &middot; Research approach</span>
-    <h2>Research Approach</h2>
-    <div class="grid">
-      <article class="card">
-        <span class="card__meta">01 / Formalise</span>
-        <h3>Build the Mathematics</h3>
-        <p>Develop formal frameworks with precise definitions, proofs, and falsifiable predictions.</p>
-      </article>
-      <article class="card">
-        <span class="card__meta">02 / Validate</span>
-        <h3>Empirical Testing</h3>
-        <p>Apply frameworks to empirical data. Predictive failure necessitates revision.</p>
-      </article>
-      <article class="card">
-        <span class="card__meta">03 / Publish</span>
-        <h3>Open Access</h3>
-        <p>All non-proprietary research published CC-BY 4.0. Peer review as standard.</p>
-      </article>
-      <article class="card">
-        <span class="card__meta">04 / Iterate</span>
-        <h3>Revise</h3>
-        <p>Identify failure modes. Refine frameworks or document their limitations.</p>
-      </article>
-    </div>
-  </section>
+        <div class="primitives" style="margin-top: 2.4rem;">
+          <div class="prim" data-reveal>
+            <div class="prim-sym">F</div>
+            <div class="prim-name">Adversarial-systems &amp; friction analysis</div>
+            <div class="prim-desc">Mapping where competing interests generate structural conflict in a market, protocol, or organisation &mdash; and decomposing the resulting friction into alignment, stake, and entropy so it can be measured, compared, and reduced.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">&Sigma;</div>
+            <div class="prim-name">Bespoke systemic-risk indices</div>
+            <div class="prim-desc">ASRI-style composite indices built for your domain: sub-index design, aggregation and weighting, validation against historical stress events, and a live dashboard if you want one. The reference implementation runs at <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">asri.dissensus.ai</a>.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">&#8866;</div>
+            <div class="prim-name">Formal verification in Lean 4</div>
+            <div class="prim-desc">Machine-checked proofs of the properties your mechanism, protocol, or policy is supposed to have, with assumptions tracked in an explicit ledger. The proof assistant does not accept hand-waving, which is precisely its value.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">&ne;</div>
+            <div class="prim-name">Red-teaming &amp; robustness evaluation</div>
+            <div class="prim-desc">Adversarial evaluation of multi-agent and agentic AI systems: where incentives break the behaviour you intended, which failure modes are structural rather than incidental, and what they cost.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">&sigma;&sup2;</div>
+            <div class="prim-name">Econometric &amp; volatility modelling</div>
+            <div class="prim-desc">GARCH-family event studies (we maintain the open-source <a href="tools.html">GJR-GARCH-X</a> estimator), multi-moment analysis, and dependence-robust inference for markets where textbook assumptions fail.</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Get in Touch -->
-  <section class="section container">
-    <span class="index">05 &middot; Get in touch</span>
-    <h2>Get in Touch</h2>
-    <p class="lead">We welcome enquiries regarding collaboration, critique, and research partnerships.</p>
-    <div class="btn-row">
-      <a class="btn" href="mailto:research@dissensus.ai">research@dissensus.ai</a>
-      <a class="btn btn--ghost" href="collaborate.html">Collaboration proposal</a>
-    </div>
-  </section>
+    <!-- 02 · Engagement models -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>02</b> &middot; Engagement models</div>
+        <h2 data-reveal>Three ways to work with the lab</h2>
+
+        <div class="primitives" style="margin-top: 2.4rem;">
+          <div class="prim" data-reveal>
+            <div class="prim-sym">01</div>
+            <div class="prim-name">Advisory</div>
+            <div class="prim-desc">Standing or ad-hoc access to the lab&rsquo;s expertise &mdash; review of models, methods, or system designs. A sceptical second opinion, with the mathematics attached.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">02</div>
+            <div class="prim-name">Bespoke research</div>
+            <div class="prim-desc">A scoped question gets a scoped study: defined deliverable, agreed timeline, and a written artefact you keep &mdash; technical report, working paper, or both.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">03</div>
+            <div class="prim-name">Custom tooling</div>
+            <div class="prim-desc">Indices, dashboards, evaluation harnesses, or estimation packages built for your use case &mdash; delivered with source, tests, and documentation, hosted or handed over.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · Who this is for -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>03</b> &middot; Audience</div>
+        <h2 data-reveal>Who this is for</h2>
+        <div class="triad" data-reveal>
+          <span class="lbl">Typical</span>
+          <span>Funds</span><span class="dot-sep">&middot;</span><span>Financial institutions</span><span class="dot-sep">&middot;</span><span>AI labs</span><span class="dot-sep">&middot;</span><span>Policymakers</span>
+        </div>
+        <p class="body-text" data-reveal>The common denominator is a system in which multiple parties optimise against each other, and the cost of misreading that dynamic is material. If that describes your problem, the sector label matters less than you would think. Dissensus is a small lab and takes a small number of engagements at a time, so the research does not stall &mdash; that constraint is a feature of the work, not an apology.</p>
+      </div>
+    </section>
+
+    <!-- 04 · Services vs partnership -->
+    <section class="block" id="versus">
+      <div class="container">
+        <div class="kicker" data-reveal><b>04</b> &middot; The distinction</div>
+        <h2 data-reveal>Paying for work vs funding the programme</h2>
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">Services &ne; Partnership</div>
+          <h3>Two doors, deliberately separate</h3>
+          <p>Services is commercial: you bring a problem, we scope it, you own the deliverable, invoices exist. <a href="partners.html">Partnership</a> funds the open research programme: outputs are public, citable, and belong to everyone. Both keep the lab independent &mdash; but only one of them gets you a bespoke deliverable, and only the other produces public goods.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:research@dissensus.ai">Discuss an engagement &rarr;</a>
+            <a class="btn" href="partners.html">Fund the programme &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · Contact -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>05</b> &middot; Contact</div>
+        <h2 data-reveal>Start with the problem</h2>
+        <p class="body-text" data-reveal>No discovery-call choreography. Write to <a href="mailto:research@dissensus.ai">research@dissensus.ai</a> with the problem as you currently understand it. If we are the right lab, we will tell you how we would approach it; if we are not, we will say that instead.</p>
+        <div class="cta-row" data-reveal>
+          <a class="btn btn-primary" href="mailto:research@dissensus.ai">research@dissensus.ai &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
-      <div>
-        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
-        <p>Registered in England and Wales, company no. 17309927</p>
-      </div>
-      <div style="max-width:560px;">
-        <a href="index.html">Home</a> &middot;
-        <a href="research.html">Research</a> &middot;
-        <a href="tools.html">Tools</a> &middot;
-        <a href="services.html">Services</a> &middot;
-        <a href="about.html">About</a> &middot;
-        <a href="collaborate.html">Collaborate</a> &middot;
-        <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-        <a href="manifesto.html">Manifesto</a> &middot;
-        <a href="charter.html">Charter</a> &middot;
-        <a href="reading.html">Reading</a> &middot;
-        <a href="press.html">Press</a> &middot;
-        <a href="subscribe.html">Subscribe</a> &middot;
-        <a href="privacy.html">Privacy</a> &middot;
-        <a href="terms.html">Terms</a> &middot;
-        <a href="feed.xml" title="RSS Feed">RSS</a>
-      </div>
-    </div>
-  </footer>
+<footer class="footer">
+<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+<div>
+<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+</div>
+<div style="max-width:560px;">
+<a href="index.html">Home</a> &middot;
+<a href="research.html">Research</a> &middot;
+<a href="tools.html">Tools</a> &middot;
+<a href="services.html">Services</a> &middot;
+<a href="about.html">About</a> &middot;
+<a href="partners.html">Partners</a> &middot;
+<a href="collaborate.html">Collaborate</a> &middot;
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+<a href="manifesto.html">Manifesto</a> &middot;
+<a href="charter.html">Charter</a> &middot;
+<a href="reading.html">Reading</a> &middot;
+<a href="press.html">Press</a> &middot;
+<a href="subscribe.html">Subscribe</a> &middot;
+<a href="privacy.html">Privacy</a> &middot;
+<a href="terms.html">Terms</a> &middot;
+<a href="feed.xml" title="RSS Feed">RSS</a>
+</div>
+</div>
+</footer>
 
 </body>
 </html>

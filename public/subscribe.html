@@ -3,155 +3,185 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Subscribe to research updates from Dissensus, the lab formalising friction dynamics in multi-agent systems.">
-  <title>Subscribe | Dissensus</title>
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Subscribe for research updates from Dissensus — new papers, working notes, and results from the lab formalising friction dynamics in multi-agent systems.">
+  <link rel="canonical" href="https://dissensus.ai/subscribe.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dissensus">
+  <meta property="og:title" content="Subscribe">
+  <meta property="og:description" content="Subscribe for research updates from Dissensus — new papers, working notes, and results from the lab formalising friction dynamics in multi-agent systems.">
+  <meta property="og:url" content="https://dissensus.ai/subscribe.html">
+  <meta property="og:image" content="https://dissensus.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Subscribe">
+  <meta name="twitter:description" content="Subscribe for research updates from Dissensus — new papers, working notes, and results from the lab formalising friction dynamics in multi-agent systems.">
+  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
+
+  <title>Subscribe — Dissensus</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/system.css">
   <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/index.css">
   <script src="js/theme.js"></script>
+  <script src="js/motion.js" defer></script>
   <link rel="alternate" type="application/rss+xml" title="Dissensus RSS Feed" href="feed.xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
 </head>
 <body>
 
+  <div id="progress"></div>
+
   <nav class="nav">
-    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
     <div class="nav__links">
       <a href="research.html">Research</a>
       <a href="tools.html" class="hide-sm">Tools</a>
       <a href="about.html" class="hide-sm">About</a>
       <a href="services.html" class="hide-sm">Services</a>
       <a href="collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="partners.html" class="hide-sm">Partners</a>
       <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="container hero">
-    <span class="kicker">Subscribe</span>
-    <h1>Research updates delivered with minimal friction</h1>
-    <p class="lead">Follow the lab's output by email or RSS. Infrequent, substantive, and easy to leave. We publish when there is something worth reading, not on a schedule.</p>
-  </header>
+  <main class="home">
 
-  <!-- Stay updated -->
-  <section class="section container prose">
-    <span class="index">01 &middot; Stay updated</span>
-    <h2>Stay updated</h2>
-    <p>We publish infrequently but substantively. Updates include new papers, framework developments, and occasional commentary on governance, AI alignment, and friction dynamics.</p>
-
-    <form class="form" action="https://formspree.io/f/xbddrpyq" method="POST">
-      <div>
-        <label class="label" for="email">Email Address</label>
-        <input class="input" type="email" id="email" name="email" required placeholder="researcher@institution.edu">
+    <!-- Hero -->
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Subscribe</p>
+        <h1 data-reveal>Updates, with minimal friction.</h1>
+        <p class="lede" data-reveal>New papers, preprint announcements, and occasional notes from the lab &mdash; sent when there is something worth reading, not on a schedule. Email below, or take the RSS feed and skip the inbox entirely.</p>
       </div>
-      <div>
-        <label class="label" for="interests">Research Interests (Optional)</label>
-        <select class="select" id="interests" name="interests">
-          <option value="">All updates</option>
-          <option value="consent-mechanics">Consent Mechanics</option>
-          <option value="machine-morality">Machine Morality / AI Ethics</option>
-          <option value="economic-pharmakon">Economic Pharmakon / Finance</option>
-          <option value="crypto-microstructure">Crypto Microstructure</option>
-          <option value="political-economy">Political Economy</option>
-        </select>
+    </header>
+
+    <!-- 01 · Email -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>01</b> &middot; Email</div>
+        <h2 data-reveal>Get updates by email</h2>
+        <p class="body-text" data-reveal>One field, one optional preference. Updates cover new papers, framework developments, and occasional commentary on governance, AI alignment, and friction dynamics.</p>
+
+        <div class="card" data-reveal="scale">
+          <form class="form" action="https://formspree.io/f/xbddrpyq" method="POST">
+            <div>
+              <label class="label" for="email">Email address</label>
+              <input class="input" type="email" id="email" name="email" required placeholder="researcher@institution.edu">
+            </div>
+            <div>
+              <label class="label" for="interests">Research interests (optional)</label>
+              <select class="select" id="interests" name="interests">
+                <option value="">All updates</option>
+                <option value="consent-mechanics">Consent Mechanics</option>
+                <option value="machine-morality">Machine Morality / AI Ethics</option>
+                <option value="economic-pharmakon">Economic Pharmakon / Finance</option>
+                <option value="crypto-microstructure">Crypto Microstructure</option>
+                <option value="political-economy">Political Economy</option>
+              </select>
+            </div>
+
+            <input type="hidden" name="_subject" value="New Dissensus Subscriber">
+
+            <div class="cta-row" style="margin-top: 0;">
+              <button type="submit" class="btn btn-primary">Subscribe &rarr;</button>
+            </div>
+            <p class="form-note">No spam. Unsubscribe at any time. How your address is handled is written down in the <a href="privacy.html">privacy policy</a>.</p>
+          </form>
+        </div>
       </div>
+    </section>
 
-      <input type="hidden" name="_subject" value="New Dissensus Subscriber">
+    <!-- 02 · RSS -->
+    <section class="block" style="padding-top: 0;">
+      <div class="container">
+        <div class="kicker" data-reveal><b>02</b> &middot; Feed</div>
+        <h2 data-reveal>Or subscribe by RSS</h2>
+        <p class="body-text" data-reveal>Prefer syndication? The lab publishes an RSS feed of research updates &mdash; no address required.</p>
 
-      <button type="submit" class="btn">Subscribe &rarr;</button>
-      <p class="form-note">No spam. Unsubscribe anytime. See our <a href="privacy.html">privacy policy</a>.</p>
-    </form>
-  </section>
-
-  <!-- RSS feed -->
-  <section class="section container">
-    <span class="index">02 &middot; Feed</span>
-    <h2>RSS feed</h2>
-    <p class="lead">Prefer syndication? We provide an RSS feed for all research updates.</p>
-    <div class="block">
-      <span class="block__label">Feed URL</span>
-      <div class="eq">https://dissensus.ai/feed.xml</div>
-      <div class="btn-row">
-        <a class="btn btn--ghost" href="feed.xml">Open feed.xml &rarr;</a>
-        <button class="btn" id="rss-copy-btn" onclick="copyRSSUrl()">Copy URL</button>
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">Feed URL</div>
+          <p id="rss-url" style="font-family:var(--font-mono);">https://dissensus.ai/feed.xml</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="feed.xml">Open feed.xml &rarr;</a>
+            <button class="btn" id="rss-copy-btn" onclick="copyRSSUrl()">Copy URL</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- What to expect -->
-  <section class="section container">
-    <span class="index">03 &middot; What to expect</span>
-    <h2>What to expect</h2>
-    <div class="grid">
-      <article class="card">
-        <span class="card__index">~</span>
-        <h3>Frequency</h3>
-        <p>1-2 emails per month during active research periods. Less during writing phases.</p>
-      </article>
-      <article class="card">
-        <span class="card__index">&rarr;</span>
-        <h3>Content</h3>
-        <p>New paper releases, framework updates, preprint announcements, and occasional field commentary.</p>
-      </article>
-      <article class="card">
-        <span class="card__index">&empty;</span>
-        <h3>No Noise</h3>
-        <p>We don't do newsletters for the sake of newsletters. Signal only.</p>
-      </article>
-      <article class="card">
-        <span class="card__index">&infin;</span>
-        <h3>Archive</h3>
-        <p>All past updates available on farzulla.org. Nothing gets lost.</p>
-      </article>
-    </div>
-  </section>
+    <!-- 03 · What to expect -->
+    <section class="block" style="padding-top: 0;">
+      <div class="container">
+        <div class="kicker" data-reveal><b>03</b> &middot; What to expect</div>
+        <h2 data-reveal>What lands in your inbox</h2>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
-      <div>
-        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
-        <p>Registered in England and Wales, company no. 17309927</p>
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">Frequency</div>
+          <p>One or two emails a month during active research periods; fewer while the writing happens.</p>
+        </div>
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">Content</div>
+          <p>New paper releases, preprint announcements, framework updates, and occasional field commentary.</p>
+        </div>
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">Noise</div>
+          <p>None. We don&rsquo;t do newsletters for the sake of newsletters &mdash; signal only, and it is easy to leave.</p>
+        </div>
       </div>
-      <div style="max-width:560px;">
-        <a href="index.html">Home</a> &middot;
-        <a href="research.html">Research</a> &middot;
-        <a href="tools.html">Tools</a> &middot;
-        <a href="services.html">Services</a> &middot;
-        <a href="about.html">About</a> &middot;
-        <a href="collaborate.html">Collaborate</a> &middot;
-        <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-        <a href="manifesto.html">Manifesto</a> &middot;
-        <a href="charter.html">Charter</a> &middot;
-        <a href="reading.html">Reading</a> &middot;
-        <a href="press.html">Press</a> &middot;
-        <a href="subscribe.html">Subscribe</a> &middot;
-        <a href="privacy.html">Privacy</a> &middot;
-        <a href="terms.html">Terms</a> &middot;
-        <a href="feed.xml" title="RSS Feed">RSS</a>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <script>
+    <script>
     function copyRSSUrl() {
-      navigator.clipboard.writeText('https://dissensus.ai/feed.xml').then(() => {
-        const btn = document.getElementById('rss-copy-btn');
-        btn.textContent = 'Copied!';
-        btn.style.color = 'var(--accent)';
-        setTimeout(() => {
-          btn.textContent = 'Copy URL';
-          btn.style.color = '';
-        }, 2000);
+      navigator.clipboard.writeText('https://dissensus.ai/feed.xml').then(function () {
+        var btn = document.getElementById('rss-copy-btn');
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy URL'; }, 2000);
       });
     }
-  </script>
+    </script>
+
+  </main>
+
+  <!-- Footer -->
+<footer class="footer">
+<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+<div>
+<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+</div>
+<div style="max-width:560px;">
+<a href="index.html">Home</a> &middot;
+<a href="research.html">Research</a> &middot;
+<a href="tools.html">Tools</a> &middot;
+<a href="services.html">Services</a> &middot;
+<a href="about.html">About</a> &middot;
+<a href="partners.html">Partners</a> &middot;
+<a href="collaborate.html">Collaborate</a> &middot;
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+<a href="manifesto.html">Manifesto</a> &middot;
+<a href="charter.html">Charter</a> &middot;
+<a href="reading.html">Reading</a> &middot;
+<a href="press.html">Press</a> &middot;
+<a href="subscribe.html">Subscribe</a> &middot;
+<a href="privacy.html">Privacy</a> &middot;
+<a href="terms.html">Terms</a> &middot;
+<a href="feed.xml" title="RSS Feed">RSS</a>
+</div>
+</div>
+</footer>
 
 </body>
 </html>

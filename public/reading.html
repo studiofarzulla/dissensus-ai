@@ -3,235 +3,302 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Curated bibliography supporting the Adversarial Systems &amp; Complexity Research Initiative (ASCRI): friction dynamics, governance alignment, and multi-agent coordination.">
-  <title>Reading List | Dissensus</title>
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Curated bibliography behind the Adversarial Systems &amp; Complexity Research Initiative: friction dynamics, governance alignment, and multi-agent coordination.">
+  <link rel="canonical" href="https://dissensus.ai/reading.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dissensus">
+  <meta property="og:title" content="Reading List">
+  <meta property="og:description" content="Curated bibliography behind the Adversarial Systems &amp; Complexity Research Initiative: friction dynamics, governance alignment, and multi-agent coordination.">
+  <meta property="og:url" content="https://dissensus.ai/reading.html">
+  <meta property="og:image" content="https://dissensus.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reading List">
+  <meta name="twitter:description" content="Curated bibliography behind the Adversarial Systems &amp; Complexity Research Initiative: friction dynamics, governance alignment, and multi-agent coordination.">
+  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
+
+  <title>Reading List — Dissensus</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/system.css">
   <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/index.css">
   <script src="js/theme.js"></script>
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <script src="js/motion.js" defer></script>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
 </head>
 <body>
 
+  <div id="progress"></div>
+
   <nav class="nav">
-    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
     <div class="nav__links">
       <a href="research.html">Research</a>
       <a href="tools.html" class="hide-sm">Tools</a>
       <a href="about.html" class="hide-sm">About</a>
       <a href="services.html" class="hide-sm">Services</a>
       <a href="collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="partners.html" class="hide-sm">Partners</a>
       <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="container hero">
-    <span class="kicker">Intellectual Foundations</span>
-    <h1>Reading List</h1>
-    <p class="lead">Works that inform the theoretical substrate of Dissensus research. These are not endorsements, they are starting points for productive disagreement.</p>
-  </header>
+  <main class="home">
 
-  <!-- Economics & Coordination -->
-  <section class="section container">
-    <span class="index">01 &middot; Economics</span>
-    <h2>Economics &amp; Coordination</h2>
-    <div class="refgroup">
-      <div class="ref">
-        <span class="ref__cite">COASE, 1937</span>
-        <h4>The Nature of the Firm</h4>
-        <p>Why do firms exist? Transaction costs. The origin of friction economics.</p>
+    <!-- Hero -->
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Reading list</p>
+        <h1 data-reveal>The shelf the lab argues with.</h1>
+        <p class="lede" data-reveal>Works that inform the theoretical substrate of Dissensus research &mdash; the friction thesis has a bibliography, and this is it. These are not endorsements; they are starting points for productive disagreement.</p>
+        <p class="simple" data-reveal>Or simply: <b>know what you are disagreeing with.</b></p>
       </div>
-      <div class="ref">
-        <span class="ref__cite">WILLIAMSON, 1985</span>
-        <h4>The Economic Institutions of Capitalism</h4>
-        <p>Transaction cost economics extended. Opportunism, asset specificity, governance structures.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">ARROW, 1951</span>
-        <h4>Social Choice and Individual Values</h4>
-        <p>The impossibility theorem. Why aggregating preferences is structurally constrained.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">OSTROM, 1990</span>
-        <h4>Governing the Commons</h4>
-        <p>Self-governance without centralisation. Empirical counterexamples to tragedy of the commons.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">HURWICZ, 1960</span>
-        <h4>Optimality and Informational Efficiency in Resource Allocation</h4>
-        <p>Mechanism design origins. How to structure interactions for desired outcomes.</p>
+    </header>
+
+    <!-- Metrics band -->
+    <div class="metrics">
+      <div class="container">
+        <div class="metrics-grid">
+          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="23">0</span></div><div class="metric-cap">Works</div></div>
+          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="5">0</span></div><div class="metric-cap">Themes</div></div>
+          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="98">0</span></div><div class="metric-cap">Years spanned</div></div>
+          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="0">0</span></div><div class="metric-cap">Endorsements</div></div>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Political Philosophy & Legitimacy -->
-  <section class="section container">
-    <span class="index">02 &middot; Political Philosophy</span>
-    <h2>Political Philosophy &amp; Legitimacy</h2>
-    <div class="refgroup">
-      <div class="ref">
-        <span class="ref__cite">RANCI&Eacute;RE, 1995</span>
-        <h4>Disagreement: Politics and Philosophy</h4>
-        <p>The original dissensus. Politics as the disruption of consensus, not its achievement.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">MOUFFE, 2000</span>
-        <h4>The Democratic Paradox</h4>
-        <p>Agonistic pluralism. Why consensus democracy is structurally exclusionary.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">RAWLS, 1971</span>
-        <h4>A Theory of Justice</h4>
-        <p>The veil of ignorance. Procedural legitimacy under uncertainty.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">HABERMAS, 1981</span>
-        <h4>The Theory of Communicative Action</h4>
-        <p>Discourse ethics. Legitimacy through ideal speech conditions. (We are sceptical.)</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">WEBER, 1922</span>
-        <h4>Economy and Society</h4>
-        <p>Types of legitimate authority. Traditional, charismatic, rational-legal.</p>
-      </div>
-    </div>
-  </section>
+    <!-- 01 · Economics & coordination -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>01</b> &middot; Economics</div>
+        <h2 data-reveal>Economics &amp; coordination</h2>
+        <p class="body-text" data-reveal>Where friction gets priced. The literature that first treated coordination as a cost rather than a given &mdash; the lab&rsquo;s economics is downstream of every entry here.</p>
 
-  <!-- Philosophy of Mind & Agency -->
-  <section class="section container">
-    <span class="index">03 &middot; Philosophy of Mind</span>
-    <h2>Philosophy of Mind &amp; Agency</h2>
-    <div class="refgroup">
-      <div class="ref">
-        <span class="ref__cite">DENNETT, 1987</span>
-        <h4>The Intentional Stance</h4>
-        <p>Agency as predictive attribution. Substrate-independent approach to mental states.</p>
+        <div class="primitives" style="margin-top: 2.4rem;">
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1937</div>
+            <div class="prim-name">The Nature of the Firm</div>
+            <div class="prim-desc"><em>Coase.</em> Why do firms exist? Transaction costs. The origin of friction economics.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1985</div>
+            <div class="prim-name">The Economic Institutions of Capitalism</div>
+            <div class="prim-desc"><em>Williamson.</em> Transaction cost economics extended. Opportunism, asset specificity, governance structures.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1951</div>
+            <div class="prim-name">Social Choice and Individual Values</div>
+            <div class="prim-desc"><em>Arrow.</em> The impossibility theorem. Why aggregating preferences is structurally constrained.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1990</div>
+            <div class="prim-name">Governing the Commons</div>
+            <div class="prim-desc"><em>Ostrom.</em> Self-governance without centralisation. Empirical counterexamples to tragedy of the commons.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1960</div>
+            <div class="prim-name">Optimality and Informational Efficiency in Resource Allocation</div>
+            <div class="prim-desc"><em>Hurwicz.</em> Mechanism design origins. How to structure interactions for desired outcomes.</div>
+          </div>
+        </div>
       </div>
-      <div class="ref">
-        <span class="ref__cite">HURLEY, 1998</span>
-        <h4>Consciousness in Action</h4>
-        <p>The input-output picture. Perception and action as continuous loop.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">CLARK &amp; CHALMERS, 1998</span>
-        <h4>The Extended Mind</h4>
-        <p>Cognition beyond the skull. Tools and environment as part of cognitive systems.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">FLORIDI, 2013</span>
-        <h4>The Ethics of Information</h4>
-        <p>Information as fundamental. Moral status based on informational structure.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">METZINGER, 2003</span>
-        <h4>Being No One</h4>
-        <p>Self-model theory. The phenomenal self as representational construct.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Evolution & Complex Systems -->
-  <section class="section container">
-    <span class="index">04 &middot; Evolution</span>
-    <h2>Evolution &amp; Complex Systems</h2>
-    <div class="refgroup">
-      <div class="ref">
-        <span class="ref__cite">DAWKINS, 1982</span>
-        <h4>The Extended Phenotype</h4>
-        <p>Replication beyond organisms. Genes as optimisation targets, bodies as vehicles.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">KAUFFMAN, 1993</span>
-        <h4>The Origins of Order</h4>
-        <p>Self-organisation in evolution. Order for free. Complexity at the edge of chaos.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">HOLLAND, 1995</span>
-        <h4>Hidden Order</h4>
-        <p>Complex adaptive systems. Emergence, aggregation, nonlinearity.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">AXELROD, 1984</span>
-        <h4>The Evolution of Cooperation</h4>
-        <p>Iterated prisoner's dilemma. How cooperation emerges without central authority.</p>
-      </div>
-    </div>
-  </section>
+    <!-- 02 · Political philosophy & legitimacy -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>02</b> &middot; Political philosophy</div>
+        <h2 data-reveal>Political philosophy &amp; legitimacy</h2>
+        <p class="body-text" data-reveal>The shelf the lab is named after. Dissensus as function rather than dysfunction &mdash; and the legitimacy theories that claim otherwise.</p>
 
-  <!-- AI & Alignment -->
-  <section class="section container">
-    <span class="index">05 &middot; AI &amp; Alignment</span>
-    <h2>AI &amp; Alignment</h2>
-    <div class="refgroup">
-      <div class="ref">
-        <span class="ref__cite">BOSTROM, 2014</span>
-        <h4>Superintelligence</h4>
-        <p>The control problem. Orthogonality thesis. Instrumental convergence.</p>
+        <div class="primitives" style="margin-top: 2.4rem;">
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1995</div>
+            <div class="prim-name">Disagreement: Politics and Philosophy</div>
+            <div class="prim-desc"><em>Ranci&egrave;re.</em> The original dissensus. Politics as the disruption of consensus, not its achievement.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">2000</div>
+            <div class="prim-name">The Democratic Paradox</div>
+            <div class="prim-desc"><em>Mouffe.</em> Agonistic pluralism. Why consensus democracy is structurally exclusionary.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1971</div>
+            <div class="prim-name">A Theory of Justice</div>
+            <div class="prim-desc"><em>Rawls.</em> The veil of ignorance. Procedural legitimacy under uncertainty.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1981</div>
+            <div class="prim-name">The Theory of Communicative Action</div>
+            <div class="prim-desc"><em>Habermas.</em> Discourse ethics. Legitimacy through ideal speech conditions. (We are sceptical.)</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1922</div>
+            <div class="prim-name">Economy and Society</div>
+            <div class="prim-desc"><em>Weber.</em> Types of legitimate authority. Traditional, charismatic, rational-legal.</div>
+          </div>
+        </div>
       </div>
-      <div class="ref">
-        <span class="ref__cite">RUSSELL, 2019</span>
-        <h4>Human Compatible</h4>
-        <p>Value alignment problem. Inverse reward design. Uncertainty about objectives.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">CHRISTIANO ET AL., 2017</span>
-        <h4>Deep Reinforcement Learning from Human Feedback</h4>
-        <p>RLHF origins. Training AI systems from human preferences rather than explicit reward.</p>
-      </div>
-      <div class="ref">
-        <span class="ref__cite">GABRIEL, 2020</span>
-        <h4>Artificial Intelligence, Values, and Alignment</h4>
-        <p>Whose values? Which alignment? The political philosophy of AI safety.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Our Work -->
-  <section class="section container">
-    <span class="index">06 &middot; Our work</span>
-    <h2>Our work</h2>
-    <p class="lead">For the lab's own publications, see:</p>
-    <div class="btn-row">
-      <a class="btn" href="research.html">Research &rarr;</a>
-      <a class="btn btn--ghost" href="https://farzulla.org" target="_blank" rel="noopener">farzulla.org &rarr;</a>
-      <a class="btn btn--ghost" href="https://zenodo.org/communities/farzulla" target="_blank" rel="noopener">Zenodo archive &rarr;</a>
-    </div>
-  </section>
+    <!-- 03 · Philosophy of mind & agency -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>03</b> &middot; Philosophy of mind</div>
+        <h2 data-reveal>Philosophy of mind &amp; agency</h2>
+        <p class="body-text" data-reveal>What counts as an agent, and where an agent ends. Necessary groundwork for any theory that refuses to privilege substrate.</p>
+
+        <div class="primitives" style="margin-top: 2.4rem;">
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1987</div>
+            <div class="prim-name">The Intentional Stance</div>
+            <div class="prim-desc"><em>Dennett.</em> Agency as predictive attribution. Substrate-independent approach to mental states.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1998</div>
+            <div class="prim-name">Consciousness in Action</div>
+            <div class="prim-desc"><em>Hurley.</em> The input-output picture. Perception and action as continuous loop.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1998</div>
+            <div class="prim-name">The Extended Mind</div>
+            <div class="prim-desc"><em>Clark &amp; Chalmers.</em> Cognition beyond the skull. Tools and environment as part of cognitive systems.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">2013</div>
+            <div class="prim-name">The Ethics of Information</div>
+            <div class="prim-desc"><em>Floridi.</em> Information as fundamental. Moral status based on informational structure.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">2003</div>
+            <div class="prim-name">Being No One</div>
+            <div class="prim-desc"><em>Metzinger.</em> Self-model theory. The phenomenal self as representational construct.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · Evolution & complex systems -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>04</b> &middot; Evolution</div>
+        <h2 data-reveal>Evolution &amp; complex systems</h2>
+        <p class="body-text" data-reveal>Order without a designer. The original multi-agent systems, running longer than any market.</p>
+
+        <div class="primitives" style="margin-top: 2.4rem;">
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1982</div>
+            <div class="prim-name">The Extended Phenotype</div>
+            <div class="prim-desc"><em>Dawkins.</em> Replication beyond organisms. Genes as optimisation targets, bodies as vehicles.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1993</div>
+            <div class="prim-name">The Origins of Order</div>
+            <div class="prim-desc"><em>Kauffman.</em> Self-organisation in evolution. Order for free. Complexity at the edge of chaos.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1995</div>
+            <div class="prim-name">Hidden Order</div>
+            <div class="prim-desc"><em>Holland.</em> Complex adaptive systems. Emergence, aggregation, nonlinearity.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">1984</div>
+            <div class="prim-name">The Evolution of Cooperation</div>
+            <div class="prim-desc"><em>Axelrod.</em> Iterated prisoner's dilemma. How cooperation emerges without central authority.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · AI & alignment -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>05</b> &middot; AI &amp; alignment</div>
+        <h2 data-reveal>AI &amp; alignment</h2>
+        <p class="body-text" data-reveal>The youngest shelf and the oldest problem: what happens when optimisation targets and human interests are not the same thing.</p>
+
+        <div class="primitives" style="margin-top: 2.4rem;">
+          <div class="prim" data-reveal>
+            <div class="prim-sym">2014</div>
+            <div class="prim-name">Superintelligence</div>
+            <div class="prim-desc"><em>Bostrom.</em> The control problem. Orthogonality thesis. Instrumental convergence.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">2019</div>
+            <div class="prim-name">Human Compatible</div>
+            <div class="prim-desc"><em>Russell.</em> Value alignment problem. Inverse reward design. Uncertainty about objectives.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">2017</div>
+            <div class="prim-name">Deep Reinforcement Learning from Human Preferences</div>
+            <div class="prim-desc"><em>Christiano et al.</em> RLHF origins. Training AI systems from human preferences rather than explicit reward.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">2020</div>
+            <div class="prim-name">Artificial Intelligence, Values, and Alignment</div>
+            <div class="prim-desc"><em>Gabriel.</em> Whose values? Which alignment? The political philosophy of AI safety.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · Our work -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>06</b> &middot; Our work</div>
+        <h2 data-reveal>Where we answer back</h2>
+        <p class="body-text" data-reveal>Everything above is input. The output &mdash; where the lab agrees, disagrees, and formalises the difference &mdash; is catalogued under Research, with mirrors at farzulla.org and the Zenodo archive.</p>
+        <div class="cta-row" data-reveal>
+          <a class="btn btn-primary" href="research.html">Read the research &rarr;</a>
+          <a class="btn" href="https://farzulla.org" target="_blank" rel="noopener">farzulla.org &rarr;</a>
+          <a class="btn" href="https://zenodo.org/communities/farzulla" target="_blank" rel="noopener">Zenodo archive &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
-      <div>
-        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
-        <p>Registered in England and Wales, company no. 17309927</p>
-      </div>
-      <div style="max-width:560px;">
-        <a href="index.html">Home</a> &middot;
-        <a href="research.html">Research</a> &middot;
-        <a href="tools.html">Tools</a> &middot;
-        <a href="services.html">Services</a> &middot;
-        <a href="about.html">About</a> &middot;
-        <a href="collaborate.html">Collaborate</a> &middot;
-        <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-        <a href="manifesto.html">Manifesto</a> &middot;
-        <a href="charter.html">Charter</a> &middot;
-        <a href="reading.html">Reading</a> &middot;
-        <a href="press.html">Press</a> &middot;
-        <a href="subscribe.html">Subscribe</a> &middot;
-        <a href="privacy.html">Privacy</a> &middot;
-        <a href="terms.html">Terms</a> &middot;
-        <a href="feed.xml" title="RSS Feed">RSS</a>
-      </div>
-    </div>
-  </footer>
+<footer class="footer">
+<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+<div>
+<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+</div>
+<div style="max-width:560px;">
+<a href="index.html">Home</a> &middot;
+<a href="research.html">Research</a> &middot;
+<a href="tools.html">Tools</a> &middot;
+<a href="services.html">Services</a> &middot;
+<a href="about.html">About</a> &middot;
+<a href="partners.html">Partners</a> &middot;
+<a href="collaborate.html">Collaborate</a> &middot;
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+<a href="manifesto.html">Manifesto</a> &middot;
+<a href="charter.html">Charter</a> &middot;
+<a href="reading.html">Reading</a> &middot;
+<a href="press.html">Press</a> &middot;
+<a href="subscribe.html">Subscribe</a> &middot;
+<a href="privacy.html">Privacy</a> &middot;
+<a href="terms.html">Terms</a> &middot;
+<a href="feed.xml" title="RSS Feed">RSS</a>
+</div>
+</div>
+</footer>
 
 </body>
 </html>

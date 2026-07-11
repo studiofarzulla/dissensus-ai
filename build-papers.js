@@ -67,13 +67,14 @@ ${doiLine}  url = {https://dissensus.ai/papers/${paper.id}.html}
 
 function getNavHtml(activeLink) {
   return `  <nav class="nav">
-    <a href="../index.html" class="nav__brand"><img src="../assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <a href="../index.html" class="nav__brand"><img src="../assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="../assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
     <div class="nav__links">
       <a href="../research.html"${activeLink === 'research' ? ' class="is-active"' : ''}>Research</a>
-      <a href="../tools.html"${activeLink === 'tools' ? ' class="is-active"' : ' class="hide-sm"'}>Tools</a>
+      <a href="../tools.html"${activeLink === 'tools' ? ' class="hide-sm is-active"' : ' class="hide-sm"'}>Tools</a>
       <a href="../about.html" class="hide-sm">About</a>
       <a href="../services.html" class="hide-sm">Services</a>
       <a href="../collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="../partners.html" class="hide-sm">Partners</a>
       <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
@@ -81,32 +82,33 @@ function getNavHtml(activeLink) {
 }
 
 function getFooterHtml() {
-  return `  <footer class="footer">
-    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
-      <div>
-        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
-        <p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
-      </div>
-      <div style="max-width:560px;">
-        <a href="../index.html">Home</a> &middot;
-        <a href="../research.html">Research</a> &middot;
-        <a href="../tools.html">Tools</a> &middot;
-        <a href="../services.html">Services</a> &middot;
-        <a href="../about.html">About</a> &middot;
-        <a href="../collaborate.html">Collaborate</a> &middot;
-        <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-        <a href="../manifesto.html">Manifesto</a> &middot;
-        <a href="../charter.html">Charter</a> &middot;
-        <a href="../reading.html">Reading</a> &middot;
-        <a href="../press.html">Press</a> &middot;
-        <a href="../subscribe.html">Subscribe</a> &middot;
-        <a href="../privacy.html">Privacy</a> &middot;
-        <a href="../terms.html">Terms</a> &middot;
-        <a href="../feed.xml" title="RSS Feed">RSS</a>
-      </div>
-    </div>
-  </footer>`;
+  return `<footer class="footer">
+<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+<div>
+<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+</div>
+<div style="max-width:560px;">
+<a href="../index.html">Home</a> &middot;
+<a href="../research.html">Research</a> &middot;
+<a href="../tools.html">Tools</a> &middot;
+<a href="../services.html">Services</a> &middot;
+<a href="../about.html">About</a> &middot;
+<a href="../partners.html">Partners</a> &middot;
+<a href="../collaborate.html">Collaborate</a> &middot;
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+<a href="../manifesto.html">Manifesto</a> &middot;
+<a href="../charter.html">Charter</a> &middot;
+<a href="../reading.html">Reading</a> &middot;
+<a href="../press.html">Press</a> &middot;
+<a href="../subscribe.html">Subscribe</a> &middot;
+<a href="../privacy.html">Privacy</a> &middot;
+<a href="../terms.html">Terms</a> &middot;
+<a href="../feed.xml" title="RSS Feed">RSS</a>
+</div>
+</div>
+</footer>`;
 }
 
 // ─── Generate Paper Page ─────────────────────────────────────────────────────
@@ -224,13 +226,15 @@ ${reportMeta}
   <meta property="og:title" content="${escapeHtml(paper.title)}">
   <meta property="og:description" content="${escapeHtml(paper.abstract.substring(0, 200))}...">
   <meta property="og:site_name" content="Dissensus">
-  <meta property="og:image" content="https://dissensus.ai/assets/logo.png">
+  <meta property="og:image" content="https://dissensus.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(paper.title)}">
   <meta name="twitter:description" content="${escapeHtml(paper.abstract.substring(0, 200))}...">
-  <meta name="twitter:image" content="https://dissensus.ai/assets/logo.png">
+  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://dissensus.ai/papers/${paper.id}.html">
@@ -243,11 +247,16 @@ ${reportMeta}
   <link rel="stylesheet" href="../css/system.css">
   <link rel="stylesheet" href="../css/site.css">
   <script src="../js/theme.js"></script>
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+  <script src="../js/motion.js" defer></script>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
 </head>
 <body>
+
+  <div id="progress"></div>
+
 ${getNavHtml('research')}
 
   <main class="container section" style="border-top:0;">
@@ -396,13 +405,14 @@ function updateResearchPage() {
 
 function toolsNavHtml() {
   return `  <nav class="nav">
-    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
     <div class="nav__links">
       <a href="research.html">Research</a>
-      <a href="tools.html" class="is-active">Tools</a>
+      <a href="tools.html" class="hide-sm is-active">Tools</a>
       <a href="about.html" class="hide-sm">About</a>
       <a href="services.html" class="hide-sm">Services</a>
       <a href="collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="partners.html" class="hide-sm">Partners</a>
       <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
@@ -410,32 +420,33 @@ function toolsNavHtml() {
 }
 
 function toolsFooterHtml() {
-  return `  <footer class="footer">
-    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
-      <div>
-        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
-        <p>Registered in England and Wales, company no. 17309927</p>
-      </div>
-      <div style="max-width:560px;">
-        <a href="index.html">Home</a> &middot;
-        <a href="research.html">Research</a> &middot;
-        <a href="tools.html">Tools</a> &middot;
-        <a href="services.html">Services</a> &middot;
-        <a href="about.html">About</a> &middot;
-        <a href="collaborate.html">Collaborate</a> &middot;
-        <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-        <a href="manifesto.html">Manifesto</a> &middot;
-        <a href="charter.html">Charter</a> &middot;
-        <a href="reading.html">Reading</a> &middot;
-        <a href="press.html">Press</a> &middot;
-        <a href="subscribe.html">Subscribe</a> &middot;
-        <a href="privacy.html">Privacy</a> &middot;
-        <a href="terms.html">Terms</a> &middot;
-        <a href="feed.xml" title="RSS Feed">RSS</a>
-      </div>
-    </div>
-  </footer>`;
+  return `<footer class="footer">
+<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+<div>
+<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+</div>
+<div style="max-width:560px;">
+<a href="index.html">Home</a> &middot;
+<a href="research.html">Research</a> &middot;
+<a href="tools.html">Tools</a> &middot;
+<a href="services.html">Services</a> &middot;
+<a href="about.html">About</a> &middot;
+<a href="partners.html">Partners</a> &middot;
+<a href="collaborate.html">Collaborate</a> &middot;
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+<a href="manifesto.html">Manifesto</a> &middot;
+<a href="charter.html">Charter</a> &middot;
+<a href="reading.html">Reading</a> &middot;
+<a href="press.html">Press</a> &middot;
+<a href="subscribe.html">Subscribe</a> &middot;
+<a href="privacy.html">Privacy</a> &middot;
+<a href="terms.html">Terms</a> &middot;
+<a href="feed.xml" title="RSS Feed">RSS</a>
+</div>
+</div>
+</footer>`;
 }
 
 function toolActionButtons(tool) {
@@ -538,15 +549,24 @@ ${items.map(generateToolCard).join('\n\n')}
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tools &amp; Packages | Dissensus</title>
+  <title>Tools &amp; Packages — Dissensus</title>
   <meta name="description" content="Open-source software packages, indices, and live dashboards from Dissensus, implementing the lab's quantitative methods for friction analysis and systemic risk.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Tools &amp; Packages | Dissensus">
+  <meta property="og:title" content="Tools &amp; Packages — Dissensus">
   <meta property="og:description" content="Open-source packages and live indices implementing the lab's quantitative methods.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dissensus.ai/tools.html">
-  <meta property="og:image" content="https://dissensus.ai/assets/logo.png">
+  <meta property="og:image" content="https://dissensus.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Dissensus">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tools &amp; Packages — Dissensus">
+  <meta name="twitter:description" content="Open-source packages and live indices implementing the lab's quantitative methods.">
+  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
 
   <link rel="canonical" href="https://dissensus.ai/tools.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -555,11 +575,16 @@ ${items.map(generateToolCard).join('\n\n')}
   <link rel="stylesheet" href="css/system.css">
   <link rel="stylesheet" href="css/site.css">
   <script src="js/theme.js"></script>
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <script src="js/motion.js" defer></script>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
 </head>
 <body>
+
+  <div id="progress"></div>
+
 ${toolsNavHtml()}
 
   <!-- Hero -->
@@ -600,6 +625,7 @@ function generateSitemap() {
     { loc: 'https://dissensus.ai/tools.html', priority: '0.7', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/about.html', priority: '0.7', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/services.html', priority: '0.7', changefreq: 'monthly' },
+    { loc: 'https://dissensus.ai/partners.html', priority: '0.8', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/collaborate.html', priority: '0.7', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/manifesto.html', priority: '0.6', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/charter.html', priority: '0.5', changefreq: 'monthly' },

@@ -3,386 +3,432 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="On the Replication-Optimization Mechanism, metaethical foundations, and the necessity of a unified field.">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="The research manifesto of Dissensus: the Replicator-Optimization Mechanism, metaethical foundations, and the case for a unified field of friction dynamics.">
+  <link rel="canonical" href="https://dissensus.ai/manifesto.html">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Adversarial Systems: A Research Manifesto | Dissensus">
-  <meta property="og:description" content="On the Replication-Optimization Mechanism, metaethical foundations, and the necessity of a unified field.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://dissensus.ai/manifesto.html">
+  <meta property="og:type" content="website">
   <meta property="og:site_name" content="Dissensus">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:title" content="Adversarial Systems: A Research Manifesto">
+  <meta property="og:description" content="The research manifesto of Dissensus: the Replicator-Optimization Mechanism, metaethical foundations, and the case for a unified field of friction dynamics.">
+  <meta property="og:url" content="https://dissensus.ai/manifesto.html">
+  <meta property="og:image" content="https://dissensus.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
-  <title>Adversarial Systems: A Research Manifesto | Dissensus</title>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Adversarial Systems: A Research Manifesto">
+  <meta name="twitter:description" content="The research manifesto of Dissensus: the Replicator-Optimization Mechanism, metaethical foundations, and the case for a unified field of friction dynamics.">
+  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
+
+  <title>Adversarial Systems: A Research Manifesto — Dissensus</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/system.css">
   <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/index.css">
   <script src="js/theme.js"></script>
+  <script src="js/motion.js" defer></script>
   <link rel="alternate" type="application/rss+xml" title="Dissensus RSS Feed" href="feed.xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
 </head>
 <body>
 
+  <div id="progress"></div>
+
   <nav class="nav">
-    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
     <div class="nav__links">
       <a href="research.html">Research</a>
       <a href="tools.html" class="hide-sm">Tools</a>
       <a href="about.html" class="hide-sm">About</a>
       <a href="services.html" class="hide-sm">Services</a>
       <a href="collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="partners.html" class="hide-sm">Partners</a>
       <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="container hero">
-    <span class="kicker">Research Manifesto</span>
-    <img src="assets/dissensus-mark.svg" alt="Dissensus" class="hero__logo">
-    <h1>Adversarial Systems: A Research Manifesto</h1>
-    <p class="lead">On the Replication-Optimization Mechanism, metaethical foundations, and the necessity of a unified field.</p>
+  <main class="home">
 
-    <div class="stats">
-      <div class="stat">
-        <span class="stat__k">Author</span>
-        <span class="stat__v">Murad Farzulla</span>
+    <!-- Hero -->
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Research Manifesto</p>
+        <h1 data-reveal>Adversarial Systems: A Research Manifesto</h1>
+        <p class="lede" data-reveal>On the Replicator-Optimization Mechanism, its metaethical foundations, and the necessity of a unified field.</p>
+        <blockquote data-reveal>&ldquo;Equilibria are measure-zero. Dissensus is constitutive. The universe persists by struggling against itself.&rdquo;</blockquote>
+
+        <div class="hero-stats" data-reveal>
+          <div>
+            <div class="stat-label">Author</div>
+            <div class="stat-val">Murad Farzulla</div>
+          </div>
+          <div>
+            <div class="stat-label">ORCID</div>
+            <div class="stat-val"><a href="https://orcid.org/0009-0002-7164-8704" target="_blank" rel="noopener">0009-0002-7164-8704</a></div>
+          </div>
+          <div>
+            <div class="stat-label">Published</div>
+            <div class="stat-val">January 2026</div>
+          </div>
+        </div>
+        <div class="stat-accent" data-reveal></div>
+
+        <div class="cta-row" data-reveal>
+          <a class="btn btn-primary" href="assets/adversarial-systems-manifesto.pdf" download>Download the PDF &rarr;</a>
+          <a class="btn" href="research.html">The research it stands on</a>
+        </div>
+        <p class="status-line">10 pages &middot; 353 KB</p>
       </div>
-      <div class="stat">
-        <span class="stat__k">ORCID</span>
-        <span class="stat__v"><a href="https://orcid.org/0009-0002-7164-8704" target="_blank" rel="noopener">0009-0002-7164-8704</a></span>
+    </header>
+
+    <!-- 00 · Abstract -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>00</b> &middot; Abstract</div>
+        <h2 data-reveal>The argument in three moves</h2>
+        <p class="body-text" data-reveal>This manifesto establishes <strong>Adversarial Systems</strong> as a formal field of study, pursued through the Adversarial Systems &amp; Complexity Research Initiative (<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a>), grounded in the <a href="papers/replicator-optimization-mechanism.html">Replicator-Optimization Mechanism</a> (ROM) and instantiated through the <a href="papers/axiom-of-consent.html">Axiom of Consent</a>.</p>
+        <p class="body-text" data-reveal style="margin-top:1.1rem;">The argument proceeds in three stages. First, ROM: a substrate-neutral formalism capturing how complex systems persist through friction rather than equilibrium. Second, the Axiom of Consent as ROM&rsquo;s metaethical instantiation: delegation necessarily produces friction; friction accumulation is measurable; legitimacy is stakes-weighted voice alignment. Third, the case that these results necessitate a unified field &mdash; because the mechanism is isomorphic across political economy, financial markets, cognitive architecture, and cosmological dynamics.</p>
+        <p class="body-text" data-reveal style="margin-top:1.1rem;">The wager is empirical. If ROM friction decomposition predicts observable outcomes across domains, Adversarial Systems is vindicated as unified science. If not, it is an interesting failure. Either way, the current disciplinary fragmentation is not merely inefficient. <em>It is epistemologically incoherent.</em></p>
       </div>
-      <div class="stat">
-        <span class="stat__k">Published</span>
-        <span class="stat__v">January 2026</span>
+    </section>
+
+    <!-- Metrics band: the shape of the argument -->
+    <div class="metrics">
+      <div class="container">
+        <div class="metrics-grid">
+          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="1">0</span></div><div class="metric-cap">Mechanism</div></div>
+          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="3">0</span></div><div class="metric-cap">Friction primitives</div></div>
+          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="4">0</span></div><div class="metric-cap">Substrate domains</div></div>
+          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="4">0</span></div><div class="metric-cap">Falsifiable wagers</div></div>
+        </div>
       </div>
     </div>
 
-    <div class="btn-row">
-      <a class="btn" href="assets/adversarial-systems-manifesto.pdf" download>Download PDF</a>
-    </div>
-    <p class="status-line">10 pages &middot; 353 KB</p>
+    <!-- 01 · The mechanism -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>01</b> &middot; The mechanism</div>
+        <h2 data-reveal>Persistence without equilibrium</h2>
+        <p class="body-text" data-reveal>Complex systems persist. This is the explanandum. Institutions survive regime changes. Markets absorb crashes. Minds endure trauma. The question is: what mechanism governs persistence?</p>
+        <p class="body-text" data-reveal style="margin-top:1.1rem;">Traditional answers invoke equilibrium. Economic theory posits price convergence. Political theory assumes consensus formation. Thermodynamics predicts entropy maximisation. These frameworks share an assumption &mdash; systems tend towards stable states, and departures are pathological. <strong>That assumption is false.</strong></p>
 
-    <hr class="rule">
-    <blockquote class="center">"Equilibria are measure-zero. Dissensus is constitutive.<br>The universe persists by struggling against itself."</blockquote>
-  </header>
+        <blockquote data-reveal>Equilibria are measure-zero in generic dynamical systems. Complex systems do not persist <em>because</em> they reach stability. They persist <em>despite</em> never reaching it. Friction &mdash; the continuous pressure against stasis &mdash; is not noise to be eliminated. It is the mechanism by which identity is maintained.</blockquote>
 
-  <!-- Abstract -->
-  <section class="section container prose">
-    <span class="index">00 &middot; Abstract</span>
-    <h2>Abstract</h2>
-    <p>This manifesto establishes <strong>Adversarial Systems</strong> as a formal field of study, pursued through the Adversarial Systems &amp; Complexity Research Initiative (<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a>), grounded in the Replication-Optimization Mechanism (ROM) and instantiated through the Axiom of Consent.</p>
-    <p>The argument proceeds in three stages. First, we present ROM as a substrate-neutral formalism capturing how complex systems persist through friction rather than equilibrium. Second, we derive the Axiom of Consent as ROM's metaethical instantiation: delegation necessarily produces friction; friction accumulation is measurable; legitimacy is stakes-weighted voice alignment. Third, we argue that these results necessitate a unified field, Adversarial Systems, because the mechanism is isomorphic across political economy, financial markets, cognitive architecture, and cosmological dynamics.</p>
-    <p>The wager is empirical. If ROM friction decomposition predicts observable outcomes across domains, Adversarial Systems is vindicated as unified science. If not, it is an interesting failure. Either way, the current disciplinary fragmentation is not merely inefficient. <em>It is epistemologically incoherent.</em></p>
-  </section>
+        <p class="body-text" data-reveal>A system instantiates the Replicator-Optimization Mechanism if it satisfies three conditions &mdash; two selection pressures, and the friction between them:</p>
 
-  <!-- Section 1: The Mechanism -->
-  <section class="section container">
-    <span class="index">01 &middot; The Mechanism</span>
-    <h2>The Mechanism: Replication-Optimization</h2>
+        <div class="primitives" style="margin-top:2rem;">
+          <div class="prim" data-reveal>
+            <div class="prim-sym">&rho;</div>
+            <div class="prim-name">Replication pressure</div>
+            <div class="prim-desc">Components face selection for persistence. Continued existence requires active maintenance against dissolution.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">&sigma;</div>
+            <div class="prim-name">Optimisation pressure</div>
+            <div class="prim-desc">Components face selection for fitness. Competitive advantage requires adaptation to environmental demands.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">F</div>
+            <div class="prim-name">Friction dynamics</div>
+            <div class="prim-desc">Replication and optimisation are generically misaligned. The friction function F = f(&alpha;, &sigma;, &epsilon;) decomposes into alignment, stakes, and epistemic uncertainty.</div>
+          </div>
+        </div>
 
-    <div class="prose">
-      <div class="block block--accent">
-        <span class="block__label">Central claim: why a new formalism</span>
-        <p>Complex systems persist. This is the explanandum. Institutions survive regime changes. Markets absorb crashes. Minds endure trauma. The question is: what mechanism governs persistence?</p>
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">The dynamics in one line</div>
+          <p style="font-family:var(--font-mono); color:var(--text); text-align:center; font-size:1rem; line-height:1.9; max-width:none; overflow-x:auto;">dp<sub>t</sub>(&tau;)/dt = &Sigma;<sub>&tau;'</sub> p<sub>t</sub>(&tau;') &middot; &phi;(&tau;') &middot; M(&tau;' &rarr; &tau;) &minus; p<sub>t</sub>(&tau;) &middot; &phi;&#772;<sub>t</sub></p>
+          <p style="text-align:center; font-size:var(--fs-sm); max-width:none;">where p<sub>t</sub>(&tau;) is probability mass on configuration &tau;, &phi;(&tau;) measures fitness, and M(&tau;' &rarr; &tau;) captures transitions.</p>
+          <div class="card-foot"><span class="dot"></span> Full formalism &middot; <a href="papers/replicator-optimization-mechanism.html">Replicator-Optimization Mechanism &rarr;</a></div>
+        </div>
+
+        <p class="body-text" data-reveal style="margin-top:2.4rem;">The equation does not specify what &tau; represents. This is not ambiguity &mdash; it is generality.</p>
+
+        <div class="stats">
+          <div class="stat" data-reveal>
+            <span class="stat__k">Political systems</span>
+            <div class="stat__v">&tau; = governance configurations; &rho; = institutional persistence; &sigma; = legitimacy optimisation; F = consent-holding friction.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">Financial markets</span>
+            <div class="stat__v">&tau; = trading strategies; &rho; = capital preservation; &sigma; = return optimisation; F = information asymmetry + infrastructure fragility.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">Cognitive systems</span>
+            <div class="stat__v">&tau; = belief configurations; &rho; = self-model coherence; &sigma; = environmental prediction; F = competing subsystem objectives.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">Cosmological dynamics</span>
+            <div class="stat__v">&tau; = spacetime density distributions; &rho; = localisation maintenance; &sigma; = entropic dissipation; F = expansion&ndash;contraction tension.</div>
+          </div>
+        </div>
+
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">Theorem &mdash; equilibria are measure-zero</div>
+          <h3>Fixed points exist. Systems never reach them.</h3>
+          <p>For generic ROM systems with continuous state space and a non-degenerate fitness landscape, the set of fixed points has Lebesgue measure zero. Equilibrium configurations exist mathematically but are dynamically unattainable.</p>
+          <p><strong>Corollary:</strong> dissensus is structurally inevitable. Systems that appear stable are cycling through quasi-stable configurations faster than observation resolution. What we call &ldquo;equilibrium&rdquo; is coarse-grained persistence, not fine-grained stasis.</p>
+        </div>
       </div>
+    </section>
 
-      <p>Traditional answers invoke equilibrium. Economic theory posits price convergence. Political theory assumes consensus formation. Thermodynamics predicts entropy maximisation. These frameworks share an assumption: systems tend towards stable states; departures are pathological.</p>
+    <!-- 02 · The foundation -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>02</b> &middot; The foundation</div>
+        <h2 data-reveal>From mechanism to metaethics: the Axiom of Consent</h2>
+        <p class="body-text" data-reveal>ROM is descriptive. It characterises <em>how</em> systems persist. But complex systems involving agents raise normative questions: who bears the costs of friction? Whose optimisation targets count? How should persistence be distributed? These questions require metaethical grounding. The <a href="papers/axiom-of-consent.html">Axiom of Consent</a> provides it.</p>
 
-      <p><strong>This assumption is false.</strong></p>
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">The axiom</div>
+          <h3>In any system where agents delegate decision-making authority:</h3>
+          <ol style="padding-left:1.4rem; color:var(--text-dim); display:grid; gap:0.55rem; margin:0;">
+            <li><strong>Delegation produces friction.</strong> The delegator&rsquo;s optimisation target (&sigma;<sub>i</sub>) diverges from the delegatee&rsquo;s (&sigma;<sub>j</sub>) with probability 1.</li>
+            <li><strong>Friction accumulates measurably.</strong> The friction function F = f(&alpha;, &sigma;, &epsilon;) is computable from observable parameters.</li>
+            <li><strong>Legitimacy is stakes-weighted voice.</strong> The legitimacy of an outcome is voice weighted by what each stakeholder has at risk.</li>
+          </ol>
+        </div>
 
-      <blockquote>Equilibria are measure-zero in generic dynamical systems. Complex systems do not persist <em>because</em> they reach stability. They persist <em>despite</em> never reaching it. Friction, the continuous pressure against stasis, is not noise to be eliminated. It is the mechanism by which identity is maintained.</blockquote>
+        <div class="friction-eq" data-reveal="scale">
+          <div class="eq">
+            <span class="eq-var">F</span>
+            <span class="eq-op">=</span>
+            <span class="eq-frac">
+              <span class="eq-num"><span class="eq-var">&sigma;</span>&#8202;(1 + <span class="eq-var">&epsilon;</span>)</span>
+              <span class="eq-bar"></span>
+              <span class="eq-den">1 + <span class="eq-var">&alpha;</span></span>
+            </span>
+          </div>
+          <div class="eq-cap">Clause two, made operational. Friction <b>rises</b> with stake (&sigma;) and entropy (&epsilon;), and <b>falls</b> with alignment (&alpha;) &mdash; one functional, three measurable primitives, tested in every domain the lab touches.</div>
+        </div>
 
-      <h3>ROM Defined</h3>
+        <div class="friction-eq" data-reveal="scale">
+          <div class="eq">
+            <span class="eq-var">L</span><span class="eq-op">(d)</span>
+            <span class="eq-op">=</span>
+            <span class="eq-frac">
+              <span class="eq-num">&Sigma;<sub>i</sub> <span class="eq-var">&sigma;</span><sub>i</sub>&#8202;<span class="eq-var">v</span><sub>i</sub>(d)</span>
+              <span class="eq-bar"></span>
+              <span class="eq-den">&Sigma;<sub>i</sub> <span class="eq-var">&sigma;</span><sub>i</sub></span>
+            </span>
+          </div>
+          <div class="eq-cap">Clause three. The legitimacy of decision <b>d</b> is stakeholder voice <b>v</b> weighted by stakes <b>&sigma;</b> &mdash; those with the most at risk count the most. Quantified in <a href="papers/consensual-sovereignty.html">Consensual Sovereignty</a>.</div>
+        </div>
 
-      <div class="block">
-        <span class="block__label">Definition: Replication-Optimization Mechanism</span>
-        <p>A system S instantiates ROM if it satisfies three conditions:</p>
-        <ol>
-          <li><strong>Replication pressure (&rho;):</strong> Components face selection for persistence. Continued existence requires active maintenance against dissolution.</li>
-          <li><strong>Optimisation pressure (&sigma;):</strong> Components face selection for fitness. Competitive advantage requires adaptation to environmental demands.</li>
-          <li><strong>Friction dynamics (F):</strong> Replication and optimisation are generically misaligned. The friction function F = f(&alpha;, &sigma;, &epsilon;) decomposes into alignment (&alpha;), stakes (&sigma;), and epistemic uncertainty (&epsilon;).</li>
-        </ol>
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">Theorem &mdash; belief-transfer under delegation</div>
+          <h3>Delegated consent comes to feel owned.</h3>
+          <p>Let P<sub>j</sub>(t) denote a delegatee&rsquo;s subjective probability that consent &ldquo;belongs&rdquo; to them rather than the delegator. Under Bayesian updating with asymmetric evidence availability, <span style="font-family:var(--font-mono); color:var(--text);">dP<sub>j</sub>/dt &gt; 0 for all t &gt; 0</span>. As delegation duration increases, delegatees come to perceive delegated consent as intrinsic property.</p>
+          <p>This is not pathology. It is optimal inference given the evidence structure: the delegatee experiences daily reinforcement &mdash; they exercise the authority &mdash; while the counterfactual evidence, the delegator&rsquo;s continued consent, is invisible. Belief-transfer is Bayes-optimal on the available data.</p>
+        </div>
+
+        <blockquote data-reveal>Consent reclamation is structurally traumatic. When delegators attempt to reclaim authority &mdash; decolonisation, employee exit, divorce &mdash; delegatees experience genuine loss: not theatre, not bad faith, but the dissolution of what felt like owned property. <strong>This does not make reclamation wrong. It makes friction inevitable.</strong></blockquote>
+
+        <p class="body-text" data-reveal style="margin-top:2.4rem;">The legitimacy formula has normative consequences:</p>
+
+        <div class="stats">
+          <div class="stat" data-reveal>
+            <span class="stat__k">Uniform voice fails</span>
+            <div class="stat__v">Democratic theory&rsquo;s &ldquo;one person, one vote&rdquo; ignores stakes heterogeneity. Stakes-weighting captures what matters.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">Technocracy fails</span>
+            <div class="stat__v">Pure expertise delegation ignores voice entirely. Colonial administration exhibits this: peak sophistication immediately precedes collapse.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">Productive dissensus wins</span>
+            <div class="stat__v">Neither consensus nor gridlock but managed contestation: enough friction to force accountability, not so much that coordination fails.</div>
+          </div>
+        </div>
+
+        <blockquote data-reveal>The Axiom of Consent transforms ROM from descriptive mechanism into normative framework. Friction is not merely observable &mdash; it is evaluable. Systems can be judged by whether their friction distribution respects stakes-weighted voice.</blockquote>
       </div>
+    </section>
 
-      <p>The dynamics are captured by:</p>
-      <div class="eq">dp<sub>t</sub>(&tau;)/dt = &Sigma;<sub>&tau;'</sub> p<sub>t</sub>(&tau;') &middot; &phi;(&tau;') &middot; M(&tau;' &rarr; &tau;) &minus; p<sub>t</sub>(&tau;) &middot; &phi;&#772;<sub>t</sub><br><span class="dim">where p<sub>t</sub>(&tau;) is probability mass on configuration &tau;, &phi;(&tau;) measures fitness, and M(&tau;' &rarr; &tau;) captures transitions.</span></div>
+    <!-- 03 · The field -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>03</b> &middot; The field</div>
+        <h2 data-reveal>Why one field, not seven</h2>
+        <p class="body-text" data-reveal>The components are now on the table: ROM as mechanism, the Axiom of Consent as metaethics. The synthesis is <strong>Adversarial Systems</strong> &mdash; the formal study of how complex systems persist through friction dynamics.</p>
 
-      <h3>Substrate Neutrality</h3>
-      <p>The equation does not specify what &tau; represents. This is not ambiguity, it is generality:</p>
-    </div>
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">Definition &mdash; the field</div>
+          <h3>Adversarial Systems</h3>
+          <p>The formal study of persistence through friction, with particular attention to:</p>
+          <ol style="padding-left:1.4rem; color:var(--text-dim); display:grid; gap:0.55rem; margin:0;">
+            <li>The ROM formalism and its instantiations across substrates</li>
+            <li>Consent structures and their friction implications</li>
+            <li>Stakes-weighted legitimacy and its measurement</li>
+            <li>Coarse-graining and scale transitions</li>
+            <li>Empirical validation across domains</li>
+          </ol>
+        </div>
 
-    <div class="grid">
-      <article class="card">
-        <span class="card__index">&tau;</span>
-        <h3>Political Systems</h3>
-        <p>&tau; = governance configurations; &rho; = institutional persistence; &sigma; = legitimacy optimisation; F = consent-holding friction.</p>
-      </article>
-      <article class="card">
-        <span class="card__index">&tau;</span>
-        <h3>Financial Markets</h3>
-        <p>&tau; = trading strategies; &rho; = capital preservation; &sigma; = return optimisation; F = information asymmetry + infrastructure fragility.</p>
-      </article>
-      <article class="card">
-        <span class="card__index">&tau;</span>
-        <h3>Cognitive Systems</h3>
-        <p>&tau; = belief configurations; &rho; = self-model coherence; &sigma; = environmental prediction; F = competing subsystem objectives.</p>
-      </article>
-      <article class="card">
-        <span class="card__index">&tau;</span>
-        <h3>Cosmological Dynamics</h3>
-        <p>&tau; = spacetime density distributions; &rho; = localisation maintenance; &sigma; = entropic dissipation; F = expansion-contraction tension.</p>
-      </article>
-    </div>
+        <p class="body-text" data-reveal style="margin-top:2.4rem;">The case for disciplinary unification is not aesthetic preference. It is logical necessity &mdash; three times over.</p>
 
-    <div class="prose">
-      <div class="block">
-        <span class="block__label">Theorem: equilibria are measure-zero</span>
-        <p>For generic ROM systems with continuous state space and non-degenerate fitness landscape, the set of fixed points has Lebesgue measure zero. Equilibrium configurations exist mathematically but are dynamically unattainable.</p>
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">Argument I &mdash; derivational closure</div>
+          <ol style="padding-left:1.4rem; color:var(--text-dim); display:grid; gap:0.55rem; margin:0 0 1.2rem;">
+            <li>Political friction requires formalising stakes, alignment, uncertainty.</li>
+            <li>These parameters are not primitive; they emerge from optimisation dynamics.</li>
+            <li>Optimisation dynamics require ROM: persistence under selection pressure.</li>
+            <li>ROM requires entropy as axiom: patterns dissolve unless maintained.</li>
+            <li>Entropy is dedensification: S &prop; &int; &rho;<sup>&minus;1</sup> dV.</li>
+            <li>Dedensification dynamics imply cosmological structure.</li>
+          </ol>
+          <p><strong>Rigorous formalisation of political friction eventually derives cosmology. This is not scope creep. It is what happens when you refuse to hand-wave.</strong></p>
+        </div>
+
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">Argument II &mdash; isomorphism</div>
+          <p>The same mathematics governs how institutions lose legitimacy (consent-friction accumulation), how markets crash (infrastructure-friction propagation), how minds develop trauma (adversarial-training optimisation), and how entropy increases (dedensification under expansion).</p>
+          <p><strong>Isomorphic problems demand unified treatment. Seven disciplines studying the same phenomenon with incompatible notation is not intellectual diversity. It is coordination failure.</strong></p>
+        </div>
+
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">Argument III &mdash; predictive power</div>
+          <p>Cross-domain validation is the strongest test: ROM friction decomposition should predict financial volatility asymmetry, institutional failure timing, therapeutic intervention efficacy, and cosmological observables &mdash; from one formalism.</p>
+          <p><strong>Domain-specific theories cannot make cross-domain predictions. Adversarial Systems can.</strong></p>
+        </div>
+
+        <p class="body-text" data-reveal style="margin-top:2.4rem;">The research programme, in four movements:</p>
+
+        <div class="stats">
+          <div class="stat" data-reveal>
+            <span class="stat__k">I &middot; Empirical replication</span>
+            <div class="stat__v">TARCH-X cryptocurrency study across asset classes; belief-transfer in organisational capture; trauma-as-optimisation in longitudinal developmental studies.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">II &middot; Formalisation</span>
+            <div class="stat__v">Complete lumpability proofs for arbitrary coarse-graining; extend ROM to quantum field theory; derive the Born rule from traversal statistics.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">III &middot; Policy application</span>
+            <div class="stat__v">Climate governance as consent-holding failure; AI regulation as friction-aware design; decolonisation reparations via belief-transfer quantification.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">IV &middot; Long-term vision</span>
+            <div class="stat__v">Adversarial Systems as a recognised field with dedicated journals; friction reframed as constitutive; equilibrium models recognised as measure-zero special cases.</div>
+          </div>
+        </div>
       </div>
-      <p><strong>Corollary:</strong> Dissensus is structurally inevitable. Systems that appear stable are cycling through quasi-stable configurations faster than observation resolution. What we call "equilibrium" is coarse-grained persistence, not fine-grained stasis.</p>
-    </div>
-  </section>
+    </section>
 
-  <!-- Section 2: The Foundation -->
-  <section class="section container prose">
-    <span class="index">02 &middot; The Foundation</span>
-    <h2>The Foundation: Axiom of Consent</h2>
+    <!-- 04 · The wager -->
+    <section class="block fund">
+      <div class="container">
+        <div class="kicker" data-reveal><b>04</b> &middot; The wager</div>
+        <h2 data-reveal>Falsifiable, on purpose</h2>
+        <p class="body-text" data-reveal>The manifesto, as published in January 2026, stakes its programme on four claims that can lose.</p>
 
-    <h3>From Mechanism to Metaethics</h3>
-    <p>ROM is descriptive. It characterises <em>how</em> systems persist. But complex systems involving agents raise normative questions: Who bears the costs of friction? Whose optimisation targets count? How should persistence be distributed?</p>
-    <p>These questions require metaethical grounding. The Axiom of Consent provides it.</p>
-
-    <div class="block">
-      <span class="block__label">Axiom of Consent</span>
-      <p>In any system where agents delegate decision-making authority:</p>
-      <ol>
-        <li><strong>Delegation produces friction.</strong> The delegator's optimisation target (&sigma;<sub>i</sub>) diverges from the delegatee's (&sigma;<sub>j</sub>) with probability 1.</li>
-        <li><strong>Friction accumulates measurably.</strong> The friction function F = f(&alpha;, &sigma;, &epsilon;) is computable from observable parameters.</li>
-        <li><strong>Legitimacy is stakes-weighted voice.</strong> The legitimacy of an outcome is:
-          <div class="eq">L(d) = &Sigma;<sub>i</sub> &sigma;<sub>i</sub> &middot; v<sub>i</sub>(d) / &Sigma;<sub>i</sub> &sigma;<sub>i</sub><br><span class="dim">where &sigma;<sub>i</sub> is stakeholder i's stakes and v<sub>i</sub>(d) is their voice over decision d.</span></div>
-        </li>
-      </ol>
-    </div>
-
-    <h3>The Belief-Transfer Mechanism</h3>
-    <p>Delegation does more than create friction. It generates a psychological phenomenon with ethical weight: <strong>belief-transfer</strong>.</p>
-
-    <div class="block">
-      <span class="block__label">Theorem: belief-transfer under delegation</span>
-      <p>Let P<sub>j</sub>(t) denote a delegatee's subjective probability that consent "belongs" to them rather than the delegator. Under Bayesian updating with asymmetric evidence availability:</p>
-      <div class="eq">dP<sub>j</sub>/dt &gt; 0 &nbsp;&nbsp; for all t &gt; 0</div>
-      <p>As delegation duration increases, delegatees come to perceive delegated consent as intrinsic property.</p>
-    </div>
-
-    <p>This is not pathology. It is optimal inference given the evidence structure. The delegatee experiences daily reinforcement (they exercise authority) while counterfactual evidence (delegator's continued consent) is invisible. Belief-transfer is Bayes-optimal on the available data.</p>
-
-    <p><strong>Metaethical implication:</strong> Consent reclamation is structurally traumatic. When delegators attempt to reclaim authority (decolonisation, employee exit, divorce), delegatees experience genuine loss, not theatre, not bad faith, but the dissolution of what felt like owned property. <em>This does not make reclamation wrong. It makes friction inevitable.</em></p>
-
-    <h3>Stakes-Weighted Legitimacy</h3>
-    <p>The legitimacy formula has normative consequences:</p>
-
-    <div class="block block--accent">
-      <ol>
-        <li><strong>Uniform voice fails.</strong> Democratic theory's "one person, one vote" ignores stakes heterogeneity. Stakes-weighting captures what matters.</li>
-        <li><strong>Technocracy fails.</strong> Pure expertise delegation ignores voice entirely. Colonial administration exhibits this: peak sophistication immediately precedes collapse.</li>
-        <li><strong>Optimal governance is productive dissensus.</strong> Neither consensus nor gridlock but managed contestation: enough friction to force accountability, not so much that coordination fails.</li>
-      </ol>
-    </div>
-
-    <blockquote>The Axiom of Consent transforms ROM from descriptive mechanism to normative framework. Friction is not merely observable, it is evaluable. Systems can be judged by whether their friction distribution respects stakes-weighted voice.</blockquote>
-  </section>
-
-  <!-- Section 3: The Field -->
-  <section class="section container">
-    <span class="index">03 &middot; The Field</span>
-    <h2>The Field: Adversarial Systems</h2>
-
-    <div class="prose">
-      <h3>Definition and Scope</h3>
-      <p>We now have the components: ROM (mechanism) plus Axiom of Consent (metaethics). The synthesis is <strong>Adversarial Systems</strong>.</p>
-
-      <div class="block">
-        <span class="block__label">Definition: Adversarial Systems</span>
-        <p><strong>Adversarial Systems</strong> is the formal study of how complex systems persist through friction dynamics, with particular attention to:</p>
-        <ol>
-          <li>The ROM formalism and its instantiations across substrates</li>
-          <li>Consent structures and their friction implications</li>
-          <li>Stakes-weighted legitimacy and its measurement</li>
-          <li>Coarse-graining and scale transitions</li>
-          <li>Empirical validation across domains</li>
-        </ol>
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">Four falsifiable claims</div>
+          <ul>
+            <li><strong>ROM friction decomposition predicts volatility asymmetry in financial markets.</strong> In the <a href="papers/market-reaction-asymmetry.html">multi-moment event study</a>, infrastructure shocks show a directionally larger conditional-variance response than regulatory shocks (point estimate &asymp;4.9&times;) &mdash; a differential that does <em>not</em> survive dependence-robust inference. Whether the asymmetry is real or an artefact of cross-asset dependence is precisely the open wager.</li>
+            <li><strong>Stakes-weighted legitimacy forecasts institutional crises.</strong> Testable: historical regime transitions should exhibit legitimacy erosion preceding collapse.</li>
+            <li><strong>Belief-transfer duration predicts reclamation trauma intensity.</strong> Testable: longer delegation correlates with more conflictual separation.</li>
+            <li><strong>Entropy-as-dedensification implies cosmological observables.</strong> Testable: the Hubble tension should show directional variance if expansion rate varies with local density.</li>
+          </ul>
+          <p>If these predictions hold across domains, Adversarial Systems is vindicated as unified science. If they fail, the framework is falsified. <strong>Either outcome advances knowledge: validation yields a paradigm shift, falsification yields precise boundaries. The current alternative &mdash; disciplinary fragmentation with no cross-domain predictions &mdash; yields neither.</strong></p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="research.html">Track the tests &rarr;</a>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <h3>Why a Unified Field is Necessary</h3>
-      <p>The case for disciplinary unification is not aesthetic preference. It is logical necessity.</p>
+    <!-- 05 · Conclusion -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>05</b> &middot; Conclusion</div>
+        <h2 data-reveal>What follows if friction is constitutive</h2>
+        <p class="body-text" data-reveal>The argument is complete. ROM provides the substrate-neutral formalism for persistence under friction. The Axiom of Consent instantiates it in metaethics: delegation produces friction, friction is measurable, legitimacy is stakes-weighted voice. Adversarial Systems unifies the results into one field, with cross-domain prediction as the validation criterion.</p>
+        <p class="body-text" data-reveal style="margin-top:1.1rem;">If systems persist <em>through</em> dissensus rather than <em>despite</em> it, the evaluation criteria change:</p>
 
-      <div class="block">
-        <span class="block__label">Argument from derivational closure</span>
-        <ol>
-          <li>Political friction requires formalising stakes, alignment, uncertainty.</li>
-          <li>These parameters are not primitive; they emerge from optimisation dynamics.</li>
-          <li>Optimisation dynamics require ROM: persistence under selection pressure.</li>
-          <li>ROM requires entropy as axiom: patterns dissolve unless maintained.</li>
-          <li>Entropy is dedensification: S &prop; &int; &rho;<sup>&minus;1</sup> dV.</li>
-          <li>Dedensification dynamics imply cosmological structure.</li>
-        </ol>
-        <p><strong>Therefore: rigorous formalisation of political friction eventually derives cosmology. This is not scope creep. It is what happens when you refuse to hand-wave.</strong></p>
+        <div class="stats">
+          <div class="stat" data-reveal>
+            <span class="stat__k">Governance</span>
+            <div class="stat__v">Good governance is not consensus but managed contestation.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">Markets</span>
+            <div class="stat__v">Market health is not volatility minimisation but infrastructure robustness.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">Minds</span>
+            <div class="stat__v">Mental health is not affect stability but adaptive friction between competing goals.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">Cosmos</span>
+            <div class="stat__v">The universe does not decay towards equilibrium. It breathes.</div>
+          </div>
+        </div>
+
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">A permission, and a warning</div>
+          <p>Disciplinary silos can persist. Political theorists can ignore econometrics. Economists can dismiss postcolonial critique. Physicists can treat entropy as settled. This is permitted.</p>
+          <p><strong>But do not then express surprise when institutions collapse, markets crash, minds break, and cosmological tensions accumulate &mdash; all exhibiting identical friction signatures that no single discipline can explain.</strong></p>
+        </div>
+
+        <blockquote data-reveal><strong>The universe is adversarial against itself. So are we. Understanding this is not optional. It is the condition of persistence.</strong></blockquote>
       </div>
+    </section>
 
-      <div class="block">
-        <span class="block__label">Argument from isomorphism</span>
-        <p>The same mathematics governs:</p>
-        <ul>
-          <li>How institutions lose legitimacy (consent-friction accumulation)</li>
-          <li>How markets crash (infrastructure-friction propagation)</li>
-          <li>How minds develop trauma (adversarial-training optimisation)</li>
-          <li>How entropy increases (dedensification under expansion)</li>
-        </ul>
-        <p><strong>Isomorphic problems demand unified treatment. Seven disciplines studying the same phenomenon with incompatible notation is not intellectual diversity. It is coordination failure.</strong></p>
+    <!-- 06 · The document -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>06</b> &middot; The document</div>
+        <h2 data-reveal>Read it in full</h2>
+        <p class="body-text" data-reveal>The complete manifesto is a ten-page PDF. Enquiries, critique, and collaboration proposals are welcome &mdash; we respond to substantive messages.</p>
+        <div class="cta-row" data-reveal>
+          <a class="btn btn-primary" href="assets/adversarial-systems-manifesto.pdf" download>Download the PDF &rarr;</a>
+          <a class="btn" href="mailto:research@dissensus.ai">research@dissensus.ai</a>
+          <a class="btn" href="collaborate.html">Collaboration proposal</a>
+        </div>
+        <p class="status-line">10 pages &middot; 353 KB &middot; January 2026</p>
       </div>
+    </section>
 
-      <div class="block">
-        <span class="block__label">Argument from predictive power</span>
-        <p>Cross-domain validation is the strongest test. If ROM friction decomposition predicts:</p>
-        <ul>
-          <li>Financial volatility asymmetry (infrastructure &gt; regulatory shocks)</li>
-          <li>Institutional failure timing (legitimacy erosion threshold)</li>
-          <li>Therapeutic intervention efficacy (adversarial-training reversal)</li>
-          <li>Cosmological observables (Hubble tension directional variance)</li>
-        </ul>
-        <p><strong>Domain-specific theories cannot make cross-domain predictions. Adversarial Systems can.</strong></p>
-      </div>
-
-      <h3>Research Programme</h3>
-    </div>
-
-    <div class="grid">
-      <article class="card">
-        <span class="card__index">I</span>
-        <h3>Empirical Replication</h3>
-        <p>TARCH-X cryptocurrency study across asset classes; belief-transfer mechanism in organisational capture; trauma-as-optimisation in longitudinal developmental studies.</p>
-      </article>
-      <article class="card">
-        <span class="card__index">II</span>
-        <h3>Formalisation</h3>
-        <p>Complete lumpability proofs for arbitrary coarse-graining; extend ROM to quantum field theory; derive Born rule from traversal statistics.</p>
-      </article>
-      <article class="card">
-        <span class="card__index">III</span>
-        <h3>Policy Application</h3>
-        <p>Climate governance as consent-holding failure (COP negotiations); AI regulation as friction-aware design; decolonisation reparations via belief-transfer quantification.</p>
-      </article>
-      <article class="card">
-        <span class="card__index">IV</span>
-        <h3>Long-Term Vision</h3>
-        <p>Adversarial Systems as recognised field with dedicated journals. Friction reframed as constitutive across disciplines. Equilibrium models recognised as measure-zero special cases.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Section 4: The Wager -->
-  <section class="section container prose">
-    <span class="index">04 &middot; The Wager</span>
-    <h2>The Wager</h2>
-
-    <div class="block block--accent">
-      <span class="block__label">Falsifiable empirical claims</span>
-      <ol>
-        <li><strong>ROM friction decomposition predicts volatility asymmetry in financial markets.</strong><br>TARCH-X: infrastructure shocks produce 5.7&times; larger response than regulatory shocks, p = 0.0008, Cohen's d = 2.75.</li>
-        <li><strong>Stakes-weighted legitimacy forecasts institutional crises.</strong><br>Testable: historical regime transitions should exhibit legitimacy erosion preceding collapse.</li>
-        <li><strong>Belief-transfer duration predicts reclamation trauma intensity.</strong><br>Testable: longer delegation correlates with more conflictual separation.</li>
-        <li><strong>Entropy-as-dedensification implies cosmological observables.</strong><br>Testable: Hubble tension should show directional variance if expansion rate varies with local density.</li>
-      </ol>
-      <hr class="rule">
-      <p>If these predictions hold across domains, Adversarial Systems is vindicated as unified science.</p>
-      <p>If they fail, the framework is falsified.</p>
-      <p><strong>Either outcome advances knowledge. Validation yields paradigm shift. Falsification yields precise boundaries. The current alternative, disciplinary fragmentation with no cross-domain predictions, yields neither.</strong></p>
-    </div>
-  </section>
-
-  <!-- Section 5: Conclusion -->
-  <section class="section container prose">
-    <span class="index">05 &middot; Conclusion</span>
-    <h2>Conclusion</h2>
-
-    <p>The argument is complete:</p>
-    <ol>
-      <li><strong>ROM</strong> provides substrate-neutral formalism for persistence under friction.</li>
-      <li><strong>Axiom of Consent</strong> instantiates ROM in metaethics: delegation produces friction; friction is measurable; legitimacy is stakes-weighted voice.</li>
-      <li><strong>Adversarial Systems</strong> unifies these results into a coherent field, with cross-domain predictions as validation criterion.</li>
-    </ol>
-
-    <p>The normative implication is clear. If friction is constitutive, if systems persist <em>through</em> dissensus rather than <em>despite</em> it, then evaluation criteria must change:</p>
-    <ul>
-      <li>Good governance is not consensus but managed contestation.</li>
-      <li>Market health is not volatility minimisation but infrastructure robustness.</li>
-      <li>Mental health is not affect stability but adaptive friction between competing goals.</li>
-      <li>The universe does not decay towards equilibrium. It breathes.</li>
-    </ul>
-
-    <div class="block block--accent">
-      <p>Disciplinary silos can persist. Political theorists can ignore econometrics. Economists can dismiss postcolonial critique. Physicists can treat entropy as settled. This is permitted.</p>
-      <p><strong>But do not then express surprise when institutions collapse, markets crash, minds break, and cosmological tensions accumulate, all exhibiting identical friction signatures that no single discipline can explain.</strong></p>
-    </div>
-
-    <p class="center"><strong>The universe is adversarial against itself. So are we.<br>Understanding this is not optional. It is the condition of persistence.</strong></p>
-  </section>
-
-  <!-- Section 6: Download -->
-  <section class="section container center">
-    <span class="index">06 &middot; Download</span>
-    <h2>Read the full manifesto</h2>
-    <p class="lead" style="margin-left:auto; margin-right:auto;">Download the complete manifesto as PDF.</p>
-    <div class="btn-row" style="justify-content:center;">
-      <a class="btn" href="assets/adversarial-systems-manifesto.pdf" download>Download PDF</a>
-    </div>
-    <p class="status-line">10 pages &middot; 353 KB</p>
-  </section>
-
-  <!-- Section 7: Contact -->
-  <section class="section container">
-    <span class="index">07 &middot; Contact</span>
-    <h2>Get in touch</h2>
-    <p class="lead">Enquiries, critique, and collaboration proposals are welcome. We respond to substantive messages.</p>
-    <div class="btn-row">
-      <a class="btn" href="mailto:research@dissensus.ai">research@dissensus.ai</a>
-      <a class="btn btn--ghost" href="collaborate.html">Collaboration proposal</a>
-    </div>
-  </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
-      <div>
-        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
-        <p>Registered in England and Wales, company no. 17309927</p>
-      </div>
-      <div style="max-width:560px;">
-        <a href="index.html">Home</a> &middot;
-        <a href="research.html">Research</a> &middot;
-        <a href="tools.html">Tools</a> &middot;
-        <a href="services.html">Services</a> &middot;
-        <a href="about.html">About</a> &middot;
-        <a href="collaborate.html">Collaborate</a> &middot;
-        <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-        <a href="manifesto.html">Manifesto</a> &middot;
-        <a href="charter.html">Charter</a> &middot;
-        <a href="reading.html">Reading</a> &middot;
-        <a href="press.html">Press</a> &middot;
-        <a href="subscribe.html">Subscribe</a> &middot;
-        <a href="privacy.html">Privacy</a> &middot;
-        <a href="terms.html">Terms</a> &middot;
-        <a href="feed.xml" title="RSS Feed">RSS</a>
-      </div>
-    </div>
-  </footer>
+<footer class="footer">
+<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+<div>
+<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+</div>
+<div style="max-width:560px;">
+<a href="index.html">Home</a> &middot;
+<a href="research.html">Research</a> &middot;
+<a href="tools.html">Tools</a> &middot;
+<a href="services.html">Services</a> &middot;
+<a href="about.html">About</a> &middot;
+<a href="partners.html">Partners</a> &middot;
+<a href="collaborate.html">Collaborate</a> &middot;
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+<a href="manifesto.html">Manifesto</a> &middot;
+<a href="charter.html">Charter</a> &middot;
+<a href="reading.html">Reading</a> &middot;
+<a href="press.html">Press</a> &middot;
+<a href="subscribe.html">Subscribe</a> &middot;
+<a href="privacy.html">Privacy</a> &middot;
+<a href="terms.html">Terms</a> &middot;
+<a href="feed.xml" title="RSS Feed">RSS</a>
+</div>
+</div>
+</footer>
 
 </body>
 </html>

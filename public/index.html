@@ -3,23 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dissensus is a UK research lab formalising friction dynamics in multi-agent systems, across markets, governance, cognition, and AI.">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Dissensus is a UK research lab formalising friction dynamics in multi-agent systems — the cost of coordination across markets, governance, cognition, and AI.">
+  <link rel="canonical" href="https://dissensus.ai/">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Dissensus | Adversarial Systems Research">
-  <meta property="og:description" content="Formalising productive friction in multi-agent systems.">
+  <meta property="og:title" content="Dissensus — Adversarial Systems Research">
+  <meta property="og:description" content="Agents, friction, and the cost of equilibria. A UK research lab formalising productive friction in multi-agent systems.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://dissensus.ai">
-  <meta property="og:image" content="https://dissensus.ai/assets/logo.png">
+  <meta property="og:url" content="https://dissensus.ai/">
+  <meta property="og:image" content="https://dissensus.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Dissensus">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dissensus | Adversarial Systems Research">
-  <meta name="twitter:description" content="Formalising productive friction in multi-agent systems.">
-  <meta name="twitter:image" content="https://dissensus.ai/assets/logo.png">
+  <meta name="twitter:title" content="Dissensus — Adversarial Systems Research">
+  <meta name="twitter:description" content="Agents, friction, and the cost of equilibria.">
+  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
 
-  <title>Dissensus | Adversarial Systems Research</title>
+  <title>Dissensus — Adversarial Systems Research</title>
 
   <!-- Organization + WebSite schema (entity signal) -->
   <script type="application/ld+json">
@@ -29,7 +33,7 @@
     "name": "Dissensus",
     "legalName": "Dissensus Ltd",
     "url": "https://dissensus.ai",
-    "logo": "https://dissensus.ai/assets/logo.png",
+    "logo": "https://dissensus.ai/assets/dissensus-mark-512.png",
     "foundingDate": "2026",
     "description": "Independent UK research lab formalising productive friction in multi-agent systems.",
     "founder": {
@@ -39,9 +43,7 @@
     },
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "9d, 88 South Park Studios, Peterborough Road",
       "addressLocality": "London",
-      "postalCode": "SW6 3HH",
       "addressCountry": "GB"
     },
     "identifier": {
@@ -52,9 +54,10 @@
     "email": "research@dissensus.ai",
     "sameAs": [
       "https://orcid.org/0009-0002-7164-8704",
+      "https://systems.ac",
+      "https://farzulla.org",
       "https://scholar.google.com/citations?user=bmplqfwAAAAJ",
-      "https://github.com/studiofarzulla",
-      "https://systems.ac"
+      "https://github.com/studiofarzulla"
     ]
   }
   </script>
@@ -73,232 +76,221 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/system.css">
   <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/index.css">
   <script src="js/theme.js"></script>
+  <script src="js/motion.js" defer></script>
+  <script src="js/index.js" defer></script>
 
   <link rel="alternate" type="application/rss+xml" title="Dissensus RSS Feed" href="feed.xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
 </head>
 <body>
 
+  <div id="progress"></div>
+
   <nav class="nav">
-    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
     <div class="nav__links">
       <a href="research.html">Research</a>
       <a href="tools.html" class="hide-sm">Tools</a>
       <a href="about.html" class="hide-sm">About</a>
       <a href="services.html" class="hide-sm">Services</a>
       <a href="collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="partners.html" class="hide-sm">Partners</a>
       <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="container hero">
-    <span class="kicker">Adversarial Systems Research</span>
-    <img src="assets/dissensus-mark.svg" alt="Dissensus" class="hero__logo">
-    <h1>Coordination has overhead. Delegation produces friction.</h1>
-    <p class="lead">Dissensus is a UK research lab formalising friction dynamics in multi-agent systems, across markets, governance, cognition, and AI. The canonical host for the lab's papers.</p>
-    <p class="etymology">
-      <span class="accent">dis&middot;sen&middot;sus</span> /d&#618;&#712;s&#603;ns&#601;s/, from Latin <em>dissentire</em>, to disagree. In political philosophy (Ranci&egrave;re, Mouffe), the productive friction that emerges when consensus is impossible or undesirable. Not dysfunction, function.
-    </p>
-    <p class="hero__jargon">Axiomatic consent mechanics and tripartite friction topology in substrate-agnostic replication-optimising multi-agent networks: toward a phenomenologically contained metatheoretic foundation for pre-strategic delegation dynamics.</p>
-    <p class="hero__plain">Or simply: coordination has overhead.</p>
-    <div class="metastrip">
-      <div><span class="metastrip__k">Focus</span><span class="metastrip__v">Multi-agent friction</span></div>
-      <div><span class="metastrip__k">Publications</span><span class="metastrip__v">20 papers</span></div>
-      <div><span class="metastrip__k">Status</span><span class="metastrip__v">Active research</span></div>
-    </div>
-    <hr class="rule">
-    <div class="btn-row">
-      <a class="btn" href="research.html">Read the research &rarr;</a>
-      <a class="btn btn--ghost" href="manifesto.html">The manifesto</a>
-    </div>
-  </header>
+  <main class="home">
 
-  <!-- News banner -->
-  <section class="news">
-    <div class="container">
-      <span class="news__row"><strong>arXiv</strong> ASRI <a href="https://arxiv.org/abs/2602.03874">2602.03874</a> &middot; ROM <a href="https://arxiv.org/abs/2601.06363">2601.06363</a> &middot; Axiom of Consent <a href="https://arxiv.org/abs/2601.06692">2601.06692</a></span>
-      <span class="news__row"><strong>Under review</strong> Digital Finance &middot; AI and Ethics &middot; Ethics and Information Technology &middot; Computational Economics</span>
-    </div>
-  </section>
+    <!-- Hero -->
+    <header class="hero">
+      <canvas id="net"></canvas>
+      <div class="container">
+        <p class="eyebrow" data-reveal>Adversarial Systems Research</p>
+        <canvas id="optima" class="optima" data-reveal aria-hidden="true"></canvas>
+        <h1 data-reveal>Agents, friction, and the cost of equilibria.</h1>
+        <p class="lede" data-reveal>Dissensus is a UK research lab investigating adversarial systems &mdash; where competing interests generate structural conflict &mdash; through computational, empirical, and theoretical work. Friction dynamics is the through-line, from markets and institutions to cognition and AI.</p>
+        <p class="etym" data-reveal><b>dis&middot;sen&middot;sus</b> /d&#618;&#712;s&#603;ns&#601;s/, from Latin <i>dissentire</i>, to disagree. In political philosophy (Ranci&egrave;re, Mouffe), the productive friction that emerges when consensus is impossible or undesirable. Not dysfunction, function.</p>
+        <p class="verbose" data-reveal>Axiomatic consent mechanics and tripartite friction topology in substrate-agnostic replication-optimising multi-agent networks: toward a phenomenologically contained metatheoretic foundation for pre-strategic delegation dynamics.</p>
+        <p class="simple" data-reveal>Or simply: <b>coordination has overhead.</b></p>
 
-  <!-- Active programme -->
-  <section class="section container">
-    <span class="index">01 &middot; Programme</span>
-    <h2>Active research programme: ASCRI</h2>
-    <div class="callout">
-      <span class="callout__meta">The core agenda</span>
-      <h3>Adversarial Systems &amp; Complexity Research Initiative</h3>
-      <p>Dissensus is built around a single ongoing programme. ASCRI investigates sufficiently complex dynamic networks of agents where equilibria cannot be reached under formalised friction constraints. Such systems function only through the continual reduction of friction: they are adversarial against themselves, yet persist through dissensus. Every paper in the archive probes one face of this programme, whether consent mechanics, market microstructure, machine morality, or the process-philosophical foundations underneath.</p>
-      <span class="status-line"><span class="dot"></span> Active &middot; hosted at <a href="https://systems.ac" target="_blank" rel="noopener">systems.ac &rarr;</a></span>
-    </div>
-  </section>
-
-  <!-- The Problem -->
-  <section class="section container prose">
-    <span class="index">02 &middot; The problem</span>
-    <h2>Before strategy, there is delegation</h2>
-    <p>Game theory presupposes participation. It does not account for how agents enter strategic interaction, why payoff structures take the forms they do, or what happens when participation is refused. It does not interrogate who defines the rules, whose interests they serve, or whether the game itself is legitimate.</p>
-    <p>We study the layer underneath. Before strategy, there is delegation. Before delegation, there is consent. Before consent, there is stake, someone's optimisation being transferred to another's control.</p>
-    <div class="block block--accent">
-      <span class="block__label">Friction decomposition</span>
-      <div class="eq">Friction = f(alignment, stake, entropy)</div>
-      <p><strong>Alignment:</strong> convergence or divergence of optimisation targets between principal and agent.</p>
-      <p><strong>Stake:</strong> the magnitude of optimisation being delegated (what is at risk).</p>
-      <p><strong>Entropy:</strong> efficiency loss in the optimisation transfer (information degradation).</p>
-    </div>
-    <p>We formalise this friction. Not to eliminate it (friction is the cost of existence in an adversarial environment) but to measure it, and to make visible the invisible taxes that coordination imposes.</p>
-  </section>
-
-  <!-- Research areas -->
-  <section class="section container">
-    <span class="index">03 &middot; Research areas</span>
-    <h2>Four faces of the programme</h2>
-    <div class="grid">
-      <article class="card">
-        <span class="card__index">I</span>
-        <h3>Consent Mechanics</h3>
-        <p>The formal theory of consent-holding in multi-agent systems. When can delegation be legitimate? What are the structural conditions for valid consent?</p>
-        <div class="card__links">
-          <a href="papers/consent-to-consideration.html">From Consent to Consideration</a>
-          <a href="papers/stakes-without-voice.html">Stakes Without Voice</a>
+        <div class="triad" data-reveal>
+          <span class="lbl">Method</span>
+          <span>Computational</span><span class="dot-sep">&middot;</span><span>Empirical</span><span class="dot-sep">&middot;</span><span>Theoretical</span>
         </div>
-      </article>
-      <article class="card">
-        <span class="card__index">II</span>
-        <h3>Machine Morality</h3>
-        <p>Substrate-independent criteria for moral status. If an AI system meets functional criteria for consent-giving, what follows?</p>
-        <div class="card__links">
-          <a href="papers/substrate-independent-friendship.html">Relational Functionalism</a>
-          <a href="papers/identity-thesis.html">Identity is Irreducibly Relational</a>
-        </div>
-      </article>
-      <article class="card">
-        <span class="card__index">III</span>
-        <h3>Economic Pharmakon</h3>
-        <p>Derivatives as simultaneously remedy and poison. The hedging paradox, where risk management becomes wealth-transfer infrastructure.</p>
-        <div class="card__links">
-          <a href="papers/hedging-paradox.html">Legitimate Extraction</a>
-          <a href="papers/cbdc-privacy.html">Privacy-Preserving Financial Surveillance</a>
-        </div>
-      </article>
-      <article class="card">
-        <span class="card__index">IV</span>
-        <h3>Crypto Microstructure</h3>
-        <p>Empirical validation of friction dynamics. Why do infrastructure failures move markets differently from regulatory announcements?</p>
-        <div class="card__links">
-          <a href="papers/market-reaction-asymmetry.html">Infrastructure vs Regulatory Shocks</a>
-          <a href="papers/asri.html">ASRI: Aggregated Systemic Risk Index</a>
-        </div>
-      </article>
-    </div>
-    <div class="btn-row">
-      <a class="btn btn--ghost" href="research.html">Browse all 20 publications &rarr;</a>
-    </div>
-  </section>
 
-  <!-- Team -->
-  <section class="section container">
-    <span class="index">04 &middot; Team</span>
-    <h2>Who runs the lab</h2>
-    <div class="person">
-      <div class="person__avatar">MF</div>
-      <div>
-        <span class="person__role">Founder &amp; Director</span>
-        <h3>Murad Farzulla</h3>
-        <p>MSc Finance Analytics (King's College London) and BSc Accounting and Finance (SOAS, First Class). Principal developer of the Axiom of Consent and Replicator-Optimization Mechanism frameworks around which Dissensus is organised. Research spans computational finance, political philosophy, and AI alignment.</p>
-        <div class="person__links">
-          <a href="about.html">Full bio</a>
-          <a href="https://orcid.org/0009-0002-7164-8704" target="_blank" rel="noopener">ORCID</a>
-          <a href="https://scholar.google.com/citations?user=bmplqfwAAAAJ" target="_blank" rel="noopener">Scholar</a>
-          <a href="https://github.com/studiofarzulla" target="_blank" rel="noopener">GitHub</a>
+        <div class="hero-stats" data-reveal>
+          <div>
+            <div class="stat-label">Focus</div>
+            <div class="stat-val">Adversarial systems</div>
+          </div>
+          <div>
+            <div class="stat-label">Publications</div>
+            <div class="stat-val"><span class="count" data-to="20">0</span> papers</div>
+          </div>
+          <div>
+            <div class="stat-label">Status</div>
+            <div class="stat-val">Active research</div>
+          </div>
+        </div>
+        <div class="stat-accent" data-reveal></div>
+
+        <div class="cta-row" data-reveal>
+          <a class="btn btn-primary" href="research.html">Read the research &rarr;</a>
+          <a class="btn" href="manifesto.html">The manifesto</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Credibility strip -->
+    <section class="strip" data-reveal>
+      <div class="container">
+        <div class="strip-row"><b>arXiv</b> ASRI <a href="https://arxiv.org/abs/2602.03874">2602.03874</a><span class="sep">&middot;</span>Replicator-Optimization Mechanism <a href="https://arxiv.org/abs/2601.06363">2601.06363</a><span class="sep">&middot;</span>Axiom of Consent <a href="https://arxiv.org/abs/2601.06692">2601.06692</a><span class="sep">&middot;</span>Semantic-First Vision <a href="https://arxiv.org/abs/2603.04419">2603.04419</a></div>
+        <div class="strip-row"><b>Under review</b> Digital Finance <span class="sep">&middot;</span> AI and Ethics <span class="sep">&middot;</span> Ethics and Information Technology <span class="sep">&middot;</span> Computational Economics <span class="sep">&middot;</span> Financial Innovation</div>
+      </div>
+    </section>
+
+    <!-- Publications ribbon -->
+    <div class="ribbon-wrap" data-reveal>
+      <div class="ribbon-lbl">The archive &mdash; drag to explore</div>
+      <div class="ribbon" id="ribbon">
+        <div class="ribbon-track">
+          <a class="chip" href="https://arxiv.org/abs/2602.03874" target="_blank" rel="noopener" draggable="false"><span class="st"></span><span class="lead">ASRI</span><span class="id">arXiv:2602.03874</span></a>
+          <a class="chip" href="https://arxiv.org/abs/2601.06363" target="_blank" rel="noopener" draggable="false"><span class="st"></span><span class="lead">Replicator-Optimization Mechanism</span><span class="id">arXiv:2601.06363</span></a>
+          <a class="chip" href="https://arxiv.org/abs/2601.06692" target="_blank" rel="noopener" draggable="false"><span class="st"></span><span class="lead">Axiom of Consent</span><span class="id">arXiv:2601.06692</span></a>
+          <a class="chip" href="https://arxiv.org/abs/2603.04419" target="_blank" rel="noopener" draggable="false"><span class="st"></span><span class="lead">Semantic-First Vision</span><span class="id">arXiv:2603.04419</span></a>
+          <a class="chip" href="research.html" draggable="false"><span class="st review"></span><span class="lead">Infrastructure vs Regulatory Shocks</span><span class="rev">Under review &middot; Digital Finance</span></a>
+          <a class="chip" href="research.html" draggable="false"><span class="st review"></span><span class="lead">From Consent to Consideration</span><span class="rev">Under review &middot; AI and Ethics</span></a>
+          <a class="chip" href="research.html" draggable="false"><span class="st review"></span><span class="lead">Relational Functionalism</span><span class="rev">Under review &middot; Ethics &amp; Information Technology</span></a>
+          <a class="chip" href="research.html" draggable="false"><span class="st review"></span><span class="lead">The Extremity Premium</span><span class="rev">Under review &middot; Computational Economics</span></a>
+          <a class="chip" href="research.html" draggable="false"><span class="st review"></span><span class="lead">Whitepaper Factor Analysis</span><span class="rev">Under review &middot; Financial Innovation</span></a>
+          <a class="chip" href="research.html" draggable="false"><span class="st"></span><span class="lead">Consensual Sovereignty</span><span class="rev">Preprint</span></a>
         </div>
       </div>
     </div>
-    <div class="person">
-      <div class="person__avatar">AM</div>
-      <div>
-        <span class="person__role">Research Assistant</span>
-        <h3>Andrew Maksakov</h3>
-        <p>Distributed systems, GPU compute infrastructure, and simulation pipelines. Co-author on the ASRI framework for measuring DeFi and TradFi interconnection risk.</p>
-        <div class="person__links">
-          <a href="mailto:andrew@resurrexi.io">Email</a>
+
+    <!-- Programme -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>01</b> &middot; Programme</div>
+        <h2 data-reveal>Active research programme: ASCRI</h2>
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">The core agenda</div>
+          <h3>Adversarial Systems &amp; Complexity Research Initiative</h3>
+          <p>Dissensus is built around a single ongoing programme. ASCRI investigates sufficiently complex dynamic networks of agents where equilibria cannot be reached under formalised friction constraints. Such systems function only through the continual reduction of friction: they are adversarial against themselves, yet persist through dissensus. Every paper in the archive probes one face of this programme &mdash; consent mechanics, market microstructure, machine morality, or the process-philosophical foundations underneath.</p>
+          <div class="card-foot"><span class="dot"></span> Active &middot; hosted at <a href="https://systems.ac" target="_blank" rel="noopener">systems.ac &rarr;</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics band -->
+    <div class="metrics">
+      <div class="container">
+        <div class="metrics-grid">
+          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="20">0</span></div><div class="metric-cap">Publications</div></div>
+          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="4">0</span></div><div class="metric-cap">Research domains</div></div>
+          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="5">0</span></div><div class="metric-cap">Peer-review venues</div></div>
+          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="3">0</span><span class="plus">+</span></div><div class="metric-cap">Machine-checked proofs</div></div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Roadmap -->
-  <section class="section container">
-    <span class="index">05 &middot; Roadmap</span>
-    <h2>Where the work is heading</h2>
-    <div class="grid">
-      <article class="card">
-        <span class="card__meta">In progress</span>
-        <h3>Axiom of Consent monograph</h3>
-        <p>Consolidating the full formal framework into a single modular treatment.</p>
-      </article>
-      <article class="card">
-        <span class="card__meta">arXiv</span>
-        <h3>ROM framework</h3>
-        <p>The Replicator-Optimization Mechanism unifying biological and computational substrates.</p>
-      </article>
-      <article class="card">
-        <span class="card__meta">Under review</span>
-        <h3>Market reaction asymmetry</h3>
-        <p>Infrastructure versus regulatory event study at Digital Finance (Springer).</p>
-      </article>
-      <article class="card">
-        <span class="card__meta">Next</span>
-        <h3>Consent mechanics formalisation</h3>
-        <p>A category-theoretic treatment of delegation and authorisation.</p>
-      </article>
-    </div>
-  </section>
+    <!-- The problem + friction equation -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>02</b> &middot; The problem</div>
+        <h2 data-reveal>Before strategy, there is delegation</h2>
+        <p class="body-text" data-reveal>Game theory presupposes participation. It does not account for how agents enter strategic interaction, why payoff structures take the forms they do, or what happens when participation is refused. It does not interrogate who defines the rules, whose interests they serve, or whether the game itself is legitimate. We study the layer underneath. Before strategy, there is delegation &mdash; and delegation produces friction.</p>
 
-  <!-- Contact -->
-  <section class="section container">
-    <span class="index">06 &middot; Signal</span>
-    <h2>Get in touch</h2>
-    <p class="lead">Enquiries, critique, and collaboration proposals are welcome. We respond to substantive messages.</p>
-    <div class="btn-row">
-      <a class="btn" href="mailto:research@dissensus.ai">research@dissensus.ai</a>
-      <a class="btn btn--ghost" href="collaborate.html">Collaboration proposal</a>
-      <a class="btn btn--ghost" href="subscribe.html">Subscribe</a>
-    </div>
-  </section>
+        <div class="friction-eq" data-reveal="scale">
+          <div class="eq">
+            <span class="eq-var">F</span>
+            <span class="eq-op">=</span>
+            <span class="eq-frac">
+              <span class="eq-num"><span class="eq-var">&sigma;</span>&#8202;(1 + <span class="eq-var">&epsilon;</span>)</span>
+              <span class="eq-bar"></span>
+              <span class="eq-den">1 + <span class="eq-var">&alpha;</span></span>
+            </span>
+          </div>
+          <div class="eq-cap">Friction, decomposed &mdash; it <b>rises</b> with stake and entropy, and <b>falls</b> with alignment. A single functional, three measurable primitives.</div>
+        </div>
+
+        <div class="primitives">
+          <div class="prim" data-reveal>
+            <div class="prim-sym">&alpha;</div>
+            <div class="prim-name">Alignment</div>
+            <div class="prim-desc">How closely the receiver's interests track the delegator's. The one term that <em>reduces</em> friction.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">&sigma;</div>
+            <div class="prim-name">Stake</div>
+            <div class="prim-desc">How much is at risk in the delegation. Scale amplifies every misalignment beneath it.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">&epsilon;</div>
+            <div class="prim-name">Entropy</div>
+            <div class="prim-desc">How much the receiver misreads the delegator's preferences. Uncertainty is never free.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fund / Partner -->
+    <section class="block fund" id="fund">
+      <div class="container">
+        <div class="kicker" data-reveal><b>03</b> &middot; Partner</div>
+        <h2 data-reveal>Fund the friction programme</h2>
+        <p class="body-text" data-reveal>Dissensus turns a formal thesis into shipped artefacts &mdash; machine-checked proofs, live risk indices, reproducible experiments. Support accelerates the work directly.</p>
+        <div class="card" data-reveal="scale">
+          <div class="card-eyebrow">What funding unlocks</div>
+          <ul>
+            <li>Compute for the multi-agent and CBDC-privacy experiments (dual-GPU workstation &rarr; cluster time)</li>
+            <li>Research-assistant time to run the empirical programmes to publication</li>
+            <li>Open, reproducible artefacts: datasets, Lean formalisations, and the live ASRI systemic-risk index</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:research@dissensus.ai">Start a conversation &rarr;</a>
+            <a class="btn" href="assets/adversarial-systems-manifesto.pdf">Download the brief</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
-      <div>
-        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
-        <p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
-      </div>
-      <div style="max-width:560px;">
-        <a href="index.html">Home</a> &middot;
-        <a href="research.html">Research</a> &middot;
-        <a href="tools.html">Tools</a> &middot;
-        <a href="services.html">Services</a> &middot;
-        <a href="about.html">About</a> &middot;
-        <a href="collaborate.html">Collaborate</a> &middot;
-        <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-        <a href="manifesto.html">Manifesto</a> &middot;
-        <a href="charter.html">Charter</a> &middot;
-        <a href="reading.html">Reading</a> &middot;
-        <a href="press.html">Press</a> &middot;
-        <a href="subscribe.html">Subscribe</a> &middot;
-        <a href="privacy.html">Privacy</a> &middot;
-        <a href="terms.html">Terms</a> &middot;
-        <a href="feed.xml" title="RSS Feed">RSS</a>
-      </div>
-    </div>
-  </footer>
+<footer class="footer">
+<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+<div>
+<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+</div>
+<div style="max-width:560px;">
+<a href="index.html">Home</a> &middot;
+<a href="research.html">Research</a> &middot;
+<a href="tools.html">Tools</a> &middot;
+<a href="services.html">Services</a> &middot;
+<a href="about.html">About</a> &middot;
+<a href="partners.html">Partners</a> &middot;
+<a href="collaborate.html">Collaborate</a> &middot;
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+<a href="manifesto.html">Manifesto</a> &middot;
+<a href="charter.html">Charter</a> &middot;
+<a href="reading.html">Reading</a> &middot;
+<a href="press.html">Press</a> &middot;
+<a href="subscribe.html">Subscribe</a> &middot;
+<a href="privacy.html">Privacy</a> &middot;
+<a href="terms.html">Terms</a> &middot;
+<a href="feed.xml" title="RSS Feed">RSS</a>
+</div>
+</div>
+</footer>
 
 </body>
 </html>

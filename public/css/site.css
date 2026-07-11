@@ -11,6 +11,12 @@
 .nav__brand:hover { color: var(--accent); }
 .nav__brand-mark { width: 20px; height: 20px; }
 .nav__links a.is-active { color: var(--accent); }
+/* mono mark is single-colour: swap white↔wine by theme so it stays visible on
+   both the dark default and the light cream bg. Lives here (shared layer) so
+   every page's canonical nav themes correctly, not just index.css pages. */
+.nav__brand-mark--light { display: none; }
+[data-theme="light"] .nav__brand-mark--dark { display: none; }
+[data-theme="light"] .nav__brand-mark--light { display: block; }
 
 /* ---- hero: the subtle burgundy glow (background motif) ---------------------- */
 .hero { position: relative; }
@@ -188,3 +194,40 @@ blockquote strong { color: var(--text); }
 /* ---- misc ------------------------------------------------------------------ */
 .btn-row { display: flex; gap: var(--sp-4); flex-wrap: wrap; margin-top: var(--sp-6); }
 .center { text-align: center; }
+
+/* ============================================================================
+   motion layer — shared scroll polish (drives public/js/motion.js)
+   Reuses system.css tokens. Elements opt in per-element with [data-reveal]; the
+   #progress bar and .count count-ups stay inert until motion.js + the matching
+   markup are present, so linking motion.js on a page with none of these is a
+   no-op. On prefers-reduced-motion, reveals show immediately (see below).
+   ============================================================================ */
+
+/* scroll progress bar */
+#progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+  background: var(--accent); z-index: 100;
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
+/* reveal-on-scroll (motion.js adds .in when the element enters the viewport) */
+[data-reveal] {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  will-change: opacity, transform;
+}
+[data-reveal="left"]  { transform: translateX(-28px); }
+[data-reveal="right"] { transform: translateX(28px); }
+[data-reveal="scale"] { transform: scale(0.96); }
+[data-reveal].in      { opacity: 1; transform: none; }
+
+/* system.css already kills transitions under reduced-motion; force reveals
+   visible so nothing is left stuck at opacity:0 (motion.js also adds .in). */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+
+/* a11y: visible keyboard focus */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.input:focus-visible, .select:focus-visible, .textarea:focus-visible { box-shadow: 0 0 0 2px rgba(200,69,95,0.4); }

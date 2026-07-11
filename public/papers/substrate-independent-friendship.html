@@ -16,7 +16,7 @@
   <meta name="citation_pdf_url" content="https://dissensus.ai/papers/Farzulla_2025_Relational_Functionalism.pdf">
   <meta name="citation_doi" content="10.5281/zenodo.17626859">
     <meta name="citation_journal_title" content="Ethics and Information Technology (Springer)" />
-    <meta name="citation_technical_report_number" content="DP-2502" />
+    <meta name="citation_technical_report_number" content="DAI-2515" />
   <meta name="citation_publisher" content="Dissensus">
   <meta name="citation_abstract_html_url" content="https://dissensus.ai/papers/substrate-independent-friendship.html">
   <meta name="citation_keywords" content="Philosophy; AI Safety">
@@ -76,13 +76,15 @@
   <meta property="og:title" content="Relational Functionalism: A Functional Account of Substrate-Independent Friendship">
   <meta property="og:description" content="This paper develops relational functionalism: the thesis that friendship, considered as a functional relational kind, is constituted by patterns of interaction and their effects on participants rather...">
   <meta property="og:site_name" content="Dissensus">
-  <meta property="og:image" content="https://dissensus.ai/assets/logo.png">
+  <meta property="og:image" content="https://dissensus.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Relational Functionalism: A Functional Account of Substrate-Independent Friendship">
   <meta name="twitter:description" content="This paper develops relational functionalism: the thesis that friendship, considered as a functional relational kind, is constituted by patterns of interaction and their effects on participants rather...">
-  <meta name="twitter:image" content="https://dissensus.ai/assets/logo.png">
+  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://dissensus.ai/papers/substrate-independent-friendship.html">
@@ -95,19 +97,25 @@
   <link rel="stylesheet" href="../css/system.css">
   <link rel="stylesheet" href="../css/site.css">
   <script src="../js/theme.js"></script>
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon-64.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+  <script src="../js/motion.js" defer></script>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
 </head>
 <body>
+
+  <div id="progress"></div>
+
   <nav class="nav">
-    <a href="../index.html" class="nav__brand"><img src="../assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <a href="../index.html" class="nav__brand"><img src="../assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="../assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
     <div class="nav__links">
       <a href="../research.html" class="is-active">Research</a>
       <a href="../tools.html" class="hide-sm">Tools</a>
       <a href="../about.html" class="hide-sm">About</a>
       <a href="../services.html" class="hide-sm">Services</a>
       <a href="../collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="../partners.html" class="hide-sm">Partners</a>
       <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
@@ -146,7 +154,7 @@
       <section class="paper__section">
         <h2>Suggested citation</h2>
         <div class="paper__cite">
-          Murad Farzulla (2025). <em>Relational Functionalism: A Functional Account of Substrate-Independent Friendship</em>. Dissensus Discussion Paper DP-2502. DOI: 10.5281/zenodo.17626859
+          Murad Farzulla (2025). <em>Relational Functionalism: A Functional Account of Substrate-Independent Friendship</em>. Dissensus Working Paper DAI-2515. DOI: 10.5281/zenodo.17626859
         </div>
         <button class="mini-btn" onclick="copyBibTeX(this)">&#x27E8;/&#x27E9; Copy BibTeX</button>
       </section>
@@ -169,36 +177,37 @@
       </section>
   </main>
 
-  <footer class="footer">
-    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
-      <div>
-        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
-        <p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
-      </div>
-      <div style="max-width:560px;">
-        <a href="../index.html">Home</a> &middot;
-        <a href="../research.html">Research</a> &middot;
-        <a href="../tools.html">Tools</a> &middot;
-        <a href="../services.html">Services</a> &middot;
-        <a href="../about.html">About</a> &middot;
-        <a href="../collaborate.html">Collaborate</a> &middot;
-        <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-        <a href="../manifesto.html">Manifesto</a> &middot;
-        <a href="../charter.html">Charter</a> &middot;
-        <a href="../reading.html">Reading</a> &middot;
-        <a href="../press.html">Press</a> &middot;
-        <a href="../subscribe.html">Subscribe</a> &middot;
-        <a href="../privacy.html">Privacy</a> &middot;
-        <a href="../terms.html">Terms</a> &middot;
-        <a href="../feed.xml" title="RSS Feed">RSS</a>
-      </div>
-    </div>
-  </footer>
+<footer class="footer">
+<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+<div>
+<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+</div>
+<div style="max-width:560px;">
+<a href="../index.html">Home</a> &middot;
+<a href="../research.html">Research</a> &middot;
+<a href="../tools.html">Tools</a> &middot;
+<a href="../services.html">Services</a> &middot;
+<a href="../about.html">About</a> &middot;
+<a href="../partners.html">Partners</a> &middot;
+<a href="../collaborate.html">Collaborate</a> &middot;
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+<a href="../manifesto.html">Manifesto</a> &middot;
+<a href="../charter.html">Charter</a> &middot;
+<a href="../reading.html">Reading</a> &middot;
+<a href="../press.html">Press</a> &middot;
+<a href="../subscribe.html">Subscribe</a> &middot;
+<a href="../privacy.html">Privacy</a> &middot;
+<a href="../terms.html">Terms</a> &middot;
+<a href="../feed.xml" title="RSS Feed">RSS</a>
+</div>
+</div>
+</footer>
 
   <script>
     function copyBibTeX(btn) {
-      var bibtex = "@misc{farzulla2025substrateindependentfriendsh,\n  author = {Farzulla, Murad},\n  title = {Relational Functionalism: A Functional Account of Substrate-Independent Friendship},\n  year = {2025},\n  howpublished = {Dissensus Discussion Paper DP-2502},\n  doi = {10.5281/zenodo.17626859},\n  url = {https://dissensus.ai/papers/substrate-independent-friendship.html}\n}";
+      var bibtex = "@misc{farzulla2025substrateindependentfriendsh,\n  author = {Farzulla, Murad},\n  title = {Relational Functionalism: A Functional Account of Substrate-Independent Friendship},\n  year = {2025},\n  howpublished = {Dissensus Working Paper DAI-2515},\n  doi = {10.5281/zenodo.17626859},\n  url = {https://dissensus.ai/papers/substrate-independent-friendship.html}\n}";
       navigator.clipboard.writeText(bibtex).then(function() {
         var original = btn.innerHTML;
         btn.innerHTML = '\u2713 Copied';

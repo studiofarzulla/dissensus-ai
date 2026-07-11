@@ -1,4 +1,5 @@
 {
+  "_note": "Published catalogue. friction-marl held pending TMLR review (deanonymisation); epistemic-engine internal — both withheld 11 Jul 2026. tools.html is GENERATED: run `node build-papers.js` after editing.",
   "tools": [
     {
       "id": "gjr-garch-x",
@@ -8,7 +9,7 @@
       "kind": "Python package",
       "version": "0.1.0",
       "tagline": "Student-t GJR-GARCH with exogenous regressors in the variance equation",
-      "description": "A small, dependency-light Python implementation of the asymmetric GJR-GARCH(1,1,1) volatility model with Student-t innovations and arbitrary exogenous regressors (the X) entering the conditional variance equation. Built for the lab's cryptocurrency event-study pipeline, where infrastructure and regulatory shocks are encoded as exogenous variance covariates and tested for asymmetric volatility response.",
+      "description": "A small, dependency-light Python implementation of the asymmetric GJR-GARCH(1,1,1) volatility model with Student-t innovations and arbitrary exogenous regressors (the X) entering the conditional variance equation — the specification that appears as TARCH-X in the lab's event-study papers. Built for the cryptocurrency event-study pipeline, where infrastructure and regulatory shocks are encoded as exogenous variance covariates and tested for asymmetric volatility response.",
       "install": "pip install gjr-garch-x",
       "language": "Python",
       "pypi": "gjr-garch-x",
@@ -24,7 +25,9 @@
         "Maximum-likelihood estimation, NumPy/SciPy only"
       ],
       "metrics": [],
-      "relatedPapers": ["market-reaction-asymmetry"]
+      "relatedPapers": [
+        "market-reaction-asymmetry"
+      ]
     },
     {
       "id": "asri",
@@ -50,25 +53,77 @@
         "Lead time ≈19d (fixed threshold) / ≈26d (walk-forward) before crisis onset"
       ],
       "metrics": [
-        { "label": "AUROC (ASRI / D-Y)", "value": "0.866 / 0.670" },
-        { "label": "AUPRC (ASRI / D-Y)", "value": "0.298 / 0.121" },
-        { "label": "Precision @ Youden", "value": "35.2% / 14.9%" }
+        {
+          "label": "AUROC (ASRI / D-Y)",
+          "value": "0.866 / 0.670"
+        },
+        {
+          "label": "AUPRC (ASRI / D-Y)",
+          "value": "0.298 / 0.121"
+        },
+        {
+          "label": "Precision @ Youden",
+          "value": "35.2% / 14.9%"
+        }
       ],
-      "relatedPapers": ["asri"]
+      "relatedPapers": [
+        "asri"
+      ]
+    },
+    {
+      "id": "farzulla-proofs",
+      "name": "FarzullaProofs — Lean 4 Formalisations",
+      "category": "research",
+      "status": "released",
+      "kind": "Lean 4 proof library",
+      "version": null,
+      "tagline": "Machine-checked proofs for results across the lab's papers",
+      "description": "A Lean 4 + Mathlib library formalising core results from the research programme — the Axiom of Consent friction functional, the Replicator-Optimization Mechanism, and supporting results — with formalisation depth tiered (Bronze/Silver/Gold) and tracked per paper. The library builds clean with zero `sorry` placeholders and no added axioms; each paper module ships a map from manuscript theorem IDs to Lean declarations, so a referee can go from an equation in a PDF to the machine-checked statement in one hop.",
+      "install": null,
+      "language": "Lean 4",
+      "pypi": null,
+      "zenodo": null,
+      "github": "https://github.com/studiofarzulla/lean-formalizations",
+      "dashboard": null,
+      "arxiv": null,
+      "docs": null,
+      "features": [
+        "Friction-functional results proved: F = 0 ⇔ σ = 0, positivity, the F ≥ σ/2 lower bound",
+        "Per-paper theorem maps linking manuscript IDs to Lean declarations",
+        "Explicit assumptions ledger — no silent axioms",
+        "CI-checked builds on Lean 4 + Mathlib"
+      ],
+      "metrics": [],
+      "relatedPapers": [
+        "axiom-of-consent",
+        "replicator-optimization-mechanism"
+      ]
     }
   ],
   "toolStatuses": {
     "live": "Live",
     "released": "Released",
     "beta": "Beta",
-    "wip": "In Development"
+    "wip": "In Development",
+    "internal": "Internal"
   },
   "toolCategories": {
     "packages": "Software Packages",
-    "indices": "Live Indices &amp; Dashboards"
+    "indices": "Live Indices &amp; Dashboards",
+    "research": "Research Code &amp; Formalisations"
   },
   "categoryOrder": [
-    ["packages", "Open-source libraries implementing the lab's quantitative methods"],
-    ["indices", "Hosted indices and interactive risk dashboards"]
+    [
+      "packages",
+      "Open-source libraries implementing the lab's quantitative methods"
+    ],
+    [
+      "indices",
+      "Hosted indices and interactive risk dashboards"
+    ],
+    [
+      "research",
+      "Experiment codebases and machine-checked formalisations behind the papers, released as the research is published"
+    ]
   ]
 }

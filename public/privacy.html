@@ -3,15 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Privacy policy for Dissensus Ltd, how we collect, use, and protect your data under UK GDPR.">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="The privacy policy of Dissensus Ltd: what personal data we collect, how we use and store it, and your rights under the UK GDPR and Data Protection Act.">
+  <link rel="canonical" href="https://dissensus.ai/privacy.html">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Privacy Policy | Dissensus">
-  <meta property="og:description" content="How Dissensus Ltd handles your personal data under UK GDPR.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dissensus">
+  <meta property="og:title" content="Privacy Policy">
+  <meta property="og:description" content="The privacy policy of Dissensus Ltd: what personal data we collect, how we use and store it, and your rights under the UK GDPR and Data Protection Act.">
   <meta property="og:url" content="https://dissensus.ai/privacy.html">
+  <meta property="og:image" content="https://dissensus.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
-  <title>Privacy Policy | Dissensus</title>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy Policy">
+  <meta name="twitter:description" content="The privacy policy of Dissensus Ltd: what personal data we collect, how we use and store it, and your rights under the UK GDPR and Data Protection Act.">
+  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
+
+  <title>Privacy Policy — Dissensus</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,20 +31,25 @@
   <link rel="stylesheet" href="css/system.css">
   <link rel="stylesheet" href="css/site.css">
   <script src="js/theme.js"></script>
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <script src="js/motion.js" defer></script>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
 </head>
 <body>
 
+  <div id="progress"></div>
+
   <nav class="nav">
-    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark.svg" alt="" class="nav__brand-mark"> Dissensus</a>
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
     <div class="nav__links">
       <a href="research.html">Research</a>
       <a href="tools.html" class="hide-sm">Tools</a>
       <a href="about.html" class="hide-sm">About</a>
       <a href="services.html" class="hide-sm">Services</a>
       <a href="collaborate.html" class="hide-sm">Collaborate</a>
+      <a href="partners.html" class="hide-sm">Partners</a>
       <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
@@ -49,7 +66,7 @@
   <section class="section container">
     <div class="legal">
 
-      <h2>1. Who We Are</h2>
+      <h2 data-reveal>1. Who We Are</h2>
       <p>
         Dissensus Ltd (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) is a research company registered
         in England and Wales under company number 17309927. Registered office: 9d, 88 South Park Studios, Peterborough Road, London SW6 3HH.
@@ -59,7 +76,7 @@
         <strong>Contact:</strong> <a href="mailto:research@dissensus.ai">research@dissensus.ai</a>
       </p>
 
-      <h2>2. What Data We Collect</h2>
+      <h2 data-reveal>2. What Data We Collect</h2>
 
       <h3>2.1 Form Submissions</h3>
       <p>
@@ -89,7 +106,7 @@
         <li>Collect data from minors</li>
       </ul>
 
-      <h2>3. Legal Basis for Processing</h2>
+      <h2 data-reveal>3. Legal Basis for Processing</h2>
       <p>Under UK GDPR, we process personal data on the following bases:</p>
       <ul>
         <li><strong>Consent</strong> (Article 6(1)(a)): When you voluntarily submit a form or subscribe to updates.</li>
@@ -97,7 +114,7 @@
           interests do not override your rights.</li>
       </ul>
 
-      <h2>4. How We Use Your Data</h2>
+      <h2 data-reveal>4. How We Use Your Data</h2>
       <p>We use the data we collect to:</p>
       <ul>
         <li>Respond to collaboration proposals and enquiries</li>
@@ -106,7 +123,7 @@
         <li>Maintain site security and performance</li>
       </ul>
 
-      <h2>5. Data Retention</h2>
+      <h2 data-reveal>5. Data Retention</h2>
       <p>
         <strong>Form submissions:</strong> Retained for as long as necessary to respond to your enquiry or
         maintain the collaboration relationship. Deleted upon request.
@@ -119,7 +136,7 @@
         <strong>Analytics:</strong> Cloudflare retains aggregate analytics data. No personal data is stored.
       </p>
 
-      <h2>6. Your Rights</h2>
+      <h2 data-reveal>6. Your Rights</h2>
       <p>Under UK GDPR, you have the right to:</p>
       <ul>
         <li><strong>Access</strong> (request a copy of the personal data we hold about you)</li>
@@ -136,34 +153,34 @@
         We will respond within one month.
       </p>
 
-      <h2>7. Cookies</h2>
+      <h2 data-reveal>7. Cookies</h2>
       <p>
         This site does not set first-party cookies. Cloudflare may set strictly necessary cookies for
         security purposes (for example, bot detection). These are exempt from consent requirements under
         UK cookie regulations.
       </p>
 
-      <h2>8. International Transfers</h2>
+      <h2 data-reveal>8. International Transfers</h2>
       <p>
         Form data processed by Formspree may be transferred to servers outside the UK. Formspree maintains
         appropriate safeguards for international data transfers. Cloudflare operates a global network;
         analytics data may be processed outside the UK under their standard data processing agreements.
       </p>
 
-      <h2>9. Data Security</h2>
+      <h2 data-reveal>9. Data Security</h2>
       <p>
         We implement appropriate technical and organisational measures to protect your data, including
         HTTPS encryption for all site traffic and secure third-party processors. However, no method
         of transmission over the internet is 100% secure.
       </p>
 
-      <h2>10. Changes to This Policy</h2>
+      <h2 data-reveal>10. Changes to This Policy</h2>
       <p>
         We may update this policy from time to time. Changes will be posted on this page with an
         updated revision date. Significant changes will be communicated to subscribers.
       </p>
 
-      <h2>11. Complaints</h2>
+      <h2 data-reveal>11. Complaints</h2>
       <p>
         If you believe we have not handled your data appropriately, you have the right to lodge a
         complaint with the Information Commissioner&rsquo;s Office (ICO):
@@ -174,7 +191,7 @@
         <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>
       </p>
 
-      <h2>12. Contact</h2>
+      <h2 data-reveal>12. Contact</h2>
       <p>
         For any privacy-related questions or requests:<br>
         <a href="mailto:research@dissensus.ai">research@dissensus.ai</a>
@@ -184,32 +201,33 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
-      <div>
-        <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
-        <p>Registered in England and Wales, company no. 17309927</p>
-      </div>
-      <div style="max-width:560px;">
-        <a href="index.html">Home</a> &middot;
-        <a href="research.html">Research</a> &middot;
-        <a href="tools.html">Tools</a> &middot;
-        <a href="services.html">Services</a> &middot;
-        <a href="about.html">About</a> &middot;
-        <a href="collaborate.html">Collaborate</a> &middot;
-        <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-        <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-        <a href="manifesto.html">Manifesto</a> &middot;
-        <a href="charter.html">Charter</a> &middot;
-        <a href="reading.html">Reading</a> &middot;
-        <a href="press.html">Press</a> &middot;
-        <a href="subscribe.html">Subscribe</a> &middot;
-        <a href="privacy.html">Privacy</a> &middot;
-        <a href="terms.html">Terms</a> &middot;
-        <a href="feed.xml" title="RSS Feed">RSS</a>
-      </div>
-    </div>
-  </footer>
+<footer class="footer">
+<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+<div>
+<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+</div>
+<div style="max-width:560px;">
+<a href="index.html">Home</a> &middot;
+<a href="research.html">Research</a> &middot;
+<a href="tools.html">Tools</a> &middot;
+<a href="services.html">Services</a> &middot;
+<a href="about.html">About</a> &middot;
+<a href="partners.html">Partners</a> &middot;
+<a href="collaborate.html">Collaborate</a> &middot;
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+<a href="manifesto.html">Manifesto</a> &middot;
+<a href="charter.html">Charter</a> &middot;
+<a href="reading.html">Reading</a> &middot;
+<a href="press.html">Press</a> &middot;
+<a href="subscribe.html">Subscribe</a> &middot;
+<a href="privacy.html">Privacy</a> &middot;
+<a href="terms.html">Terms</a> &middot;
+<a href="feed.xml" title="RSS Feed">RSS</a>
+</div>
+</div>
+</footer>
 
 </body>
 </html>

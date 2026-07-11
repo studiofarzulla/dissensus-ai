@@ -1,0 +1,182 @@
+/* ============================================================================
+   Homepage-only components — ported from the approved home prototype.
+   Everything here is scoped under `main.home` so it never collides with the
+   shared .hero/.card/.btn/.stats/.eq/.block/.kicker/.dot classes in
+   system.css / site.css (which mean different things elsewhere). Loaded AFTER
+   system.css + site.css. Colours map to the shared tokens so the page themes
+   with the rest of the site; only the decorative canvases (index.js) are tuned
+   for the dark default. Nav, footer and #progress live in the shared layer.
+   ============================================================================ */
+
+:root {
+  /* index-only helpers: rgba()-able channel forms of the shared brand palette
+     (custom props can't split a hex into channels). Mirror --burgundy (#800020)
+     and the dark-mode --accent (#c8455f). Used for the hero canvas + glows. */
+  --burgundy-rgb: 128, 0, 32;
+  --accent-rgb: 200, 69, 95;
+}
+
+.home { overflow-x: hidden; }
+.home ::selection { background: var(--accent-dim); color: var(--text); }
+
+/* nav brand-mark theme swap now lives in the shared layer (site.css) so every
+   page's canonical nav themes correctly, not just index.css consumers. */
+
+/* ── hero ─────────────────────────────────────────────────────────────────── */
+.home .hero { position: relative; padding-block: 5rem 4rem; overflow: hidden; border-top: 0; }
+.home .hero::before { content: none; }               /* drop the shared CSS glow; #net does it */
+.home #net { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+.home .hero::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(120% 90% at 30% 35%, transparent 0%,
+    color-mix(in srgb, var(--bg) 35%, transparent) 45%, var(--bg) 88%);
+}
+.home .hero .container { position: relative; z-index: 2; }
+
+.home .eyebrow {
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 1.6rem;
+}
+.home .optima { display: block; width: 176px; height: 76px; margin: 0 0 1.7rem; }
+
+.home .hero h1 {
+  font-size: clamp(1.9rem, 4.3vw, 3.05rem);
+  line-height: 1.1; font-weight: 700; letter-spacing: -0.015em;
+  margin: 0 0 1.5rem; text-wrap: balance; max-width: 19ch; color: var(--text);
+}
+.home .lede { font-size: 1.12rem; color: var(--text-dim); max-width: 34rem; margin: 0 0 1.8rem; }
+
+.home .etym {
+  font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-dim);
+  max-width: 40rem; margin: 0 0 1.6rem; line-height: 1.7;
+  border-left: 2px solid var(--line); padding-left: 1.1rem;
+}
+.home .etym b { color: var(--accent); font-weight: 500; }
+.home .etym i { color: var(--text); font-style: italic; }
+
+.home .verbose { font-style: italic; color: var(--text-dim); max-width: 38rem; margin: 0 0 1.4rem; font-size: 0.98rem; opacity: 0.85; }
+.home .simple { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-dim); margin: 0 0 1.8rem; }
+.home .simple b { color: var(--text); font-weight: 500; }
+
+.home .triad {
+  display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-mono);
+  font-size: 0.78rem; letter-spacing: 0.04em; color: var(--text-dim);
+  margin: 0 0 2.4rem; flex-wrap: wrap;
+}
+.home .triad .dot-sep { color: var(--accent); }
+.home .triad .lbl { color: var(--text-dim); opacity: 0.8; text-transform: uppercase; font-size: 0.64rem; letter-spacing: 0.16em; margin-right: 0.2rem; }
+
+/* stat row */
+.home .hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; padding: 1.4rem 0; border-top: 1px solid var(--line); max-width: 34rem; }
+.home .stat-label { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); opacity: 0.85; margin-bottom: 0.35rem; }
+.home .stat-val { font-size: 1.05rem; color: var(--text); font-variant-numeric: tabular-nums; }
+.home .stat-accent { width: 34px; height: 2px; background: var(--accent); margin-top: 1.2rem; }
+
+/* CTAs */
+.home .cta-row { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 2.2rem; }
+.home .btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.02em;
+  padding: 0.7rem 1.2rem; border-radius: var(--radius); border: 1px solid var(--line);
+  color: var(--text); background: transparent; cursor: pointer;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease), transform 0.2s var(--ease), background 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.home .btn:hover { border-color: var(--accent); color: var(--text); transform: translateY(-1px); }
+.home .btn-primary { background: var(--burgundy); border-color: transparent; color: #fdf0f2; }
+.home .btn-primary:hover { background: var(--accent); color: #fff; box-shadow: 0 6px 24px rgba(var(--burgundy-rgb), 0.45); }
+
+/* ── credibility strip ────────────────────────────────────────────────────── */
+.home .strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+.home .strip .container { padding-block: 1.4rem; font-family: var(--font-mono); font-size: 0.76rem; }
+.home .strip-row { color: var(--text-dim); margin-bottom: 0.5rem; }
+.home .strip-row:last-child { margin-bottom: 0; }
+.home .strip b { color: var(--accent); font-weight: 600; }
+.home .strip a { color: var(--accent); }
+.home .strip .sep { color: var(--text-dim); opacity: 0.6; margin: 0 0.55rem; }
+
+/* ── publications ribbon (drag + click + auto-scroll) ─────────────────────── */
+.home .ribbon-wrap { padding-block: 2.2rem; }
+.home .ribbon-lbl { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); opacity: 0.85; padding: 0 var(--sp-6); margin-bottom: 0.7rem; }
+.home .ribbon {
+  position: relative; overflow: hidden; border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line); padding: 1.15rem 0; cursor: grab; touch-action: pan-y;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.home .ribbon.dragging { cursor: grabbing; }
+.home .ribbon-track { display: flex; gap: 0.85rem; width: max-content; will-change: transform; padding-left: 0.85rem; }
+.home .chip {
+  display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap;
+  padding: 0.5rem 0.95rem; border: 1px solid var(--line); border-radius: var(--radius);
+  font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-dim);
+  background: var(--surface); user-select: none; -webkit-user-drag: none;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.home .chip:hover { border-color: var(--accent); color: var(--text); background: var(--surface-2); }
+.home .chip .lead { color: var(--text); }
+.home .chip .id { color: var(--accent); }
+.home .chip .rev { color: var(--text-dim); opacity: 0.8; }
+.home .chip .st { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 5px var(--accent); flex: none; }
+.home .chip .st.review { background: transparent; border: 1px solid var(--accent); box-shadow: none; }
+
+/* ── sections ─────────────────────────────────────────────────────────────── */
+.home .block { padding-block: 5.5rem; border-top: 0; }
+.home .kicker { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; color: var(--text-dim); text-transform: none; margin-bottom: 1rem; display: block; }
+.home .kicker b { color: var(--accent); }
+.home .block h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 600; letter-spacing: -0.01em; margin: 0 0 1.6rem; text-wrap: balance; color: var(--text); }
+.home .body-text { color: var(--text-dim); max-width: 42rem; }
+
+/* ── friction equation + primitives ───────────────────────────────────────── */
+.home .friction-eq { display: flex; flex-direction: column; align-items: center; text-align: center; margin: 3.2rem 0 3rem; }
+.home .eq { display: inline-flex; align-items: center; gap: 0.9rem; font-family: var(--font-mono); font-size: clamp(1.5rem, 3.6vw, 2.3rem); color: var(--text); text-align: center; margin: 0; }
+.home .eq-op { color: var(--text-dim); }
+.home .eq-var { color: var(--accent); font-style: italic; }
+.home .eq-frac { display: inline-flex; flex-direction: column; align-items: center; }
+.home .eq-num { padding: 0 0.5rem 0.25rem; }
+.home .eq-den { padding: 0.25rem 0.5rem 0; }
+.home .eq-bar { width: 100%; height: 1.5px; background: var(--accent); }
+.home .eq-cap { margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim); max-width: 36rem; line-height: 1.6; }
+.home .eq-cap b { color: var(--accent); font-weight: 500; }
+
+.home .primitives { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+.home .prim { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.7rem 1.4rem; background: var(--surface); transition: border-color 0.25s var(--ease), transform 0.25s var(--ease); }
+.home .prim:hover { border-color: var(--accent); transform: translateY(-3px); }
+.home .prim-sym { font-family: var(--font-mono); font-size: 2rem; font-style: italic; color: var(--accent); line-height: 1; margin-bottom: 0.7rem; }
+.home .prim-name { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+.home .prim-desc { font-size: 0.88rem; color: var(--text-dim); line-height: 1.55; }
+.home .prim-desc em { color: var(--text); font-style: italic; }
+
+/* ── programme / fund card ────────────────────────────────────────────────── */
+.home .card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 2rem; margin-top: 2rem;
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.home .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.home .card-eyebrow { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+.home .card h3 { margin: 0 0 1rem; font-size: 1.15rem; font-weight: 600; color: var(--text); }
+.home .card p { color: var(--text-dim); margin: 0 0 1.2rem; max-width: none; }
+.home .card-foot { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); display: flex; align-items: center; gap: 0.5rem; }
+.home .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 6px var(--accent); display: inline-block; }
+
+/* ── metrics band ─────────────────────────────────────────────────────────── */
+.home .metrics { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+.home .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; padding-block: 2.6rem; }
+.home .metric { text-align: center; }
+.home .metric-num { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.home .metric-num .plus { color: var(--accent); }
+.home .metric-cap { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); opacity: 0.85; margin-top: 0.4rem; }
+
+/* ── fund teaser ──────────────────────────────────────────────────────────── */
+.home .fund .card { background: linear-gradient(180deg, rgba(var(--burgundy-rgb), 0.12), var(--surface)); border-color: var(--accent); }
+.home .fund ul { list-style: none; padding: 0; margin: 0 0 1.6rem; display: grid; gap: 0.7rem; }
+.home .fund li { color: var(--text-dim); font-size: 0.95rem; padding-left: 1.4rem; position: relative; max-width: none; }
+.home .fund li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+
+/* ── responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 680px) { .home .primitives { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .home .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .home #net { display: none; }
+}
