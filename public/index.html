@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050505">
+  <meta name="theme-color" content="#faf8f5">
   <meta name="description" content="Dissensus is a UK research lab formalising friction dynamics in multi-agent systems — the cost of coordination across markets, governance, cognition, and AI.">
   <link rel="canonical" href="https://dissensus.ai/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Dissensus — Adversarial Systems Research">
-  <meta property="og:description" content="Agents, friction, and the cost of equilibria. A UK research lab formalising productive friction in multi-agent systems.">
+  <meta property="og:description" content="A UK research lab formalising productive friction in multi-agent systems — risk, coordination, and adaptation.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dissensus.ai/">
   <meta property="og:image" content="https://dissensus.ai/og-image.png">
@@ -20,7 +20,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Dissensus — Adversarial Systems Research">
-  <meta name="twitter:description" content="Agents, friction, and the cost of equilibria.">
+  <meta name="twitter:description" content="A UK research lab formalising productive friction in multi-agent systems.">
   <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
 
   <title>Dissensus — Adversarial Systems Research</title>
@@ -71,9 +71,6 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/system.css">
   <link rel="stylesheet" href="css/site.css">
   <link rel="stylesheet" href="css/index.css">
@@ -93,14 +90,14 @@
 
   <nav class="nav">
     <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
-    <div class="nav__links">
+    <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="index.html" class="is-active">Home</a>
+      <a href="about.html">About</a>
       <a href="research.html">Research</a>
-      <a href="tools.html" class="hide-sm">Tools</a>
-      <a href="about.html" class="hide-sm">About</a>
-      <a href="services.html" class="hide-sm">Services</a>
-      <a href="collaborate.html" class="hide-sm">Collaborate</a>
-      <a href="partners.html" class="hide-sm">Partners</a>
-      <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <a href="news.html">News</a>
+      <a href="tools.html">Tools</a>
+      <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
@@ -111,18 +108,9 @@
     <header class="hero">
       <canvas id="net"></canvas>
       <div class="container">
-        <p class="eyebrow" data-reveal>Adversarial Systems Research</p>
+        <h1 data-reveal>Adversarial Systems Research</h1>
         <canvas id="optima" class="optima" data-reveal aria-hidden="true"></canvas>
-        <h1 data-reveal>Agents, friction, and the cost of equilibria.</h1>
-        <p class="lede" data-reveal>Dissensus is a UK research lab investigating adversarial systems &mdash; where competing interests generate structural conflict &mdash; through computational, empirical, and theoretical work. Friction dynamics is the through-line, from markets and institutions to cognition and AI.</p>
-        <p class="etym" data-reveal><b>dis&middot;sen&middot;sus</b> /d&#618;&#712;s&#603;ns&#601;s/, from Latin <i>dissentire</i>, to disagree. In political philosophy (Ranci&egrave;re, Mouffe), the productive friction that emerges when consensus is impossible or undesirable. Not dysfunction, function.</p>
-        <p class="verbose" data-reveal>Axiomatic consent mechanics and tripartite friction topology in substrate-agnostic replication-optimising multi-agent networks: toward a phenomenologically contained metatheoretic foundation for pre-strategic delegation dynamics.</p>
-        <p class="simple" data-reveal>Or simply: <b>coordination has overhead.</b></p>
-
-        <div class="triad" data-reveal>
-          <span class="lbl">Method</span>
-          <span>Computational</span><span class="dot-sep">&middot;</span><span>Empirical</span><span class="dot-sep">&middot;</span><span>Theoretical</span>
-        </div>
+        <p class="lede" data-reveal>The Adversarial Systems &amp; Complexity Research Initiative studies complex multi-agent behaviour and its adaptive mechanisms. Dissensus proposes that the pursuit of non-stable equilibria functions as the underlying stabilising condition. That lens drives computational, empirical, and theoretical work on risk, coordination, and adaptation.</p>
 
         <div class="hero-stats" data-reveal>
           <div>
@@ -146,6 +134,30 @@
         </div>
       </div>
     </header>
+
+    <!-- Latest news -->
+    <section class="newsband" data-reveal aria-label="Latest news">
+      <div class="container">
+        <a class="newsband__lbl" href="news.html">Latest news &rarr;</a>
+        <div class="newsband__grid">
+          <a class="newsband__item" href="news/incorporation.html">
+            <span class="news-item__date"><time datetime="2026-07-17">17 July 2026</time></span>
+            <h3>Dissensus Ltd: the lab has a legal shape</h3>
+            <p>Dissensus is incorporated as a private limited company in England and Wales; the research stays open.</p>
+          </a>
+          <a class="newsband__item" href="news/trident.html">
+            <span class="news-item__date"><time datetime="2026-07-15">15 July 2026</time></span>
+            <h3>The Trident: three ways a claim fails, counted properly</h3>
+            <p>A pocket-sized diagnostic for single claims, a Lean 4 core that checks the count, and a framework that failed its own test.</p>
+          </a>
+          <a class="newsband__item" href="news/temporal-bitmap.html">
+            <span class="news-item__date"><time datetime="2026-07-15">15 July 2026</time></span>
+            <h3>The Born Rule, Demodulated</h3>
+            <p>Measurement as finite-window demodulation plus threshold detection, and the square in |&psi;|&sup2; as the signature of an energy detector.</p>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- Credibility strip -->
     <section class="strip" data-reveal>
@@ -174,17 +186,21 @@
       </div>
     </div>
 
-    <!-- Programme -->
-    <section class="block">
+    <!-- The name -->
+    <section class="block etym-block" style="padding-block: 3.4rem 0;">
       <div class="container">
-        <div class="kicker" data-reveal><b>01</b> &middot; Programme</div>
-        <h2 data-reveal>Active research programme: ASCRI</h2>
-        <div class="card" data-reveal="scale">
-          <div class="card-eyebrow">The core agenda</div>
-          <h3>Adversarial Systems &amp; Complexity Research Initiative</h3>
-          <p>Dissensus is built around a single ongoing programme. ASCRI investigates sufficiently complex dynamic networks of agents where equilibria cannot be reached under formalised friction constraints. Such systems function only through the continual reduction of friction: they are adversarial against themselves, yet persist through dissensus. Every paper in the archive probes one face of this programme &mdash; consent mechanics, market microstructure, machine morality, or the process-philosophical foundations underneath.</p>
-          <div class="card-foot"><span class="dot"></span> Active &middot; hosted at <a href="https://systems.ac" target="_blank" rel="noopener">systems.ac &rarr;</a></div>
-        </div>
+        <p class="etym" data-reveal><b>dis&middot;sen&middot;sus</b> /d&#618;&#712;s&#603;ns&#601;s/, from Latin <i>dissentire</i>, to disagree. In political philosophy (Ranci&egrave;re, Mouffe), dissensus names the productive disagreement that remains when consensus is impossible or undesirable. The lab is named for it. Not dysfunction, function.</p>
+      </div>
+    </section>
+
+    <!-- Who we are -->
+    <section class="block" id="who">
+      <div class="container">
+        <div class="kicker" data-reveal><b>01</b> &middot; Who we are</div>
+        <h2 data-reveal>An independent lab, built around one programme</h2>
+        <p class="body-text" data-reveal>Dissensus is a UK research lab investigating adversarial systems &mdash; where competing interests generate structural conflict. Friction dynamics is the through-line, from markets and institutions to cognition and AI.</p>
+        <p class="body-text" data-reveal style="margin-top:1.1rem;">Dissensus is built around a single ongoing programme. ASCRI investigates sufficiently complex dynamic networks of agents where equilibria cannot be reached under formalised friction constraints. Such systems function only through the continual reduction of friction: they are adversarial against themselves, yet persist through dissensus. Every paper in the archive probes one face of this programme &mdash; consent mechanics, market microstructure, machine morality, or the process-philosophical foundations underneath.</p>
+        <div class="card-foot" data-reveal style="margin-top:1.8rem;"><span class="dot"></span> Active &middot; hosted at <a href="https://systems.ac" target="_blank" rel="noopener">systems.ac &rarr;</a></div>
       </div>
     </section>
 
@@ -240,23 +256,136 @@
       </div>
     </section>
 
-    <!-- Fund / Partner -->
-    <section class="block fund" id="fund">
+    <!-- Contribute -->
+    <section class="block" id="contribute">
       <div class="container">
-        <div class="kicker" data-reveal><b>03</b> &middot; Partner</div>
-        <h2 data-reveal>Fund the friction programme</h2>
-        <p class="body-text" data-reveal>Dissensus turns a formal thesis into shipped artefacts &mdash; machine-checked proofs, live risk indices, reproducible experiments. Support accelerates the work directly.</p>
-        <div class="card" data-reveal="scale">
-          <div class="card-eyebrow">What funding unlocks</div>
-          <ul>
-            <li>Compute for the multi-agent and CBDC-privacy experiments (dual-GPU workstation &rarr; cluster time)</li>
-            <li>Research-assistant time to run the empirical programmes to publication</li>
-            <li>Open, reproducible artefacts: datasets, Lean formalisations, and the live ASRI systemic-risk index</li>
-          </ul>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:research@dissensus.ai">Start a conversation &rarr;</a>
-            <a class="btn" href="assets/adversarial-systems-manifesto.pdf">Download the brief</a>
+        <div class="kicker" data-reveal><b>03</b> &middot; Contribute</div>
+        <h2 data-reveal>Three ways into the lab</h2>
+        <p class="body-text" data-reveal>Dissensus is small, independent, and open at the edges. The research runs regardless, but it runs faster and argues better with more people in the room.</p>
+
+        <div class="primitives" style="margin-top: 2.4rem;">
+          <div class="prim" data-reveal>
+            <div class="prim-sym">I</div>
+            <div class="prim-name">Fund</div>
+            <div class="prim-desc">Money buys research time and nothing else. Funds go directly to research and research collaboration &mdash; compute, data access, publication costs &mdash; and we will keep a running public account of where they go. What that supports right now is listed under <a href="research.html">active projects</a>. Funding never buys editorial reach.</div>
           </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">II</div>
+            <div class="prim-name">Propose</div>
+            <div class="prim-desc">Three research directions are currently accepting proposals: adversarial systems &amp; AI governance, systemic risk measurement, and philosophy of AI. Bring a domain, a dataset, or a critique &mdash; strong counterarguments get published with full attribution. <a href="#proposal">The proposal form</a> takes five minutes.</div>
+          </div>
+          <div class="prim" data-reveal>
+            <div class="prim-sym">III</div>
+            <div class="prim-name">Join</div>
+            <div class="prim-desc">Research collaborators, research assistants, co-authors. There are no salaried positions, and it is honest to say that first. What the lab offers is your name on the work you help produce, and time from someone who will actually read your drafts. Students and early-career researchers are welcome; affiliation is optional, rigour is not.</div>
+          </div>
+        </div>
+
+        <div class="cta-row" data-reveal>
+          <a class="btn btn-primary" href="mailto:research@dissensus.ai">research@dissensus.ai &rarr;</a>
+          <a class="btn" href="#proposal">Propose a project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proposal form -->
+    <section class="block" id="proposal" style="padding-top: 0;">
+      <div class="container">
+        <div class="kicker" data-reveal><b>04</b> &middot; Proposal</div>
+        <h2 data-reveal>Propose a project</h2>
+        <p class="body-text" data-reveal>Complete the form below to submit a proposal. We respond to all substantive enquiries within five business days.</p>
+
+        <form class="form" data-reveal style="margin-top: 2.4rem;" action="https://formspree.io/f/mreezoko" method="POST">
+
+          <div class="form__row">
+            <div>
+              <label class="label" for="name">Name *</label>
+              <input class="input" type="text" id="name" name="name" required>
+            </div>
+            <div>
+              <label class="label" for="email">Email *</label>
+              <input class="input" type="email" id="email" name="email" required>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div>
+              <label class="label" for="affiliation">Affiliation</label>
+              <input class="input" type="text" id="affiliation" name="affiliation" placeholder="Institution / Organisation / Independent">
+            </div>
+            <div>
+              <label class="label" for="discipline">Discipline</label>
+              <select class="select" id="discipline" name="discipline">
+                <option value="">Select...</option>
+                <option value="philosophy">Philosophy</option>
+                <option value="economics">Economics / Finance</option>
+                <option value="political-science">Political Science</option>
+                <option value="computer-science">Computer Science / AI</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="sociology">Sociology</option>
+                <option value="law">Law / Governance</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="label">Collaboration Type *</label>
+            <div class="radios">
+              <label><input type="radio" name="collab_type" value="co-authorship" required> Co-Authorship</label>
+              <label><input type="radio" name="collab_type" value="critical-review"> Critical Review</label>
+              <label><input type="radio" name="collab_type" value="empirical-testing"> Empirical Testing</label>
+              <label><input type="radio" name="collab_type" value="institutional"> Institutional Partnership</label>
+              <label><input type="radio" name="collab_type" value="industry-advisory"> Industry Advisory</label>
+              <label><input type="radio" name="collab_type" value="other"> Other</label>
+            </div>
+          </div>
+
+          <div>
+            <label class="label" for="research_area">Relevant Research Area</label>
+            <select class="select" id="research_area" name="research_area">
+              <option value="">Select primary area...</option>
+              <option value="consent-mechanics">Consent Mechanics</option>
+              <option value="machine-morality">Machine Morality</option>
+              <option value="economic-pharmakon">Economic Pharmakon</option>
+              <option value="crypto-microstructure">Crypto Microstructure</option>
+              <option value="political-economy">Political Economy</option>
+              <option value="rom-framework">ROM Framework</option>
+              <option value="general">General / Cross-Cutting</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="label" for="proposal-text">Proposal Description *</label>
+            <textarea class="textarea" id="proposal-text" name="proposal" required rows="8" placeholder="Describe your proposed collaboration. What do you want to work on? What is your angle? What would you bring to the project?"></textarea>
+          </div>
+
+          <div>
+            <label class="label" for="links">Relevant Links (Optional)</label>
+            <textarea class="textarea" id="links" name="links" rows="3" placeholder="ORCID, Google Scholar, personal website, relevant papers, GitHub..."></textarea>
+          </div>
+
+          <input type="hidden" name="_subject" value="Dissensus Collaboration Proposal">
+
+          <button type="submit" class="btn btn-primary">Submit Proposal &rarr;</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Elsewhere -->
+    <section class="block" style="padding-top: 0;">
+      <div class="container">
+        <div class="kicker" data-reveal><b>05</b> &middot; Elsewhere</div>
+        <div class="social-row" data-reveal>
+          <!-- TODO:MF real url — no LinkedIn page/profile URL exists on record anywhere on the site.
+               Hidden until a real URL exists (dead href="#" links shipped live otherwise). Restore by uncommenting:
+          <a href="#" aria-label="Dissensus on LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+          -->
+          <!-- TODO:MF real url — no X/Twitter handle exists on record anywhere on the site.
+               Hidden until a real URL exists. Restore by uncommenting:
+          <a href="#" aria-label="Dissensus on X"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.4z"/></svg>X</a>
+          -->
+          <a href="https://zenodo.org/communities/farzulla" target="_blank" rel="noopener" aria-label="Dissensus archive on Zenodo"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 3h18v4H3V3zm2 6h14v12H5V9zm4 3v2h6v-2H9z"/></svg>Zenodo</a>
         </div>
       </div>
     </section>
@@ -272,12 +401,10 @@
 </div>
 <div style="max-width:560px;">
 <a href="index.html">Home</a> &middot;
-<a href="research.html">Research</a> &middot;
-<a href="tools.html">Tools</a> &middot;
-<a href="services.html">Services</a> &middot;
 <a href="about.html">About</a> &middot;
-<a href="partners.html">Partners</a> &middot;
-<a href="collaborate.html">Collaborate</a> &middot;
+<a href="research.html">Research</a> &middot;
+<a href="news.html">News</a> &middot;
+<a href="tools.html">Tools</a> &middot;
 <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
 <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
 <a href="manifesto.html">Manifesto</a> &middot;

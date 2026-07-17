@@ -1,0 +1,587 @@
+<title>Dissensus — prototype</title>
+<style>
+  :root {
+    --bg-primary: #050505;
+    --bg-secondary: #0a0a0a;
+    --bg-tertiary: #111111;
+    --bg-card: rgba(15, 15, 15, 0.82);
+    --text-primary: #ededed;
+    --text-secondary: #9a9a9a;
+    --text-muted: #6e6e6e;
+    --burgundy: 128, 0, 32;
+    --accent: #c04055;
+    --accent-hover: #d8546c;
+    --accent-dim: rgba(var(--burgundy), 0.55);
+    --accent-subtle: rgba(192, 64, 85, 0.12);
+    --grid-color: rgba(var(--burgundy), 0.08);
+    --node-color: rgba(192, 64, 85, 0.35);
+    --border: rgba(var(--burgundy), 0.22);
+    --border-hover: rgba(192, 64, 85, 0.45);
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, Oxygen, Ubuntu, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+    --max-width: 940px;
+    --radius: 2px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--accent-subtle); color: #fff; }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-hover); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 1.75rem; }
+
+  /* ── scroll progress ── */
+  #progress {
+    position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+    background: var(--accent); z-index: 100;
+    box-shadow: 0 0 8px rgba(var(--burgundy), 0.6);
+  }
+
+  /* ── nav ── */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(5, 5, 5, 0.72);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: var(--max-width); margin: 0 auto; padding: 0.9rem 1.75rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.02em; }
+  .brand-mark { color: var(--accent); font-size: 1.05rem; }
+  .brand-logo { height: 22px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 1.4rem; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; }
+  .nav-links a { color: var(--text-secondary); position: relative; padding: 2px 0; text-transform: uppercase; }
+  .nav-links a::after {
+    content: ''; position: absolute; left: 0; bottom: -3px; height: 1px; width: 0;
+    background: var(--accent); transition: width 220ms var(--ease);
+  }
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-links a:hover::after { width: 100%; }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  /* ── hero ── */
+  .hero { position: relative; padding: 5rem 0 4rem; overflow: hidden; }
+  #net { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+  .hero::after {
+    content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: radial-gradient(120% 90% at 30% 35%, transparent 0%, rgba(5,5,5,0.35) 45%, var(--bg-primary) 88%);
+  }
+  .hero .wrap { position: relative; z-index: 2; }
+
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 1.6rem;
+  }
+  .friction-mark { margin: 0 0 1.6rem; width: 42px; height: 42px; color: var(--accent); }
+  .optima { display: block; width: 176px; height: 76px; margin: 0 0 1.7rem; }
+
+  h1 {
+    font-size: clamp(1.9rem, 4.3vw, 3.05rem);
+    line-height: 1.1; font-weight: 700; letter-spacing: -0.015em;
+    margin: 0 0 1.5rem; text-wrap: balance; max-width: 19ch;
+  }
+  .lede { font-size: 1.12rem; color: var(--text-secondary); max-width: 34rem; margin: 0 0 1.8rem; }
+
+  .etym {
+    font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary);
+    max-width: 40rem; margin: 0 0 1.6rem; line-height: 1.7;
+    border-left: 2px solid var(--border); padding-left: 1.1rem;
+  }
+  .etym b { color: var(--accent); font-weight: 500; }
+  .etym i { color: var(--text-primary); }
+
+  .verbose { font-style: italic; color: var(--text-muted); max-width: 38rem; margin: 0 0 1.4rem; font-size: 0.98rem; }
+  .simple { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin: 0 0 1.8rem; }
+  .simple b { color: var(--text-primary); font-weight: 500; }
+
+  .triad { display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.04em; color: var(--text-secondary); margin: 0 0 2.4rem; flex-wrap: wrap; }
+  .triad .dot-sep { color: var(--accent); }
+  .triad .lbl { color: var(--text-muted); text-transform: uppercase; font-size: 0.64rem; letter-spacing: 0.16em; margin-right: 0.2rem; }
+
+  /* stat row */
+  .stats { display: flex; gap: 3rem; flex-wrap: wrap; padding: 1.4rem 0; border-top: 1px solid var(--border); max-width: 34rem; }
+  .stat-label { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.35rem; }
+  .stat-val { font-size: 1.05rem; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+  .stat-accent { width: 34px; height: 2px; background: var(--accent); margin-top: 1.2rem; }
+
+  /* CTAs */
+  .cta-row { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 2.2rem; }
+  .btn {
+    font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.02em;
+    padding: 0.7rem 1.2rem; border-radius: var(--radius); border: 1px solid var(--border);
+    color: var(--text-primary); transition: all 200ms var(--ease); cursor: pointer; background: transparent;
+  }
+  .btn:hover { border-color: var(--border-hover); color: var(--text-primary); transform: translateY(-1px); }
+  .btn-primary { background: rgba(var(--burgundy), 0.85); border-color: transparent; color: #fdf0f2; }
+  .btn-primary:hover { background: var(--accent); box-shadow: 0 6px 24px rgba(var(--burgundy), 0.45); }
+
+  /* ── credibility strip ── */
+  .strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.4rem 0; font-family: var(--font-mono); font-size: 0.76rem; }
+  .strip-row { color: var(--text-secondary); margin-bottom: 0.5rem; }
+  .strip-row:last-child { margin-bottom: 0; }
+  .strip b { color: var(--accent); font-weight: 500; }
+  .strip .id { color: var(--accent); }
+  .strip .sep { color: var(--text-muted); margin: 0 0.55rem; }
+
+  /* ── publications ribbon (drag + click + auto-scroll) ── */
+  .ribbon-lbl { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); padding: 0 1.75rem; margin-bottom: 0.7rem; }
+  .ribbon { position: relative; overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.15rem 0; cursor: grab; touch-action: pan-y;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+  .ribbon.dragging { cursor: grabbing; }
+  .ribbon-track { display: flex; gap: 0.85rem; width: max-content; will-change: transform; padding-left: 0.85rem; }
+  .chip { display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap; padding: 0.5rem 0.95rem;
+    border: 1px solid var(--border); border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.76rem;
+    color: var(--text-secondary); background: rgba(15, 15, 15, 0.55); user-select: none; -webkit-user-drag: none;
+    transition: border-color 200ms var(--ease), color 200ms, background 200ms; }
+  .chip:hover { border-color: var(--border-hover); color: var(--text-primary); background: rgba(28, 12, 16, 0.62); }
+  .chip .lead { color: var(--text-primary); }
+  .chip .id { color: var(--accent); }
+  .chip .rev { color: var(--text-muted); }
+  .chip .st { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 5px var(--accent); flex: none; }
+  .chip .st.review { background: transparent; border: 1px solid var(--accent); box-shadow: none; }
+
+  /* ── sections ── */
+  section.block { padding: 5.5rem 0; }
+  .kicker { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem; }
+  .kicker b { color: var(--accent); }
+  h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 600; letter-spacing: -0.01em; margin: 0 0 1.6rem; text-wrap: balance; }
+  .body-text { color: var(--text-secondary); max-width: 42rem; }
+
+  /* ── friction equation + primitives ── */
+  .friction-eq { display: flex; flex-direction: column; align-items: center; text-align: center; margin: 3.2rem 0 3rem; }
+  .eq { display: inline-flex; align-items: center; gap: 0.9rem; font-family: var(--font-mono); font-size: clamp(1.5rem, 3.6vw, 2.3rem); color: var(--text-primary); }
+  .eq-op { color: var(--text-muted); }
+  .eq-var { color: var(--accent); font-style: italic; }
+  .eq-frac { display: inline-flex; flex-direction: column; align-items: center; }
+  .eq-num { padding: 0 0.5rem 0.25rem; }
+  .eq-den { padding: 0.25rem 0.5rem 0; }
+  .eq-bar { width: 100%; height: 1.5px; background: var(--border-hover); }
+  .eq-cap { margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); max-width: 36rem; line-height: 1.6; }
+  .eq-cap b { color: var(--accent); font-weight: 500; }
+
+  .primitives { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+  .prim { border: 1px solid var(--border); border-radius: var(--radius); padding: 1.7rem 1.4rem; background: var(--bg-card); transition: border-color 250ms var(--ease), transform 250ms var(--ease); }
+  .prim:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+  .prim-sym { font-family: var(--font-mono); font-size: 2rem; font-style: italic; color: var(--accent); line-height: 1; margin-bottom: 0.7rem; }
+  .prim-name { font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; }
+  .prim-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; }
+  @media (max-width: 680px) { .primitives { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 2rem; margin-top: 2rem; transition: border-color 250ms var(--ease), transform 250ms var(--ease);
+  }
+  .card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+  .card-eyebrow { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+  .card h3 { margin: 0 0 1rem; font-size: 1.15rem; font-weight: 600; }
+  .card p { color: var(--text-secondary); margin: 0 0 1.2rem; }
+  .card-foot { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 6px var(--accent); }
+
+  /* ── metrics band ── */
+  .metrics { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg-secondary); }
+  .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; padding: 2.6rem 0; }
+  .metric { text-align: center; }
+  .metric-num { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 700; color: var(--text-primary); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .metric-num .plus { color: var(--accent); }
+  .metric-cap { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.4rem; }
+  @media (max-width: 640px) { .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
+
+  /* ── fund teaser ── */
+  .fund { position: relative; }
+  .fund .card { background: linear-gradient(180deg, rgba(var(--burgundy), 0.12), var(--bg-card)); border-color: var(--border-hover); }
+  .fund ul { list-style: none; padding: 0; margin: 0 0 1.6rem; display: grid; gap: 0.7rem; }
+  .fund li { color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.4rem; position: relative; }
+  .fund li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+
+  /* ── footer ── */
+  footer { border-top: 1px solid var(--border); padding: 2.4rem 0; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.74rem; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 1rem 1.4rem; margin-top: 0.8rem; }
+  .foot-links a { color: var(--text-secondary); }
+
+  /* ── reveal engine ── */
+  [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); will-change: opacity, transform; }
+  [data-reveal="left"] { transform: translateX(-28px); }
+  [data-reveal="right"] { transform: translateX(28px); }
+  [data-reveal="scale"] { transform: scale(0.96); }
+  [data-reveal].in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+    #net { display: none; }
+    * { scroll-behavior: auto !important; }
+  }
+</style>
+
+<div id="progress"></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand"><img class="brand-logo" src="data:image/png;base64,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" alt=""> Dissensus</div>
+    <div class="nav-links">
+      <a href="#">Research</a><a href="#">Tools</a><a href="#">About</a>
+      <a href="#">Services</a><a href="#">Partners</a><a href="#fund">Fund</a><a href="#">ASRI ↗</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <canvas id="net"></canvas>
+  <div class="wrap">
+    <canvas id="optima" class="optima" data-reveal aria-hidden="true"></canvas>
+    <h1 data-reveal>Agents, friction, and the cost of equilibria.</h1>
+    <p class="lede" data-reveal>Dissensus is a UK research lab investigating adversarial systems — where competing interests generate structural conflict — through computational, empirical, and theoretical work. Friction dynamics is the through-line, from markets and institutions to cognition and AI.</p>
+    <p class="etym" data-reveal><b>dis·sen·sus</b> /dɪˈsɛnsəs/, from Latin <i>dissentire</i>, to disagree. In political philosophy (Rancière, Mouffe), the productive friction that emerges when consensus is impossible or undesirable. Not dysfunction, function.</p>
+    <p class="verbose" data-reveal>Axiomatic consent mechanics and tripartite friction topology in substrate-agnostic replication-optimising multi-agent networks: toward a phenomenologically contained metatheoretic foundation for pre-strategic delegation dynamics.</p>
+    <p class="simple" data-reveal>Or simply: <b>coordination has overhead.</b></p>
+
+    <div class="triad" data-reveal>
+      <span class="lbl">Method</span>
+      <span>Computational</span><span class="dot-sep">·</span><span>Empirical</span><span class="dot-sep">·</span><span>Theoretical</span>
+    </div>
+
+    <div class="stats" data-reveal>
+      <div>
+        <div class="stat-label">Focus</div>
+        <div class="stat-val">Adversarial systems</div>
+      </div>
+      <div>
+        <div class="stat-label">Publications</div>
+        <div class="stat-val"><span class="count" data-to="20">0</span> papers</div>
+      </div>
+      <div>
+        <div class="stat-label">Status</div>
+        <div class="stat-val">Active research</div>
+      </div>
+    </div>
+    <div class="stat-accent" data-reveal></div>
+
+    <div class="cta-row" data-reveal>
+      <button class="btn btn-primary">Read the research →</button>
+      <button class="btn">The manifesto</button>
+    </div>
+  </div>
+</header>
+
+<div class="ribbon-wrap" data-reveal>
+  <div class="ribbon-lbl">The archive — drag to explore</div>
+  <div class="ribbon" id="ribbon">
+    <div class="ribbon-track">
+      <a class="chip" href="https://arxiv.org/abs/2602.03874" target="_blank" rel="noopener" draggable="false"><span class="st"></span><span class="lead">ASRI</span><span class="id">arXiv:2602.03874</span></a>
+      <a class="chip" href="https://arxiv.org/abs/2601.06363" target="_blank" rel="noopener" draggable="false"><span class="st"></span><span class="lead">Replicator-Optimization Mechanism</span><span class="id">arXiv:2601.06363</span></a>
+      <a class="chip" href="https://arxiv.org/abs/2601.06692" target="_blank" rel="noopener" draggable="false"><span class="st"></span><span class="lead">Axiom of Consent</span><span class="id">arXiv:2601.06692</span></a>
+      <a class="chip" href="https://arxiv.org/abs/2603.04419" target="_blank" rel="noopener" draggable="false"><span class="st"></span><span class="lead">Semantic-First Vision</span><span class="id">arXiv:2603.04419</span></a>
+      <a class="chip" href="#" draggable="false"><span class="st review"></span><span class="lead">Infrastructure vs Regulatory Shocks</span><span class="rev">Under review · Digital Finance</span></a>
+      <a class="chip" href="#" draggable="false"><span class="st review"></span><span class="lead">From Consent to Consideration</span><span class="rev">Under review · AI and Ethics</span></a>
+      <a class="chip" href="#" draggable="false"><span class="st review"></span><span class="lead">Relational Functionalism</span><span class="rev">Under review · Ethics &amp; Information Technology</span></a>
+      <a class="chip" href="#" draggable="false"><span class="st review"></span><span class="lead">The Extremity Premium</span><span class="rev">Under review · Computational Economics</span></a>
+      <a class="chip" href="#" draggable="false"><span class="st review"></span><span class="lead">Whitepaper Factor Analysis</span><span class="rev">Under review · Financial Innovation</span></a>
+      <a class="chip" href="#" draggable="false"><span class="st"></span><span class="lead">Consensual Sovereignty</span><span class="rev">Preprint</span></a>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="kicker" data-reveal><b>01</b> · Programme</div>
+    <h2 data-reveal>Active research programme: ASCRI</h2>
+    <div class="card" data-reveal="scale">
+      <div class="card-eyebrow">The core agenda</div>
+      <h3>Adversarial Systems &amp; Complexity Research Initiative</h3>
+      <p>Dissensus is built around a single ongoing programme. ASCRI investigates sufficiently complex dynamic networks of agents where equilibria cannot be reached under formalised friction constraints. Such systems function only through the continual reduction of friction: they are adversarial against themselves, yet persist through dissensus. Every paper in the archive probes one face of this programme — consent mechanics, market microstructure, machine morality, or the process-philosophical foundations underneath.</p>
+      <div class="card-foot"><span class="dot"></span> Active · Hosted at <a href="#">systems.ac →</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="metrics">
+  <div class="wrap">
+    <div class="metrics-grid">
+      <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="20">0</span></div><div class="metric-cap">Publications</div></div>
+      <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="4">0</span></div><div class="metric-cap">Research domains</div></div>
+      <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="6">0</span></div><div class="metric-cap">Peer-review venues</div></div>
+      <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="3">0</span><span class="plus">+</span></div><div class="metric-cap">Machine-checked proofs</div></div>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="kicker" data-reveal><b>02</b> · The problem</div>
+    <h2 data-reveal>Before strategy, there is delegation</h2>
+    <p class="body-text" data-reveal>Game theory presupposes participation. It does not account for how agents enter strategic interaction, why payoff structures take the forms they do, or what happens when participation is refused. It does not interrogate who defines the rules, whose interests they serve, or whether the game itself is legitimate. We study the layer underneath. Before strategy, there is delegation — and delegation produces friction.</p>
+
+    <div class="friction-eq" data-reveal="scale">
+      <div class="eq">
+        <span class="eq-var">F</span>
+        <span class="eq-op">=</span>
+        <span class="eq-frac">
+          <span class="eq-num"><span class="eq-var">σ</span>&#8202;(1 + <span class="eq-var">ε</span>)</span>
+          <span class="eq-bar"></span>
+          <span class="eq-den">1 + <span class="eq-var">α</span></span>
+        </span>
+      </div>
+      <div class="eq-cap">Friction, decomposed — it <b>rises</b> with stake and entropy, and <b>falls</b> with alignment. A single functional, three measurable primitives.</div>
+    </div>
+
+    <div class="primitives">
+      <div class="prim" data-reveal>
+        <div class="prim-sym">α</div>
+        <div class="prim-name">Alignment</div>
+        <div class="prim-desc">How closely the receiver's interests track the delegator's. The one term that <em>reduces</em> friction.</div>
+      </div>
+      <div class="prim" data-reveal>
+        <div class="prim-sym">σ</div>
+        <div class="prim-name">Stake</div>
+        <div class="prim-desc">How much is at risk in the delegation. Scale amplifies every misalignment beneath it.</div>
+      </div>
+      <div class="prim" data-reveal>
+        <div class="prim-sym">ε</div>
+        <div class="prim-name">Entropy</div>
+        <div class="prim-desc">How much the receiver misreads the delegator's preferences. Uncertainty is never free.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block fund" id="fund">
+  <div class="wrap">
+    <div class="kicker" data-reveal><b>03</b> · Partner</div>
+    <h2 data-reveal>Fund the friction programme</h2>
+    <p class="body-text" data-reveal>Dissensus turns a formal thesis into shipped artifacts — machine-checked proofs, live risk indices, reproducible experiments. Support accelerates the work directly.</p>
+    <div class="card" data-reveal="scale">
+      <div class="card-eyebrow">What funding unlocks</div>
+      <ul class="fund">
+        <li>Compute for the multi-agent and CBDC-privacy experiments (dual-GPU workstation → cluster time)</li>
+        <li>Research-assistant time to run the empirical programmes to publication</li>
+        <li>Open, reproducible artifacts: datasets, Lean formalisations, and the live ASRI systemic-risk index</li>
+      </ul>
+      <div class="cta-row">
+        <button class="btn btn-primary">Start a conversation →</button>
+        <button class="btn">Download the brief</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Dissensus — Adversarial Systems Research · London, UK</div>
+    <div class="foot-links">
+      <a href="#">Research</a><a href="#">Manifesto</a><a href="#">Charter</a><a href="#">Collaborate</a><a href="#fund">Fund</a><a href="#">ASCRI ↗</a><a href="#">RSS</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── scroll progress ── */
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (pct * 100).toFixed(2) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── reveal engine ── */
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if (reduce) {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    // stagger siblings that share a parent block
+    var groups = {};
+    revealEls.forEach(function (el) {
+      var key = el.parentNode;
+      groups.k = groups.k || [];
+    });
+    revealEls.forEach(function (el, i) {
+      var sibs = Array.prototype.filter.call(el.parentNode.children, function (c) { return c.hasAttribute('data-reveal'); });
+      var idx = sibs.indexOf(el);
+      el.style.transitionDelay = (Math.min(idx, 6) * 0.07) + 's';
+      io.observe(el);
+    });
+  }
+
+  /* ── count-ups ── */
+  var counters = document.querySelectorAll('.count');
+  function runCount(el) {
+    var target = parseInt(el.getAttribute('data-to'), 10);
+    if (reduce) { el.textContent = target; return; }
+    var start = null, dur = 1100;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var cio = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { runCount(e.target); cio.unobserve(e.target); } });
+  }, { threshold: 0.6 });
+  counters.forEach(function (c) { cio.observe(c); });
+
+  /* ── friction-network canvas ── */
+  var canvas = document.getElementById('net');
+  if (canvas && !reduce) {
+    var ctx = canvas.getContext('2d');
+    var DPR = Math.min(window.devicePixelRatio || 1, 2);
+    var nodes = [], W = 0, H = 0, LINK = 150;
+    function resize() {
+      var r = canvas.getBoundingClientRect();
+      W = r.width; H = r.height;
+      canvas.width = W * DPR; canvas.height = H * DPR;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      var count = Math.max(26, Math.min(60, Math.floor(W * H / 16000)));
+      nodes = [];
+      for (var i = 0; i < count; i++) {
+        nodes.push({
+          x: Math.random() * W, y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.22, vy: (Math.random() - 0.5) * 0.22,
+          r: 1.1 + Math.random() * 1.4, ph: Math.random() * Math.PI * 2
+        });
+      }
+    }
+    function frame(t) {
+      ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > W) n.vx *= -1;
+        if (n.y < 0 || n.y > H) n.vy *= -1;
+      }
+      // edges: friction between nearby agents, opacity by proximity, faint pulse
+      for (var i = 0; i < nodes.length; i++) {
+        for (var j = i + 1; j < nodes.length; j++) {
+          var a = nodes[i], b = nodes[j];
+          var dx = a.x - b.x, dy = a.y - b.y;
+          var d = Math.sqrt(dx * dx + dy * dy);
+          if (d < LINK) {
+            var base = (1 - d / LINK);
+            var pulse = 0.85 + 0.15 * Math.sin(t * 0.0011 + a.ph);
+            ctx.strokeStyle = 'rgba(192, 64, 85, ' + (base * 0.22 * pulse).toFixed(3) + ')';
+            ctx.lineWidth = base * 1.1;
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+      }
+      // nodes
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        ctx.fillStyle = 'rgba(192, 64, 85, 0.55)';
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+      }
+      requestAnimationFrame(frame);
+    }
+    var rt;
+    window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(resize, 150); });
+    resize();
+    requestAnimationFrame(frame);
+  }
+
+  /* ── moving optima: the optimum never sits still, the system chases it ── */
+  var oc = document.getElementById('optima');
+  if (oc) {
+    var octx = oc.getContext('2d');
+    var ODPR = Math.min(window.devicePixelRatio || 1, 2);
+    var ow = 176, oh = 76, pad = 8;
+    oc.width = ow * ODPR; oc.height = oh * ODPR; octx.setTransform(ODPR, 0, 0, ODPR, 0, 0);
+    function f(x, t) {
+      var u = x / ow * Math.PI * 2;
+      return 0.5 + 0.30 * Math.sin(u + t) + 0.15 * Math.sin(2.3 * u - 0.7 * t);
+    }
+    function yPix(v) { return pad + v * (oh - 2 * pad); }
+    function argmin(t) {
+      var best = 1e9, bx = ow / 2;
+      for (var x = pad; x <= ow - pad; x += 2) { var y = f(x, t); if (y < best) { best = y; bx = x; } }
+      return bx;
+    }
+    function drawCurve(t) {
+      octx.beginPath();
+      for (var x = 0; x <= ow; x += 2) { var y = yPix(f(x, t)); if (x === 0) octx.moveTo(x, y); else octx.lineTo(x, y); }
+      octx.strokeStyle = 'rgba(192, 64, 85, 0.5)'; octx.lineWidth = 1.5; octx.stroke();
+    }
+    function drawDot(x, t) {
+      var dy = yPix(f(x, t));
+      octx.beginPath(); octx.moveTo(x, dy + 3); octx.lineTo(x, oh - pad);
+      octx.strokeStyle = 'rgba(192, 64, 85, 0.16)'; octx.lineWidth = 1; octx.stroke();
+      octx.beginPath(); octx.arc(x, dy, 3.2, 0, Math.PI * 2);
+      octx.fillStyle = '#d8546c'; octx.shadowColor = 'rgba(192, 64, 85, 0.9)'; octx.shadowBlur = 9;
+      octx.fill(); octx.shadowBlur = 0;
+    }
+    if (reduce) {
+      octx.clearRect(0, 0, ow, oh); drawCurve(0); drawDot(argmin(0), 0);
+    } else {
+      var dotx = ow / 2;
+      function oframe(ts) {
+        var t = ts * 0.0007;
+        octx.clearRect(0, 0, ow, oh);
+        drawCurve(t);
+        dotx += (argmin(t) - dotx) * 0.05;   // lag: chasing the moving optimum
+        drawDot(dotx, t);
+        requestAnimationFrame(oframe);
+      }
+      requestAnimationFrame(oframe);
+    }
+  }
+
+  /* ── publications ribbon: auto-scroll + drag + click ── */
+  var rvp = document.getElementById('ribbon');
+  if (rvp) {
+    var rtrack = rvp.querySelector('.ribbon-track');
+    rtrack.innerHTML += rtrack.innerHTML;                 // duplicate for seamless loop
+    var rpos = 0, rspeed = 0.35, rhalf = 0, rpaused = false;
+    function rmeasure() { rhalf = rtrack.scrollWidth / 2; }
+    rmeasure(); window.addEventListener('resize', rmeasure);
+    var rdrag = false, rStartX = 0, rStartPos = 0, rMoved = 0;
+    rvp.addEventListener('pointerdown', function (e) {
+      rdrag = true; rMoved = 0; rStartX = e.clientX; rStartPos = rpos;
+      rvp.classList.add('dragging'); try { rvp.setPointerCapture(e.pointerId); } catch (x) {}
+    });
+    rvp.addEventListener('pointermove', function (e) {
+      if (!rdrag) return; var dx = e.clientX - rStartX;
+      rMoved = Math.max(rMoved, Math.abs(dx)); rpos = rStartPos + dx;
+    });
+    function rend() { rdrag = false; rvp.classList.remove('dragging'); }
+    rvp.addEventListener('pointerup', rend);
+    rvp.addEventListener('pointercancel', rend);
+    rvp.addEventListener('mouseenter', function () { rpaused = true; });
+    rvp.addEventListener('mouseleave', function () { rpaused = false; });
+    rtrack.addEventListener('click', function (e) { if (rMoved > 6) e.preventDefault(); }, true);
+    function rloop() {
+      if (!rdrag && !rpaused && !reduce) rpos -= rspeed;
+      if (rhalf) { if (rpos <= -rhalf) rpos += rhalf; else if (rpos > 0) rpos -= rhalf; }
+      rtrack.style.transform = 'translateX(' + rpos + 'px)';
+      requestAnimationFrame(rloop);
+    }
+    requestAnimationFrame(rloop);
+  }
+})();
+</script>

@@ -11,22 +11,22 @@
 .nav__brand:hover { color: var(--accent); }
 .nav__brand-mark { width: 20px; height: 20px; }
 .nav__links a.is-active { color: var(--accent); }
-/* mono mark is single-colour: swap white↔wine by theme so it stays visible on
-   both the dark default and the light cream bg. Lives here (shared layer) so
+/* mono mark is single-colour: swap wine↔white by theme so it stays visible on
+   both the light cream default and the dark bg. Lives here (shared layer) so
    every page's canonical nav themes correctly, not just index.css pages. */
-.nav__brand-mark--light { display: none; }
-[data-theme="light"] .nav__brand-mark--dark { display: none; }
-[data-theme="light"] .nav__brand-mark--light { display: block; }
+.nav__brand-mark--dark { display: none; }
+[data-theme="dark"] .nav__brand-mark--light { display: none; }
+[data-theme="dark"] .nav__brand-mark--dark { display: block; }
 
 /* ---- hero: the subtle burgundy glow (background motif) ---------------------- */
 .hero { position: relative; }
 .hero::before {
   content: ""; position: absolute; inset: -25% -10% auto -10%; height: 560px; z-index: -1;
-  background: radial-gradient(58% 60% at 28% 0%, rgba(200, 69, 95, 0.11), transparent 70%);
+  background: radial-gradient(58% 60% at 28% 0%, rgba(128, 0, 32, 0.06), transparent 70%);
   pointer-events: none;
 }
-[data-theme="light"] .hero::before {
-  background: radial-gradient(58% 60% at 28% 0%, rgba(128, 0, 32, 0.06), transparent 70%);
+[data-theme="dark"] .hero::before {
+  background: radial-gradient(58% 60% at 28% 0%, rgba(200, 69, 95, 0.11), transparent 70%);
 }
 .hero__logo { width: 76px; height: 76px; margin-bottom: var(--sp-6); }
 .hero .lead { font-size: 1.2rem; }
@@ -186,6 +186,49 @@ blockquote strong { color: var(--text); }
 .badge__k { padding: 2px var(--sp-2); color: var(--text-dim); background: var(--surface-2); }
 .badge__v { padding: 2px var(--sp-2); color: var(--text); }
 
+/* ---- news: index rows + post pages ------------------------------------------ */
+.news-item { display: block; padding: var(--sp-6) 0; border-bottom: 1px solid var(--line); }
+.news-item:first-of-type { border-top: 1px solid var(--line); }
+.news-item__date { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--text-dim); letter-spacing: 0.08em; text-transform: uppercase; }
+.news-item h3 { color: var(--text); margin: var(--sp-2) 0 var(--sp-2); font-size: 1.25rem; }
+.news-item p { font-size: var(--fs-sm); }
+.news-item:hover h3 { color: var(--accent); }
+
+.post-meta { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--text-dim); letter-spacing: 0.08em; text-transform: uppercase; }
+.post-title { margin: var(--sp-4) 0 var(--sp-3); max-width: 26ch; }
+.post-dek { color: var(--text-dim); font-size: 1.15rem; max-width: 62ch; margin-bottom: var(--sp-8); padding-bottom: var(--sp-8); border-bottom: 1px solid var(--line); }
+.post-body { max-width: var(--measure); }
+.post-body p { color: var(--text-dim); }
+.post-body p + p { margin-top: var(--sp-4); }
+.post-body h2 { font-size: 1.35rem; margin: var(--sp-12) 0 var(--sp-4); }
+.post-body em { color: var(--text); }
+.post-body b, .post-body strong { color: var(--text); }
+.post-foot { margin-top: var(--sp-12); padding-top: var(--sp-6); border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--text-dim); }
+
+/* homepage latest-news strip */
+.newsband { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+.newsband .container { padding-block: var(--sp-8); }
+.newsband__lbl { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-4); display: block; }
+.newsband__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); }
+.newsband__item { display: block; }
+.newsband__item .news-item__date { font-size: 0.68rem; }
+.newsband__item h3 { color: var(--text); font-size: 1.02rem; margin: var(--sp-2) 0; }
+.newsband__item:hover h3 { color: var(--accent); }
+.newsband__item p { font-size: var(--fs-sm); color: var(--text-dim); }
+@media (max-width: 720px) { .newsband__grid { grid-template-columns: 1fr; } }
+
+/* social links row */
+.social-row { display: flex; flex-wrap: wrap; gap: var(--sp-6); align-items: center; }
+.social-row a { display: inline-flex; align-items: center; gap: var(--sp-2); font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--text-dim); letter-spacing: 0.04em; }
+.social-row a:hover { color: var(--accent); }
+.social-row svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* research agendas */
+.agenda-entry { border-left: 3px solid var(--burgundy); padding: var(--sp-2) 0 var(--sp-2) var(--sp-6); margin-top: var(--sp-8); }
+.agenda-entry h3 { color: var(--text); margin-bottom: var(--sp-3); }
+.agenda-entry p { color: var(--text-dim); max-width: var(--measure); }
+.agenda-entry b { color: var(--text); }
+
 /* ---- 404 ------------------------------------------------------------------- */
 .error { min-height: 68vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 .error__code { font-family: var(--font-mono); font-size: clamp(5rem, 18vw, 11rem); font-weight: 600; color: var(--accent-dim); line-height: 1; }
@@ -210,15 +253,17 @@ blockquote strong { color: var(--text); }
   box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent);
 }
 
-/* reveal-on-scroll (motion.js adds .in when the element enters the viewport) */
-[data-reveal] {
+/* reveal-on-scroll (motion.js adds .in when the element enters the viewport).
+   Gated on html.js (set synchronously by theme.js) so JS-off visitors and
+   render bots never see content stuck at opacity:0. */
+html.js [data-reveal] {
   opacity: 0; transform: translateY(22px);
   transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
   will-change: opacity, transform;
 }
-[data-reveal="left"]  { transform: translateX(-28px); }
-[data-reveal="right"] { transform: translateX(28px); }
-[data-reveal="scale"] { transform: scale(0.96); }
+html.js [data-reveal="left"]  { transform: translateX(-28px); }
+html.js [data-reveal="right"] { transform: translateX(28px); }
+html.js [data-reveal="scale"] { transform: scale(0.96); }
 [data-reveal].in      { opacity: 1; transform: none; }
 
 /* system.css already kills transitions under reduced-motion; force reveals
@@ -230,4 +275,4 @@ blockquote strong { color: var(--text); }
 
 /* a11y: visible keyboard focus */
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.input:focus-visible, .select:focus-visible, .textarea:focus-visible { box-shadow: 0 0 0 2px rgba(200,69,95,0.4); }
+.input:focus-visible, .select:focus-visible, .textarea:focus-visible { box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 40%, transparent); }

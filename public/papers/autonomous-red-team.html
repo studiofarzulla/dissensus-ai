@@ -6,7 +6,7 @@
   <meta name="description" content="This technical report describes an architecture for autonomous penetration testing using LLM-guided agents operating within Kubernetes-isolated environments. Th...">
   <meta name="author" content="Murad Farzulla, Andrew Maksakov">
   <meta name="keywords" content="AI Safety, Security Research">
-  <meta name="theme-color" content="#050505">
+  <meta name="theme-color" content="#faf8f5">
   <meta name="robots" content="index, follow">
 
   <!-- Highwire Press (Google Scholar) -->
@@ -93,9 +93,6 @@
 
   <title>Autonomous Red Team AI: LLM-Guided Adversarial Security Testing — Dissensus</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/system.css">
   <link rel="stylesheet" href="../css/site.css">
   <script src="../js/theme.js"></script>
@@ -111,14 +108,14 @@
 
   <nav class="nav">
     <a href="../index.html" class="nav__brand"><img src="../assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="../assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
-    <div class="nav__links">
+    <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
       <a href="../research.html" class="is-active">Research</a>
-      <a href="../tools.html" class="hide-sm">Tools</a>
-      <a href="../about.html" class="hide-sm">About</a>
-      <a href="../services.html" class="hide-sm">Services</a>
-      <a href="../collaborate.html" class="hide-sm">Collaborate</a>
-      <a href="../partners.html" class="hide-sm">Partners</a>
-      <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <a href="../news.html">News</a>
+      <a href="../tools.html">Tools</a>
+      <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
@@ -187,12 +184,10 @@
 </div>
 <div style="max-width:560px;">
 <a href="../index.html">Home</a> &middot;
-<a href="../research.html">Research</a> &middot;
-<a href="../tools.html">Tools</a> &middot;
-<a href="../services.html">Services</a> &middot;
 <a href="../about.html">About</a> &middot;
-<a href="../partners.html">Partners</a> &middot;
-<a href="../collaborate.html">Collaborate</a> &middot;
+<a href="../research.html">Research</a> &middot;
+<a href="../news.html">News</a> &middot;
+<a href="../tools.html">Tools</a> &middot;
 <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
 <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
 <a href="../manifesto.html">Manifesto</a> &middot;

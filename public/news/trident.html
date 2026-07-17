@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf8f5">
+  <meta name="description" content="A pocket-sized diagnostic for single claims, a Lean 4 core that checks the count, and a framework that failed its own test and printed the repair.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dissensus.ai/news/trident.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Dissensus">
+  <meta property="og:title" content="The Trident: three ways a claim fails, counted properly">
+  <meta property="og:description" content="A pocket-sized diagnostic for single claims, a Lean 4 core that checks the count, and a framework that failed its own test and printed the repair.">
+  <meta property="og:url" content="https://dissensus.ai/news/trident.html">
+  <meta property="og:image" content="https://dissensus.ai/og-image.png">
+  <meta property="article:published_time" content="2026-07-15">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Trident: three ways a claim fails, counted properly">
+  <meta name="twitter:description" content="A pocket-sized diagnostic for single claims, a Lean 4 core that checks the count, and a framework that failed its own test and printed the repair.">
+  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
+
+  <title>The Trident: three ways a claim fails, counted properly &mdash; Dissensus</title>
+
+  <link rel="stylesheet" href="../css/system.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <script src="../js/theme.js"></script>
+  <script src="../js/motion.js" defer></script>
+
+  <link rel="alternate" type="application/rss+xml" title="Dissensus RSS Feed" href="../feed.xml">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
+</head>
+<body>
+
+  <div id="progress"></div>
+
+  <nav class="nav">
+    <a href="../index.html" class="nav__brand"><img src="../assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="../assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
+    <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../research.html">Research</a>
+      <a href="../news.html" class="is-active">News</a>
+      <a href="../tools.html">Tools</a>
+      <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
+    </div>
+  </nav>
+
+  <main class="container section" style="border-top:0;">
+    <a href="../news.html" class="paper__back">&larr; All news</a>
+
+    <article>
+      <header>
+        <div class="post-meta"><time datetime="2026-07-15">15 July 2026</time> &middot; News</div>
+        <h1 class="post-title">The Trident: three ways a claim fails, counted properly</h1>
+        <p class="post-dek">A pocket-sized diagnostic for single claims, a Lean 4 core that checks the count, and a framework that failed its own test and printed the repair.</p>
+      </header>
+
+      <div class="post-body">
+<p>Asserting a claim takes a breath; checking one can take an essay. The asymmetry is well studied &mdash; Sperber calls the checking side <em>epistemic vigilance</em> &mdash; and unexamined claims pile up wherever talk is cheap, which is everywhere. The proper machinery for evaluating arguments is heavy, and nobody deploys it mid-conversation. I wanted a test you could run on a single claim in a single sitting. That test became a paper, the paper acquired a machine-checked core, and somewhere along the way the framework failed its own test and had to be repaired in print.</p>
+
+<h2>The move</h2>
+
+<p>Every claim leans on more than it states. Toulmin called the unstated licence that carries you from evidence to conclusion the warrant; I call it the load-bearing assumption: the thing such that if it goes, the claim goes with it. The Trident fixes on that one assumption and asks what its defender does with it when challenged. Four postures cover the ground: hold it and accept wherever extending it leads; drop it; suspend it, declining to affirm or deny; or blur it, keeping the word while loosening the meaning until no counterexample can find purchase. (A fifth posture, defending the assumption with further grounds, opens the Agrippan regress; the tool brackets it deliberately.)</p>
+
+<p>Pressed, the postures produce three failures. Hold a warrant and extend it into something you are committed to rejecting, and you land in reductio-incoherence (F1). Drop or suspend a warrant the claim genuinely needed, and the claim loses its support (F2). Blur it, and the claim becomes compatible with every outcome, safe and empty (F3); the internet knows this manoeuvre as the motte-and-bailey. None of the forks is my invention (the reductio is Socratic, retraction costs are Hamblin's, immunising vagueness runs from Popper through Shackel); the contribution is the integration: one extracted assumption, three old failure modes, runnable in a sitting.</p>
+
+<h2>One worked example</h2>
+
+<p>Take the health-food staple: it is natural, so it is good for you. The load-bearing assumption is that naturalness transmits goodness. Hold: arsenic, botulism, and cholera are impeccably natural, so the extended warrant drags those endorsements along &mdash; Fork 1. Drop: nothing now connects natural to good; the claim hangs unsupported &mdash; Fork 2. Suspend (&ldquo;I'm not saying nature is <em>always</em> good, I'm just asking questions&rdquo;) does identical damage, since a withheld premise is as unavailable as a denied one. Blur: &ldquo;<em>truly</em> natural things are good&rdquo;, where &ldquo;truly natural&rdquo; quietly excludes each counterexample, until the claim forbids nothing &mdash; Fork 3.</p>
+
+<p>But failure is not compulsory. The claimant can bite the bullet, coherent if alarming at dinner parties. She can block the inference, denying for stated reasons that naturalness extends to pathogens. Or she can notice the claim never needed the warrant and discard it. Each is survival. A test that cannot be passed is not a test; it is a mood.</p>
+
+<h2>What the machine bought</h2>
+
+<p>The founding sketch claimed the three forks exhaust the available responses; the survivals above refute it, and I found out by running the tool on itself. The framework's central claim rests on an undefended assumption of its own &mdash; that the posture inventory is complete and every posture ends in a fork &mdash; and pressed on its own prongs it failed two of them, booking the coherent bullet-biter as a reductio failure and reclassifying every counterexample away. A diagnostic for underdefined claims that ships with an underdefined claim has no standing to issue verdicts, so the paper records the repair rather than hiding the wound.</p>
+
+<p>The repair is where formalisation earns its keep. Separate what a claimant does (the posture) from what the audit says (the verdict), make the contestable facts explicit, and three binary facts against four postures give thirty-two cases &mdash; enumerated outright in a Lean 4 core, no external libraries, every theorem closed by the <em>decide</em> tactic. Under two explicit scope conditions it proves the corrected claim: the failure outcomes are exactly the three forks, each reachable, nothing outside them, with survival a genuine further outcome. And three is explained rather than stipulated: dropping and suspending do identical damage to a claim's support, so four postures collapse to three failure cells.</p>
+
+<p>The proof settles a property of the verdict map, not of the world. It does not establish that the posture inventory is complete; that stays an assumed, load-bearing scope condition &mdash; the Trident's own Fork 3 turned inward. The adversarial pass surfaced one candidate for a missing move, refine: precisify the assumption and narrow its scope, the opposite of blurring. It recurses rather than terminates, so the trichotomy survives while the response space becomes a tree. There may be others. I cannot prove there are not, and saying so is the whole point.</p>
+
+<h2>Where this goes</h2>
+
+<p>The part I now find most interesting is not the trident but the genre. The paper audits itself: it runs the tool on its own warrant, fails, prints the repair, and ships a machine-checked ledger of what got proved and what stayed assumed &mdash; a self-auditing formal paper. Most papers have a load-bearing assumption somewhere in section 2 that nobody, least of all the author, has pressed; the tooling for pressing it is now cheap. Whether the format scales past tiny cores is open, but the direction feels right: fewer papers asserting their own soundness, more checking what they can and labelling what they cannot.</p>
+
+<p>Away from the seminar room the recipe is unchanged: find the assumption the claim cannot do without, press it, and watch which of the three doors the defence goes through.</p>
+
+<p class="post-foot"><em>The paper is &ldquo;The Trident: A Trilemmatic Diagnostic for Claim Analysis&rdquo; (Dissensus working paper DAI-2607); the Lean core and Python enumeration will be released alongside it.</em></p>
+      </div>
+    </article>
+  </main>
+
+<footer class="footer">
+<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+<div>
+<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+</div>
+<div style="max-width:560px;">
+<a href="../index.html">Home</a> &middot;
+<a href="../about.html">About</a> &middot;
+<a href="../research.html">Research</a> &middot;
+<a href="../news.html">News</a> &middot;
+<a href="../tools.html">Tools</a> &middot;
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+<a href="../manifesto.html">Manifesto</a> &middot;
+<a href="../charter.html">Charter</a> &middot;
+<a href="../reading.html">Reading</a> &middot;
+<a href="../press.html">Press</a> &middot;
+<a href="../subscribe.html">Subscribe</a> &middot;
+<a href="../privacy.html">Privacy</a> &middot;
+<a href="../terms.html">Terms</a> &middot;
+<a href="../feed.xml" title="RSS Feed">RSS</a>
+</div>
+</div>
+</footer>
+
+</body>
+</html>

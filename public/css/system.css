@@ -1,26 +1,42 @@
 /* ============================================================================
-   Dissensus / Farzulla shared design system  —  minimal modern tech
-   One source of truth. Copied into each site's css/ during the rehaul.
-   Dark-default + light toggle (data-theme="light" on <html>).
-   Signature: Inter prose, IBM Plex Mono labels, mono section indices,
-   thin burgundy rule — echoes the announcement-card language.
+   Dissensus / Farzulla shared design system  —  research-grade serif + sans
+   One source of truth. Light-default + dark toggle (data-theme="dark" on
+   <html>). Signature: Source Serif 4 display, Inter prose, IBM Plex Mono
+   labels, mono section indices, thin burgundy rule. Fonts are self-hosted
+   woff2 (latin subsets) in assets/fonts — no third-party font CDN.
    ============================================================================ */
+
+/* ---- self-hosted fonts ----------------------------------------------------- */
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/source-serif-4-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Serif 4"; font-style: italic; font-weight: 400; font-display: swap; src: url("../assets/fonts/source-serif-4-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/source-serif-4-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/source-serif-4-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: italic; font-weight: 400; font-display: swap; src: url("../assets/fonts/inter-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: italic; font-weight: 400; font-display: swap; src: url("../assets/fonts/ibm-plex-mono-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/ibm-plex-mono-latin-600-normal.woff2") format("woff2"); }
 
 /* ---- tokens ---------------------------------------------------------------- */
 :root {
-  /* dark (default) */
-  --bg:        #0b0b0d;
-  --surface:   #141418;
-  --surface-2: #1b1b20;
-  --line:      #26262c;
-  --text:      #ededed;
-  --text-dim:  #9a9a9a;
+  /* light (default) — warm cream, true burgundy carries the brand */
+  --bg:        #faf8f5;
+  --surface:   #ffffff;
+  --surface-2: #f4f1ec;
+  --line:      #e6e0d7;
+  --text:      #1c1917;
+  --text-dim:  #57504a;
   --burgundy:  #800020;   /* brand constant, both modes */
-  --accent:    #c8455f;   /* burgundy-bright, readable on dark */
-  --accent-dim: rgba(200, 69, 95, 0.14);
-  --shadow:    0 1px 0 rgba(255,255,255,0.02), 0 8px 30px rgba(0,0,0,0.35);
+  --accent:    #800020;   /* on light, the true burgundy is the accent */
+  --accent-dim: rgba(128, 0, 32, 0.07);
+  --shadow:    0 1px 0 rgba(0,0,0,0.02), 0 10px 30px rgba(60,40,45,0.08);
 
   /* type */
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --font-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --fs-hero: clamp(2.4rem, 6vw, 4.25rem);
@@ -41,21 +57,21 @@
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-[data-theme="light"] {
-  --bg:        #faf8f5;   /* warm off-white — matches the announcement card */
-  --surface:   #ffffff;
-  --surface-2: #f4f1ec;
-  --line:      #e6e1d9;
-  --text:      #1a1a1a;
-  --text-dim:  #5c554e;
-  --accent:    #800020;   /* on light, the true burgundy is the accent */
-  --accent-dim: rgba(128, 0, 32, 0.07);
-  --shadow:    0 1px 0 rgba(0,0,0,0.02), 0 10px 30px rgba(60,40,45,0.08);
+[data-theme="dark"] {
+  --bg:        #0b0b0d;
+  --surface:   #141418;
+  --surface-2: #1b1b20;
+  --line:      #26262c;
+  --text:      #ededed;
+  --text-dim:  #9a9a9a;
+  --accent:    #d15570;   /* burgundy-bright, ≥4.5:1 on the dark bg */
+  --accent-dim: rgba(209, 85, 112, 0.14);
+  --shadow:    0 1px 0 rgba(255,255,255,0.02), 0 8px 30px rgba(0,0,0,0.35);
 }
 
 /* ---- reset / base --------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
   background: var(--bg);
   color: var(--text);
@@ -65,7 +81,7 @@ body {
   -webkit-font-smoothing: antialiased;
   transition: background 0.4s var(--ease), color 0.4s var(--ease);
 }
-h1, h2, h3, h4 { line-height: 1.15; font-weight: 650; letter-spacing: -0.02em; }
+h1, h2, h3, h4 { font-family: var(--font-serif); line-height: 1.15; font-weight: 600; letter-spacing: -0.01em; }
 h1 { font-size: var(--fs-h1); }
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); font-weight: 600; }
@@ -107,10 +123,33 @@ img, svg { max-width: 100%; display: block; }
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
-.nav__brand { font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.12em; color: var(--text); text-transform: uppercase; }
+.nav__brand { font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.12em; color: var(--text); text-transform: uppercase; flex: none; }
 .nav__links { display: flex; gap: var(--sp-6); align-items: center; }
-.nav__links a { font-family: var(--font-mono); font-size: var(--fs-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); }
+.nav__links a { font-family: var(--font-mono); font-size: var(--fs-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); white-space: nowrap; }
 .nav__links a:hover { color: var(--accent); }
+
+/* hamburger — hidden on wide screens, becomes the menu control below 880px */
+.nav__burger {
+  display: none; flex-direction: column; justify-content: center; gap: 4px;
+  width: 38px; height: 34px; padding: 0 8px; background: transparent;
+  border: 1px solid var(--line); border-radius: var(--radius); cursor: pointer;
+}
+.nav__burger span { display: block; height: 2px; width: 100%; background: var(--text); transition: transform 0.2s var(--ease), opacity 0.2s var(--ease); }
+.nav__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* below 880px the row would compress into the brand — collapse to a dropdown */
+@media (max-width: 880px) {
+  .nav { flex-wrap: wrap; }
+  .nav__burger { display: flex; }
+  .nav__links {
+    display: none; flex-direction: column; align-items: flex-start;
+    width: 100%; gap: var(--sp-4); padding: var(--sp-4) 0 var(--sp-2);
+    border-top: 1px solid var(--line); margin-top: var(--sp-4);
+  }
+  .nav__links.is-open { display: flex; }
+}
 
 /* theme toggle */
 .toggle {
@@ -164,8 +203,6 @@ img, svg { max-width: 100%; display: block; }
 
 /* ---- responsive ----------------------------------------------------------- */
 @media (max-width: 720px) {
-  .nav__links { gap: var(--sp-4); }
-  .nav__links a.hide-sm { display: none; }
   .section { padding-block: var(--sp-16); }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

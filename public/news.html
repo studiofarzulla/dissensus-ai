@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf8f5">
+  <meta name="description" content="News from Dissensus: papers, tools, and the occasional structural change at the lab.">
+  <link rel="canonical" href="https://dissensus.ai/news.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="News &mdash; Dissensus">
+  <meta property="og:description" content="News from Dissensus: papers, tools, and the occasional structural change at the lab.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dissensus.ai/news.html">
+  <meta property="og:image" content="https://dissensus.ai/og-image.png">
+  <meta property="og:site_name" content="Dissensus">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="News &mdash; Dissensus">
+  <meta name="twitter:description" content="News from Dissensus: papers, tools, and the occasional structural change at the lab.">
+  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
+
+  <title>News &mdash; Dissensus</title>
+
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/theme.js"></script>
+  <script src="js/motion.js" defer></script>
+
+  <link rel="alternate" type="application/rss+xml" title="Dissensus RSS Feed" href="feed.xml">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
+</head>
+<body>
+
+  <div id="progress"></div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
+    <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="news.html" class="is-active">News</a>
+      <a href="tools.html">Tools</a>
+      <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="container hero" style="padding-block: clamp(3rem, 8vw, 6rem);">
+    <span class="kicker">News</span>
+    <h1>From the lab</h1>
+    <p class="lead">Papers, tools, and the occasional structural change. Longer arguments live under <a href="research.html">Research</a>; this is the record of what shipped.</p>
+  </header>
+
+  <!-- Posts -->
+  <section class="section container" style="border-top:0; padding-top:0;">
+    <div style="max-width: 720px;">
+      <a class="news-item" href="news/incorporation.html" data-reveal>
+        <span class="news-item__date"><time datetime="2026-07-17">17 July 2026</time></span>
+        <h3>Dissensus Ltd: the lab has a legal shape</h3>
+        <p>Dissensus is incorporated as a private limited company in England and Wales; the research stays open.</p>
+      </a>
+      <a class="news-item" href="news/trident.html" data-reveal>
+        <span class="news-item__date"><time datetime="2026-07-15">15 July 2026</time></span>
+        <h3>The Trident: three ways a claim fails, counted properly</h3>
+        <p>A pocket-sized diagnostic for single claims, a Lean 4 core that checks the count, and a framework that failed its own test and printed the repair.</p>
+      </a>
+      <a class="news-item" href="news/temporal-bitmap.html" data-reveal>
+        <span class="news-item__date"><time datetime="2026-07-15">15 July 2026</time></span>
+        <h3>The Born Rule, Demodulated</h3>
+        <p>Notes on a speculative preprint: measurement as finite-window demodulation plus threshold detection, and the square in |ψ|² as the signature of an energy detector.</p>
+      </a>
+    </div>
+    <p class="research-note" style="margin-top:2.4rem;">Updates also go out by <a href="feed.xml">RSS</a> and the <a href="subscribe.html">newsletter</a>.</p>
+  </section>
+
+<footer class="footer">
+<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+<div>
+<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+</div>
+<div style="max-width:560px;">
+<a href="index.html">Home</a> &middot;
+<a href="about.html">About</a> &middot;
+<a href="research.html">Research</a> &middot;
+<a href="news.html">News</a> &middot;
+<a href="tools.html">Tools</a> &middot;
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+<a href="manifesto.html">Manifesto</a> &middot;
+<a href="charter.html">Charter</a> &middot;
+<a href="reading.html">Reading</a> &middot;
+<a href="press.html">Press</a> &middot;
+<a href="subscribe.html">Subscribe</a> &middot;
+<a href="privacy.html">Privacy</a> &middot;
+<a href="terms.html">Terms</a> &middot;
+<a href="feed.xml" title="RSS Feed">RSS</a>
+</div>
+</div>
+</footer>
+
+</body>
+</html>

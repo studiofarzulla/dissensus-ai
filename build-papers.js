@@ -65,23 +65,26 @@ ${doiLine}  url = {https://dissensus.ai/papers/${paper.id}.html}
 
 // ─── Nav HTML (matches existing pages) ───────────────────────────────────────
 
-function getNavHtml(activeLink) {
+function getNavHtml(activeLink, prefix = '../') {
+  const item = (href, label, key) =>
+    `      <a href="${prefix}${href}"${activeLink === key ? ' class="is-active"' : ''}>${label}</a>`;
   return `  <nav class="nav">
-    <a href="../index.html" class="nav__brand"><img src="../assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="../assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
-    <div class="nav__links">
-      <a href="../research.html"${activeLink === 'research' ? ' class="is-active"' : ''}>Research</a>
-      <a href="../tools.html"${activeLink === 'tools' ? ' class="hide-sm is-active"' : ' class="hide-sm"'}>Tools</a>
-      <a href="../about.html" class="hide-sm">About</a>
-      <a href="../services.html" class="hide-sm">Services</a>
-      <a href="../collaborate.html" class="hide-sm">Collaborate</a>
-      <a href="../partners.html" class="hide-sm">Partners</a>
-      <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
+    <a href="${prefix}index.html" class="nav__brand"><img src="${prefix}assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="${prefix}assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
+    <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+${item('index.html', 'Home', 'home')}
+${item('about.html', 'About', 'about')}
+${item('research.html', 'Research', 'research')}
+${item('news.html', 'News', 'news')}
+${item('tools.html', 'Tools', 'tools')}
+      <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>`;
 }
 
-function getFooterHtml() {
+function getFooterHtml(prefix = '../') {
+  const p = prefix;
   return `<footer class="footer">
 <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
 <div>
@@ -89,23 +92,21 @@ function getFooterHtml() {
 <p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
 </div>
 <div style="max-width:560px;">
-<a href="../index.html">Home</a> &middot;
-<a href="../research.html">Research</a> &middot;
-<a href="../tools.html">Tools</a> &middot;
-<a href="../services.html">Services</a> &middot;
-<a href="../about.html">About</a> &middot;
-<a href="../partners.html">Partners</a> &middot;
-<a href="../collaborate.html">Collaborate</a> &middot;
+<a href="${p}index.html">Home</a> &middot;
+<a href="${p}about.html">About</a> &middot;
+<a href="${p}research.html">Research</a> &middot;
+<a href="${p}news.html">News</a> &middot;
+<a href="${p}tools.html">Tools</a> &middot;
 <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
 <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-<a href="../manifesto.html">Manifesto</a> &middot;
-<a href="../charter.html">Charter</a> &middot;
-<a href="../reading.html">Reading</a> &middot;
-<a href="../press.html">Press</a> &middot;
-<a href="../subscribe.html">Subscribe</a> &middot;
-<a href="../privacy.html">Privacy</a> &middot;
-<a href="../terms.html">Terms</a> &middot;
-<a href="../feed.xml" title="RSS Feed">RSS</a>
+<a href="${p}manifesto.html">Manifesto</a> &middot;
+<a href="${p}charter.html">Charter</a> &middot;
+<a href="${p}reading.html">Reading</a> &middot;
+<a href="${p}press.html">Press</a> &middot;
+<a href="${p}subscribe.html">Subscribe</a> &middot;
+<a href="${p}privacy.html">Privacy</a> &middot;
+<a href="${p}terms.html">Terms</a> &middot;
+<a href="${p}feed.xml" title="RSS Feed">RSS</a>
 </div>
 </div>
 </footer>`;
@@ -170,7 +171,7 @@ function generatePaperPage(paper) {
   <meta name="description" content="${escapeHtml(paper.abstract.substring(0, 160))}...">
   <meta name="author" content="${escapeHtml(authors)}">
   <meta name="keywords" content="${escapeHtml(tags)}">
-  <meta name="theme-color" content="#050505">
+  <meta name="theme-color" content="#faf8f5">
   <meta name="robots" content="index, follow">
 
   <!-- Highwire Press (Google Scholar) -->
@@ -241,9 +242,6 @@ ${reportMeta}
 
   <title>${escapeHtml(paper.title)} — Dissensus</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/system.css">
   <link rel="stylesheet" href="../css/site.css">
   <script src="../js/theme.js"></script>
@@ -404,49 +402,11 @@ function updateResearchPage() {
 // ─── Generate Tools / Packages page (data-driven from tools.json) ─────────────
 
 function toolsNavHtml() {
-  return `  <nav class="nav">
-    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
-    <div class="nav__links">
-      <a href="research.html">Research</a>
-      <a href="tools.html" class="hide-sm is-active">Tools</a>
-      <a href="about.html" class="hide-sm">About</a>
-      <a href="services.html" class="hide-sm">Services</a>
-      <a href="collaborate.html" class="hide-sm">Collaborate</a>
-      <a href="partners.html" class="hide-sm">Partners</a>
-      <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
-      <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
-    </div>
-  </nav>`;
+  return getNavHtml('tools', '');
 }
 
 function toolsFooterHtml() {
-  return `<footer class="footer">
-<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
-<div>
-<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
-<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
-</div>
-<div style="max-width:560px;">
-<a href="index.html">Home</a> &middot;
-<a href="research.html">Research</a> &middot;
-<a href="tools.html">Tools</a> &middot;
-<a href="services.html">Services</a> &middot;
-<a href="about.html">About</a> &middot;
-<a href="partners.html">Partners</a> &middot;
-<a href="collaborate.html">Collaborate</a> &middot;
-<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-<a href="manifesto.html">Manifesto</a> &middot;
-<a href="charter.html">Charter</a> &middot;
-<a href="reading.html">Reading</a> &middot;
-<a href="press.html">Press</a> &middot;
-<a href="subscribe.html">Subscribe</a> &middot;
-<a href="privacy.html">Privacy</a> &middot;
-<a href="terms.html">Terms</a> &middot;
-<a href="feed.xml" title="RSS Feed">RSS</a>
-</div>
-</div>
-</footer>`;
+  return getFooterHtml('');
 }
 
 function toolActionButtons(tool) {
@@ -569,9 +529,7 @@ ${items.map(generateToolCard).join('\n\n')}
   <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
 
   <link rel="canonical" href="https://dissensus.ai/tools.html">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#faf8f5">
   <link rel="stylesheet" href="css/system.css">
   <link rel="stylesheet" href="css/site.css">
   <script src="js/theme.js"></script>
@@ -618,15 +576,13 @@ ${toolsFooterHtml()}
 function generateSitemap() {
   const today = new Date().toISOString().split('T')[0];
 
-  // Static pages
+  // Static pages (services/partners/collaborate are redirect stubs — omitted)
   const staticPages = [
     { loc: 'https://dissensus.ai/', priority: '1.0', changefreq: 'weekly' },
     { loc: 'https://dissensus.ai/research.html', priority: '0.8', changefreq: 'weekly' },
+    { loc: 'https://dissensus.ai/news.html', priority: '0.8', changefreq: 'weekly' },
     { loc: 'https://dissensus.ai/tools.html', priority: '0.7', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/about.html', priority: '0.7', changefreq: 'monthly' },
-    { loc: 'https://dissensus.ai/services.html', priority: '0.7', changefreq: 'monthly' },
-    { loc: 'https://dissensus.ai/partners.html', priority: '0.8', changefreq: 'monthly' },
-    { loc: 'https://dissensus.ai/collaborate.html', priority: '0.7', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/manifesto.html', priority: '0.6', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/charter.html', priority: '0.5', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/reading.html', priority: '0.5', changefreq: 'monthly' },
@@ -649,6 +605,20 @@ function generateSitemap() {
   </url>
 `;
   });
+
+  // News posts — everything in public/news/ except _drafts
+  const newsDir = path.join('public', 'news');
+  if (fs.existsSync(newsDir)) {
+    fs.readdirSync(newsDir).filter(f => f.endsWith('.html')).sort().forEach(f => {
+      sitemap += `  <url>
+    <loc>https://dissensus.ai/news/${f}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+`;
+    });
+  }
 
   // Paper pages — sorted by date, peer-review gets higher priority
   const sorted = [...papers].sort((a, b) => new Date(b.date) - new Date(a.date));

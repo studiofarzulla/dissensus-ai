@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf8f5">
   <meta name="description" content="The team, mission, and company behind Dissensus — an independent UK research lab investigating adversarial systems and friction dynamics.">
   <link rel="canonical" href="https://dissensus.ai/about.html">
 
@@ -24,9 +25,6 @@
 
   <title>About — Dissensus</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/system.css">
   <link rel="stylesheet" href="css/site.css">
   <link rel="stylesheet" href="css/index.css">
@@ -44,14 +42,14 @@
 
   <nav class="nav">
     <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
-    <div class="nav__links">
+    <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="is-active">About</a>
       <a href="research.html">Research</a>
-      <a href="tools.html" class="hide-sm">Tools</a>
-      <a href="about.html" class="hide-sm is-active">About</a>
-      <a href="services.html" class="hide-sm">Services</a>
-      <a href="collaborate.html" class="hide-sm">Collaborate</a>
-      <a href="partners.html" class="hide-sm">Partners</a>
-      <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <a href="news.html">News</a>
+      <a href="tools.html">Tools</a>
+      <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
@@ -71,8 +69,8 @@
     <section class="block">
       <div class="container">
         <div class="kicker" data-reveal><b>01</b> &middot; Mission</div>
-        <h2 data-reveal>Why the lab exists</h2>
-        <p class="body-text" data-reveal>Every system that delegates &mdash; markets, institutions, model deployments &mdash; pays a coordination cost. We think that cost has structure: it rises with what is at stake and with how badly preferences are misread, and it falls with how well interests align. Making that structure formal, measurable, and testable across domains is the entire research programme.</p>
+        <h2 data-reveal>What the lab is for</h2>
+        <p class="body-text" data-reveal>Dissensus is an independent UK research lab studying adversarial systems: the stability, alignment, and friction dynamics of systems in which competing interests generate structural conflict. The thesis is short. Wherever agents act together, action requires delegation, delegation produces friction, and friction has measurable stakes. We formalise the mechanics of friction, not to eliminate it (friction is the cost of existence in an adversarial environment) but to measure it, across markets, institutions, minds, and machines. The lab is independent by construction: no institutional affiliation, no external ownership, no funder with editorial reach. Everything the programme produces is open: papers, code, datasets, and tools, archived with DOIs so the work can be checked rather than taken on trust.</p>
 
         <div class="friction-eq" data-reveal="scale">
           <div class="eq">
@@ -96,10 +94,42 @@
       </div>
     </section>
 
-    <!-- 02 · Team -->
+    <!-- 02 · Commitments -->
     <section class="block">
       <div class="container">
-        <div class="kicker" data-reveal><b>02</b> &middot; Team</div>
+        <div class="kicker" data-reveal><b>02</b> &middot; Commitments</div>
+        <h2 data-reveal>Rules we hold ourselves to</h2>
+        <p class="body-text" data-reveal>These are written down in the <a href="charter.html">charter</a> &mdash; in public, where they can embarrass us if we break them.</p>
+
+        <div class="stats">
+          <div class="stat" data-reveal>
+            <span class="stat__k">Open access by default</span>
+            <div class="stat__v">Papers, datasets, and software are published with DOIs: CC-BY for text, MIT or Apache for code. If the programme produced it, you can read it, run it, and cite it.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">Every number traces to code</span>
+            <div class="stat__v">Reported results trace to committed code with fixed seeds, and datasets and pipelines are archived so anyone can rerun what we publish.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">Adversarial review before release</span>
+            <div class="stat__v">We attack our own work before anyone else gets the chance, and invite collaborators to break whatever survives. The goal is not to be right; it is to be less wrong, faster.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">Independent and uncaptured</span>
+            <div class="stat__v">Nobody outside the lab owns it, employs it, or edits it. Commercial work and programme funding are kept behind separate doors, and neither buys a result.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">Honest nulls get published</span>
+            <div class="stat__v">A null result is reported as a null, under the same inference standards as a positive one. The programme is staked on claims that can lose, and when one loses we say so.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · Team -->
+    <section class="block">
+      <div class="container">
+        <div class="kicker" data-reveal><b>03</b> &middot; Team</div>
         <h2 data-reveal>Who does the work</h2>
 
         <div class="person" data-reveal style="margin-top: 2.4rem;">
@@ -142,10 +172,10 @@
       </div>
     </section>
 
-    <!-- 03 · Research domains -->
+    <!-- 04 · Research domains -->
     <section class="block">
       <div class="container">
-        <div class="kicker" data-reveal><b>03</b> &middot; Domains</div>
+        <div class="kicker" data-reveal><b>04</b> &middot; Domains</div>
         <h2 data-reveal>Four fronts, one thesis</h2>
         <p class="body-text" data-reveal>Each domain is a different place to catch the same phenomenon in the wild. Publications in all four are listed under <a href="research.html">Research</a>.</p>
 
@@ -170,29 +200,49 @@
       </div>
     </section>
 
-    <!-- 04 · The company -->
+    <!-- 05 · Services (condensed from the retired services.html) -->
+    <section class="block" id="services">
+      <div class="container">
+        <div class="kicker" data-reveal><b>05</b> &middot; Services</div>
+        <h2 data-reveal>Applied work</h2>
+        <p class="body-text" data-reveal>The applied work exists because the research needed it first: the estimators are published, the proofs are machine-checked, and the reference index runs daily. Organisations engage Dissensus for friction analysis &mdash; mapping where competing interests generate structural conflict in a market, protocol, or organisation, and decomposing it into alignment, stake, and entropy &mdash; for bespoke ASRI-style systemic-risk indices, formal verification in Lean 4 with assumptions tracked in an explicit ledger, adversarial evaluation of multi-agent and agentic AI systems, and GARCH-family econometric and volatility modelling, including the open-source <a href="tools.html">GJR-GARCH-X</a> estimator we maintain.</p>
+        <p class="body-text" data-reveal style="margin-top:1.1rem;">Engagements take three shapes: advisory (a sceptical second opinion, with the mathematics attached), scoped research with a defined written deliverable, and custom tooling delivered with source, tests, and documentation. The lab is small and takes a few engagements at a time, so the research does not stall. Services is commercial and deliberately separate from partnership: a client owns the deliverable; funding the programme produces public goods. Write to <a href="mailto:research@dissensus.ai">research@dissensus.ai</a> with the problem as you currently understand it. If we are not the right lab, we will say so.</p>
+      </div>
+    </section>
+
+    <!-- 06 · Partners (condensed from the retired partners.html) -->
+    <section class="block" id="partners">
+      <div class="container">
+        <div class="kicker" data-reveal><b>06</b> &middot; Partners</div>
+        <h2 data-reveal>Funding the programme</h2>
+        <p class="body-text" data-reveal>Funding accelerates a programme that already produces checkable artefacts: theorems verified in Lean 4, the ASRI systemic-risk index running daily at <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">asri.dissensus.ai</a>, and experiments that rerun from seed. The work exists; support makes more of it. The bottlenecks are concrete &mdash; compute for multi-agent and privacy experiments at proper scale, research-assistant time to carry results through to publication, and the unglamorous distance between working prototype and replicable finding. What partnership funds stays public: archived datasets, machine-checked Lean formalisations, and the live index &mdash; open by default.</p>
+        <p class="body-text" data-reveal style="margin-top:1.1rem;">There are three ways in. Grants and philanthropy fund the programme at project or programme level, with milestones agreed up front and outputs open by default. Academic partnership runs under <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a>: joint proposals, co-authorship, shared infrastructure, visiting arrangements. Commercial problems belong on the <a href="#services">Services</a> side. One email to <a href="mailto:research@dissensus.ai">research@dissensus.ai</a> is enough.</p>
+      </div>
+    </section>
+
+    <!-- 07 · The company -->
     <section class="block">
       <div class="container">
-        <div class="kicker" data-reveal><b>04</b> &middot; The company</div>
+        <div class="kicker" data-reveal><b>07</b> &middot; The company</div>
         <h2 data-reveal>Independent by construction</h2>
         <div class="card" data-reveal="scale">
           <div class="card-eyebrow">Dissensus Ltd</div>
           <h3>The legal shape of the lab</h3>
-          <p>Dissensus is the research brand of Dissensus Ltd, a company registered in England and Wales (no. 17309927). The independence is the point: no institutional affiliation, no external ownership, no funder with editorial reach. The governance rules we hold ourselves to are written down in the <a href="charter.html">charter</a> &mdash; in public, where they can embarrass us if we break them.</p>
+          <p>Dissensus is the research brand of Dissensus Ltd, a company registered in England and Wales (no. 17309927). The independence is the point: the company answers to no institution, no outside owner, and no funder. The governance rules we hold ourselves to are written down in the <a href="charter.html">charter</a> &mdash; in public, where they can embarrass us if we break them.</p>
           <div class="card-foot"><span class="dot"></span> Registered in England &amp; Wales &middot; <a href="charter.html">Read the charter &rarr;</a></div>
         </div>
       </div>
     </section>
 
-    <!-- 05 · Contact -->
+    <!-- 08 · Contact -->
     <section class="block">
       <div class="container">
-        <div class="kicker" data-reveal><b>05</b> &middot; Contact</div>
+        <div class="kicker" data-reveal><b>08</b> &middot; Contact</div>
         <h2 data-reveal>Get in touch</h2>
-        <p class="body-text" data-reveal>We respond to substantive messages &mdash; and &ldquo;substantive&rdquo; is doing real work in that sentence. For funding and collaboration, <a href="partners.html">Partners</a> is the fuller picture; for commercial engagements, see <a href="services.html">Services</a>.</p>
+        <p class="body-text" data-reveal>We respond to substantive messages &mdash; and &ldquo;substantive&rdquo; is doing real work in that sentence. For funding, <a href="#partners">Partners</a> above is the fuller picture; for commercial engagements, see <a href="#services">Services</a>; to collaborate on the research, start at <a href="index.html#contribute">Contribute</a>.</p>
         <div class="cta-row" data-reveal>
           <a class="btn btn-primary" href="mailto:research@dissensus.ai">research@dissensus.ai &rarr;</a>
-          <a class="btn" href="collaborate.html">Collaboration proposal</a>
+          <a class="btn" href="index.html#proposal">Collaboration proposal</a>
         </div>
       </div>
     </section>
@@ -208,12 +258,10 @@
 </div>
 <div style="max-width:560px;">
 <a href="index.html">Home</a> &middot;
-<a href="research.html">Research</a> &middot;
-<a href="tools.html">Tools</a> &middot;
-<a href="services.html">Services</a> &middot;
 <a href="about.html">About</a> &middot;
-<a href="partners.html">Partners</a> &middot;
-<a href="collaborate.html">Collaborate</a> &middot;
+<a href="research.html">Research</a> &middot;
+<a href="news.html">News</a> &middot;
+<a href="tools.html">Tools</a> &middot;
 <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
 <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
 <a href="manifesto.html">Manifesto</a> &middot;

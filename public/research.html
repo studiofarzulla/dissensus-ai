@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050505">
+  <meta name="theme-color" content="#faf8f5">
   <meta name="description" content="Dissensus research archive: 20 publications across consent mechanics, market microstructure, process philosophy, and computational cognition.">
   <link rel="canonical" href="https://dissensus.ai/research.html">
 
@@ -22,9 +22,6 @@
 
   <title>Research — Dissensus</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/system.css">
   <link rel="stylesheet" href="css/site.css">
   <script src="js/theme.js"></script>
@@ -42,14 +39,14 @@
   <div id="progress"></div>
   <nav class="nav">
     <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
-    <div class="nav__links">
+    <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
       <a href="research.html" class="is-active">Research</a>
-      <a href="tools.html" class="hide-sm">Tools</a>
-      <a href="about.html" class="hide-sm">About</a>
-      <a href="services.html" class="hide-sm">Services</a>
-      <a href="collaborate.html" class="hide-sm">Collaborate</a>
-      <a href="partners.html" class="hide-sm">Partners</a>
-      <a href="https://asri.dissensus.ai" class="hide-sm" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <a href="news.html">News</a>
+      <a href="tools.html">Tools</a>
+      <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
   </nav>
@@ -58,57 +55,44 @@
   <header class="container hero" style="padding-block: clamp(3rem, 8vw, 6rem);">
     <span class="kicker">Archive</span>
     <h1>Research &amp; publications</h1>
-    <p class="lead">20 publications across six research programmes. Each paper page carries Google Scholar metadata, an abstract, citation details, and a PDF download. Papers are canonically hosted here.</p>
+    <p class="lead">20 publications across five open research agendas. Each paper page carries Google Scholar metadata, an abstract, citation details, and a PDF download. Papers are canonically hosted here.</p>
   </header>
 
-  <!-- Research programmes -->
-  <section class="section container">
-    <span class="index">01 &middot; Programmes</span>
-    <h2>Research programmes</h2>
+  <!-- Open research agendas -->
+  <section class="section container" id="agenda">
+    <span class="index">01 &middot; The agenda</span>
+    <h2>Open research agendas</h2>
     <div class="callout">
       <span class="callout__meta">Current programme</span>
       <h3>ASCRI: Adversarial Systems &amp; Complexity Research Initiative</h3>
       <p>A formal programme investigating sufficiently complex dynamic networks of agents where equilibria cannot be reached under formalised friction constraints. These systems function only through a reduction of friction, and are thus adversarial against themselves, yet persist through dissensus.</p>
       <span class="status-line"><span class="dot"></span> Active &middot; <a href="https://systems.ac" target="_blank" rel="noopener">systems.ac &rarr;</a></span>
     </div>
-    <div class="grid">
-      <article class="card">
-        <span class="card__index">I</span>
-        <h3>Consent Mechanics</h3>
-        <p>The formal theory of consent-holding in multi-agent systems. When can delegation be legitimate, and how do we measure consent deficits?</p>
-        <div class="card__links">
-          <a href="papers/consent-to-consideration.html">From Consent to Consideration</a>
-          <a href="papers/stakes-without-voice.html">Stakes Without Voice</a>
-        </div>
-      </article>
-      <article class="card">
-        <span class="card__index">II</span>
-        <h3>Machine Morality</h3>
-        <p>Substrate-independent criteria for moral status. If an AI system meets functional criteria for consent-giving, what follows?</p>
-        <div class="card__links">
-          <a href="papers/substrate-independent-friendship.html">Relational Functionalism</a>
-          <a href="papers/identity-thesis.html">Identity is Irreducibly Relational</a>
-        </div>
-      </article>
-      <article class="card">
-        <span class="card__index">III</span>
-        <h3>Economic Pharmakon</h3>
-        <p>Derivatives as simultaneously remedy and poison. Market microstructure as friction measurement.</p>
-        <div class="card__links">
-          <a href="papers/hedging-paradox.html">Legitimate Extraction</a>
-          <a href="papers/cbdc-privacy.html">Privacy-Preserving Financial Surveillance</a>
-        </div>
-      </article>
-      <article class="card">
-        <span class="card__index">IV</span>
-        <h3>Crypto Microstructure</h3>
-        <p>Empirical validation of friction dynamics. Why do infrastructure failures move markets differently from regulatory announcements?</p>
-        <div class="card__links">
-          <a href="papers/market-reaction-asymmetry.html">Infrastructure vs Regulatory Shocks</a>
-          <a href="papers/asri.html">ASRI: Aggregated Systemic Risk Index</a>
-        </div>
-      </article>
-    </div>
+
+    <article class="agenda-entry" data-reveal>
+      <h3>Axiomatic Consent</h3>
+      <p>Axiomatic consent mechanics and tripartite friction topology in substrate-agnostic replication-optimising multi-agent networks: toward a phenomenologically contained metatheoretic foundation for pre-strategic delegation dynamics. The Axiom of Consent (<a href="https://arxiv.org/abs/2601.06692">arXiv:2601.06692</a>) formalises the friction delegation produces before any game is played, with the central results machine-checked in Lean 4. Or simply: <b>coordination has overhead.</b></p>
+    </article>
+
+    <article class="agenda-entry" data-reveal>
+      <h3>Multi-Agent Coordination &amp; AI Governance</h3>
+      <p>We test the consent&ndash;friction functional inside multi-agent reinforcement learning, where rising stake bounds how well independent agents can coordinate. A 3,750-run factorial built to break the framework did exactly that: the predicted functional form failed, a corrected monotone law survived, and the dataset and post-mortem are <a href="https://doi.org/10.5281/zenodo.20636467">public</a>. Work in draft asks how institutions should govern the first market crisis in which AI-driven systems are load-bearing.</p>
+    </article>
+
+    <article class="agenda-entry" data-reveal>
+      <h3>Systemic Risk Measurement</h3>
+      <p>ASRI, the Aggregated Systemic Risk Index, is a live composite index of cryptocurrency-market systemic risk, updated daily at <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">asri.dissensus.ai</a>; the paper is under review. Alongside it we build dependence-robust inference for event studies, released as open Python packages. If your headline number would not survive clustering, we would like a word.</p>
+    </article>
+
+    <article class="agenda-entry" data-reveal>
+      <h3>Philosophy of AI</h3>
+      <p>What, if anything, is owed to machine systems, and what our relationships with them are made of. Current work argues for AI political standing, and for the possibility of machine friendship, from consent and relation rather than inner experience &mdash; with papers under review at <i>AI and Ethics</i> and <i>Ethics and Information Technology</i>. It is the same friction question asked about minds instead of markets.</p>
+    </article>
+
+    <article class="agenda-entry" data-reveal>
+      <h3>Consensual Sovereignty</h3>
+      <p>The political-economy face of the programme: quantifying the legitimacy of institutions by the consent they can actually demonstrate, rather than the consent they assume. The framework paper is public as a preprint, and the strand is open to empirical collaborators with governance or survey data.</p>
+    </article>
   </section>
 
   <!-- Notation reference -->
@@ -187,10 +171,10 @@
           <span class="pill pill--preprint">Preprint</span>
         </a>
         <a href="papers/whitepaper-factor-analysis.html" class="card">
-          <span class="card__meta">arXiv: 2601.20336</span>
+          <span class="card__meta">Under review &middot; Financial Innovation (Springer)</span>
           <h3>Do Whitepaper Claims Predict Market Behavior? Evidence from Cryptocurrency Factor Analysis</h3>
           <p>NLP zero-shot classification &middot; CP tensor decomposition &middot; Tucker congruence</p>
-          <span class="pill pill--preprint">Preprint</span>
+          <span class="pill pill--review">Under review</span>
         </a>
         <a href="papers/alpha-asymmetry-fx.html" class="card">
           <span class="card__meta">Preprint</span>
@@ -299,6 +283,10 @@
 
 
 
+
+
+
+
     <p class="research-note">Full PDFs and Google Scholar metadata on each paper page. Also indexed at <a href="https://farzulla.org" target="_blank" rel="noopener">farzulla.org</a>.</p>
   </section>
 
@@ -325,7 +313,7 @@
       <article class="card"><span class="card__meta">Early 2025</span><h3>Empirical validation</h3><p>Market microstructure studies probe friction dynamics in cryptocurrency markets.</p></article>
       <article class="card"><span class="card__meta">Mid 2025</span><h3>Theoretical extension</h3><p>The Replicator-Optimization Mechanism unifies biological and computational substrates.</p></article>
       <article class="card"><span class="card__meta">Late 2025</span><h3>Journal submissions</h3><p>Multiple papers under peer review at Springer journals.</p></article>
-      <article class="card"><span class="card__meta">2026</span><h3>Current phase</h3><p>arXiv presence established. UK incorporation complete. Expanding research partnerships.</p></article>
+      <article class="card"><span class="card__meta">2026</span><h3>Current phase</h3><p>arXiv presence established. UK incorporation complete. Research partnerships open.</p></article>
     </div>
   </section>
 
@@ -338,12 +326,10 @@
 </div>
 <div style="max-width:560px;">
 <a href="index.html">Home</a> &middot;
-<a href="research.html">Research</a> &middot;
-<a href="tools.html">Tools</a> &middot;
-<a href="services.html">Services</a> &middot;
 <a href="about.html">About</a> &middot;
-<a href="partners.html">Partners</a> &middot;
-<a href="collaborate.html">Collaborate</a> &middot;
+<a href="research.html">Research</a> &middot;
+<a href="news.html">News</a> &middot;
+<a href="tools.html">Tools</a> &middot;
 <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
 <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
 <a href="manifesto.html">Manifesto</a> &middot;

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf8f5">
+  <meta name="description" content="Notes on a speculative preprint: measurement as finite-window demodulation plus threshold detection, and the square in |ψ|² as the signature of an energy detector.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dissensus.ai/news/temporal-bitmap.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Dissensus">
+  <meta property="og:title" content="The Born Rule, Demodulated">
+  <meta property="og:description" content="Notes on a speculative preprint: measurement as finite-window demodulation plus threshold detection, and the square in |ψ|² as the signature of an energy detector.">
+  <meta property="og:url" content="https://dissensus.ai/news/temporal-bitmap.html">
+  <meta property="og:image" content="https://dissensus.ai/og-image.png">
+  <meta property="article:published_time" content="2026-07-15">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Born Rule, Demodulated">
+  <meta name="twitter:description" content="Notes on a speculative preprint: measurement as finite-window demodulation plus threshold detection, and the square in |ψ|² as the signature of an energy detector.">
+  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
+
+  <title>The Born Rule, Demodulated &mdash; Dissensus</title>
+
+  <link rel="stylesheet" href="../css/system.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <script src="../js/theme.js"></script>
+  <script src="../js/motion.js" defer></script>
+
+  <link rel="alternate" type="application/rss+xml" title="Dissensus RSS Feed" href="../feed.xml">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
+</head>
+<body>
+
+  <div id="progress"></div>
+
+  <nav class="nav">
+    <a href="../index.html" class="nav__brand"><img src="../assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="../assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
+    <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+    <div class="nav__links" id="nav-menu">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../research.html">Research</a>
+      <a href="../news.html" class="is-active">News</a>
+      <a href="../tools.html">Tools</a>
+      <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI &#8599;</a>
+      <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
+    </div>
+  </nav>
+
+  <main class="container section" style="border-top:0;">
+    <a href="../news.html" class="paper__back">&larr; All news</a>
+
+    <article>
+      <header>
+        <div class="post-meta"><time datetime="2026-07-15">15 July 2026</time> &middot; News</div>
+        <h1 class="post-title">The Born Rule, Demodulated</h1>
+        <p class="post-dek">Notes on a speculative preprint: measurement as finite-window demodulation plus threshold detection, and the square in |ψ|² as the signature of an energy detector.</p>
+      </header>
+
+      <div class="post-body">
+<p>Quantum mechanics connects its mathematics to experiment through one rule, and nobody agrees on why it works. The Born rule says the probability of detecting a particle somewhere is the squared magnitude of its wave function, |&psi;|&sup2;. Not |&psi;|, not |&psi;|&sup3; &mdash; squared, specifically &mdash; and for a century it has been introduced in textbooks as a postulate, which is the polite academic word for &ldquo;we checked, it works, please stop asking&rdquo;.</p>
+
+<p>There are derivations, of a sort. Gleason proved in 1957 that within the Hilbert-space machinery the squared rule is the only consistent probability assignment, which answers the question the way &ldquo;because those are the rules of chess&rdquo; answers why bishops move diagonally. Everettians and QBists work subtler versions, still inside the formalism. None offers a mechanism: a physical story about fields and detectors at the end of which the square appears because of how measurement physically works.</p>
+
+<p>In February I put out a paper proposing such a story: speculative, on Zenodo, not peer-reviewed, by a finance researcher rather than a physicist. But the core idea fits in a news post, and once seen it is hard to unsee.</p>
+
+<h2>A radio problem</h2>
+
+<p>Suppose a particle is not a small object with a wave attached but a pattern in a field oscillating extremely fast &mdash; for an electron, of order 10&sup2;&#8304; Hz &mdash; so the wave function is not the oscillation but its envelope, the slow outline on a carrier too fast to follow. That is AM radio: a megahertz carrier, music as slow amplitude modulation, a receiver that never reproduces the carrier but demodulates it &mdash; mixes down, averages over many cycles, keeps the envelope. And whether a faint station comes through at all is a threshold question about the envelope's power, amplitude squared, poking above the noise floor.</p>
+
+<p>The paper takes the analogy literally: measurement becomes finite-window demodulation followed by threshold detection in noise, which is how photomultipliers, Geiger counters, and CCDs actually behave. The statistics were worked out in the 1940s by radar engineers; expand the standard machinery in the weak-signal regime and out comes P(click) = P(dark) + C&middot;|&psi;|&sup2; + higher-order terms. The square is not inserted anywhere: detectors respond to energy, energy goes as amplitude squared, and the term linear in amplitude averages away against the noise phase, so the first surviving term is quadratic. The Born rule, on this account, is what oscillation looks like through a noisy energy detector.</p>
+
+<p>Two things come along free. Interference: envelopes add before you square, so a two-path superposition carries a cross term that paints fringes on the detection rate, and learning which path deletes it. Uncertainty: &Delta;E&middot;&Delta;t &ge; &#295;/2, divided by &#295;, is the Gabor limit from signal processing; anyone who has stared at a spectrogram has met Heisenberg under an assumed name.</p>
+
+<p>The working files still call this the temporal bitmap interpretation; the name did not survive &mdash; the field is continuous, nothing digital is going on &mdash; but the file names remember, as file names do. Four simulations recover |&psi;|&sup2; in space at r = 0.997 from a field-to-clicks pipeline with no quantum postulate, which establishes only that the mathematics does what the mathematics says, not that nature agrees.</p>
+
+<h2>What the paper does not claim</h2>
+
+<p>It does not touch entanglement: the model covers single-system detection statistics only, and Bell inequality violations &mdash; the genuinely hard part of quantum foundations &mdash; involve correlations no local classical story can produce. It does not derive spin, and it stays agnostic about what the field really is. Nor is it first in its neighbourhood: Khrennikov derived the Born rule from threshold detection in 2009. Against that background the contribution is narrower than the title suggests: the demodulation grounding, the resolution-dependence analysis, the Gabor-limit identification, and the Schr&ouml;dinger equation recovered as slow-envelope dynamics of a Klein&ndash;Gordon field.</p>
+
+<p>The one falsifiable bit needs care. Corrections of order |&psi;|&#8308; carry a pretty signature (the sign of the deviation flips as the detector threshold crosses twice the noise variance), but Galley and Masanes's no-go results show that genuine modifications of the Born rule break quantum theory's structure. These corrections are detector-response artefacts: claims about an apparatus's raw count rates, not about quantum probability. Falsifiable in principle; probably impractical to test. Better I write that sentence than a physicist writes it for me, less kindly.</p>
+
+<h2>How a finance researcher ends up here</h2>
+
+<p>My day-to-day work is volatility modelling and event studies &mdash; weak, structured signals in noisy time series &mdash; and that toolkit is communications engineering wearing a suit. Somewhere between a GARCH model and a wavelet decomposition you meet the Gabor limit, and I knew that inequality from a different shelf, with an &#295; attached and Heisenberg's name on it. Same theorem, two books, different metaphysics. Threshold detection is the other half of the story; together the halves make the square stop looking like an axiom.</p>
+
+<p>The rest of the programme keeps circling one question: what systems look like from inside, to finite observers embedded in them &mdash; legitimacy to the governed, risk to the leveraged, now probability to the detector. Measurement here is a slow, noisy observer sampling a structure faster than it can follow, mistaking its own resolution limits for laws of nature. The sentence I would defend even if everything else falls: probability is not fundamental &mdash; it is what oscillation looks like from inside.</p>
+
+<p class="post-foot">The paper is on Zenodo: <a href="https://doi.org/10.5281/zenodo.18091062">10.5281/zenodo.18091062</a>; the simulation code and fixed seeds are being packaged for deposit alongside it. If you are a physicist and can see where it breaks, write to <a href="mailto:murad@dissensus.ai">murad@dissensus.ai</a>. Interpretations of quantum mechanics are cheap; the only way an outsider's earns anything is by being shot at.</p>
+      </div>
+    </article>
+  </main>
+
+<footer class="footer">
+<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+<div>
+<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
+<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+</div>
+<div style="max-width:560px;">
+<a href="../index.html">Home</a> &middot;
+<a href="../about.html">About</a> &middot;
+<a href="../research.html">Research</a> &middot;
+<a href="../news.html">News</a> &middot;
+<a href="../tools.html">Tools</a> &middot;
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
+<a href="../manifesto.html">Manifesto</a> &middot;
+<a href="../charter.html">Charter</a> &middot;
+<a href="../reading.html">Reading</a> &middot;
+<a href="../press.html">Press</a> &middot;
+<a href="../subscribe.html">Subscribe</a> &middot;
+<a href="../privacy.html">Privacy</a> &middot;
+<a href="../terms.html">Terms</a> &middot;
+<a href="../feed.xml" title="RSS Feed">RSS</a>
+</div>
+</div>
+</footer>
+
+</body>
+</html>

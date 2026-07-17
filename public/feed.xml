@@ -6,10 +6,37 @@
     <link>https://dissensus.ai/</link>
     <atom:link href="https://dissensus.ai/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-gb</language>
-    <lastBuildDate>Fri, 10 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jul 2026 00:00:00 +0000</lastBuildDate>
     <managingEditor>research@dissensus.ai (Murad Farzulla)</managingEditor>
     <webMaster>research@dissensus.ai</webMaster>
     <ttl>1440</ttl>
+
+    <item>
+      <title>Dissensus Ltd: the lab has a legal shape</title>
+      <link>https://dissensus.ai/news/incorporation.html</link>
+      <description>Dissensus is incorporated as a private limited company in England and Wales; the research stays open.</description>
+      <pubDate>Fri, 17 Jul 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://dissensus.ai/news/incorporation.html</guid>
+      <category>Announcement</category>
+    </item>
+
+    <item>
+      <title>The Trident: three ways a claim fails, counted properly</title>
+      <link>https://dissensus.ai/news/trident.html</link>
+      <description>A pocket-sized diagnostic for single claims, a Lean 4 core that checks the count, and a framework that failed its own test and printed the repair.</description>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://dissensus.ai/news/trident.html</guid>
+      <category>Formal Methods</category>
+    </item>
+
+    <item>
+      <title>The Born Rule, Demodulated</title>
+      <link>https://dissensus.ai/news/temporal-bitmap.html</link>
+      <description>Notes on a speculative preprint: measurement as finite-window demodulation plus threshold detection, and the square in |ψ|² as the signature of an energy detector.</description>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://dissensus.ai/news/temporal-bitmap.html</guid>
+      <category>Physics</category>
+    </item>
 
     <item>
       <title>Paper Archive with Google Scholar Metadata</title>
