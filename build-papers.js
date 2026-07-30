@@ -40,6 +40,13 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
+// JSON-LD lives inside <script>, so values need JSON escaping, not HTML escaping —
+// escapeHtml() was shipping &#039; where an apostrophe belonged, and Google reads that
+// literally. `<\/` guards against a value containing </script> ending the block early.
+function jsonLd(value) {
+  return JSON.stringify(String(value == null ? '' : value)).slice(1, -1).replace(/<\//g, '<\\/');
+}
+
 function formatDate(dateStr) {
   const date = new Date(dateStr);
   return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -224,7 +231,7 @@ ${reportMeta}
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "${escapeHtml(paper.title)}",
+    "headline": "${jsonLd(paper.title)}",
     "author": [
         ${authorsSchema}
     ],
@@ -234,9 +241,9 @@ ${reportMeta}
       "name": "Dissensus",
       "url": "https://dissensus.ai"
     },
-    "description": "${escapeHtml(paper.abstract.replace(/\n/g, ' '))}",
+    "description": "${jsonLd(paper.abstract.replace(/\n/g, ' '))}",
     ${doi ? `"identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": "${doi}"},` : ''}
-    "url": "https://dissensus.ai/papers/${paper.id}.html",
+    "url": "https://dissensus.ai/papers/${paper.id}",
     "inLanguage": "en"
   }
   </script>
@@ -1001,6 +1008,19 @@ papers.forEach(paper => {
   fs.writeFileSync(filepath, html);
   console.log(`  ${paper.id}.html`);
 });
+
+// Prune pages for papers no longer in papers.json. Without this, removing a paper
+// leaves its page live and Scholar-indexed — unlinked from the site but still served,
+// still carrying citation_* metadata, and invisible in any review of papers.json.
+// PDFs are left alone: they are referenced by citation_pdf_url in already-indexed
+// records, and deleting one breaks a citation rather than retiring a page.
+{
+  const wanted = new Set(papers.map(p => `${p.id}.html`));
+  const orphans = fs.readdirSync(outDir)
+    .filter(f => f.endsWith('.html') && !wanted.has(f));
+  orphans.forEach(f => fs.unlinkSync(path.join(outDir, f)));
+  if (orphans.length) console.log(`  pruned ${orphans.length} orphan page(s): ${orphans.join(', ')}`);
+}
 
 // Regenerate research.html publication list from papers.json
 console.log('\nResearch page:');

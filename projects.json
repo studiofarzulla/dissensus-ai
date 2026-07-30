@@ -72,13 +72,13 @@
     },
     {
       "id": "autonomous-red-team",
-      "title": "Autonomous Red Team and Blue Team AI",
+      "title": "Autonomous Red Team AI",
       "domain": "Security evaluation",
       "publicStatus": "Preprint",
       "oneLine": "Does putting an attacking agent and a defending agent in live competition produce a more honest security assessment than running either alone?",
       "currentState": "A 22-page architecture paper with Andrew Maksakov, public on Zenodo, proposing a four-layer agent for LLM-guided security testing and a competing defensive counterpart that scores the exchange. The paper is candid by construction: it separates what was built from what was only specified, and states plainly that the central hypothesis is untested. That candour is also the problem. What exists is an architecture and a systematisation with essentially no evidence behind it, and it has been stuck at that point since publication.",
       "whatExists": [
-        "Preprint, 22pp with 41 references (Zenodo concept 10.5281/zenodo.17614725), co-authored with Andrew Maksakov",
+        "Preprint on Zenodo (concept 10.5281/zenodo.17614725), deposited June 2026 as \"Autonomous Red Team AI — LLM-Guided Adversarial Security Testing\"",
         "A working offensive proof-of-concept, demonstrated on exactly one scripted weak-credential compromise in about ninety seconds",
         "An internal panel review (July 2026) and a follow-on experiment design pack scoping what would have to be measured",
         "A self-contained competition harness, kept in a private repository because an attacking agent with a full toolchain is dual-use"
@@ -88,7 +88,8 @@
         "One demonstration run is an anecdote, not a success rate. There is no evaluation against any established benchmark and no ablation showing the architecture's components contribute anything.",
         "The retrieval knowledge base is described as implemented and validated, but the index was never committed and the runnable path loads an empty stub.",
         "A document count quoted in the repository README has no traceable source and disagrees with the corpus actually described. It does not appear in the manuscript body, and should be either made real or dropped.",
-        "The defensive agent, the patch generator and the scoring scheme are specified in prose and not built."
+        "The defensive agent, the patch generator and the scoring scheme are specified in prose and not built.",
+        "The deposit is behind the manuscript. The local version is a 22-page revision retitled to cover the blue-team counterpart and co-authored with Andrew Maksakov; the public record is still the earlier single-author version under the old title. Anyone citing the DOI cites the older paper."
       ],
       "collaboratorProfile": "Someone who evaluates agentic systems empirically: running an agent against an established security benchmark suite and reporting a success rate with intervals rather than a demonstration. Separately, an ML systems collaborator to build and commit the retrieval corpus and run the ablation that answers whether it does anything at all. Compute is a real constraint here, so is anyone who can host the evaluation.",
       "links": [
