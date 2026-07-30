@@ -79,6 +79,23 @@ systems-ac still carries the older 7.7 KB copy.
 **Typography:** Source Serif 4 (headings), Inter (prose), IBM Plex Mono (labels/kickers).
 All self-hosted woff2 in `public/assets/fonts` — **no font CDN**.
 
+⚠️ **Subsets are not just weights.** The `*-latin-*` files stop at ~230 codepoints. Inter also
+ships `greek-{400,500,600,700}` and `latin-ext-400`, declared after the latin faces in
+`system.css` with `unicode-range` guards — the friction notation (α σ ε τ ρ φ ψ Δ Σ) and the
+`ħ` in the temporal-bitmap post live there. **Adding a new Inter weight means adding its greek
+subset too**, or Greek at that weight silently drops to a system sans mid-sentence.
+
+Known, deliberate fallbacks — do not "fix" these:
+- **Greek in mono.** IBM Plex Mono has no Greek at any weight, from any source. Mono Greek
+  falls back and always has.
+- **`ə ɛ ɪ` in the homepage `/dɪˈsɛnsəs/`.** Plex Mono's latin-ext carries `ə` but not `ɛ` or
+  `ɪ`, so shipping it would split one 11-character string across two fonts. A uniform fallback
+  is the better of two bad options.
+- **`→ ↗ ◙ ← ⟨ ⟩`.** Outside Inter's charset entirely, in every subset.
+
+Source Serif 4 needs no Greek: no Greek character reaches a serif element (verified by walking
+every text node on all 42 pages).
+
 **Stylesheet layering:** `system.css` (shared design system) → `site.css` (site components)
 → `index.css` (homepage only). `dissensus.css` is the pre-redesign sheet, still present but
 only referenced by legacy pages — do not add to it.

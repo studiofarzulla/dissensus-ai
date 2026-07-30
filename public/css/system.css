@@ -21,6 +21,24 @@
 @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/ibm-plex-mono-latin-600-normal.woff2") format("woff2"); }
 
+/* Greek + latin-ext for Inter, declared after the latin faces so they win for the
+   ranges they claim. The latin subsets stop at 230 codepoints, so without these the
+   friction notation (α σ ε τ ρ φ ψ Δ Σ) and the ħ in the temporal-bitmap post drop
+   to a system sans mid-sentence. unicode-range keeps them off pages that don't use
+   them — the greek file is ~8 KB, latin-ext ~35 KB and only the news post pulls it.
+   Adding a new Inter weight means adding its greek subset too.
+
+   Deliberately NOT here: Source Serif 4 (no Greek reaches a serif element — checked
+   every text node) and IBM Plex Mono. Plex Mono has no Greek at any weight, from any
+   source, so mono Greek is an unavoidable fallback. Its latin-ext exists but carries
+   ə without ɛ or ɪ, which would split "/dɪˈsɛnsəs/" on the homepage across two fonts
+   — a uniform fallback is the better of the two bad options there. */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/inter-greek-400-normal.woff2") format("woff2"); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/inter-greek-500-normal.woff2") format("woff2"); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/inter-greek-600-normal.woff2") format("woff2"); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/inter-greek-700-normal.woff2") format("woff2"); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/inter-latin-ext-400-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
 /* ---- tokens ---------------------------------------------------------------- */
 :root {
   /* light (default) — warm cream, true burgundy carries the brand */
