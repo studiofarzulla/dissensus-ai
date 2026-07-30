@@ -83,6 +83,19 @@ ${item('tools.html', 'Tools', 'tools')}
   </nav>`;
 }
 
+// Social marks are inlined (no CDN, no external fetch — matches the self-hosted-assets rule).
+const LINKEDIN_URL = 'https://www.linkedin.com/company/dissensus-ai/';
+const GITHUB_ORG_URL = 'https://github.com/dissensus-ai';
+const LINKEDIN_ICON_PATH = 'M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z';
+const GITHUB_ICON_PATH = 'M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.83.58A12 12 0 0 0 12 .3z';
+
+function getSocialHtml() {
+  return `<p class="footer__social">
+<a href="${LINKEDIN_URL}" target="_blank" rel="noopener" aria-label="Dissensus on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${LINKEDIN_ICON_PATH}"/></svg>LinkedIn</a>
+<a href="${GITHUB_ORG_URL}" target="_blank" rel="noopener" aria-label="Dissensus on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${GITHUB_ICON_PATH}"/></svg>GitHub</a>
+</p>`;
+}
+
 function getFooterHtml(prefix = '../') {
   const p = prefix;
   return `<footer class="footer">
@@ -90,6 +103,7 @@ function getFooterHtml(prefix = '../') {
 <div>
 <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
 <p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+${getSocialHtml()}
 </div>
 <div style="max-width:560px;">
 <a href="${p}index.html">Home</a> &middot;
@@ -460,7 +474,9 @@ function toolMetricBadges(tool) {
 
 function generateToolCard(tool) {
   const statusLabel = (toolsData.toolStatuses && toolsData.toolStatuses[tool.status]) || tool.status;
-  const labelBits = [tool.kind, tool.version ? `v${tool.version}` : null].filter(Boolean).join(' &middot; ');
+  const catLabel = (toolsData.toolCategories && toolsData.toolCategories[tool.category]) || null;
+  // Category rides on the card now that all tools share one grid — see generateToolsPage().
+  const labelBits = [catLabel, tool.kind, tool.version ? `v${tool.version}` : null].filter(Boolean).join(' &middot; ');
   const pillClass = (tool.status === 'live' || tool.status === 'released') ? 'pill pill--review' : 'pill pill--preprint';
   return `        <div class="card">
           <div class="tool__head">
@@ -486,23 +502,41 @@ function generateToolsPage() {
   const cats = toolsData.toolCategories || {};
   const order = toolsData.categoryOrder || Object.keys(cats).map(c => [c, '']);
 
-  let sections = '';
-  order.forEach(([cat, blurb], i) => {
-    const items = toolsData.tools.filter(t => t.category === cat);
-    if (!items.length) return;
-    sections += `  <section class="section container">
-    <span class="index">${String(i + 1).padStart(2, '0')} &middot; ${cats[cat] || cat}</span>
-    <h2>${cats[cat] || cat}</h2>
-    ${blurb ? `<p class="pubgroup__blurb">${blurb}</p>` : ''}
-    <div class="grid">
+  // One grid for the whole catalogue rather than a section per category. With only a
+  // handful of tools, per-category sections each rendered a single card stranded in a
+  // narrow auto-fill track — a tall thin column on a wide screen. Category survives as
+  // a card label plus the legend below, and this layout stays correct as tools are added.
+  const ordered = [];
+  order.forEach(([cat]) => {
+    toolsData.tools.filter(t => t.category === cat).forEach(t => ordered.push(t));
+  });
+  toolsData.tools.forEach(t => { if (!ordered.includes(t)) ordered.push(t); });
 
-${items.map(generateToolCard).join('\n\n')}
+  const legend = order
+    .filter(([cat]) => toolsData.tools.some(t => t.category === cat))
+    .map(([cat, blurb]) => {
+      const n = toolsData.tools.filter(t => t.category === cat).length;
+      return `      <div class="legend__item">
+        <span class="legend__k">${cats[cat] || cat} <span class="legend__n">${n}</span></span>
+        ${blurb ? `<span class="legend__v">${blurb}</span>` : ''}
+      </div>`;
+    })
+    .join('\n');
+
+  const sections = `  <section class="section container">
+    <span class="index">01 &middot; Catalogue</span>
+    <h2>What we maintain</h2>
+    <div class="legend">
+${legend}
+    </div>
+    <div class="grid grid--wide" style="margin-top: var(--sp-8);">
+
+${ordered.map(generateToolCard).join('\n\n')}
 
     </div>
   </section>
 
 `;
-  });
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -554,7 +588,7 @@ ${toolsNavHtml()}
 
 ${sections}  <!-- Contribute -->
   <section class="section container">
-    <span class="index">${String(order.length + 1).padStart(2, '0')} &middot; Contribute</span>
+    <span class="index">02 &middot; Contribute</span>
     <h2>Build with us</h2>
     <p class="lead">These packages are released open-access as the research that produced them is published. If a tool is useful to your work, or broken in an interesting way, we want to hear about it.</p>
     <div class="btn-row">

@@ -168,6 +168,16 @@ img, svg { max-width: 100%; display: block; }
 
 /* ---- cards ---------------------------------------------------------------- */
 .grid { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+/* Wide variant for content-rich records (tools, open projects). These carry a long
+   description plus a feature list, so they need real width — an auto-fill track floor
+   strands a lone card in a narrow column (a tall thin tower on a wide screen). Two
+   explicit columns above 46rem, one below: deterministic, unlike minmax(min(100%,…))
+   which resolves differently depending on how the container is sized. Cards flex so
+   their action rows bottom-align across a row regardless of description length. */
+.grid--wide { grid-template-columns: 1fr; align-items: stretch; }
+@media (min-width: 52rem) { .grid--wide { grid-template-columns: repeat(2, 1fr); } }
+.grid--wide > .card { display: flex; flex-direction: column; }
+.grid--wide > .card > .btn-row { margin-top: auto; padding-top: var(--sp-4); }
 .card {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -200,6 +210,9 @@ img, svg { max-width: 100%; display: block; }
 .footer { border-top: 1px solid var(--line); padding-block: var(--sp-12); }
 .footer, .footer a { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--text-dim); letter-spacing: 0.06em; }
 .footer a:hover { color: var(--accent); }
+.footer__social { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-4); margin-top: 0.55rem; }
+.footer__social a { display: inline-flex; align-items: center; gap: 0.4rem; text-transform: uppercase; }
+.footer__social svg { width: 14px; height: 14px; fill: currentColor; flex: none; }
 
 /* ---- responsive ----------------------------------------------------------- */
 @media (max-width: 720px) {

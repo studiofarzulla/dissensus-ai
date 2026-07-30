@@ -7,7 +7,7 @@
       "category": "packages",
       "status": "released",
       "kind": "Python package",
-      "version": "0.1.0",
+      "version": "0.3.0",
       "tagline": "Student-t GJR-GARCH with exogenous regressors in the variance equation",
       "description": "A small, dependency-light Python implementation of the asymmetric GJR-GARCH(1,1,1) volatility model with Student-t innovations and arbitrary exogenous regressors (the X) entering the conditional variance equation — the specification that appears as TARCH-X in the lab's event-study papers. Built for the cryptocurrency event-study pipeline, where infrastructure and regulatory shocks are encoded as exogenous variance covariates and tested for asymmetric volatility response.",
       "install": "pip install gjr-garch-x",
@@ -23,6 +23,34 @@
         "Student-t innovations for heavy-tailed crypto returns",
         "Exogenous regressors in the variance equation (the -X)",
         "Maximum-likelihood estimation, NumPy/SciPy only"
+      ],
+      "metrics": [],
+      "relatedPapers": [
+        "market-reaction-asymmetry"
+      ]
+    },
+    {
+      "id": "robust-eventstudy",
+      "name": "robust-eventstudy",
+      "category": "packages",
+      "status": "released",
+      "kind": "Python package",
+      "version": "0.1.0",
+      "tagline": "Dependence-robust inference for heavy-tailed cross-asset event studies",
+      "description": "Event studies on cross-listed assets violate the independence assumption their standard errors are built on: the same shock hits every asset at once, so abnormal returns are correlated across the cross-section and naive tests reject far too often. This package implements the inference toolkit used in the lab's cryptocurrency event-study work — cluster-robust and copula-based procedures that keep their nominal size when returns are heavy-tailed and cross-sectionally dependent. Extracted from the event-study pipeline so the correction is reusable outside the paper that motivated it.",
+      "install": "pip install robust-eventstudy",
+      "language": "Python",
+      "pypi": "robust-eventstudy",
+      "zenodo": "10.5281/zenodo.21316120",
+      "github": "https://github.com/studiofarzulla/robust-eventstudy",
+      "dashboard": null,
+      "arxiv": null,
+      "docs": null,
+      "features": [
+        "Cluster-robust standard errors for correlated abnormal returns",
+        "t-copula bootstrap for heavy-tailed cross-sectional dependence",
+        "Design-effect diagnostics — how much your effective N really is",
+        "Golden-anchor regression tests pinned to the published results"
       ],
       "metrics": [],
       "relatedPapers": [
@@ -83,7 +111,7 @@
       "language": "Lean 4",
       "pypi": null,
       "zenodo": null,
-      "github": "https://github.com/studiofarzulla/lean-formalizations",
+      "github": "https://github.com/dissensus-ai/lean-formalizations",
       "dashboard": null,
       "arxiv": null,
       "docs": null,
@@ -91,9 +119,18 @@
         "Friction-functional results proved: F = 0 ⇔ σ = 0, positivity, the F ≥ σ/2 lower bound",
         "Per-paper theorem maps linking manuscript IDs to Lean declarations",
         "Explicit assumptions ledger — no silent axioms",
-        "CI-checked builds on Lean 4 + Mathlib"
+        "CI-checked builds on Lean v4.27.0 + Mathlib"
       ],
-      "metrics": [],
+      "metrics": [
+        {
+          "label": "Theorems",
+          "value": "246 across 15 paper modules"
+        },
+        {
+          "label": "Incomplete proofs",
+          "value": "0 sorry · 0 custom axioms"
+        }
+      ],
       "relatedPapers": [
         "axiom-of-consent",
         "replicator-optimization-mechanism"
