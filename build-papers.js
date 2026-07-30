@@ -22,6 +22,10 @@ const programs = papersData.programs;
 const toolsData = fs.existsSync('tools.json')
   ? JSON.parse(fs.readFileSync('tools.json', 'utf8'))
   : null;
+// Open projects looking for collaborators. Optional — collaborate.html is skipped if absent.
+const projectsData = fs.existsSync('projects.json')
+  ? JSON.parse(fs.readFileSync('projects.json', 'utf8'))
+  : null;
 const papersById = Object.fromEntries(papers.map(p => [p.id, p]));
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -77,6 +81,7 @@ ${item('about.html', 'About', 'about')}
 ${item('research.html', 'Research', 'research')}
 ${item('news.html', 'News', 'news')}
 ${item('tools.html', 'Tools', 'tools')}
+${item('collaborate.html', 'Collaborate', 'collaborate')}
       <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI &#8599;</a>
       <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
     </div>
@@ -605,17 +610,177 @@ ${toolsFooterHtml()}
   console.log(`  tools.html (${toolsData.tools.length} tools)`);
 }
 
+// ─── Generate Collaborate / Open Projects page ───────────────────────────────
+
+function projectStatePills(project) {
+  const bits = [];
+  if (project.publicStatus) bits.push(project.publicStatus);
+  if (project.stage) bits.push(project.stage);
+  return bits.join(' &middot; ');
+}
+
+function generateProjectCard(project, i) {
+  const pillClass = project.publicStatus === 'Under review' ? 'pill pill--review' : 'pill pill--preprint';
+  const exists = (project.whatExists || []).length
+    ? `          <span class="proj__k">What exists</span>
+          <ul class="tool__features">
+            ${project.whatExists.map(x => `<li>${x}</li>`).join('\n            ')}
+          </ul>\n`
+    : '';
+  const missing = (project.whatIsMissing || []).length
+    ? `          <span class="proj__k">What is missing</span>
+          <ul class="proj__gaps">
+            ${project.whatIsMissing.map(x => `<li>${x}</li>`).join('\n            ')}
+          </ul>\n`
+    : '';
+  const links = (project.links || []).length
+    ? `          <div class="btn-row">
+            ${project.links.map(l => `<a href="${l.href}" class="btn btn--ghost"${/^https?:/.test(l.href) ? ' target="_blank" rel="noopener"' : ''}>${l.label}</a>`).join('\n            ')}
+          </div>\n`
+    : '';
+
+  return `        <div class="card" id="${project.id}">
+          <div class="tool__head">
+            <span class="card__meta">${String(i + 1).padStart(2, '0')} &middot; ${project.domain || ''}</span>
+            <span class="${pillClass}">${project.publicStatus || 'Early'}</span>
+          </div>
+          <h3>${project.title}</h3>
+          <p class="tool__tagline">${project.oneLine}</p>
+          <p>${project.currentState}</p>
+${exists}${missing}          <div class="proj__ask">
+            <span class="proj__k">Who would move this</span>
+            <p>${project.collaboratorProfile}</p>
+          </div>
+${links}        </div>`;
+}
+
+function generateCollaboratePage() {
+  if (!projectsData || !projectsData.projects || !projectsData.projects.length) {
+    console.log('  (projects.json absent or empty — collaborate.html skipped)');
+    return;
+  }
+  const projects = projectsData.projects;
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collaborate &mdash; Dissensus</title>
+  <meta name="description" content="Open research projects at Dissensus that are early, unfinished, or stalled, with an honest account of where each one actually stands and what kind of collaborator would move it.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Collaborate &mdash; Dissensus">
+  <meta property="og:description" content="Early and unfinished research projects, with an honest account of where each one stands.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dissensus.ai/collaborate.html">
+  <meta property="og:image" content="https://dissensus.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Dissensus">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Collaborate &mdash; Dissensus">
+  <meta name="twitter:description" content="Early and unfinished research projects, with an honest account of where each one stands.">
+  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
+
+  <link rel="canonical" href="https://dissensus.ai/collaborate.html">
+  <meta name="theme-color" content="#faf8f5">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/theme.js"></script>
+  <script src="js/motion.js" defer></script>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
+</head>
+<body>
+
+  <div id="progress"></div>
+
+${getNavHtml('collaborate', '')}
+
+  <!-- Hero -->
+  <header class="container hero" style="padding-block: clamp(3rem, 8vw, 6rem);">
+    <span class="kicker">Work with us</span>
+    <h1>Open projects</h1>
+    <p class="lead">${projectsData.intro || ''}</p>
+    <p class="lead" style="margin-top: var(--sp-4);">${projectsData.introSecond || ''}</p>
+  </header>
+
+  <section class="section container">
+    <span class="index">01 &middot; Open work</span>
+    <h2>Where each of these actually stands</h2>
+    <p>${projectsData.stateNote || ''}</p>
+    <div class="grid grid--wide" style="margin-top: var(--sp-8);">
+
+${projects.map(generateProjectCard).join('\n\n')}
+
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="index">02 &middot; How this works</span>
+    <h2>What collaboration means here</h2>
+    <div class="prose" style="max-width: var(--measure);">
+      ${(projectsData.terms || []).map(t => `<p>${t}</p>`).join('\n      ')}
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="index">03 &middot; Get in touch</span>
+    <h2>Propose something</h2>
+    <p class="lead">${projectsData.contactNote || ''}</p>
+    <form class="form" style="margin-top: 2.4rem;" action="https://formspree.io/f/mreezoko" method="POST">
+      <input type="hidden" name="_subject" value="Collaboration proposal — dissensus.ai/collaborate">
+      <div class="form__row">
+        <label>Your name
+          <input type="text" name="name" required>
+        </label>
+        <label>Email
+          <input type="email" name="email" required>
+        </label>
+      </div>
+      <label>Affiliation <span class="form__hint">(optional &mdash; independent is fine)</span>
+        <input type="text" name="affiliation">
+      </label>
+      <label>Which project
+        <select name="project">
+          <option value="">&mdash; select &mdash;</option>
+${projects.map(p => `          <option value="${p.id}">${p.title}</option>`).join('\n')}
+          <option value="other">Something else entirely</option>
+        </select>
+      </label>
+      <label>What you would bring, and what you would want out of it
+        <textarea name="message" required placeholder="Concrete is better than enthusiastic. Data you have access to, a method you know, a criticism you think is fatal."></textarea>
+      </label>
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </section>
+
+${getFooterHtml('')}
+
+</body>
+</html>`;
+
+  fs.writeFileSync(path.join('public', 'collaborate.html'), html);
+  console.log(`  collaborate.html (${projects.length} open projects)`);
+}
+
 // ─── Generate Sitemap ────────────────────────────────────────────────────────
 
 function generateSitemap() {
   const today = new Date().toISOString().split('T')[0];
 
-  // Static pages (services/partners/collaborate are redirect stubs — omitted)
+  // Static pages (services/partners are redirect stubs — omitted)
   const staticPages = [
     { loc: 'https://dissensus.ai/', priority: '1.0', changefreq: 'weekly' },
     { loc: 'https://dissensus.ai/research.html', priority: '0.8', changefreq: 'weekly' },
     { loc: 'https://dissensus.ai/news.html', priority: '0.8', changefreq: 'weekly' },
     { loc: 'https://dissensus.ai/tools.html', priority: '0.7', changefreq: 'monthly' },
+    ...(projectsData ? [{ loc: 'https://dissensus.ai/collaborate.html', priority: '0.7', changefreq: 'monthly' }] : []),
     { loc: 'https://dissensus.ai/about.html', priority: '0.7', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/manifesto.html', priority: '0.6', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/charter.html', priority: '0.5', changefreq: 'monthly' },
@@ -702,10 +867,14 @@ updateResearchPage();
 console.log('\nTools page:');
 generateToolsPage();
 
+// Generate the open-projects / collaborate page from projects.json
+console.log('\nCollaborate page:');
+generateCollaboratePage();
+
 // Generate sitemap
 console.log('\nSitemap:');
 generateSitemap();
 
 // Summary
-console.log(`\n✓ Generated ${papers.length} paper pages${toolsData ? ' + tools.html' : ''} + sitemap`);
+console.log(`\n✓ Generated ${papers.length} paper pages${toolsData ? ' + tools.html' : ''}${projectsData ? ' + collaborate.html' : ''} + sitemap`);
 console.log('  Run: python -m http.server 8000 --directory public');

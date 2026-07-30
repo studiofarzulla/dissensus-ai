@@ -173,6 +173,20 @@ blockquote strong { color: var(--text); }
 .taglist { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
 .tag { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--text-dim); border: 1px solid var(--line); border-radius: 100px; padding: 2px var(--sp-3); letter-spacing: 0.06em; }
 
+/* ---- open-project cards (collaborate.html, generated) ---------------------- */
+.proj__k { display: block; font-family: var(--font-mono); font-size: var(--fs-mono);
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-top: var(--sp-5); }
+.proj__gaps { list-style: none; margin: var(--sp-3) 0; padding: 0; }
+.proj__gaps li { color: var(--text-dim); font-size: var(--fs-sm); padding-left: 1.1rem; position: relative; line-height: 1.55; }
+.proj__gaps li + li { margin-top: 0.35rem; }
+/* the gaps list is deliberately marked differently from the features list — these
+   are the unflattering bits and should not read as selling points */
+.proj__gaps li::before { content: "\2715"; position: absolute; left: 0; color: var(--text-dim); opacity: 0.7; font-size: 0.75em; top: 0.3em; }
+.proj__ask { border-left: 3px solid var(--burgundy); background: var(--surface-2);
+  border-radius: var(--radius); padding: var(--sp-4) var(--sp-5); margin-top: var(--sp-5); }
+.proj__ask .proj__k { margin-top: 0; color: var(--accent); }
+.proj__ask p { font-size: var(--fs-sm); margin-top: var(--sp-2); }
+
 /* ---- category legend (tools catalogue, open projects) ---------------------- */
 .legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--sp-4) var(--sp-6);
   border-top: 1px solid var(--line); padding-top: var(--sp-5); margin-top: var(--sp-6); }

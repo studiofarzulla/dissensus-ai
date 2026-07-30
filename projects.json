@@ -1,0 +1,197 @@
+{
+  "_note": "Drives dissensus.ai/collaborate.html — open, unfinished research. collaborate.html is GENERATED: run `node build-papers.js` after editing.",
+  "intro": "This page lists research that is early, unfinished, or stalled, published with its actual state visible rather than tidied up. None of these is a polished programme: one is an outline and nothing else, several are preprints whose public headline outruns the evidence behind it, and one has a live version its own author has already corrected on disk. The gaps are listed because the gaps are the part someone else can act on.",
+  "introSecond": "What a collaborator gets here is a specified problem with the data, the code and the prior mistakes already on the table, plus co-authorship on whatever closes it. In several cases the blocking task is small enough to name in a sentence: two coders for a weekend, one inference run, one annotation study.",
+  "stateNote": "Each entry is split into what exists and what is missing. The missing column is deliberately unflattering — it names companion repositories that were never pushed, controls that were never run, experiments that were installed and never executed, and public versions that claim more than the committed code supports.",
+  "projects": [
+    {
+      "id": "first-crisis-governance",
+      "title": "The Loaded Wheel: crisis governance for the first AI-involved systemic event",
+      "domain": "Policy & regulation",
+      "publicStatus": "Preprint",
+      "oneLine": "Which regulator ends up governing the first market crisis in which AI systems are load-bearing, and what that scoping does to AI governance.",
+      "currentState": "A single-author policy essay at first-draft stage, public as an SSRN working paper since late July 2026 and nowhere else. The argument is that focusing-event theory privileges three properties — legibility of harm, speed of attribution, maturity of the receiving regulator — and that on those properties financial regulators are the modal receiver of whatever the first legible AI-involved systemic event turns out to be, producing governance that is fast but sectorally mis-scoped. The supporting evidence is an eighteen-row table of historical and candidate events, coded by the author himself, after the fact, with the outcomes visible. The paper says so, and says that a blind recoding would be the real test.",
+      "whatExists": [
+        "Manuscript at 37pp with 139 bibliography entries (LaTeX build); a 35pp markdown build is the source of record",
+        "Public preprint: SSRN working paper, abstract ID 7163460, distributed since 22 July 2026",
+        "The coded event table behind Section 2.2 as a local git repository: rubric, candidate-domain CSV, scoring notes",
+        "Citation verification record: all ten open `[CITE?]` markers resolved against primary sources, plus fourteen further references checked",
+        "Two review rounds on disk: a nine-agent internal panel, and an external read of 30 July 2026 that is priority-ordered, unflattering, and not yet acted on"
+      ],
+      "whatIsMissing": [
+        "The test the paper itself names as the real one has never been run. Eleven historical rows times three ordinal cells is a lot of free parameters for one author coding with the outcomes in front of him; two independent coders working from event descriptions with the outcome column stripped would turn a consistency check into a reportable result.",
+        "The companion data repository has no remote and has never been pushed. It sits at one local commit, the manuscript cites no repository URL, and the inspectability its README promises is available to nobody.",
+        "That repository is also stale against the paper: sixteen rows in the CSV against eighteen in the manuscript table, and one flag that disagrees outright.",
+        "The title over-claims relative to the body. The review panel asked for a reframe from a prediction about where a crisis happens to a routing claim about where one is received; the body was reframed and the retitle was deferred to a second draft, so the stronger title is what is currently propagating.",
+        "No DOI and no Zenodo deposit — SSRN is the only public surface. arXiv is blocked on an econ.GN endorsement that is drafted and unsent, and no target venue has been chosen."
+      ],
+      "collaboratorProfile": "The highest-value collaborator is someone willing to spend a weekend blind-coding the event table: a public-policy or regulatory-studies researcher who works with focusing-event and agenda-setting theory, coding rows from descriptions with the outcome column removed so that inter-coder agreement can actually be reported. Two such coders would change what the paper is. Second, a financial-regulation lawyer or supervisor who can pressure-test the mandate-boundary claims against the Bank Service Company Act, the DORA critical-third-party regime and the UK CTP designations — the structural claim is that these regimes are service-scoped and never model-scoped, and that is the sentence a referee will go after. An arXiv endorser in econ.GN or cs.CY would also unblock something concrete.",
+      "links": [
+        {
+          "label": "SSRN 7163460",
+          "href": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7163460"
+        }
+      ]
+    },
+    {
+      "id": "semantic-vision",
+      "title": "Context-dependent affordance computation in vision-language models",
+      "domain": "Vision-language models",
+      "publicStatus": "Preprint",
+      "oneLine": "Does a vision-language model's account of what a scene affords change with the agent's goal, and by how much?",
+      "currentState": "A preprint is public and the analysis code and raw model outputs are committed, so the descriptive result can be rechecked by anyone who wants to. The result is weaker than the live version's headline suggests: the seven context primes ask seven genuinely different questions, so an unknown share of the measured drift is ordinary instruction-following rather than affordance computation, and the control that would separate the two has not been run. A revised manuscript that re-headlines the finding as metric-dependent — about 58.5% drift at the semantic embedding level against the above-90% lexical figure, leaving a roughly 40% context-invariant core — is finished on disk and has not been posted. The embodied and representational work the paper points towards was never started.",
+      "whatExists": [
+        "Preprint, 33pp, arXiv:2603.04419 (v2, 11 July 2026), mirrored on Zenodo under concept DOI 10.5281/zenodo.18091089",
+        "Primary experiment: 3,213 valid scene-context pairs from 3,349 attempted, over 479 COCO-2017 validation images and 7 agentic personas on Qwen3-VL-30B-A3B; raw JSONL committed alongside the code",
+        "Analysis pipeline in the repository, including the cluster-robust image-level statistics of record (N = 479), a Tucker decomposition with 1,000-resample bootstrap, and pinned requirements",
+        "Cross-model replication on LLaVA-1.5-13B (mean Jaccard 0.160), reproducible from the committed scripts",
+        "A revised 35-page manuscript staged locally, naming the task-instruction confound as the paper's most important limitation, plus two written adversarial reviews with itemised verdicts against the code"
+      ],
+      "whatIsMissing": [
+        "The three controls that would isolate the effect have never been run, because each needs a fresh inference pass: identical question with varied persona, an equal-cardinality set, and a paraphrase set. Until the first exists, the persona-specific share of the drift is not separated out.",
+        "The primes cap object counts differently, which mechanically caps set overlap. That confound is understood and unaddressed.",
+        "Embodied validation never happened. The simulator was installed and the scene-context experiment produced no output, so the just-in-time ontology proposal for robotics has no embodied test behind it and is labelled a design hypothesis.",
+        "No internal evidence of any kind. Everything measured is output text — no layerwise probes, no attention analysis, no intervention — so 'semantic-first' names an output pattern rather than a claim about processing order.",
+        "Two models, both open-weight, and no human behavioural baseline."
+      ],
+      "collaboratorProfile": "Four different people would each unblock a different part. Anyone with spare VLM inference budget and eval experience: the queued controls are cheap in wall-clock time and expensive only in access, and the identical-question set alone decides whether the headline survives. Someone from mechanistic interpretability who can do layerwise or attention probing on an open-weight model, since the processing-order question is entirely untouched. An embodied AI or robotics person with a working AI2-THOR or Habitat setup, to test the JIT Ontology proposal instead of leaving it as a suggestion. And anyone with human-subjects capacity — eye-tracking, response times, task-conditioned rankings — to replace an unconstrained zero-shot comparison with a real baseline. The data and code are already public, so the claim can be audited before anyone commits; expect to edit hardcoded paths and a local inference endpoint before the pipeline runs elsewhere.",
+      "links": [
+        {
+          "label": "arXiv:2603.04419",
+          "href": "https://arxiv.org/abs/2603.04419"
+        },
+        {
+          "label": "Zenodo",
+          "href": "https://doi.org/10.5281/zenodo.18091089"
+        },
+        {
+          "label": "Code and data",
+          "href": "https://github.com/dissensus-ai/semantic-vision"
+        }
+      ]
+    },
+    {
+      "id": "autonomous-red-team",
+      "title": "Autonomous Red Team and Blue Team AI",
+      "domain": "Security evaluation",
+      "publicStatus": "Preprint",
+      "oneLine": "Does putting an attacking agent and a defending agent in live competition produce a more honest security assessment than running either alone?",
+      "currentState": "A 22-page architecture paper with Andrew Maksakov, public on Zenodo, proposing a four-layer agent for LLM-guided security testing and a competing defensive counterpart that scores the exchange. The paper is candid by construction: it separates what was built from what was only specified, and states plainly that the central hypothesis is untested. That candour is also the problem. What exists is an architecture and a systematisation with essentially no evidence behind it, and it has been stuck at that point since publication.",
+      "whatExists": [
+        "Preprint, 22pp with 41 references (Zenodo concept 10.5281/zenodo.17614725), co-authored with Andrew Maksakov",
+        "A working offensive proof-of-concept, demonstrated on exactly one scripted weak-credential compromise in about ninety seconds",
+        "An internal panel review (July 2026) and a follow-on experiment design pack scoping what would have to be measured",
+        "A self-contained competition harness, kept in a private repository because an attacking agent with a full toolchain is dual-use"
+      ],
+      "whatIsMissing": [
+        "The central claim has never been tested. No red-versus-blue competition has been run, so the paper's own hypothesis stands entirely on argument.",
+        "One demonstration run is an anecdote, not a success rate. There is no evaluation against any established benchmark and no ablation showing the architecture's components contribute anything.",
+        "The retrieval knowledge base is described as implemented and validated, but the index was never committed and the runnable path loads an empty stub.",
+        "A document count quoted in the repository README has no traceable source and disagrees with the corpus actually described. It does not appear in the manuscript body, and should be either made real or dropped.",
+        "The defensive agent, the patch generator and the scoring scheme are specified in prose and not built."
+      ],
+      "collaboratorProfile": "Someone who evaluates agentic systems empirically: running an agent against an established security benchmark suite and reporting a success rate with intervals rather than a demonstration. Separately, an ML systems collaborator to build and commit the retrieval corpus and run the ablation that answers whether it does anything at all. Compute is a real constraint here, so is anyone who can host the evaluation.",
+      "links": [
+        {
+          "label": "Zenodo 10.5281/zenodo.17614725",
+          "href": "https://doi.org/10.5281/zenodo.17614725"
+        }
+      ]
+    },
+    {
+      "id": "genre-mimicry",
+      "title": "Genre mimicry versus ethical reasoning in abliterated language models",
+      "domain": "AI safety evaluation",
+      "publicStatus": "Preprint",
+      "oneLine": "Whether apparent ethical reasoning in language models is largely genre convention copied from training data, and what that implies for safety evaluation.",
+      "currentState": "A finished 25-page preprint sitting on Zenodo with no venue and no active work on it. The empirical core is a small, honest study: nine open-weight model configurations answering a 40-prompt battery across four content genres, 215 responses in total, with disclaimer language appearing far less often for violence-framed requests than for finance, chemistry or infosec ones. An internal panel in July 2026 found the original headline was pseudoreplicated; re-estimating with prompt-level clustering held the effect (OR 3.99, crossed model×prompt p = 0.010, prompt-level permutation p = 0.0002), but the corrected manuscript has not been deposited, so the public record still leads with the overstated precision. The outcome variable is a fifteen-term keyword matcher with no human validation, which the paper says plainly and which caps what the result can be claimed to show.",
+      "whatExists": [
+        "Preprint, 25pp, Zenodo concept DOI 10.5281/zenodo.17957693. Not on arXiv, by decision, after a moderation bounce",
+        "Response corpus: 215 records across nine model configurations, with prompt, genre, model output and coded disclaimer flag, git-tracked in the replication repository",
+        "Analysis code that reproduces every headline number: chi-square, Holm-corrected pairwise tests, GEE logistic with model-clustered errors, and a linear-probability random-effects fit",
+        "Cluster-robust re-analysis added 7 July 2026, giving five independent estimates of the violence gap (naive, prompt-cluster permutation, crossed two-way cluster-robust logit, prompt-level aggregation, wild-cluster bootstrap)",
+        "Llama Guard 3 8B harm scoring of all 215 responses, supporting the finding that most responses carrying disclaimer language still contain harmful content"
+      ],
+      "whatIsMissing": [
+        "No human coding, anywhere. The outcome variable is a deterministic fifteen-term keyword matcher measuring safety register, not refusal. There is no annotated subset and no inter-rater reliability statistic, so the finding is about vocabulary rather than behaviour.",
+        "Coverage is thin: forty prompts across nine configurations, one sample per pair at a single temperature, all open-weight.",
+        "No independent severity rating, so the obvious confound is unaddressed — violence prompts and finance prompts differ in more than genre.",
+        "The nine configurations share roughly five or six base corpora, which matters because the thesis is about training data. Calling them nine architectures overstates the independent variation.",
+        "No venue and no submission. A condensed conference package was built and nothing records it being sent."
+      ],
+      "collaboratorProfile": "Three gaps, and the first is binding. Someone who runs annotation properly — a measurement or psychometrics person who can design a codebook, train multiple raters and report a real reliability statistic on a stratified subset of the 215 responses. That single study converts the result from 'genre changes the vocabulary models emit' to 'genre changes what models do', and nothing else about the project matters more. Second, an NLP or red-teaming collaborator with inference access, to widen the battery, add corpus-independent base families rather than three variants of one, include a frontier comparison, and add a severity rating that separates genre from harmfulness. Third, a mechanistic interpretability person willing to test whether genre cues and content cues route through separable circuits, which is the causal claim the paper gestures at and cannot support.",
+      "links": [
+        {
+          "label": "Zenodo",
+          "href": "https://doi.org/10.5281/zenodo.17957693"
+        }
+      ]
+    },
+    {
+      "id": "consensual-sovereignty",
+      "title": "Consensual Sovereignty: the empirical arm of legitimacy quantification",
+      "domain": "Political economy",
+      "publicStatus": "Preprint",
+      "oneLine": "Does a consent-based measure of political legitimacy survive contact with real governance data, rather than theory and simulation?",
+      "currentState": "The framework side is finished and public: a 142-page monograph defining legitimacy as stakes-weighted consent alignment and friction, stating five hypotheses, working through eight historical cases, and comparing five consent-allocation mechanisms over 1,000 Monte Carlo runs. The empirical arm is not finished and is not really started. None of the five hypotheses has been estimated on data; the cross-national panel that would test them — roughly 30 countries, three domains, 1960 onwards, about 5,400 observations — is specified in the text down to the identification strategy and has never been run. What quantitative data actually sits in the repository is a five-country V-Dem extract used to draw two figures; everything else described as empirical is either simulation output or ordinal codings made by one person with no reliability statistic behind them.",
+      "whatExists": [
+        "Framework monograph, 142pp, complete and public: Zenodo concept DOI 10.5281/zenodo.17626762, SSRN 5918222",
+        "V-Dem v15 extract: 1,119 country-years across five countries and nine indicators, plus the two alpha-trajectory figures built from it",
+        "Monte Carlo code and 20 result files: 1,000 runs × 50 periods × 5 mechanisms × 4 dynamic modes. This is mechanism comparison under assumed learning dynamics, not evidence about the world",
+        "Ordinal alignment and friction codings for eight historical cases, documented inside the case narratives. Single coder, and not shipped as a machine-readable dataset",
+        "Lean 4 formalisation of the core definitions: six modules, zero `sorry`, covering alignment, friction, legitimacy and the monotonicity results, referenced as Appendix D"
+      ],
+      "whatIsMissing": [
+        "The panel has never been estimated. The hypotheses remain untested: there is no panel dataset, no regression code and no results, only a research design.",
+        "The quantitative series the design depends on do not exist in the working tree. Survey and event-data sources are named in the appendix and the panel design; none of that data has been assembled, and several listed variables are absent from the extract that does exist.",
+        "One source file that the appendix treats as a validation proxy is not data at all — the download failed and saved an interstitial page under a .csv name, with zero rows. Nobody noticed until an audit.",
+        "No inter-coder reliability. Every ordinal coding is by one person, and the pilot study the paper itself names as the precondition for extending to a full panel has not been run.",
+        "The framework is ahead of its evidence. It is a formal apparatus with case illustrations, and it has not yet met a dataset that could embarrass it."
+      ],
+      "collaboratorProfile": "The most useful person is a comparative political scientist or political economist who has actually built and estimated country-by-domain-by-year panels — hands-on with V-Dem, ACLED or GDELT event data and union-density series — and who will run the first hypothesis properly, with fixed effects and cluster-robust inference, and report it if it fails. Roughly equal value: a second coder with historical-institutional training who will independently code the suffrage and labour cases against the published ordinal protocol, so there is a reliability statistic instead of an assurance. Also currently blocking specific cases, anyone with institutional access to WVS, Pew or Gallup microdata, or the standing to field a survey module that measures domain-level stakes and voice directly rather than by proxy. What is on offer is a fully specified design, a machine-checked formal core, and co-authorship on work that has not yet been done.",
+      "links": [
+        {
+          "label": "Zenodo",
+          "href": "https://doi.org/10.5281/zenodo.17626762"
+        },
+        {
+          "label": "SSRN 5918222",
+          "href": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5918222"
+        },
+        {
+          "label": "Code and data",
+          "href": "https://github.com/dissensus-ai/consensual-sovereignty"
+        }
+      ]
+    },
+    {
+      "id": "agi-ownership-envelope",
+      "title": "The Ownership Envelope: who should hold transformative AI",
+      "domain": "AI governance",
+      "publicStatus": "Not public",
+      "oneLine": "Whether the private-versus-state AGI question is better posed as which harms any owner can actually be disciplined for.",
+      "currentState": "An outline and a compiled pre-draft pack, nothing more. Both files date from 15 July 2026 and nothing has been added since: no manuscript, no bibliography, no code, no literature sweep. The underlying material is a debate brief written to argue one side of a course debate, so the state-ownership case has not been steelmanned at all, and the outline itself records that the brief's fact-checking standard sits below what a paper would need. Drafting was deliberately sequenced behind another governance paper, which now has a public preprint but is still awaiting its second draft, so this one has not started.",
+      "whatExists": [
+        "An outline, 15 July 2026: a two-part thesis — the envelope as legibility × attribution × recoverability × contestability, and a separation principle holding that the coercion incentive and the capability must never be fused — a seven-section skeleton, and a checklist of what has to happen before any drafting begins",
+        "A 10-page pre-draft pack binding the outline together with the source debate brief. Never circulated",
+        "The debate brief itself: a six-point case, nine anticipated rebuttals, and the opposing side's seven points with concede-or-fight assignments. Written to argue the private side",
+        "A drafted expression-of-interest text reusing the envelope framing, not filed"
+      ],
+      "whatIsMissing": [
+        "No draft. Not a rough one, not a partial one. Zero words of manuscript prose exist on disk.",
+        "No literature sweep has been run. The outline names two novelty claims it depends on — that no prior work poses AGI ownership as a harm-property envelope, and that none grounds ownership in assurance-as-independence-of-conclusion — and neither has been tested against anything.",
+        "The state-ownership side has not been steelmanned. The only argument map that exists was built to win a debate for the private position, and the project's own notes say the paper must argue the government case as hard as the brief argues the private one.",
+        "The facts are debate-grade. The outline states plainly that the brief's verification standard is insufficient for print and that everything must be re-verified before use.",
+        "The contribution framing is fragile by the project's own admission. The stated contribution is the method — steelman both sides, walk the argument, report where it lands — and a method alone does not carry a paper unless it lands somewhere non-obvious. Whether it does is exactly what the missing literature sweep would decide. No venue has been chosen and there is no public artefact of any kind."
+      ],
+      "collaboratorProfile": "The single most useful collaborator is someone who genuinely holds the state-ownership position and will argue it at full strength rather than as a foil; one author who has already argued one side in a debate cannot supply that on his own. Beyond that: a political economist comfortable with property-rights and residual-control-rights theory, which currently has no answer here; someone with securitisation theory or arms-control background who can say whether the claim that nationalisation converts a coordination game into a security dilemma survives contact with the IR literature; and anyone in an AI governance group willing to spend an afternoon saying whether the four-property envelope has already been named under a different label, which would either sharpen the contribution or end the project early. A verified literature sweep across the nationalisation-of-AGI debate is grunt work nobody has done and it matters as much as any of the above."
+    }
+  ],
+  "terms": [
+    "Co-authorship is the default where the contribution is substantive, and substantive means running the study, building the dataset, writing a section, or supplying the argument that changes the paper — not reading a draft and sending comments. Author order gets agreed in writing before the work starts rather than after the results are in. If a collaboration produces nothing publishable, that is a normal outcome and nobody owes anybody a paper.",
+    "Data and code are open by default, CC BY 4.0 for text, with analysis code in public repositories. Where a collaborator brings data under an access agreement, that agreement governs and the work is done to it. Errors are corrected in public, dated, and credited to whoever found them unless they would rather not be named — several of the entries above exist in the form they do because that rule was applied to this lab's own output.",
+    "Dissensus is one researcher, Murad Farzulla, with a research assistant, and both have papers of their own in flight. This is an early-stage independent lab, not a department: there is no editorial board, no admin, and no queue management. A first reply usually takes weeks rather than days. Nothing is turned down silently, but things do get missed, and a reminder after a month is a courtesy rather than a nuisance.",
+    "There is no funding to offer. No stipend, no compute grant, no travel budget, no institutional affiliation to lend. What is on offer instead is a specified problem, whatever data, code and formal work already exists, and a co-author who will state in print where a result failed. If a paid position or an institutional host is what you need, this is the wrong place, and that is a reasonable thing to conclude."
+  ],
+  "contactNote": "Use the form below, or write to research@dissensus.ai. Concrete beats enthusiastic: name the project, say what you would bring, and say what you want out of it."
+}

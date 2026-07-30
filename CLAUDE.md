@@ -24,27 +24,32 @@ Instructions for Claude Code when working in this repository.
 
 ```
 dissensus-ai/
+├── papers.json          # Paper metadata (source of truth for research.html + papers/)
+├── tools.json           # Tools/packages catalogue (source of truth for tools.html)
+├── projects.json        # Open projects seeking collaborators (-> collaborate.html)
+├── build-papers.js      # GENERATES: papers/*, research.html list, tools.html,
+│                        #            collaborate.html, sitemap.xml
 ├── public/              # Deployed to Cloudflare Pages (auto-deploy on git push)
-│   ├── index.html       # Homepage - research overview, team summary, roadmap
-│   ├── about.html       # Team & lab page - full bios, mission, approach
-│   ├── services.html    # Services & capabilities - commercial engagement paths
-│   ├── manifesto.html   # Research manifesto
-│   ├── charter.html     # Lab charter (UK Ltd governance)
-│   ├── collaborate.html # Collaboration proposals
-│   ├── reading.html     # Reading list
-│   ├── press.html       # Press/media kit
-│   ├── subscribe.html   # Newsletter signup
-│   ├── privacy.html     # Privacy policy (UK GDPR compliant)
-│   ├── terms.html       # Terms of use
-│   ├── 404.html         # Error page
-│   ├── css/
-│   │   └── dissensus.css
-│   ├── assets/          # Images, logos
-│   ├── sitemap.xml
-│   └── feed.xml         # RSS feed
+│   ├── index.html       # Homepage — hand-authored (hero, agendas, #proposal, Elsewhere)
+│   ├── about.html       # Team & lab (absorbed Services + Partners; #services/#partners)
+│   ├── research.html    # Publication archive — list section is GENERATED
+│   ├── news.html        # News index; news/*.html posts; news/_drafts/ is held
+│   ├── tools.html       # GENERATED from tools.json
+│   ├── collaborate.html # GENERATED from projects.json
+│   ├── manifesto.html · charter.html · reading.html · press.html · subscribe.html
+│   ├── privacy.html · terms.html · 404.html
+│   ├── services.html · partners.html · work-with-us.html   # redirect stubs -> index anchors
+│   ├── css/             # system.css -> site.css -> index.css (dissensus.css = legacy)
+│   ├── js/              # theme.js (theme + toggleNav), motion.js, index.js
+│   ├── assets/fonts/    # self-hosted woff2
+│   ├── papers/          # GENERATED per-paper pages + hosted PDFs
+│   ├── sitemap.xml      # GENERATED
+│   └── feed.xml
 ├── wrangler.json        # Cloudflare Pages config (optional manual deploy)
-└── .gitignore
+└── .gitignore           # ignores CLAUDE.md (this file is local-only) and .claude/
 ```
+
+**Rebuild after editing any of the three JSON files:** `node build-papers.js`
 
 ## Team
 
@@ -57,25 +62,54 @@ dissensus-ai/
 
 ## Design System
 
-**Aesthetic:** Dark academia meets surveillance capitalism critique. Monospace typography, crimson accents, network visualization.
+**Superseded by the 17 Jul 2026 redesign — the old dark/crimson/all-monospace spec is gone.**
+Canonical spec: `../\_design-system/DISSENSUS_DESIGN_SYSTEM.md`.
+
+⚠️ **This repo's `public/css/system.css` is AHEAD of `_design-system/system.css`** (12.2 KB vs
+7.7 KB). The "master" has not been updated since the redesign — do not sync backwards from it.
+systems-ac still carries the older 7.7 KB copy.
+
+**Mode:** light default, dark via `data-theme="dark"` (`js/theme.js`, persisted as `fz-theme`).
 
 **Colors:**
-- Background: `#050505` (near-black)
-- Accent: `#DC143C` (crimson)
-- Text: `#e8e8e8` (off-white)
-- Secondary: `#888888` (gray)
+- Background: `#faf8f5` (warm cream) / dark `#0b0b0d`
+- Accent: `#800020` (burgundy, brand constant) / dark `#d15570`
+- Text: `#1c1917` / dark `#ededed`
 
-**Typography:**
-- Monospace throughout (research lab vibe)
-- Equation blocks with distinctive styling
+**Typography:** Source Serif 4 (headings), Inter (prose), IBM Plex Mono (labels/kickers).
+All self-hosted woff2 in `public/assets/fonts` — **no font CDN**.
+
+**Stylesheet layering:** `system.css` (shared design system) → `site.css` (site components)
+→ `index.css` (homepage only). `dissensus.css` is the pre-redesign sheet, still present but
+only referenced by legacy pages — do not add to it.
+
+**Signature components:** mono kicker at 0.28em, mono section index (`01 · Label`),
+56×3px burgundy rule, `.card` / `.pill` / `.btn--ghost`, `.grid--wide` (two explicit columns
+above 52rem) for content-rich records.
 
 ## Navigation
 
 ```
-[Logo] dissensus     Research | Services | About | Collaborate | [Contact →]
+[Mark] Dissensus   Home | About | Research | News | Tools | Collaborate | ASRI ↗ | ◙ theme
 ```
 
-Footer: Research · Services · About · Collaborate · Manifesto · Charter · Reading · Press · Subscribe · Privacy · Terms · RSS
+Hamburger below 880px (`.nav__burger` → `#nav-menu.is-open`, `toggleNav()` in `js/theme.js`).
+
+Footer: two blocks — legal/registration + `.footer__social` (LinkedIn, GitHub) on the left,
+the link list on the right. Both come from `getFooterHtml()` in `build-papers.js`; the
+hand-authored pages carry an identical inlined copy, so **a footer change must be made in the
+generator AND swept across the static pages**.
+
+## Canonical off-site URLs
+
+| Surface | URL |
+|---------|-----|
+| LinkedIn (company) | `https://www.linkedin.com/company/dissensus-ai/` |
+| GitHub org | `https://github.com/dissensus-ai` |
+| Zenodo community | `https://zenodo.org/communities/dissensus` (the old `/farzulla` slug is **410**) |
+| ASRI dashboard | `https://asri.dissensus.ai` |
+
+⚠️ `linkedin.com/company/dissensus-research` is an **unrelated Turkish company** — never link it.
 
 ## Key Content Sections (Homepage)
 
@@ -105,12 +139,14 @@ git push origin master
 
 ## Links & Integration
 
-- Published papers: farzulla.org
-- Technical infrastructure: resurrexi.io
-- Technical docs: resurrexi.dev
-- Personal: farzulla.com
+- Published papers: **hosted here** (`dissensus.ai/papers/<id>`) — farzulla.org no longer hosts them
+- Research programme: systems.ac (ASCRI)
+- Personal: farzulla.com · résumé: farzulla.org
 - Contact: research@dissensus.ai
-- GitHub: studiofarzulla/dissensus-ai
+- **Site repo stays under `studiofarzulla/dissensus-ai`** — Cloudflare Pages uses git integration
+  here, so transferring it to the `dissensus-ai` org would sever the deploy hook. Research code
+  lives in the org; this repo does not.
+- resurrexi.io / resurrexi.dev: retired to placeholders
 
 ## Content Guidelines
 
@@ -120,11 +156,20 @@ git push origin master
 
 ## What NOT to Do
 
-- Don't add complexity (no frameworks, no build tools)
-- Don't duplicate content from farzulla.org
-- Don't add blog functionality (that's resurrexi.dev)
+- Don't add complexity (no frameworks, no bundlers — `build-papers.js` is zero-dependency Node)
+- Don't hand-edit generated files (`tools.html`, `collaborate.html`, `papers/*.html`,
+  `sitemap.xml`, the publications list in `research.html`) — edit the JSON or the generator
+- Don't write "Dissensus AI" or "Dissensus Research Ltd"; the entity is **Dissensus** / **Dissensus Ltd**
+- Don't use "Rejected" / "With Editor" in public copy — only "Under Review", "Preprint", or absent
+- Don't add a font CDN or any external asset host
 - Don't use corporate/marketing language
+
+## Open items for MF
+
+- The GitHub org description still reads *"Dissensus AI is a research group…"* — a brand-rule
+  violation on a public surface (github.com/dissensus-ai).
+- No X/Twitter handle on record; the homepage "Elsewhere" anchor stays commented out until there is one.
 
 ---
 
-**Last Updated:** February 2026
+**Last Updated:** 30 July 2026
