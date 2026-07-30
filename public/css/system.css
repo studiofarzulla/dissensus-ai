@@ -185,7 +185,13 @@ img, svg { max-width: 100%; display: block; }
 .hero p { font-size: 1.2rem; margin-top: var(--sp-6); }
 
 /* ---- cards ---------------------------------------------------------------- */
-.grid { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+/* min() floor: a hard 300px track exceeds the container at 320px viewports, so cards
+   were clipped by the html overflow-x:clip rather than fitting. */
+.grid { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+/* Grid items default to min-width:auto, so a long unbreakable token (a DOI in a
+   button label) holds the track open past the container. Let them shrink, and let
+   the tokens themselves break. */
+.grid > *, .grid--wide > * { min-width: 0; }
 /* Wide variant for content-rich records (tools, open projects). These carry a long
    description plus a feature list, so they need real width — an auto-fill track floor
    strands a lone card in a narrow column (a tall thin tower on a wide screen). Two

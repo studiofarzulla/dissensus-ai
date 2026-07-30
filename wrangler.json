@@ -2,6 +2,7 @@
   "name": "dissensus-ai",
   "compatibility_date": "2025-12-21",
   "assets": {
-    "directory": "./public"
+    "directory": "./public",
+    "not_found_handling": "404-page"
   }
 }

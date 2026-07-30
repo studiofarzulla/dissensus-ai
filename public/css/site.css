@@ -141,6 +141,27 @@ blockquote strong { color: var(--text); }
 }
 .input:focus, .select:focus, .textarea:focus { outline: none; border-color: var(--accent); }
 .textarea { resize: vertical; line-height: 1.6; }
+
+/* Element-scoped twin of the rules above, for generated forms (collaborate.html) whose
+   controls are wrapped in a bare <label> and carry no .input/.select/.textarea class.
+   Without this they rendered completely unstyled. `min-width: 0` is load-bearing: a
+   <select> sizes to its widest <option>, and the project titles are long enough to push
+   the form ~190px past a 320px viewport. */
+.form label { display: flex; flex-direction: column; gap: var(--sp-2);
+  font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-dim); min-width: 0; }
+.form input, .form select, .form textarea {
+  width: 100%; max-width: 100%; min-width: 0; padding: var(--sp-3) var(--sp-4);
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  font-family: var(--font-mono); font-size: var(--fs-sm);
+  text-transform: none; letter-spacing: normal;
+}
+.form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--accent); }
+.form textarea { resize: vertical; line-height: 1.6; min-height: 9rem; }
+.form__hint { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim);
+  text-transform: none; letter-spacing: 0.02em; }
+.form button { align-self: flex-start; }
 .radios { display: flex; flex-wrap: wrap; gap: var(--sp-4); }
 .radios label { display: flex; align-items: center; gap: var(--sp-2); color: var(--text-dim); font-size: var(--fs-sm); cursor: pointer; }
 .radios input { accent-color: var(--accent); }
@@ -259,7 +280,10 @@ blockquote strong { color: var(--text); }
 .error__eq { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--accent); margin-top: var(--sp-8); }
 
 /* ---- misc ------------------------------------------------------------------ */
-.btn-row { display: flex; gap: var(--sp-4); flex-wrap: wrap; margin-top: var(--sp-6); }
+.btn-row { display: flex; gap: var(--sp-4); flex-wrap: wrap; margin-top: var(--sp-6); min-width: 0; }
+/* Button labels carry full identifiers ("Zenodo 10.5281/zenodo.17614725"); without
+   this the token is one unbreakable word and sets the card's minimum width. */
+.btn-row .btn { max-width: 100%; overflow-wrap: anywhere; }
 .center { text-align: center; }
 
 /* ============================================================================

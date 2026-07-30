@@ -9,6 +9,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 // ─── Load Data ───────────────────────────────────────────────────────────────
 
@@ -63,7 +64,7 @@ function generateBibTeX(paper) {
   title = {${paper.title}},
   year = {${year}},
   howpublished = {Dissensus ${paper.wpNumber && paper.wpNumber.startsWith('DP') ? 'Discussion' : 'Working'} Paper${paper.wpNumber ? ' ' + paper.wpNumber : ''}},
-${doiLine}  url = {https://dissensus.ai/papers/${paper.id}.html}
+${doiLine}  url = {https://dissensus.ai/papers/${paper.id}}
 }`;
 }
 
@@ -408,12 +409,18 @@ function updateResearchPage() {
   let html = fs.readFileSync(file, 'utf8');
   const block = generateResearchPublications();
   // Replace everything between the Publications heading and the closing research-note paragraph.
-  const re = /(<h2>Publications<\/h2>\n)[\s\S]*?(\n\s*<p class="research-note">)/;
+  // The whitespace before <p class="research-note"> is matched but NOT captured, and re-emitted
+  // as a fixed string — capturing it made the build non-idempotent, adding two blank lines to
+  // research.html on every run, unbounded.
+  const re = /(<h2>Publications<\/h2>\n)[\s\S]*?\n[ \t]*(<p class="research-note">)/;
   if (!re.test(html)) {
     console.log('  (research.html publications anchors not found — skipped)');
     return;
   }
-  html = html.replace(re, `$1\n${block}$2`);
+  // Replacement FUNCTION, not a string: `block` is generated HTML built from paper titles and
+  // abstracts, and a literal $& / $` / $1 in any of them would otherwise be interpreted as a
+  // replacement pattern and corrupt the output.
+  html = html.replace(re, (_m, head, tail) => `${head}\n${block.replace(/\s+$/, '')}\n\n    ${tail}`);
   fs.writeFileSync(file, html);
   console.log('  research.html (publications list regenerated)');
 }
@@ -769,6 +776,142 @@ ${getFooterHtml('')}
   console.log(`  collaborate.html (${projects.length} open projects)`);
 }
 
+// ─── Sync nav + footer into hand-authored pages ──────────────────────────────
+
+// The hand-authored pages own their CONTENT but not their chrome. Both blocks are
+// rewritten from getNavHtml()/getFooterHtml() on every build, so adding a route
+// updates every page at once. Before this existed, adding Collaborate to the nav
+// reached only the three generated page types — the homepage had no link to it at
+// all, which made a freshly shipped page unreachable from the front door.
+function syncStaticChrome() {
+  // [file, activeKey, prefix] — prefix '' for root pages, '../' one level down.
+  const pages = [
+    ['index.html', 'home', ''],
+    ['about.html', 'about', ''],
+    ['research.html', 'research', ''],
+    ['news.html', 'news', ''],
+    ['manifesto.html', null, ''],
+    ['charter.html', null, ''],
+    ['reading.html', null, ''],
+    ['press.html', null, ''],
+    ['subscribe.html', null, ''],
+    ['privacy.html', null, ''],
+    ['terms.html', null, ''],
+    ['404.html', null, ''],
+    ['news/incorporation.html', 'news', '../'],
+    ['news/temporal-bitmap.html', 'news', '../'],
+    ['news/trident.html', 'news', '../'],
+  ];
+
+  const navRe = /<nav class="nav">[\s\S]*?<\/nav>/;
+  const footRe = /<footer class="footer">[\s\S]*?<\/footer>/;
+  let navs = 0, foots = 0;
+  const skipped = [];
+
+  pages.forEach(([file, active, prefix]) => {
+    const p = path.join('public', file);
+    if (!fs.existsSync(p)) { skipped.push(`${file} (missing)`); return; }
+    let html = fs.readFileSync(p, 'utf8');
+
+    if (navRe.test(html)) {
+      html = html.replace(navRe, () => getNavHtml(active, prefix).replace(/^\s*/, ''));
+      navs++;
+    } else {
+      skipped.push(`${file} (no nav block)`);
+    }
+
+    if (footRe.test(html)) {
+      html = html.replace(footRe, () => getFooterHtml(prefix).replace(/^\s*/, ''));
+      foots++;
+    } else {
+      skipped.push(`${file} (no footer block)`);
+    }
+
+    fs.writeFileSync(p, html);
+  });
+
+  console.log(`  nav synced in ${navs}, footer synced in ${foots} of ${pages.length} pages`);
+  skipped.forEach(s => console.log(`  ! skipped: ${s}`));
+}
+
+// ─── Canonicalise self-referencing URLs ──────────────────────────────────────
+
+// The host 307-redirects every /x.html to /x, so a canonical, og:url or
+// citation_abstract_html_url written as .html points at a redirect rather than the
+// 200 it should name. Rewrites ONLY those metadata fields plus sitemap <loc>;
+// citation_pdf_url is left alone (it names a real .pdf, which does not redirect),
+// and navigation hrefs are left alone (relative links are fine as .html).
+function canonicaliseUrls() {
+  const strip = url => url
+    .replace(/^(https:\/\/dissensus\.ai\/[^"']*?)index\.html$/, '$1')
+    .replace(/^(https:\/\/dissensus\.ai\/[^"']*?)\.html$/, '$1');
+
+  const FIELDS = [
+    /(<link rel="canonical" href=")([^"]+)(")/g,
+    /(<meta property="og:url" content=")([^"]+)(")/g,
+    /(<meta name="citation_abstract_html_url" content=")([^"]+)(")/g,
+  ];
+
+  const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => {
+    const p = path.join(dir, e.name);
+    return e.isDirectory() ? walk(p) : (e.name.endsWith('.html') ? [p] : []);
+  });
+
+  let touched = 0;
+  for (const file of walk('public')) {
+    const before = fs.readFileSync(file, 'utf8');
+    let after = before;
+    for (const re of FIELDS) {
+      after = after.replace(re, (_m, head, url, tail) => `${head}${strip(url)}${tail}`);
+    }
+    if (after !== before) { fs.writeFileSync(file, after); touched++; }
+  }
+
+  const smPath = path.join('public', 'sitemap.xml');
+  let smFixed = 0;
+  if (fs.existsSync(smPath)) {
+    const before = fs.readFileSync(smPath, 'utf8');
+    const after = before.replace(/(<loc>)([^<]+)(<\/loc>)/g,
+      (_m, head, url, tail) => { const s = strip(url); if (s !== url) smFixed++; return `${head}${s}${tail}`; });
+    if (after !== before) fs.writeFileSync(smPath, after);
+  }
+  console.log(`  canonical/og:url stripped of .html in ${touched} pages, ${smFixed} sitemap URLs`);
+}
+
+// ─── Cache-bust stylesheets ──────────────────────────────────────────────────
+
+// Every stylesheet was linked bare (`css/site.css`), so a CSS change reached only
+// first-time visitors — returning ones kept the cached copy until it expired on its
+// own. One hash over all three sheets, appended to every reference in every page,
+// generated or hand-authored. Runs LAST so it covers pages written earlier in the build.
+function bustCss() {
+  const sheets = ['system.css', 'site.css', 'index.css']
+    .map(n => path.join('public', 'css', n))
+    .filter(p => fs.existsSync(p));
+  if (!sheets.length) { console.log('  (no stylesheets found — skipped)'); return; }
+
+  const h = crypto.createHash('md5');
+  sheets.forEach(p => h.update(fs.readFileSync(p)));
+  const hash = h.digest('hex').slice(0, 8);
+
+  const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => {
+    const p = path.join(dir, e.name);
+    return e.isDirectory() ? walk(p) : (e.name.endsWith('.html') ? [p] : []);
+  });
+
+  let touched = 0;
+  for (const file of walk('public')) {
+    const before = fs.readFileSync(file, 'utf8');
+    // Matches css/x.css and ../css/x.css, with or without an existing ?v=
+    const after = before.replace(
+      /((?:\.\.\/)?css\/(?:system|site|index)\.css)(\?v=[a-f0-9]*)?/g,
+      (_m, base) => `${base}?v=${hash}`
+    );
+    if (after !== before) { fs.writeFileSync(file, after); touched++; }
+  }
+  console.log(`  css v=${hash} applied to ${touched} pages (${sheets.length} stylesheets hashed)`);
+}
+
 // ─── Generate Sitemap ────────────────────────────────────────────────────────
 
 function generateSitemap() {
@@ -871,9 +1014,21 @@ generateToolsPage();
 console.log('\nCollaborate page:');
 generateCollaboratePage();
 
+// Sync nav + footer into the hand-authored pages
+console.log('\nChrome sync (hand-authored pages):');
+syncStaticChrome();
+
 // Generate sitemap
 console.log('\nSitemap:');
 generateSitemap();
+
+// Point canonical/og:url at the 200 URL rather than the .html that redirects
+console.log('\nCanonical URLs:');
+canonicaliseUrls();
+
+// Version every stylesheet reference (must run after every page is written)
+console.log('\nCache-busting:');
+bustCss();
 
 // Summary
 console.log(`\n✓ Generated ${papers.length} paper pages${toolsData ? ' + tools.html' : ''}${projectsData ? ' + collaborate.html' : ''} + sitemap`);
