@@ -1,0 +1,8 @@
+# dissensus.ai redirects (Cloudflare static assets reads this file)
+
+# /asri/ was a vendored copy of the ASRI dashboard, committed Jan 2026 and never
+# refreshed. It hit the same live API as the real dashboard, so it rendered current
+# risk numbers through seven-month-old code, under <title>frontend</title> and the
+# retired "Dissensus AI" name. Nothing linked to it. One canonical dashboard.
+/asri/*  https://asri.dissensus.ai/:splat  301
+/asri    https://asri.dissensus.ai         301
