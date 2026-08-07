@@ -6,3 +6,17 @@
 # retired company name. Nothing linked to it. One canonical dashboard.
 /asri/*  https://asri.dissensus.ai/:splat  301
 /asri    https://asri.dissensus.ai         301
+
+# Bare-bones IA — demoted pages keep working URLs
+/manifesto  /  301
+/manifesto.html  /  301
+/charter  /about  301
+/charter.html  /about  301
+/reading  /  301
+/reading.html  /  301
+/press  /about#contact  301
+/press.html  /about#contact  301
+/subscribe  /news  301
+/subscribe.html  /news  301
+/work-with-us  /collaborate  301
+/work-with-us.html  /collaborate  301

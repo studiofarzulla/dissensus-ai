@@ -5,7 +5,7 @@
       "title": "Do Cryptocurrency Markets Differentiate Infrastructure from Regulatory Shocks? A Multi-Moment Event Study with Dependence-Robust Inference",
       "subtitle": null,
       "date": "2025-12-01",
-      "status": "under-review",
+      "status": "accepted",
       "journal": "Digital Finance (Springer)",
       "tags": [
         "finance",
@@ -669,6 +669,8 @@
     "math": "Mathematics"
   },
   "statuses": {
+    "accepted": "Accepted",
+    "forthcoming": "Forthcoming",
     "under-review": "Under Review",
     "preprint": "Preprint"
   },

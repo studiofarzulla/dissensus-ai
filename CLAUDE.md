@@ -159,7 +159,12 @@ git push origin master
 - Published papers: **hosted here** (`dissensus.ai/papers/<id>`) — farzulla.org no longer hosts them
 - Research programme: systems.ac (ASCRI)
 - Personal: farzulla.com · résumé: farzulla.org
-- Contact: research@dissensus.ai
+- Contact (canonical public channels — wire into About / Work with us / footer when rebuilding):
+  - Email: research@dissensus.ai · murad@dissensus.ai
+  - Phone (London 020): `020 3807 1624` (`+44 20 3807 1624`)
+  - Collaboration / contact form: https://formspree.io/f/mreezoko
+  - Book a meeting (15 min): https://cal.com/dissensus/15min
+  - Registered office: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ (company no. 17309927)
 - **Site repo stays under `studiofarzulla/dissensus-ai`** — Cloudflare Pages uses git integration
   here, so transferring it to the `dissensus-ai` org would sever the deploy hook. Research code
   lives in the org; this repo does not.

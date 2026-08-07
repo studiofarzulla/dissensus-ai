@@ -80,18 +80,17 @@ ${doiLine}  url = {https://dissensus.ai/papers/${paper.id}}
 function getNavHtml(activeLink, prefix = '../') {
   const item = (href, label, key) =>
     `      <a href="${prefix}${href}"${activeLink === key ? ' class="is-active"' : ''}>${label}</a>`;
+  // Bare-bones nav: no ASRI, no theme toggle (light-only). Work with us = collaborate.html
   return `  <nav class="nav">
     <a href="${prefix}index.html" class="nav__brand"><img src="${prefix}assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="${prefix}assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
     <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
     <div class="nav__links" id="nav-menu">
 ${item('index.html', 'Home', 'home')}
-${item('about.html', 'About', 'about')}
 ${item('research.html', 'Research', 'research')}
-${item('news.html', 'News', 'news')}
 ${item('tools.html', 'Tools', 'tools')}
-${item('collaborate.html', 'Collaborate', 'collaborate')}
-      <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI &#8599;</a>
-      <button class="toggle" onclick="toggleTheme()">&#9689; theme</button>
+${item('collaborate.html', 'Work with us', 'collaborate')}
+${item('about.html', 'About', 'about')}
+${item('news.html', 'News', 'news')}
     </div>
   </nav>`;
 }
@@ -109,6 +108,12 @@ function getSocialHtml() {
 </p>`;
 }
 
+// Public contact — keep in sync with ~/.claude/CLAUDE.md / site CLAUDE.md
+const PHONE_DISPLAY = '020 3807 1624';
+const PHONE_TEL = '+442038071624';
+const CAL_URL = 'https://cal.com/dissensus/15min';
+const FORM_URL = 'https://formspree.io/f/mreezoko';
+
 function getFooterHtml(prefix = '../') {
   const p = prefix;
   return `<footer class="footer">
@@ -116,21 +121,18 @@ function getFooterHtml(prefix = '../') {
 <div>
 <p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
 <p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
+<p style="margin-top:.35rem;">Tel: <a href="tel:${PHONE_TEL}">${PHONE_DISPLAY}</a> &middot; <a href="${CAL_URL}" target="_blank" rel="noopener">Book 15&nbsp;min</a> &middot; <a href="mailto:research@dissensus.ai">research@dissensus.ai</a></p>
 ${getSocialHtml()}
 </div>
 <div style="max-width:560px;">
 <a href="${p}index.html">Home</a> &middot;
-<a href="${p}about.html">About</a> &middot;
 <a href="${p}research.html">Research</a> &middot;
-<a href="${p}news.html">News</a> &middot;
 <a href="${p}tools.html">Tools</a> &middot;
-<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
+<a href="${p}collaborate.html">Work with us</a> &middot;
+<a href="${p}about.html">About</a> &middot;
+<a href="${p}news.html">News</a> &middot;
 <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-<a href="${p}manifesto.html">Manifesto</a> &middot;
-<a href="${p}charter.html">Charter</a> &middot;
-<a href="${p}reading.html">Reading</a> &middot;
-<a href="${p}press.html">Press</a> &middot;
-<a href="${p}subscribe.html">Subscribe</a> &middot;
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
 <a href="${p}privacy.html">Privacy</a> &middot;
 <a href="${p}terms.html">Terms</a> &middot;
 <a href="${p}feed.xml" title="RSS Feed">RSS</a>
@@ -290,7 +292,7 @@ ${getNavHtml('research')}
       <header>
         <div class="paper__meta">
           <span>${formatDate(paper.date)}</span>
-          <span class="pill ${paper.status === 'under-review' ? 'pill--review' : 'pill--preprint'}">${statusLabel}</span>
+          <span class="pill ${pillClassForStatus(paper.status)}">${statusLabel}</span>
           ${programLabel ? `<span>${programLabel}</span>` : ''}
         </div>
         <h1 class="paper__title">${paper.title}</h1>
@@ -357,13 +359,24 @@ ${getFooterHtml()}
 
 // ─── Regenerate research.html publication list from papers.json ───────────────
 
+function pillClassForStatus(status) {
+  if (status === 'accepted' || status === 'forthcoming') return 'pill--review';
+  if (status === 'under-review') return 'pill--review';
+  return 'pill--preprint';
+}
+
 function pubItemMeta(paper) {
+  if ((paper.status === 'accepted' || paper.status === 'forthcoming') && paper.journal) {
+    return `${paper.status === 'forthcoming' ? 'Forthcoming' : 'Accepted'} &middot; ${paper.journal}`;
+  }
   if (paper.status === 'under-review' && paper.journal) return `Under review &middot; ${paper.journal}`;
   if (paper.arxiv) return `arXiv: ${paper.arxiv}`;
   return `Preprint`;
 }
 
 function pubItemPill(paper) {
+  if (paper.status === 'accepted') return `<span class="pill pill--review">Accepted</span>`;
+  if (paper.status === 'forthcoming') return `<span class="pill pill--review">Forthcoming</span>`;
   if (paper.status === 'under-review') return `<span class="pill pill--review">Under review</span>`;
   return `<span class="pill pill--preprint">Preprint</span>`;
 }
@@ -680,12 +693,12 @@ function generateCollaboratePage() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Collaborate &mdash; Dissensus</title>
-  <meta name="description" content="Open research projects at Dissensus that are early, unfinished, or stalled, with an honest account of where each one actually stands and what kind of collaborator would move it.">
+  <title>Work with us &mdash; Dissensus</title>
+  <meta name="description" content="Open research collaborations, positions, and organisational enquiries at Dissensus.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Collaborate &mdash; Dissensus">
-  <meta property="og:description" content="Early and unfinished research projects, with an honest account of where each one stands.">
+  <meta property="og:title" content="Work with us &mdash; Dissensus">
+  <meta property="og:description" content="Open research collaborations, positions, and organisational enquiries at Dissensus.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dissensus.ai/collaborate.html">
   <meta property="og:image" content="https://dissensus.ai/og-image.png">
@@ -695,8 +708,8 @@ function generateCollaboratePage() {
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Collaborate &mdash; Dissensus">
-  <meta name="twitter:description" content="Early and unfinished research projects, with an honest account of where each one stands.">
+  <meta name="twitter:title" content="Work with us &mdash; Dissensus">
+  <meta name="twitter:description" content="Open research collaborations, positions, and organisational enquiries at Dissensus.">
   <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
 
   <link rel="canonical" href="https://dissensus.ai/collaborate.html">
@@ -719,15 +732,33 @@ ${getNavHtml('collaborate', '')}
   <!-- Hero -->
   <header class="container hero" style="padding-block: clamp(3rem, 8vw, 6rem);">
     <span class="kicker">Work with us</span>
-    <h1>Open projects</h1>
-    <p class="lead">${projectsData.intro || ''}</p>
-    <p class="lead" style="margin-top: var(--sp-4);">${projectsData.introSecond || ''}</p>
+    <h1>Research first. Clear entry points.</h1>
+    <p class="lead">Three ways in: open research problems, roles when we have them, and organisational enquiries. No fake org chart.</p>
+    <div class="cta-row" style="margin-top:1.5rem;">
+      <a class="btn btn-primary" href="https://cal.com/dissensus/15min" target="_blank" rel="noopener">Book 15&nbsp;min</a>
+      <a class="btn" href="mailto:research@dissensus.ai">research@dissensus.ai</a>
+      <a class="btn" href="tel:+442038071624">020 3807 1624</a>
+    </div>
   </header>
 
-  <section class="section container">
-    <span class="index">01 &middot; Open work</span>
-    <h2>Where each of these actually stands</h2>
-    <p>${projectsData.stateNote || ''}</p>
+  <section class="section container" id="positions">
+    <span class="index">01 &middot; Positions</span>
+    <h2>Roles</h2>
+    <p class="body-text">No paid roles are open right now. Research collaborators join through the open projects below (co-authorship on a named problem, not an unpaid job title). Advisory relationships are by invitation, not application.</p>
+  </section>
+
+  <section class="section container" id="organisations">
+    <span class="index">02 &middot; Organisations</span>
+    <h2>Applied work and partnership</h2>
+    <p class="body-text">For friction analysis, systemic-risk indices, formal verification, or multi-agent evaluation: email <a href="mailto:research@dissensus.ai">research@dissensus.ai</a> with the problem as you currently understand it, or <a href="https://cal.com/dissensus/15min" target="_blank" rel="noopener">book fifteen minutes</a>. If we are not the right lab, we will say so.</p>
+  </section>
+
+  <section class="section container" id="open-work">
+    <span class="index">03 &middot; Open research</span>
+    <h2>Where each project actually stands</h2>
+    <p class="lead">${projectsData.intro || ''}</p>
+    <p class="lead" style="margin-top: var(--sp-4);">${projectsData.introSecond || ''}</p>
+    <p style="margin-top: var(--sp-4);">${projectsData.stateNote || ''}</p>
     <div class="grid grid--wide" style="margin-top: var(--sp-8);">
 
 ${projects.map(generateProjectCard).join('\n\n')}
@@ -736,7 +767,7 @@ ${projects.map(generateProjectCard).join('\n\n')}
   </section>
 
   <section class="section container">
-    <span class="index">02 &middot; How this works</span>
+    <span class="index">04 &middot; How this works</span>
     <h2>What collaboration means here</h2>
     <div class="prose" style="max-width: var(--measure);">
       ${(projectsData.terms || []).map(t => `<p>${t}</p>`).join('\n      ')}
@@ -744,7 +775,7 @@ ${projects.map(generateProjectCard).join('\n\n')}
   </section>
 
   <section class="section container">
-    <span class="index">03 &middot; Get in touch</span>
+    <span class="index">05 &middot; Get in touch</span>
     <h2>Propose something</h2>
     <p class="lead">${projectsData.contactNote || ''}</p>
     <form class="form" style="margin-top: 2.4rem;" action="https://formspree.io/f/mreezoko" method="POST">
@@ -808,6 +839,7 @@ function syncStaticChrome() {
     ['news/incorporation.html', 'news', '../'],
     ['news/temporal-bitmap.html', 'news', '../'],
     ['news/trident.html', 'news', '../'],
+    ['news/digital-finance-accept.html', 'news', '../'],
   ];
 
   const navRe = /<nav class="nav">[\s\S]*?<\/nav>/;
