@@ -19,19 +19,29 @@
 .home { overflow-x: hidden; }
 .home ::selection { background: var(--accent-dim); color: var(--text); }
 
-/* nav brand-mark theme swap now lives in the shared layer (site.css) so every
-   page's canonical nav themes correctly, not just index.css consumers. */
+/* The nav brand mark lives in the shared layer (site.css). There is one mark and
+   one theme now, so nothing to swap. */
 
 /* ── hero ─────────────────────────────────────────────────────────────────── */
-.home .hero { position: relative; padding-block: 5rem 4rem; overflow: hidden; border-top: 0; }
-.home .hero::before { content: none; }               /* drop the shared CSS glow; #net does it */
-.home #net { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
-.home .hero::after {
-  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: radial-gradient(120% 90% at 30% 35%, transparent 0%,
-    color-mix(in srgb, var(--bg) 35%, transparent) 45%, var(--bg) 88%);
-}
+/* The #net canvas was removed in the Aug 2026 diet. It had overridden the shared
+   hero glow (`::before { content: none }`) because it painted its own background;
+   that override is gone too, so the glow from site.css comes back — otherwise
+   removing the canvas would have left the hero flat. The ::after vignette that
+   faded the canvas into the page went with it. */
+.home .hero { position: relative; padding-block: 5rem 4rem; border-top: 0; }
 .home .hero .container { position: relative; z-index: 2; }
+
+/* Two columns once there is room for them. The canvas used to occupy the right half
+   of the hero; the stats panel occupies it now, which keeps the container balanced
+   without putting decoration back. Single column below 62rem, stats last. */
+.home .hero__grid { display: grid; gap: 2.6rem; }
+@media (min-width: 62rem) {
+  .home .hero__grid { grid-template-columns: minmax(0, 1.6fr) minmax(14rem, 0.8fr); gap: 4rem; align-items: start; }
+  .home .hero__side { padding-top: 0.6rem; }
+  /* In the side column the row layout would squeeze three items into 14rem, so the
+     stats stack and the shared border becomes a divider between them. */
+  .home .hero__side .hero-stats { flex-direction: column; gap: 1.5rem; max-width: none; }
+}
 
 .home .eyebrow {
   font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.22em;
@@ -159,13 +169,8 @@
 .home .card-foot { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); display: flex; align-items: center; gap: 0.5rem; }
 .home .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 6px var(--accent); display: inline-block; }
 
-/* ── metrics band ─────────────────────────────────────────────────────────── */
-.home .metrics { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
-.home .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; padding-block: 2.6rem; }
-.home .metric { text-align: center; }
-.home .metric-num { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
-.home .metric-num .plus { color: var(--accent); }
-.home .metric-cap { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); opacity: 0.85; margin-top: 0.4rem; }
+/* The metrics band is gone: it restated the hero stats verbatim — both blocks
+   counted the same 20 publications, three screens apart. */
 
 /* ── fund teaser ──────────────────────────────────────────────────────────── */
 .home .fund .card { background: linear-gradient(180deg, rgba(var(--burgundy-rgb), 0.12), var(--surface)); border-color: var(--accent); }
@@ -175,8 +180,3 @@
 
 /* ── responsive ───────────────────────────────────────────────────────────── */
 @media (max-width: 680px) { .home .primitives { grid-template-columns: 1fr; } }
-@media (max-width: 640px) { .home .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
-
-@media (prefers-reduced-motion: reduce) {
-  .home #net { display: none; }
-}

@@ -1,0 +1,23 @@
+{
+  "_note": "Senior academic and professional advisors. THE `advisors` ARRAY IS EMPTY AND THE SECTION RENDERS NOTHING WHILE IT STAYS EMPTY — generateAdvisorySection() in build-papers.js returns '' and join.html is built without an Advisory section at all, so there is no placeholder copy anywhere on the live site. DO NOT add a name here until that person has confirmed in writing that they are happy to be listed. Seniors check their own web presence, and one unhappy name undoes the whole page. The outreach email and the bounded-ask wording are in templates/advisor-outreach.md. Set showWhileEmpty to true to publish the ask (without names) before the first name lands. Advisor fields: name, role, affiliation, initials (optional — derived from name), bio, links[{label,href}].",
+
+  "showWhileEmpty": false,
+
+  "intro": "Dissensus is one researcher and a research assistant. A lab that size agrees with itself unless it deliberately arranges not to, which is what an advisory group is for: senior people with standing in their own fields who will tell the lab when a claim does not hold, and whose names are attached to that judgement in public.",
+
+  "askSummary": "The ask is deliberately small and bounded, because an unfunded lab asking senior people for open-ended time is asking for something it cannot reciprocate.",
+
+  "ask": [
+    "Two calls a year, roughly an hour each. No standing meetings, no reading obligation between them, no minimum.",
+    "Your name, title and institution listed on this page and on About. Nothing else is published without asking you first.",
+    "Comment on the work when you have something to say and the standing to say it. Silence is an acceptable answer to any specific request.",
+    "No fiduciary duty, no company officer position, and no Companies House filing. This is not a directorship and it is not a board seat in the legal sense — Dissensus Ltd has one director and that stays true.",
+    "No liability for anything the lab publishes, and no implication that your institution endorses it. The listing names you, not your employer.",
+    "Unpaid, in both directions. There is no honorarium, and equally no expectation that you fundraise, introduce, or lend your name to anything beyond the research judgement described here.",
+    "Leave whenever you want, with no explanation owed. Ask and the listing comes down the same day."
+  ],
+
+  "invitationNote": "Advisory relationships are by invitation rather than application, which is the honest description of how they actually form. If you think you should be on this list and are not, the useful move is to disagree with something the lab has published — the research is all open, and a good objection is a better introduction than a message asking to advise.",
+
+  "advisors": []
+}

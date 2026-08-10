@@ -7,16 +7,32 @@
 /asri/*  https://asri.dissensus.ai/:splat  301
 /asri    https://asri.dissensus.ai         301
 
-# Bare-bones IA — demoted pages keep working URLs
+# Aug 2026 diet — these pages are DELETED, not merely redirected. Leaving the files
+# in place alongside a redirect rule left it ambiguous which one the host would serve,
+# and the sitemap went on advertising them for three weeks. The rules below are now
+# the only thing at these URLs.
 /manifesto  /  301
 /manifesto.html  /  301
-/charter  /about  301
-/charter.html  /about  301
+/charter  /about#commitments  301
+/charter.html  /about#commitments  301
 /reading  /  301
 /reading.html  /  301
 /press  /about#contact  301
 /press.html  /about#contact  301
 /subscribe  /news  301
 /subscribe.html  /news  301
-/work-with-us  /collaborate  301
-/work-with-us.html  /collaborate  301
+
+# Services and Partners were absorbed into About in July; they had been meta-refresh
+# HTML stubs, which cost a render and a round trip to do what a 301 does properly.
+/services  /about#services  301
+/services.html  /about#services  301
+/partners  /about#partners  301
+/partners.html  /about#partners  301
+
+# Collaborate split in two: join.html (roles, entry tasks, advisory) and
+# projects.html (the per-project dossiers). Collaborate was the shared inbound URL,
+# so it lands on Join — the page a person arriving from a call for collaborators wants.
+/collaborate  /join  301
+/collaborate.html  /join  301
+/work-with-us  /join  301
+/work-with-us.html  /join  301

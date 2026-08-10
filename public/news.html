@@ -23,8 +23,8 @@
 
   <title>News &mdash; Dissensus</title>
 
-  <link rel="stylesheet" href="css/system.css?v=35b75747">
-  <link rel="stylesheet" href="css/site.css?v=35b75747">
+  <link rel="stylesheet" href="css/system.css?v=b03dc069">
+  <link rel="stylesheet" href="css/site.css?v=b03dc069">
   <script src="js/theme.js"></script>
   <script src="js/motion.js" defer></script>
 
@@ -39,13 +39,14 @@
   <div id="progress"></div>
 
   <nav class="nav">
-    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark"> Dissensus</a>
     <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
     <div class="nav__links" id="nav-menu">
       <a href="index.html">Home</a>
       <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
       <a href="tools.html">Tools</a>
-      <a href="collaborate.html">Work with us</a>
+      <a href="join.html">Join</a>
       <a href="about.html">About</a>
       <a href="news.html" class="is-active">News</a>
     </div>
@@ -53,13 +54,50 @@
 
   <!-- Header -->
   <header class="container hero" style="padding-block: clamp(3rem, 8vw, 6rem);">
-    <span class="kicker">News</span>
+    <span class="kicker">Updates</span>
     <h1>From the lab</h1>
     <p class="lead">Papers, tools, and the occasional structural change. Longer arguments live under <a href="research.html">Research</a>; this is the record of what shipped.</p>
   </header>
 
+  <!-- Where things stand. A dated status block rather than a prose paragraph: it is
+       cheap to keep current, and a lab that publishes irregularly is better served by
+       one honest snapshot than by a stale "recent news" section. Update the date
+       whenever a number here changes. -->
+  <section class="section container" style="border-top:0;">
+    <span class="index">01 &middot; Where things stand</span>
+    <h2>The lab, as of 10 August 2026</h2>
+    <div class="stats">
+      <div class="stat" data-reveal>
+        <span class="stat__k">Publications</span>
+        <div class="stat__v">20 papers &mdash; one accepted, four under review, the rest preprints. Four are on arXiv. <a href="research.html">The archive</a>.</div>
+      </div>
+      <div class="stat" data-reveal>
+        <span class="stat__k">Latest accept</span>
+        <div class="stat__v">Digital Finance (Springer), 4 August &mdash; the multi-moment crypto event study, including its own null result.</div>
+      </div>
+      <div class="stat" data-reveal>
+        <span class="stat__k">Under review</span>
+        <div class="stat__v">AI and Ethics &middot; Ethics and Information Technology &middot; Computational Economics &middot; Financial Innovation.</div>
+      </div>
+      <div class="stat" data-reveal>
+        <span class="stat__k">Running</span>
+        <div class="stat__v">The ASRI systemic-risk index, daily, at <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">asri.dissensus.ai</a>. Four tools released. <a href="tools.html">Catalogue</a>.</div>
+      </div>
+      <div class="stat" data-reveal>
+        <span class="stat__k">Open to collaborators</span>
+        <div class="stat__v">Six projects, published with what is missing rather than what is finished. <a href="projects.html">The records</a> &middot; <a href="join.html#start">tasks by size</a>.</div>
+      </div>
+      <div class="stat" data-reveal>
+        <span class="stat__k">The lab</span>
+        <div class="stat__v">Two researchers and one affiliate. No funding, and therefore no paid positions &mdash; stated plainly on <a href="join.html">Join</a>.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- Posts -->
-  <section class="section container" style="border-top:0; padding-top:0;">
+  <section class="section container">
+    <span class="index">02 &middot; Posts</span>
+    <h2>What shipped</h2>
     <div style="max-width: 720px;">
       <a class="news-item" href="news/digital-finance-accept.html" data-reveal>
         <span class="news-item__date"><time datetime="2026-08-04">4 August 2026</time></span>
@@ -82,7 +120,7 @@
         <p>Notes on a speculative preprint: measurement as finite-window demodulation plus threshold detection, and the square in |ψ|² as the signature of an energy detector.</p>
       </a>
     </div>
-    <p class="research-note" style="margin-top:2.4rem;">Updates also go out by <a href="feed.xml">RSS</a> and the <a href="subscribe.html">newsletter</a>.</p>
+    <p class="research-note" style="margin-top:2.4rem;">Everything here also goes out by <a href="feed.xml">RSS</a>.</p>
   </section>
 
 <footer class="footer">
@@ -99,8 +137,9 @@
 <div style="max-width:560px;">
 <a href="index.html">Home</a> &middot;
 <a href="research.html">Research</a> &middot;
+<a href="projects.html">Projects</a> &middot;
 <a href="tools.html">Tools</a> &middot;
-<a href="collaborate.html">Work with us</a> &middot;
+<a href="join.html">Join</a> &middot;
 <a href="about.html">About</a> &middot;
 <a href="news.html">News</a> &middot;
 <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;

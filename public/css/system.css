@@ -1,9 +1,10 @@
 /* ============================================================================
    Dissensus / Farzulla shared design system  —  research-grade serif + sans
-   One source of truth. Light-default + dark toggle (data-theme="dark" on
-   <html>). Signature: Source Serif 4 display, Inter prose, IBM Plex Mono
-   labels, mono section indices, thin burgundy rule. Fonts are self-hosted
-   woff2 (latin subsets) in assets/fonts — no third-party font CDN.
+   One source of truth. Single light theme: the dark path was removed in Aug
+   2026 after the toggle came out of the nav, so there is exactly one palette
+   and no [data-theme] selectors anywhere. Signature: Source Serif 4 display,
+   Inter prose, IBM Plex Mono labels, mono section indices, thin burgundy rule.
+   Fonts are self-hosted woff2 (latin subsets) in assets/fonts — no CDN.
    ============================================================================ */
 
 /* ---- self-hosted fonts ----------------------------------------------------- */
@@ -41,15 +42,15 @@
 
 /* ---- tokens ---------------------------------------------------------------- */
 :root {
-  /* light (default) — warm cream, true burgundy carries the brand */
+  /* warm cream, true burgundy carries the brand — the only palette */
   --bg:        #faf8f5;
   --surface:   #ffffff;
   --surface-2: #f4f1ec;
   --line:      #e6e0d7;
   --text:      #1c1917;
   --text-dim:  #57504a;
-  --burgundy:  #800020;   /* brand constant, both modes */
-  --accent:    #800020;   /* on light, the true burgundy is the accent */
+  --burgundy:  #800020;   /* brand constant */
+  --accent:    #800020;
   --accent-dim: rgba(128, 0, 32, 0.07);
   --shadow:    0 1px 0 rgba(0,0,0,0.02), 0 10px 30px rgba(60,40,45,0.08);
 
@@ -75,18 +76,6 @@
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-[data-theme="dark"] {
-  --bg:        #0b0b0d;
-  --surface:   #141418;
-  --surface-2: #1b1b20;
-  --line:      #26262c;
-  --text:      #ededed;
-  --text-dim:  #9a9a9a;
-  --accent:    #d15570;   /* burgundy-bright, ≥4.5:1 on the dark bg */
-  --accent-dim: rgba(209, 85, 112, 0.14);
-  --shadow:    0 1px 0 rgba(255,255,255,0.02), 0 8px 30px rgba(0,0,0,0.35);
-}
-
 /* ---- reset / base --------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
@@ -97,7 +86,6 @@ body {
   font-size: var(--fs-body);
   line-height: var(--lh);
   -webkit-font-smoothing: antialiased;
-  transition: background 0.4s var(--ease), color 0.4s var(--ease);
 }
 h1, h2, h3, h4 { font-family: var(--font-serif); line-height: 1.15; font-weight: 600; letter-spacing: -0.01em; }
 h1 { font-size: var(--fs-h1); }
@@ -168,16 +156,6 @@ img, svg { max-width: 100%; display: block; }
   }
   .nav__links.is-open { display: flex; }
 }
-
-/* theme toggle */
-.toggle {
-  font-family: var(--font-mono); font-size: var(--fs-mono);
-  background: transparent; color: var(--text-dim);
-  border: 1px solid var(--line); border-radius: var(--radius);
-  padding: var(--sp-1) var(--sp-3); cursor: pointer; letter-spacing: 0.1em;
-  transition: border-color 0.15s var(--ease), color 0.15s var(--ease);
-}
-.toggle:hover { color: var(--accent); border-color: var(--accent); }
 
 /* ---- hero ----------------------------------------------------------------- */
 .hero { padding-block: clamp(4rem, 12vw, 9rem); }

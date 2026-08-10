@@ -1,0 +1,203 @@
+{
+  "_note": "Source of truth for the Roles + Start-here sections of join.html. Rebuild with `node build-papers.js`. RULE: research roles only. Do not add operations, communications, administrative or board roles as unpaid positions — an unfunded lab advertising unpaid non-research labour repels exactly the senior people it needs. Every entryTask must trace to a real gap in projects.json; do not invent tasks or hour estimates. The hour figures below are the project author's own framings ('a weekend', 'an afternoon', 'one inference run'), not marketing estimates.",
+  "intro": "Dissensus has no money. That is the first thing worth saying, because it determines everything else on this page: there is no stipend, no compute grant, no travel budget and no institutional affiliation to lend. What the lab has instead is a set of research problems specified down to the blocking task, the data and code already on the table, a co-author who publishes where a result failed, and titles that cost nothing to give and are honest to hold.",
+  "introSecond": "Roles here are research roles. There is no unpaid operations work, no unpaid communications work and no advisory board seat available by application. The ladder below is short on purpose: it starts at a task you could finish in a weekend and ends at a title you could put on a CV, and each rung is entered by doing the previous one rather than by applying.",
+  "tiers": [
+    {
+      "id": "contributor",
+      "index": "I",
+      "title": "Contributor",
+      "commitment": "One named task. Five to twenty hours, once.",
+      "openings": "Open",
+      "whatItIs": "You take one specified gap from the open projects and close it. Blind-code a table, run one inference pass, rate a sample for severity, sweep a literature claim. The task is defined before you start and finished when the output exists; there is no ongoing obligation in either direction.",
+      "whatYouGet": [
+        "Named acknowledgement in the paper, or co-authorship where the contribution is substantive by the standard on this page",
+        "A dated written record of what you did, which is the thing that is actually useful when someone later asks",
+        "The output stays yours to talk about, publish alongside, or cite"
+      ],
+      "howToEnter": "Pick a task below and say which one. No CV needed."
+    },
+    {
+      "id": "research-collaborator",
+      "index": "II",
+      "title": "Research Collaborator",
+      "commitment": "One project, carried to a result. Weeks to months.",
+      "openings": "Open · 6 projects",
+      "whatItIs": "You own a gap on a named project through to a publishable result rather than to a deliverable. That means the study gets designed, run, written up and defended, and if it fails it gets reported as a failure under the same inference standards a positive result would get.",
+      "whatYouGet": [
+        "Co-authorship, with author order agreed in writing before the work starts rather than after the results are in",
+        "Listed by name on the project record here, with what you own stated plainly",
+        "Standing to describe the work as done in collaboration with Dissensus",
+        "First refusal on the paid version of the role if the project gets funded"
+      ],
+      "howToEnter": "Name the project and the gap you would take. Say what you would bring and what you want out of it."
+    },
+    {
+      "id": "research-affiliate",
+      "index": "III",
+      "title": "Research Affiliate",
+      "commitment": "Ongoing, cross-project, by mutual agreement. No hour quota.",
+      "openings": "By agreement",
+      "whatItIs": "The standing version of the above: you work across the programme rather than on one paper, you are consulted on design before things are built, and you are listed as part of the lab. It is not a job and it is not paid. It is entered after you have delivered something, because a title handed out before any work has happened is worth nothing to the holder.",
+      "whatYouGet": [
+        "The title Research Affiliate, Dissensus — usable on a CV, ORCID record, LinkedIn profile, or a paper's affiliation line",
+        "A signed confirmation letter on company letterhead stating the role and its dates, which is the artefact institutions and visa processes actually ask for",
+        "A dissensus.ai email alias, and listing on the About page",
+        "Standing co-authorship eligibility across the programme, and first refusal on paid roles when there is money",
+        "An affiliation for grant and fellowship applications where you need a host that is not a university"
+      ],
+      "howToEnter": "Not applied for. It follows from work already done together."
+    }
+  ],
+  "notOffering": [
+    "No salary, stipend, hourly rate or honorarium, for any role on this page, including the senior ones.",
+    "No compute grant, data budget, travel money, publication-fee cover or equipment. Where a task needs inference budget, that is named as part of the task, because the person who has it is the person who can do it.",
+    "No unpaid operations, communications, administration, fundraising or board work. Those are jobs, and the lab does not have the money to hire for them, so it does not advertise them.",
+    "No directorship, company officer position or Companies House filing for any collaborator or advisor. Dissensus Ltd has one director and that is a legal structure, not a reward.",
+    "No visa sponsorship, and no claim that an affiliation here substitutes for an institutional post. If a paid position or an institutional host is what you need, this is the wrong lab, and that is a reasonable conclusion to reach."
+  ],
+  "startHere": "Every task below is a real gap in a real project, described in the project's own words on the Projects page. The hour figures are the estimates written into those project notes, not sales copy. People say yes to a weekend and no to an open-ended collaboration, so the tasks are listed at the size they actually are.",
+  "entryTasks": [
+    {
+      "id": "blind-code-event-table",
+      "project": "first-crisis-governance",
+      "projectShort": "The Loaded Wheel",
+      "task": "Blind-code the focusing-event table with the outcome column stripped",
+      "effort": "A weekend, ×2 coders",
+      "output": "A reportable inter-coder agreement statistic, replacing one author's self-coded consistency check",
+      "whoFits": "Public-policy or regulatory-studies researcher who works with focusing-event or agenda-setting theory",
+      "note": "This is the test the paper itself names as the real one. It has never been run."
+    },
+    {
+      "id": "arxiv-endorsement",
+      "project": "first-crisis-governance",
+      "projectShort": "The Loaded Wheel",
+      "task": "Endorse an arXiv submission in econ.GN or cs.CY",
+      "effort": "Fifteen minutes",
+      "output": "Unblocks an arXiv deposit that is drafted and unsent; the paper currently has SSRN as its only public surface",
+      "whoFits": "Anyone already holding endorsement rights in econ.GN or cs.CY",
+      "note": "The smallest useful thing anyone can do for this lab."
+    },
+    {
+      "id": "mandate-boundary-review",
+      "project": "first-crisis-governance",
+      "projectShort": "The Loaded Wheel",
+      "task": "Pressure-test the mandate-boundary claims against the Bank Service Company Act, the DORA critical-third-party regime, and the UK CTP designations",
+      "effort": "A few hours",
+      "output": "Either confirms or breaks the structural claim that these regimes are service-scoped and never model-scoped",
+      "whoFits": "Financial-regulation lawyer or a supervisor who has worked inside one of these regimes",
+      "note": "This is the sentence a referee will go after first."
+    },
+    {
+      "id": "vlm-control-runs",
+      "project": "semantic-vision",
+      "projectShort": "Semantic-first vision",
+      "task": "Run the three queued controls: identical question with varied persona, an equal-cardinality set, a paraphrase set",
+      "effort": "One inference pass each — cheap in wall-clock, expensive only in access",
+      "output": "Separates the persona-specific share of the drift; the identical-question set alone decides whether the headline survives",
+      "whoFits": "Anyone with spare VLM inference budget and eval experience",
+      "note": "Data and code are already public, so the claim can be audited before you commit. Expect to edit hardcoded paths and a local inference endpoint."
+    },
+    {
+      "id": "vlm-interp-probe",
+      "project": "semantic-vision",
+      "projectShort": "Semantic-first vision",
+      "task": "Layerwise or attention probing on an open-weight model",
+      "effort": "One to two weeks",
+      "output": "The processing-order question is currently entirely untouched — 'semantic-first' names an output pattern, not a claim about processing",
+      "whoFits": "Mechanistic interpretability researcher",
+      "note": "There is no internal evidence of any kind in the paper at present. The paper says so."
+    },
+    {
+      "id": "embodied-validation",
+      "project": "semantic-vision",
+      "projectShort": "Semantic-first vision",
+      "task": "Run the scene-context experiment in AI2-THOR or Habitat",
+      "effort": "About a week with a working setup",
+      "output": "Turns the just-in-time ontology proposal from a labelled design hypothesis into something with an embodied test behind it",
+      "whoFits": "Embodied-AI or robotics researcher with a running simulator",
+      "note": "The simulator was installed once and the experiment produced no output."
+    },
+    {
+      "id": "annotation-study",
+      "project": "genre-mimicry",
+      "projectShort": "Genre mimicry",
+      "task": "Design a codebook, train multiple raters, and report a real reliability statistic on a stratified subset of the 215 responses",
+      "effort": "Two to three weeks",
+      "output": "Converts the result from 'genre changes the vocabulary models emit' to 'genre changes what models do'",
+      "whoFits": "Measurement or psychometrics researcher who has run annotation properly",
+      "note": "The binding gap on this project. The current outcome variable is a fifteen-term keyword matcher measuring safety register, not refusal. Nothing else about the project matters more."
+    },
+    {
+      "id": "severity-rating",
+      "project": "genre-mimicry",
+      "projectShort": "Genre mimicry",
+      "task": "Independent severity rating across the prompt battery",
+      "effort": "Four to six hours",
+      "output": "Separates genre from harmfulness — violence prompts and finance prompts differ in more than genre, and that confound is currently unaddressed",
+      "whoFits": "Anyone comfortable rating harm severity consistently against a written scale",
+      "note": "Small, and it closes an obvious referee objection."
+    },
+    {
+      "id": "redteam-benchmark",
+      "project": "autonomous-red-team",
+      "projectShort": "Autonomous red team",
+      "task": "Run the agent against an established security benchmark suite and report a success rate with intervals",
+      "effort": "Compute-bound rather than time-bound",
+      "output": "Replaces one demonstration run — an anecdote — with a measured success rate",
+      "whoFits": "Someone who evaluates agentic systems empirically; equally, anyone who can host the evaluation",
+      "note": "The central claim has never been tested. Compute is the real constraint here."
+    },
+    {
+      "id": "redeposit-revision",
+      "project": "autonomous-red-team",
+      "projectShort": "Autonomous red team",
+      "task": "Re-deposit the current 22-page revision so the DOI resolves to the paper that exists",
+      "effort": "About an hour",
+      "output": "Anyone citing the DOI today cites the earlier single-author version under the old title",
+      "whoFits": "Lab-internal admin — listed because it is blocking and honest to admit",
+      "note": "Not a collaboration. It is on this list so the list is complete."
+    },
+    {
+      "id": "panel-estimation",
+      "project": "consensual-sovereignty",
+      "projectShort": "Consensual Sovereignty",
+      "task": "Assemble the country-by-domain-by-year panel and estimate the first hypothesis with fixed effects and cluster-robust inference",
+      "effort": "Weeks",
+      "output": "The hypotheses are currently untested — there is no panel dataset, no regression code and no results, only a research design",
+      "whoFits": "Comparative political scientist or political economist hands-on with V-Dem, ACLED or GDELT event data and union-density series",
+      "note": "On offer: a fully specified design, a machine-checked formal core, and co-authorship on work that has not yet been done. Report it if it fails."
+    },
+    {
+      "id": "second-coder-suffrage",
+      "project": "consensual-sovereignty",
+      "projectShort": "Consensual Sovereignty",
+      "task": "Independently code the suffrage and labour cases against the published ordinal protocol",
+      "effort": "One to two weekends",
+      "output": "A reliability statistic instead of an assurance — every ordinal coding is currently by one person",
+      "whoFits": "Historian or historical-institutionalist comfortable with a written coding protocol",
+      "note": "The pilot study the paper names as the precondition for a full panel has not been run."
+    },
+    {
+      "id": "ownership-literature-sweep",
+      "project": "agi-ownership-envelope",
+      "projectShort": "The Ownership Envelope",
+      "task": "Verified literature sweep across the nationalisation-of-AGI debate against the outline's two novelty claims",
+      "effort": "An afternoon",
+      "output": "Either sharpens the contribution or ends the project early, which is a good outcome either way",
+      "whoFits": "Anyone in an AI governance group who reads this literature",
+      "note": "Grunt work nobody has done. It matters as much as anything else on this project."
+    },
+    {
+      "id": "steelman-state-ownership",
+      "project": "agi-ownership-envelope",
+      "projectShort": "The Ownership Envelope",
+      "task": "Argue the state-ownership position at full strength, as a co-author rather than as a foil",
+      "effort": "Ongoing — this is a co-authorship, not a task",
+      "output": "The only argument map that exists was built to win a debate for the private position; one author who has already argued one side cannot supply the other",
+      "whoFits": "Someone who genuinely holds the state-ownership position",
+      "note": "There is no draft yet. Zero words of manuscript prose exist. Joining now means shaping what the paper argues."
+    }
+  ],
+  "contactNote": "Say which task or which project, what you would bring, and what you want out of it. Concrete beats enthusiastic. A first reply usually takes weeks rather than days — the lab is one researcher and a research assistant, both with papers of their own in flight — and a reminder after a month is a courtesy rather than a nuisance."
+}

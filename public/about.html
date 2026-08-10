@@ -25,9 +25,9 @@
 
   <title>About — Dissensus</title>
 
-  <link rel="stylesheet" href="css/system.css?v=35b75747">
-  <link rel="stylesheet" href="css/site.css?v=35b75747">
-  <link rel="stylesheet" href="css/index.css?v=35b75747">
+  <link rel="stylesheet" href="css/system.css?v=b03dc069">
+  <link rel="stylesheet" href="css/site.css?v=b03dc069">
+  <link rel="stylesheet" href="css/index.css?v=b03dc069">
   <script src="js/theme.js"></script>
   <script src="js/motion.js" defer></script>
 
@@ -41,13 +41,14 @@
   <div id="progress"></div>
 
   <nav class="nav">
-    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark"> Dissensus</a>
     <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
     <div class="nav__links" id="nav-menu">
       <a href="index.html">Home</a>
       <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
       <a href="tools.html">Tools</a>
-      <a href="collaborate.html">Work with us</a>
+      <a href="join.html">Join</a>
       <a href="about.html" class="is-active">About</a>
       <a href="news.html">News</a>
     </div>
@@ -77,11 +78,32 @@
           <p>The research is organised under ASCRI, hosted at <a href="https://systems.ac" target="_blank" rel="noopener">systems.ac</a>: one programme, many fronts. A paper on cryptocurrency volatility and a paper on machine ethics look unrelated until you notice they are both probing how systems behave when their parts want different things.</p>
           <div class="card-foot"><span class="dot"></span> Active &middot; <a href="https://systems.ac" target="_blank" rel="noopener">systems.ac &rarr;</a></div>
         </div>
+
+        <p class="body-text" data-reveal style="margin-top:2rem;">The programme runs on four fronts, each a different place to catch the same phenomenon in the wild. Publications in all four are listed under <a href="research.html">Research</a>; the ones still open to collaborators are on <a href="projects.html">Projects</a>.</p>
+
+        <div class="stats">
+          <div class="stat" data-reveal>
+            <span class="stat__k">01 &middot; Computational finance</span>
+            <div class="stat__v">Market microstructure, volatility asymmetry, systemic risk, event-study methodology.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">02 &middot; Political economy</span>
+            <div class="stat__v">Legitimacy quantification, institutional friction, governance and consent mechanics.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">03 &middot; Cognition &amp; AI alignment</span>
+            <div class="stat__v">Multi-agent coordination, machine ethics, training dynamics as development.</div>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__k">04 &middot; Formal methods</span>
+            <div class="stat__v">The friction formalism itself &mdash; theorem-proved in Lean 4, tested in simulation.</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- 02 · Commitments -->
-    <section class="block">
+    <!-- 02 · Commitments (absorbed the retired charter.html — /charter 301s to this anchor) -->
+    <section class="block" id="commitments">
       <div class="container">
         <div class="kicker" data-reveal><b>02</b> &middot; Commitments</div>
         <h2 data-reveal>Rules we hold ourselves to</h2>
@@ -158,74 +180,37 @@
       </div>
     </section>
 
-    <!-- 04 · Research domains -->
-    <section class="block">
-      <div class="container">
-        <div class="kicker" data-reveal><b>04</b> &middot; Domains</div>
-        <h2 data-reveal>Four fronts, one thesis</h2>
-        <p class="body-text" data-reveal>Each domain is a different place to catch the same phenomenon in the wild. Publications in all four are listed under <a href="research.html">Research</a>.</p>
-
-        <div class="stats">
-          <div class="stat" data-reveal>
-            <span class="stat__k">01 &middot; Computational finance</span>
-            <div class="stat__v">Market microstructure, volatility asymmetry, systemic risk, event-study methodology.</div>
-          </div>
-          <div class="stat" data-reveal>
-            <span class="stat__k">02 &middot; Political economy</span>
-            <div class="stat__v">Legitimacy quantification, institutional friction, governance and consent mechanics.</div>
-          </div>
-          <div class="stat" data-reveal>
-            <span class="stat__k">03 &middot; Cognition &amp; AI alignment</span>
-            <div class="stat__v">Multi-agent coordination, machine ethics, training dynamics as development.</div>
-          </div>
-          <div class="stat" data-reveal>
-            <span class="stat__k">04 &middot; Formal methods</span>
-            <div class="stat__v">The friction formalism itself &mdash; theorem-proved in Lean 4, tested in simulation.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 05 · Services (condensed from the retired services.html) -->
+    <!-- 04 · Applied work + funding. Merged from the retired services.html and
+         partners.html, which had been folded in here in July as two prose walls and
+         read as one long apology. Both anchors are kept live: /services and /partners
+         301 to them, and About's own copy links to them. -->
     <section class="block" id="services">
       <div class="container">
-        <div class="kicker" data-reveal><b>05</b> &middot; Services</div>
-        <h2 data-reveal>Applied work</h2>
-        <p class="body-text" data-reveal>The applied work exists because the research needed it first: the estimators are published, the proofs are machine-checked, and the reference index runs daily. Organisations engage Dissensus for friction analysis &mdash; mapping where competing interests generate structural conflict in a market, protocol, or organisation, and decomposing it into alignment, stake, and entropy &mdash; for bespoke ASRI-style systemic-risk indices, formal verification in Lean 4 with assumptions tracked in an explicit ledger, adversarial evaluation of multi-agent and agentic AI systems, and GARCH-family econometric and volatility modelling, including the open-source <a href="tools.html">GJR-GARCH-X</a> estimator we maintain.</p>
-        <p class="body-text" data-reveal style="margin-top:1.1rem;">Engagements take three shapes: advisory (a sceptical second opinion, with the mathematics attached), scoped research with a defined written deliverable, and custom tooling delivered with source, tests, and documentation. The lab is small and takes a few engagements at a time, so the research does not stall. Services is commercial and deliberately separate from partnership: a client owns the deliverable; funding the programme produces public goods. Write to <a href="mailto:research@dissensus.ai">research@dissensus.ai</a> with the problem as you currently understand it. If we are not the right lab, we will say so.</p>
+        <div class="kicker" data-reveal><b>04</b> &middot; Applied work &amp; funding</div>
+        <h2 data-reveal>The two places money changes hands</h2>
+        <p class="body-text" data-reveal>Commercial engagements come first because they are the simpler case. Organisations retain Dissensus for friction analysis &mdash; mapping where competing interests generate structural conflict in a market, protocol, or organisation, and decomposing it into alignment, stake, and entropy &mdash; and for bespoke ASRI-style systemic-risk indices, Lean 4 formal verification with assumptions tracked in an explicit ledger, adversarial evaluation of multi-agent systems, and GARCH-family volatility modelling built on the open-source <a href="tools.html">estimators we maintain</a>. Engagements run as advisory, as scoped research with a written deliverable, or as custom tooling shipped with source and tests. The lab takes a few at a time so the research does not stall.</p>
+
+        <p class="body-text" data-reveal style="margin-top:1.1rem;" id="partners">Funding the programme is the other case, and deliberately a separate door: a client owns a deliverable, whereas a funder produces public goods. The bottlenecks are concrete &mdash; compute for multi-agent and privacy experiments at real scale, research time to carry results through to publication, and the unglamorous distance between a working prototype and a replicable finding. What funding buys stays open: archived datasets, machine-checked Lean formalisations, and the index running daily at <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">asri.dissensus.ai</a>. Grants and philanthropy work at project or programme level with milestones agreed up front; academic partnership runs under <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> as joint proposals, co-authorship, and shared infrastructure. Neither buys a result, and neither buys editorial reach.</p>
+
+        <p class="body-text" data-reveal style="margin-top:1.1rem;">Contributing time rather than money is a third thing entirely, and it has its own page: <a href="join.html">Join</a> lists the research roles, and <a href="projects.html">Projects</a> lists what is actually blocking each paper.</p>
       </div>
     </section>
 
-    <!-- 06 · Partners (condensed from the retired partners.html) -->
-    <section class="block" id="partners">
+    <!-- 05 · Company + contact, merged. The company card is four sentences; it did not
+         need a section of its own ahead of the one piece of information visitors
+         arrive looking for. -->
+    <section class="block" id="contact">
       <div class="container">
-        <div class="kicker" data-reveal><b>06</b> &middot; Partners</div>
-        <h2 data-reveal>Funding the programme</h2>
-        <p class="body-text" data-reveal>Funding accelerates a programme that already produces checkable artefacts: theorems verified in Lean 4, the ASRI systemic-risk index running daily at <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">asri.dissensus.ai</a>, and experiments that rerun from seed. The work exists; support makes more of it. The bottlenecks are concrete &mdash; compute for multi-agent and privacy experiments at proper scale, research-assistant time to carry results through to publication, and the unglamorous distance between working prototype and replicable finding. What partnership funds stays public: archived datasets, machine-checked Lean formalisations, and the live index &mdash; open by default.</p>
-        <p class="body-text" data-reveal style="margin-top:1.1rem;">There are three ways in. Grants and philanthropy fund the programme at project or programme level, with milestones agreed up front and outputs open by default. Academic partnership runs under <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a>: joint proposals, co-authorship, shared infrastructure, visiting arrangements. Commercial problems belong on the <a href="#services">Services</a> side. One email to <a href="mailto:research@dissensus.ai">research@dissensus.ai</a> is enough.</p>
-      </div>
-    </section>
-
-    <!-- 07 · The company -->
-    <section class="block">
-      <div class="container">
-        <div class="kicker" data-reveal><b>07</b> &middot; The company</div>
+        <div class="kicker" data-reveal><b>05</b> &middot; Company &amp; contact</div>
         <h2 data-reveal>Independent by construction</h2>
         <div class="card" data-reveal="scale">
           <div class="card-eyebrow">Dissensus Ltd</div>
           <h3>The legal shape of the lab</h3>
-          <p>Dissensus is the research brand of Dissensus Ltd, a company registered in England and Wales (no. 17309927). The independence is the point: the company answers to no institution, no outside owner, and no funder. The governance rules we hold ourselves to are written down in the <a href="charter.html">charter</a> &mdash; in public, where they can embarrass us if we break them.</p>
+          <p>Dissensus is the research brand of Dissensus Ltd, a company registered in England and Wales (no. 17309927). The independence is the point: the company answers to no institution, no outside owner, and no funder. There is one director, and that is a legal structure rather than a reward &mdash; no collaborator or advisor is asked to take a company office. The rules the lab holds itself to are <a href="#commitments">written down above</a>, in public, where they can embarrass us if we break them.</p>
           <div class="card-foot"><span class="dot"></span> Registered in England &amp; Wales &middot; co.&nbsp;17309927 &middot; 71-75 Shelton Street, Covent Garden, London WC2H 9JQ</div>
         </div>
-      </div>
-    </section>
 
-    <!-- 08 · Contact -->
-    <section class="block" id="contact">
-      <div class="container">
-        <div class="kicker" data-reveal><b>08</b> &middot; Contact</div>
-        <h2 data-reveal>Get in touch</h2>
-        <p class="body-text" data-reveal>We respond to substantive messages &mdash; and &ldquo;substantive&rdquo; is doing real work in that sentence. For funding, <a href="#partners">Partners</a> above is the fuller picture; for commercial engagements, see <a href="#services">Services</a>; to collaborate on the research, start at <a href="collaborate.html">Work with us</a> or the form below.</p>
+        <p class="body-text" data-reveal style="margin-top:2rem;">We respond to substantive messages, and &ldquo;substantive&rdquo; is doing real work in that sentence. A first reply usually takes weeks rather than days. For applied work or funding, the section above is the fuller picture; to work on the research, start at <a href="join.html">Join</a>.</p>
         <p class="body-text" data-reveal style="margin-top:1rem;">
           <strong>Phone:</strong> <a href="tel:+442038071624">020 3807 1624</a>
           <span style="opacity:.5;"> &middot; </span>
@@ -234,7 +219,7 @@
         <div class="cta-row" data-reveal>
           <a class="btn btn-primary" href="https://cal.com/dissensus/15min" target="_blank" rel="noopener">Book 15&nbsp;min &rarr;</a>
           <a class="btn" href="mailto:research@dissensus.ai">research@dissensus.ai</a>
-          <a class="btn" href="https://formspree.io/f/mreezoko" target="_blank" rel="noopener">Collaboration form</a>
+          <a class="btn" href="join.html">Join the lab</a>
         </div>
       </div>
     </section>
@@ -256,8 +241,9 @@
 <div style="max-width:560px;">
 <a href="index.html">Home</a> &middot;
 <a href="research.html">Research</a> &middot;
+<a href="projects.html">Projects</a> &middot;
 <a href="tools.html">Tools</a> &middot;
-<a href="collaborate.html">Work with us</a> &middot;
+<a href="join.html">Join</a> &middot;
 <a href="about.html">About</a> &middot;
 <a href="news.html">News</a> &middot;
 <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;

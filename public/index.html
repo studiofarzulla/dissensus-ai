@@ -73,9 +73,9 @@
   }
   </script>
 
-  <link rel="stylesheet" href="css/system.css?v=35b75747">
-  <link rel="stylesheet" href="css/site.css?v=35b75747">
-  <link rel="stylesheet" href="css/index.css?v=35b75747">
+  <link rel="stylesheet" href="css/system.css?v=b03dc069">
+  <link rel="stylesheet" href="css/site.css?v=b03dc069">
+  <link rel="stylesheet" href="css/index.css?v=b03dc069">
   <script src="js/theme.js"></script>
   <script src="js/motion.js" defer></script>
   <script src="js/index.js" defer></script>
@@ -91,13 +91,14 @@
   <div id="progress"></div>
 
   <nav class="nav">
-    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
+    <a href="index.html" class="nav__brand"><img src="assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark"> Dissensus</a>
     <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
     <div class="nav__links" id="nav-menu">
       <a href="index.html" class="is-active">Home</a>
       <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
       <a href="tools.html">Tools</a>
-      <a href="collaborate.html">Work with us</a>
+      <a href="join.html">Join</a>
       <a href="about.html">About</a>
       <a href="news.html">News</a>
     </div>
@@ -105,41 +106,49 @@
 
   <main class="home">
 
-    <!-- Hero -->
+    <!-- Hero. Two columns above 62rem: the removed #net canvas left the right half of
+         the container empty, so the stats moved into it. Same facts, no decoration. -->
     <header class="hero">
-      <canvas id="net"></canvas>
-      <div class="container">
-        <h1 data-reveal>Adversarial Systems Research</h1>
-        <canvas id="optima" class="optima" data-reveal aria-hidden="true"></canvas>
-        <p class="lede" data-reveal>The Adversarial Systems &amp; Complexity Research Initiative studies complex multi-agent behaviour and its adaptive mechanisms. Dissensus proposes that the pursuit of non-stable equilibria functions as the underlying stabilising condition. That lens drives computational, empirical, and theoretical work on risk, coordination, and adaptation.</p>
+      <div class="container hero__grid">
+        <div class="hero__main">
+          <h1 data-reveal>Adversarial Systems Research</h1>
+          <canvas id="optima" class="optima" data-reveal aria-hidden="true"></canvas>
+          <p class="lede" data-reveal>The Adversarial Systems &amp; Complexity Research Initiative studies complex multi-agent behaviour and its adaptive mechanisms. Dissensus proposes that the pursuit of non-stable equilibria functions as the underlying stabilising condition. That lens drives computational, empirical, and theoretical work on risk, coordination, and adaptation.</p>
 
-        <div class="hero-stats" data-reveal>
-          <div>
-            <div class="stat-label">Focus</div>
-            <div class="stat-val">Adversarial systems</div>
-          </div>
-          <div>
-            <div class="stat-label">Publications</div>
-            <div class="stat-val"><span class="count" data-to="20">0</span> papers</div>
-          </div>
-          <div>
-            <div class="stat-label">Status</div>
-            <div class="stat-val">Active research</div>
+          <div class="cta-row" data-reveal>
+            <a class="btn btn-primary" href="research.html">Read the research &rarr;</a>
+            <a class="btn" href="join.html">Join the lab</a>
           </div>
         </div>
-        <div class="stat-accent" data-reveal></div>
 
-        <div class="cta-row" data-reveal>
-          <a class="btn btn-primary" href="research.html">Read the research &rarr;</a>
-          <a class="btn" href="collaborate.html">Work with us</a>
-        </div>
+        <aside class="hero__side" data-reveal aria-label="At a glance">
+          <div class="hero-stats">
+            <div>
+              <div class="stat-label">Focus</div>
+              <div class="stat-val">Adversarial systems</div>
+            </div>
+            <div>
+              <div class="stat-label">Publications</div>
+              <div class="stat-val"><span class="count" data-to="20">0</span> papers</div>
+            </div>
+            <div>
+              <div class="stat-label">Latest accept</div>
+              <div class="stat-val">Digital Finance</div>
+            </div>
+            <div>
+              <div class="stat-label">Status</div>
+              <div class="stat-val">Active research</div>
+            </div>
+          </div>
+          <div class="stat-accent"></div>
+        </aside>
       </div>
     </header>
 
     <!-- Latest news -->
     <section class="newsband" data-reveal aria-label="Latest news">
       <div class="container">
-        <a class="newsband__lbl" href="news.html">Latest news &rarr;</a>
+        <a class="newsband__lbl" href="news.html">Latest updates &rarr;</a>
         <div class="newsband__grid">
           <a class="newsband__item" href="news/digital-finance-accept.html">
             <span class="news-item__date"><time datetime="2026-08-04">4 August 2026</time></span>
@@ -206,18 +215,6 @@
       </div>
     </section>
 
-    <!-- Metrics band -->
-    <div class="metrics">
-      <div class="container">
-        <div class="metrics-grid">
-          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="20">0</span></div><div class="metric-cap">Publications</div></div>
-          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="4">0</span></div><div class="metric-cap">Research domains</div></div>
-          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="5">0</span></div><div class="metric-cap">Peer-review venues</div></div>
-          <div class="metric" data-reveal><div class="metric-num"><span class="count" data-to="3">0</span><span class="plus">+</span></div><div class="metric-cap">Machine-checked proofs</div></div>
-        </div>
-      </div>
-    </div>
-
     <!-- The problem + friction equation -->
     <section class="block">
       <div class="container">
@@ -268,116 +265,37 @@
         <div class="primitives" style="margin-top: 2.4rem;">
           <div class="prim" data-reveal>
             <div class="prim-sym">I</div>
-            <div class="prim-name">Fund</div>
-            <div class="prim-desc">Money buys research time and nothing else. Funds go directly to research and research collaboration &mdash; compute, data access, publication costs &mdash; and we will keep a running public account of where they go. What that supports right now is listed under <a href="research.html">active projects</a>. Funding never buys editorial reach.</div>
+            <div class="prim-name">Take one task</div>
+            <div class="prim-desc">Every open project is published with the thing that is actually blocking it, sized honestly: a weekend of blind-coding, one inference run, an afternoon of literature sweep, fifteen minutes of arXiv endorsement. <a href="join.html#start">The task list</a> is the fastest way in, and none of it requires a CV.</div>
           </div>
           <div class="prim" data-reveal>
             <div class="prim-sym">II</div>
-            <div class="prim-name">Propose</div>
-            <div class="prim-desc">Three research directions are currently accepting proposals: adversarial systems &amp; AI governance, systemic risk measurement, and philosophy of AI. Bring a domain, a dataset, or a critique &mdash; strong counterarguments get published with full attribution. <a href="#proposal">The proposal form</a> takes five minutes.</div>
+            <div class="prim-name">Take a project</div>
+            <div class="prim-desc">Six projects are open to collaborators, each listed with what exists, what is missing, and who would move it. Co-authorship is the default where the contribution is substantive, and author order is agreed in writing before the work starts. <a href="projects.html">The records are here</a>, gaps included.</div>
           </div>
           <div class="prim" data-reveal>
             <div class="prim-sym">III</div>
-            <div class="prim-name">Join</div>
-            <div class="prim-desc">Research collaborators, research assistants, co-authors. There are no salaried positions, and it is honest to say that first. What the lab offers is your name on the work you help produce, and time from someone who will actually read your drafts. Students and early-career researchers are welcome; affiliation is optional, rigour is not.</div>
+            <div class="prim-name">Fund the programme</div>
+            <div class="prim-desc">Money buys research time and nothing else: compute, data access, publication costs. What it funds stays public &mdash; archived datasets, machine-checked Lean formalisations, and the index running daily. Funding never buys editorial reach. <a href="about.html#partners">How that works</a>.</div>
           </div>
         </div>
+
+        <p class="body-text" data-reveal style="margin-top:2rem;">There are no salaried positions, and it is honest to say that before anything else. What the lab offers instead is a specified problem, whatever data and code already exist, your name on the work, and a co-author who will state in print where a result failed.</p>
 
         <div class="cta-row" data-reveal>
-          <a class="btn btn-primary" href="mailto:research@dissensus.ai">research@dissensus.ai &rarr;</a>
-          <a class="btn" href="#proposal">Propose a project</a>
+          <a class="btn btn-primary" href="join.html">Ways in &rarr;</a>
+          <a class="btn" href="mailto:research@dissensus.ai">research@dissensus.ai</a>
         </div>
       </div>
     </section>
 
-    <!-- Proposal form -->
-    <section class="block" id="proposal" style="padding-top: 0;">
-      <div class="container">
-        <div class="kicker" data-reveal><b>04</b> &middot; Proposal</div>
-        <h2 data-reveal>Propose a project</h2>
-        <p class="body-text" data-reveal>Complete the form below to submit a proposal. We respond to all substantive enquiries within five business days.</p>
-
-        <form class="form" data-reveal style="margin-top: 2.4rem;" action="https://formspree.io/f/mreezoko" method="POST">
-
-          <div class="form__row">
-            <div>
-              <label class="label" for="name">Name *</label>
-              <input class="input" type="text" id="name" name="name" required>
-            </div>
-            <div>
-              <label class="label" for="email">Email *</label>
-              <input class="input" type="email" id="email" name="email" required>
-            </div>
-          </div>
-
-          <div class="form__row">
-            <div>
-              <label class="label" for="affiliation">Affiliation</label>
-              <input class="input" type="text" id="affiliation" name="affiliation" placeholder="Institution / Organisation / Independent">
-            </div>
-            <div>
-              <label class="label" for="discipline">Discipline</label>
-              <select class="select" id="discipline" name="discipline">
-                <option value="">Select...</option>
-                <option value="philosophy">Philosophy</option>
-                <option value="economics">Economics / Finance</option>
-                <option value="political-science">Political Science</option>
-                <option value="computer-science">Computer Science / AI</option>
-                <option value="mathematics">Mathematics</option>
-                <option value="sociology">Sociology</option>
-                <option value="law">Law / Governance</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label class="label">Collaboration Type *</label>
-            <div class="radios">
-              <label><input type="radio" name="collab_type" value="co-authorship" required> Co-Authorship</label>
-              <label><input type="radio" name="collab_type" value="critical-review"> Critical Review</label>
-              <label><input type="radio" name="collab_type" value="empirical-testing"> Empirical Testing</label>
-              <label><input type="radio" name="collab_type" value="institutional"> Institutional Partnership</label>
-              <label><input type="radio" name="collab_type" value="industry-advisory"> Industry Advisory</label>
-              <label><input type="radio" name="collab_type" value="other"> Other</label>
-            </div>
-          </div>
-
-          <div>
-            <label class="label" for="research_area">Relevant Research Area</label>
-            <select class="select" id="research_area" name="research_area">
-              <option value="">Select primary area...</option>
-              <option value="consent-mechanics">Consent Mechanics</option>
-              <option value="machine-morality">Machine Morality</option>
-              <option value="economic-pharmakon">Economic Pharmakon</option>
-              <option value="crypto-microstructure">Crypto Microstructure</option>
-              <option value="political-economy">Political Economy</option>
-              <option value="rom-framework">ROM Framework</option>
-              <option value="general">General / Cross-Cutting</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="label" for="proposal-text">Proposal Description *</label>
-            <textarea class="textarea" id="proposal-text" name="proposal" required rows="8" placeholder="Describe your proposed collaboration. What do you want to work on? What is your angle? What would you bring to the project?"></textarea>
-          </div>
-
-          <div>
-            <label class="label" for="links">Relevant Links (Optional)</label>
-            <textarea class="textarea" id="links" name="links" rows="3" placeholder="ORCID, Google Scholar, personal website, relevant papers, GitHub..."></textarea>
-          </div>
-
-          <input type="hidden" name="_subject" value="Dissensus Collaboration Proposal">
-
-          <button type="submit" class="btn btn-primary">Submit Proposal &rarr;</button>
-        </form>
-      </div>
-    </section>
-
+    <!-- The homepage proposal form was removed in the Aug 2026 diet. It posted to the
+         same Formspree endpoint as the Join form with a different field set, so one
+         inbox received two incompatible intake schemas. join.html now owns intake. -->
     <!-- Elsewhere -->
     <section class="block" style="padding-top: 0;">
       <div class="container">
-        <div class="kicker" data-reveal><b>05</b> &middot; Elsewhere</div>
+        <div class="kicker" data-reveal><b>04</b> &middot; Elsewhere</div>
         <div class="social-row" data-reveal>
           <a href="https://www.linkedin.com/company/dissensus-ai/" target="_blank" rel="noopener" aria-label="Dissensus on LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
           <a href="https://github.com/dissensus-ai" target="_blank" rel="noopener" aria-label="Dissensus on GitHub"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.83.58A12 12 0 0 0 12 .3z"/></svg>GitHub</a>
@@ -407,8 +325,9 @@
 <div style="max-width:560px;">
 <a href="index.html">Home</a> &middot;
 <a href="research.html">Research</a> &middot;
+<a href="projects.html">Projects</a> &middot;
 <a href="tools.html">Tools</a> &middot;
-<a href="collaborate.html">Work with us</a> &middot;
+<a href="join.html">Join</a> &middot;
 <a href="about.html">About</a> &middot;
 <a href="news.html">News</a> &middot;
 <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
