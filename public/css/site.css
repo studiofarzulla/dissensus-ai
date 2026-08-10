@@ -2,8 +2,8 @@
    Dissensus — site-specific extensions to the shared design system.
    system.css is the source of truth (do not edit it here). This file adds only
    the components the flagship needs: brand mark, hero glow, mono definition
-   blocks, stat grids, legal prose, and forms. Dark default + light via
-   [data-theme="light"] inherited from system.css tokens.
+   blocks, stat grids, legal prose, and forms. Single light theme — the dark
+   path was removed in Aug 2026; do not reintroduce [data-theme] selectors.
    ============================================================================ */
 
 /* ---- nav brand + active ---------------------------------------------------- */
@@ -11,12 +11,9 @@
 .nav__brand:hover { color: var(--accent); }
 .nav__brand-mark { width: 20px; height: 20px; }
 .nav__links a.is-active { color: var(--accent); }
-/* mono mark is single-colour: swap wine↔white by theme so it stays visible on
-   both the light cream default and the dark bg. Lives here (shared layer) so
-   every page's canonical nav themes correctly, not just index.css pages. */
-.nav__brand-mark--dark { display: none; }
-[data-theme="dark"] .nav__brand-mark--light { display: none; }
-[data-theme="dark"] .nav__brand-mark--dark { display: block; }
+/* One theme means one mark: the wine mono mark on cream. The white variant and
+   its theme-swap rules are gone, which also drops a second image request from
+   every page in the site. */
 
 /* ---- hero: the subtle burgundy glow (background motif) ---------------------- */
 .hero { position: relative; }
@@ -25,11 +22,16 @@
   background: radial-gradient(58% 60% at 28% 0%, rgba(128, 0, 32, 0.06), transparent 70%);
   pointer-events: none;
 }
-[data-theme="dark"] .hero::before {
-  background: radial-gradient(58% 60% at 28% 0%, rgba(200, 69, 95, 0.11), transparent 70%);
-}
 .hero__logo { width: 76px; height: 76px; margin-bottom: var(--sp-6); }
 .hero .lead { font-size: 1.2rem; }
+
+/* Editorial hero: for pages whose H1 is a sentence rather than a label. --fs-hero
+   tops out at 4.25rem, which is right for "Open projects" and far too loud for a
+   three-line headline — it reads as a product splash rather than a research page.
+   Smaller type, a wider measure so it sets in two lines, and less bottom padding
+   because the following .section already contributes 6rem. */
+.hero--editorial h1 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); max-width: 30ch; }
+.hero--editorial { padding-bottom: var(--sp-8) !important; }
 
 /* verbose academic tagline vs plain translation */
 .hero__jargon { color: var(--text-dim); font-size: 1.05rem; max-width: 62ch; margin-top: var(--sp-6); font-style: italic; }
@@ -50,7 +52,11 @@
 .prose li + li { margin-top: 0.4rem; }
 .prose strong { color: var(--text); font-weight: 600; }
 .prose em { color: var(--text); }
-.section > .container > h2 { margin: var(--sp-4) 0 var(--sp-6); }
+/* Generated pages write `<section class="section container">` — one element carrying
+   both classes — so the descendant form never matched and every h2 on join, projects,
+   tools and research sat flush against its following paragraph. Both shapes now. */
+.section > .container > h2,
+.section.container > h2 { margin: var(--sp-4) 0 var(--sp-6); }
 
 /* ---- mono definition / theorem / equation block ---------------------------- */
 .block { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--sp-6); margin: var(--sp-6) 0; }
@@ -142,7 +148,7 @@ blockquote strong { color: var(--text); }
 .input:focus, .select:focus, .textarea:focus { outline: none; border-color: var(--accent); }
 .textarea { resize: vertical; line-height: 1.6; }
 
-/* Element-scoped twin of the rules above, for generated forms (collaborate.html) whose
+/* Element-scoped twin of the rules above, for generated forms (join.html) whose
    controls are wrapped in a bare <label> and carry no .input/.select/.textarea class.
    Without this they rendered completely unstyled. `min-width: 0` is load-bearing: a
    <select> sizes to its widest <option>, and the project titles are long enough to push
@@ -194,7 +200,7 @@ blockquote strong { color: var(--text); }
 .taglist { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
 .tag { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--text-dim); border: 1px solid var(--line); border-radius: 100px; padding: 2px var(--sp-3); letter-spacing: 0.06em; }
 
-/* ---- open-project cards (collaborate.html, generated) ---------------------- */
+/* ---- open-project cards (projects.html, generated) ---------------------- */
 .proj__k { display: block; font-family: var(--font-mono); font-size: var(--fs-mono);
   letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-top: var(--sp-6); }
 .proj__gaps { list-style: none; margin: var(--sp-3) 0; padding: 0; }
@@ -293,6 +299,51 @@ blockquote strong { color: var(--text); }
    markup are present, so linking motion.js on a page with none of these is a
    no-op. On prefers-reduced-motion, reveals show immediately (see below).
    ============================================================================ */
+
+/* ---- roles ladder (join.html) ---------------------------------------------- */
+/* Tier cards carry a commitment line that must read before the prose, so the
+   commitment sits directly under the heading in mono rather than inside the body. */
+.tier__commit { display: block; font-family: var(--font-mono); font-size: var(--fs-mono);
+  color: var(--accent); letter-spacing: 0.06em; margin: var(--sp-2) 0 var(--sp-4); }
+.tier__enter { border-left: 3px solid var(--burgundy); background: var(--surface-2);
+  padding: var(--sp-3) var(--sp-4); margin-top: var(--sp-4); border-radius: 0 var(--radius) var(--radius) 0; }
+.tier__enter p { font-size: var(--fs-sm); margin: 0; }
+
+/* ---- entry tasks ------------------------------------------------------------ */
+/* The recruiting argument is that these asks are small, so the effort figure is
+   the first thing in the row and gets its own column on wide screens. Single
+   column below 46rem — a two-column grid puts the badge above the task, which
+   reads fine, but the wide layout is what makes the list scannable. */
+.tasks { list-style: none; padding: 0; margin-top: var(--sp-8);
+  border-top: 1px solid var(--line); }
+.task { display: grid; grid-template-columns: 1fr; gap: var(--sp-2);
+  padding: var(--sp-6) 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 46rem) {
+  .task { grid-template-columns: 13rem 1fr; gap: var(--sp-6); }
+}
+.task__effort { font-family: var(--font-mono); font-size: var(--fs-mono);
+  color: var(--accent); letter-spacing: 0.06em; line-height: 1.5; }
+.task__effort span { display: block; color: var(--text-dim); text-transform: uppercase;
+  letter-spacing: 0.14em; font-size: 0.7rem; margin-bottom: var(--sp-1); }
+.task__body { min-width: 0; }
+.task__body h3 { color: var(--text); font-size: 1.05rem; }
+/* The grid column is already the measure here; the inherited 68ch from the base p
+   rule wrapped these two lines short of the column edge and left a ragged trail. */
+.task__body p { font-size: var(--fs-sm); margin-top: var(--sp-2); max-width: none; }
+.task__meta { font-family: var(--font-mono); font-size: var(--fs-mono);
+  color: var(--text-dim); margin-top: var(--sp-3); display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+.task__meta a { color: var(--accent); }
+.task__note { font-size: var(--fs-sm); color: var(--text); border-left: 2px solid var(--line);
+  padding-left: var(--sp-4); margin-top: var(--sp-3); }
+
+/* ---- "not offering" list ---------------------------------------------------- */
+/* Deliberately styled as plainly as the commitments it negates — no warning
+   colour, no icon. It is information, not an apology. */
+.plainlist { list-style: none; padding: 0; margin-top: var(--sp-6); max-width: var(--measure); }
+.plainlist li { color: var(--text-dim); font-size: var(--fs-sm); padding-left: 1.4rem;
+  position: relative; line-height: 1.6; }
+.plainlist li + li { margin-top: var(--sp-3); }
+.plainlist li::before { content: "\2014"; position: absolute; left: 0; color: var(--accent); }
 
 /* scroll progress bar */
 #progress {

@@ -1,24 +1,20 @@
-/* Shared theme toggle — light default, dark via [data-theme="dark"], persisted.
-   Inline this in <head> (before <body>) on every page to avoid a flash of the wrong theme,
-   or link it in <head> without defer. Add a button: <button class="toggle" onclick="toggleTheme()">◐ theme</button>
-   Also hosts toggleNav() for the mobile hamburger (button.nav__burger controls #nav-menu). */
+/* Shared chrome script — link it in <head> WITHOUT defer on every page.
+   Two jobs, both load-bearing:
+
+   1. Adds `js` to <html>. site.css gates the reveal-on-scroll hiding rule on
+      html.js, so no-JS visitors get fully visible content. Removing this class
+      does not disable the animation — it hides every [data-reveal] element
+      permanently. See commit b21d046.
+   2. window.toggleNav() for the mobile hamburger (button.nav__burger controls
+      #nav-menu), plus Escape to close.
+
+   The theme toggle that used to live here was removed in Aug 2026: the button
+   came out of the nav, and the site is now a single light palette with no
+   [data-theme] selectors in any stylesheet. The old build persisted a
+   `fz-theme` key in localStorage; nothing reads it now, so a returning visitor
+   who once chose dark simply gets the light site. */
 (function () {
-  /* mark JS as available — site.css gates reveal-on-scroll hiding on html.js
-     so no-JS visitors get fully visible content */
   document.documentElement.classList.add("js");
-  var KEY = "fz-theme";
-  function apply(t) {
-    if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
-    else document.documentElement.removeAttribute("data-theme");
-    var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", t === "dark" ? "#0b0b0d" : "#faf8f5");
-  }
-  apply(localStorage.getItem(KEY) || "light");
-  window.toggleTheme = function () {
-    var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    apply(next);
-    localStorage.setItem(KEY, next);
-  };
 
   /* mobile nav dropdown */
   window.toggleNav = function (btn) {

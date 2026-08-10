@@ -23,9 +23,18 @@ const programs = papersData.programs;
 const toolsData = fs.existsSync('tools.json')
   ? JSON.parse(fs.readFileSync('tools.json', 'utf8'))
   : null;
-// Open projects looking for collaborators. Optional — collaborate.html is skipped if absent.
+// Open projects looking for collaborators. Optional — projects.html is skipped if absent.
 const projectsData = fs.existsSync('projects.json')
   ? JSON.parse(fs.readFileSync('projects.json', 'utf8'))
+  : null;
+// Roles ladder + hour-sized entry tasks. Optional — join.html is skipped if absent.
+const rolesData = fs.existsSync('roles.json')
+  ? JSON.parse(fs.readFileSync('roles.json', 'utf8'))
+  : null;
+// Senior advisors. The section renders NOTHING while `advisors` is empty (unless
+// showWhileEmpty is set), so no placeholder or fabricated name can reach the site.
+const advisorsData = fs.existsSync('advisors.json')
+  ? JSON.parse(fs.readFileSync('advisors.json', 'utf8'))
   : null;
 const papersById = Object.fromEntries(papers.map(p => [p.id, p]));
 
@@ -80,15 +89,17 @@ ${doiLine}  url = {https://dissensus.ai/papers/${paper.id}}
 function getNavHtml(activeLink, prefix = '../') {
   const item = (href, label, key) =>
     `      <a href="${prefix}${href}"${activeLink === key ? ' class="is-active"' : ''}>${label}</a>`;
-  // Bare-bones nav: no ASRI, no theme toggle (light-only). Work with us = collaborate.html
+  // Bare-bones nav: no ASRI, no theme toggle (single light theme). One brand mark —
+  // the wine mono mark — since there is no dark background to swap for any more.
   return `  <nav class="nav">
-    <a href="${prefix}index.html" class="nav__brand"><img src="${prefix}assets/dissensus-mark-mono-white.png" alt="" class="nav__brand-mark nav__brand-mark--dark"><img src="${prefix}assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark nav__brand-mark--light"> Dissensus</a>
+    <a href="${prefix}index.html" class="nav__brand"><img src="${prefix}assets/dissensus-mark-mono-wine.png" alt="" class="nav__brand-mark"> Dissensus</a>
     <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
     <div class="nav__links" id="nav-menu">
 ${item('index.html', 'Home', 'home')}
 ${item('research.html', 'Research', 'research')}
+${item('projects.html', 'Projects', 'projects')}
 ${item('tools.html', 'Tools', 'tools')}
-${item('collaborate.html', 'Work with us', 'collaborate')}
+${item('join.html', 'Join', 'join')}
 ${item('about.html', 'About', 'about')}
 ${item('news.html', 'News', 'news')}
     </div>
@@ -127,8 +138,9 @@ ${getSocialHtml()}
 <div style="max-width:560px;">
 <a href="${p}index.html">Home</a> &middot;
 <a href="${p}research.html">Research</a> &middot;
+<a href="${p}projects.html">Projects</a> &middot;
 <a href="${p}tools.html">Tools</a> &middot;
-<a href="${p}collaborate.html">Work with us</a> &middot;
+<a href="${p}join.html">Join</a> &middot;
 <a href="${p}about.html">About</a> &middot;
 <a href="${p}news.html">News</a> &middot;
 <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
@@ -612,7 +624,7 @@ ${ordered.map(generateToolCard).join('\n\n')}
 ${toolsNavHtml()}
 
   <!-- Hero -->
-  <header class="container hero" style="padding-block: clamp(3rem, 8vw, 6rem);">
+  <header class="container hero hero--editorial" style="padding-block: clamp(3rem, 8vw, 6rem);">
     <span class="kicker">Tools &amp; Packages</span>
     <h1>Open tooling</h1>
     <p class="lead">Software, indices, and live dashboards that implement the lab's quantitative methods. Everything here is open-access and citable; install commands and DOIs are listed per package.</p>
@@ -681,26 +693,20 @@ ${exists}${missing}          <div class="proj__ask">
 ${links}        </div>`;
 }
 
-function generateCollaboratePage() {
-  if (!projectsData || !projectsData.projects || !projectsData.projects.length) {
-    console.log('  (projects.json absent or empty — collaborate.html skipped)');
-    return;
-  }
-  const projects = projectsData.projects;
-
-  const html = `<!DOCTYPE html>
+function pageHead(title, desc, slug) {
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Work with us &mdash; Dissensus</title>
-  <meta name="description" content="Open research collaborations, positions, and organisational enquiries at Dissensus.">
+  <title>${title} &mdash; Dissensus</title>
+  <meta name="description" content="${desc}">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Work with us &mdash; Dissensus">
-  <meta property="og:description" content="Open research collaborations, positions, and organisational enquiries at Dissensus.">
+  <meta property="og:title" content="${title} &mdash; Dissensus">
+  <meta property="og:description" content="${desc}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://dissensus.ai/collaborate.html">
+  <meta property="og:url" content="https://dissensus.ai/${slug}.html">
   <meta property="og:image" content="https://dissensus.ai/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -708,11 +714,11 @@ function generateCollaboratePage() {
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Work with us &mdash; Dissensus">
-  <meta name="twitter:description" content="Open research collaborations, positions, and organisational enquiries at Dissensus.">
+  <meta name="twitter:title" content="${title} &mdash; Dissensus">
+  <meta name="twitter:description" content="${desc}">
   <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
 
-  <link rel="canonical" href="https://dissensus.ai/collaborate.html">
+  <link rel="canonical" href="https://dissensus.ai/${slug}.html">
   <meta name="theme-color" content="#faf8f5">
   <link rel="stylesheet" href="css/system.css">
   <link rel="stylesheet" href="css/site.css">
@@ -726,60 +732,243 @@ function generateCollaboratePage() {
 <body>
 
   <div id="progress"></div>
+`;
+}
 
-${getNavHtml('collaborate', '')}
+// ─── Projects page (the deep dossiers, split out of the old collaborate.html) ──
 
-  <!-- Hero -->
-  <header class="container hero" style="padding-block: clamp(3rem, 8vw, 6rem);">
-    <span class="kicker">Work with us</span>
-    <h1>Research first. Clear entry points.</h1>
-    <p class="lead">Three ways in: open research problems, roles when we have them, and organisational enquiries. No fake org chart.</p>
+// These records are long by design — each one names what is missing in the
+// project's own unflattering words — so they get their own page. join.html carries
+// the short version and links in here. Before the split, the dossiers and the
+// recruiting copy shared one 4,000-word page and neither was readable.
+function generateProjectsPage() {
+  if (!projectsData || !projectsData.projects || !projectsData.projects.length) {
+    console.log('  (projects.json absent or empty — projects.html skipped)');
+    return;
+  }
+  const projects = projectsData.projects;
+
+  // Entry tasks are grouped by project so each dossier can advertise its own
+  // hour-sized ways in, rather than making the reader hold the join page in mind.
+  const tasksByProject = {};
+  ((rolesData && rolesData.entryTasks) || []).forEach(t => {
+    (tasksByProject[t.project] = tasksByProject[t.project] || []).push(t);
+  });
+
+  const cards = projects.map((project, i) => {
+    const tasks = tasksByProject[project.id] || [];
+    const taskList = tasks.length
+      ? `          <span class="proj__k">Ways in</span>
+          <ul class="tool__features">
+            ${tasks.map(t => `<li>${t.task} &mdash; <b>${t.effort}</b></li>`).join('\n            ')}
+          </ul>\n`
+      : '';
+    return generateProjectCard(project, i).replace(
+      '          <div class="proj__ask">',
+      `${taskList}          <div class="proj__ask">`
+    );
+  }).join('\n\n');
+
+  const html = `${pageHead('Open projects', 'Six research projects at Dissensus published with their actual state visible — what exists, what is missing, and the hour-sized tasks that would move each one.', 'projects')}
+${getNavHtml('projects', '')}
+
+  <header class="container hero hero--editorial" style="padding-block: clamp(3rem, 8vw, 6rem);">
+    <span class="kicker">Open projects</span>
+    <h1>Where each project actually stands.</h1>
+    <p class="lead">${projectsData.intro || ''}</p>
+    <p class="lead" style="margin-top: var(--sp-4);">${projectsData.introSecond || ''}</p>
     <div class="cta-row" style="margin-top:1.5rem;">
-      <a class="btn btn-primary" href="https://cal.com/dissensus/15min" target="_blank" rel="noopener">Book 15&nbsp;min</a>
-      <a class="btn" href="mailto:research@dissensus.ai">research@dissensus.ai</a>
-      <a class="btn" href="tel:+442038071624">020 3807 1624</a>
+      <a class="btn" href="join.html">How to join &rarr;</a>
+      <a class="btn btn--ghost" href="join.html#start">Tasks by size</a>
     </div>
   </header>
 
-  <section class="section container" id="positions">
-    <span class="index">01 &middot; Positions</span>
-    <h2>Roles</h2>
-    <p class="body-text">No paid roles are open right now. Research collaborators join through the open projects below (co-authorship on a named problem, not an unpaid job title). Advisory relationships are by invitation, not application.</p>
-  </section>
-
-  <section class="section container" id="organisations">
-    <span class="index">02 &middot; Organisations</span>
-    <h2>Applied work and partnership</h2>
-    <p class="body-text">For friction analysis, systemic-risk indices, formal verification, or multi-agent evaluation: email <a href="mailto:research@dissensus.ai">research@dissensus.ai</a> with the problem as you currently understand it, or <a href="https://cal.com/dissensus/15min" target="_blank" rel="noopener">book fifteen minutes</a>. If we are not the right lab, we will say so.</p>
-  </section>
-
   <section class="section container" id="open-work">
-    <span class="index">03 &middot; Open research</span>
-    <h2>Where each project actually stands</h2>
-    <p class="lead">${projectsData.intro || ''}</p>
-    <p class="lead" style="margin-top: var(--sp-4);">${projectsData.introSecond || ''}</p>
-    <p style="margin-top: var(--sp-4);">${projectsData.stateNote || ''}</p>
+    <span class="index">01 &middot; The records</span>
+    <h2>What exists, and what is missing</h2>
+    <p class="body-text">${projectsData.stateNote || ''}</p>
     <div class="grid grid--wide" style="margin-top: var(--sp-8);">
 
-${projects.map(generateProjectCard).join('\n\n')}
+${cards}
 
     </div>
   </section>
 
   <section class="section container">
-    <span class="index">04 &middot; How this works</span>
+    <span class="index">02 &middot; Terms</span>
     <h2>What collaboration means here</h2>
     <div class="prose" style="max-width: var(--measure);">
       ${(projectsData.terms || []).map(t => `<p>${t}</p>`).join('\n      ')}
     </div>
+    <div class="cta-row" style="margin-top: var(--sp-8);">
+      <a class="btn" href="join.html#propose">Propose something &rarr;</a>
+      <a class="btn btn--ghost" href="mailto:research@dissensus.ai">research@dissensus.ai</a>
+    </div>
   </section>
 
-  <section class="section container">
-    <span class="index">05 &middot; Get in touch</span>
+${getFooterHtml('')}
+
+</body>
+</html>`;
+
+  fs.writeFileSync(path.join('public', 'projects.html'), html);
+  console.log(`  projects.html (${projects.length} open projects)`);
+}
+
+// ─── Advisory section ─────────────────────────────────────────────────────────
+
+// Returns '' while advisors.json carries no names, so an empty file publishes
+// nothing at all — no placeholder, no "coming soon", and no chance of a
+// fabricated name reaching a public page. Flip showWhileEmpty in advisors.json
+// to publish the bounded ask before the first name lands.
+function generateAdvisorySection(index) {
+  if (!advisorsData) return '';
+  const advisors = advisorsData.advisors || [];
+  if (!advisors.length && !advisorsData.showWhileEmpty) return '';
+
+  const people = advisors.map(a => {
+    const initials = a.initials
+      || (a.name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+    const links = (a.links || []).length
+      ? `            <div class="person__links">
+              ${(a.links || []).map(l => `<a href="${l.href}"${/^https?:/.test(l.href) ? ' target="_blank" rel="noopener"' : ''}>${l.label}</a>`).join('\n              ')}
+            </div>\n`
+      : '';
+    return `        <div class="person" data-reveal>
+          <div class="person__avatar">${initials}</div>
+          <div>
+            <span class="person__role">${a.role || 'Advisor'}</span>
+            <h3>${a.name}</h3>
+            ${a.affiliation ? `<p class="status-line">${a.affiliation}</p>` : ''}
+            ${a.bio ? `<p>${a.bio}</p>` : ''}
+${links}          </div>
+        </div>`;
+  }).join('\n\n');
+
+  const roster = advisors.length
+    ? `    <div style="margin-top: var(--sp-8);">
+${people}
+    </div>`
+    : '';
+
+  return `
+  <section class="section container" id="advisory">
+    <span class="index">${index} &middot; Advisory</span>
+    <h2>Senior advisors</h2>
+    <p class="body-text">${advisorsData.intro || ''}</p>
+    <p class="body-text" style="margin-top: var(--sp-4);">${advisorsData.askSummary || ''}</p>
+    <ul class="plainlist">
+      ${(advisorsData.ask || []).map(a => `<li>${a}</li>`).join('\n      ')}
+    </ul>
+${roster}
+    <p class="research-note">${advisorsData.invitationNote || ''}</p>
+  </section>
+`;
+}
+
+// ─── Join page (roles ladder + hour-sized entry tasks) ────────────────────────
+
+function generateJoinPage() {
+  if (!rolesData) {
+    console.log('  (roles.json absent — join.html skipped)');
+    return;
+  }
+  const projects = (projectsData && projectsData.projects) || [];
+  const projectTitle = id => (projects.find(p => p.id === id) || {}).title || id;
+
+  const tiers = (rolesData.tiers || []).map(t => `        <div class="card" id="${t.id}" data-reveal>
+          <div class="tool__head">
+            <span class="card__index">${t.index}</span>
+            <span class="pill">${t.openings}</span>
+          </div>
+          <h3>${t.title}</h3>
+          <span class="tier__commit">${t.commitment}</span>
+          <p>${t.whatItIs}</p>
+          <span class="proj__k">What you get</span>
+          <ul class="tool__features">
+            ${(t.whatYouGet || []).map(g => `<li>${g}</li>`).join('\n            ')}
+          </ul>
+          <div class="tier__enter">
+            <span class="proj__k">How to enter</span>
+            <p>${t.howToEnter}</p>
+          </div>
+        </div>`).join('\n\n');
+
+  const tasks = (rolesData.entryTasks || []).map(t => `      <li class="task" id="${t.id}" data-reveal>
+        <div class="task__effort"><span>Effort</span>${t.effort}</div>
+        <div class="task__body">
+          <h3>${t.task}</h3>
+          <p>${t.output}</p>
+          ${t.note ? `<p class="task__note">${t.note}</p>` : ''}
+          <div class="task__meta">
+            <span>Fits: ${t.whoFits}</span>
+            <a href="projects.html#${t.project}" title="${projectTitle(t.project)}">${t.projectShort} &rarr;</a>
+          </div>
+        </div>
+      </li>`).join('\n\n');
+
+  const advisory = generateAdvisorySection('05');
+
+  const html = `${pageHead('Join', 'Research roles at Dissensus: a three-rung ladder from a weekend task to a named affiliation, the hour-sized ways in, and an honest account of what an unfunded lab can and cannot offer.', 'join')}
+${getNavHtml('join', '')}
+
+  <header class="container hero hero--editorial" style="padding-block: clamp(3rem, 8vw, 6rem);">
+    <span class="kicker">Join</span>
+    <h1>No money. Specified problems. Real authorship.</h1>
+    <p class="lead">${rolesData.intro || ''}</p>
+    <div class="cta-row" style="margin-top:1.5rem;">
+      <a class="btn" href="#start">Start with one task &rarr;</a>
+      <a class="btn btn--ghost" href="projects.html">The six projects</a>
+    </div>
+  </header>
+
+  <section class="section container" id="roles">
+    <span class="index">01 &middot; Roles</span>
+    <h2>Three rungs, entered by doing the previous one</h2>
+    <p class="body-text">${rolesData.introSecond || ''}</p>
+    <div class="grid grid--wide" style="margin-top: var(--sp-8);">
+
+${tiers}
+
+    </div>
+  </section>
+
+  <section class="section container" id="start">
+    <span class="index">02 &middot; Start here</span>
+    <h2>Tasks, listed at the size they actually are</h2>
+    <p class="body-text">${rolesData.startHere || ''}</p>
+    <ul class="tasks">
+
+${tasks}
+
+    </ul>
+  </section>
+
+  <section class="section container" id="not-offering">
+    <span class="index">03 &middot; The other half</span>
+    <h2>What the lab does not offer</h2>
+    <p class="body-text">Stated plainly, because finding it out later wastes more of your time than reading it now.</p>
+    <ul class="plainlist">
+      ${(rolesData.notOffering || []).map(n => `<li>${n}</li>`).join('\n      ')}
+    </ul>
+  </section>
+
+  <section class="section container" id="organisations">
+    <span class="index">04 &middot; Organisations</span>
+    <h2>Applied work and partnership</h2>
+    <p class="body-text">Commercial engagements are the one place money changes hands, and they are deliberately separate from everything above: a client owns the deliverable, whereas funding the programme produces public goods. For friction analysis, systemic-risk indices, formal verification in Lean 4, or adversarial evaluation of multi-agent systems, email <a href="mailto:research@dissensus.ai">research@dissensus.ai</a> with the problem as you currently understand it, or <a href="https://cal.com/dissensus/15min" target="_blank" rel="noopener">book fifteen minutes</a>. If we are not the right lab, we will say so.</p>
+    <div class="cta-row" style="margin-top: var(--sp-6);">
+      <a class="btn" href="https://cal.com/dissensus/15min" target="_blank" rel="noopener">Book 15&nbsp;min</a>
+      <a class="btn btn--ghost" href="tel:+442038071624">020 3807 1624</a>
+    </div>
+  </section>
+${advisory}
+  <section class="section container" id="propose">
+    <span class="index">${advisory ? '06' : '05'} &middot; Get in touch</span>
     <h2>Propose something</h2>
-    <p class="lead">${projectsData.contactNote || ''}</p>
+    <p class="lead">${rolesData.contactNote || ''}</p>
     <form class="form" style="margin-top: 2.4rem;" action="https://formspree.io/f/mreezoko" method="POST">
-      <input type="hidden" name="_subject" value="Collaboration proposal — dissensus.ai/collaborate">
+      <input type="hidden" name="_subject" value="Join enquiry — dissensus.ai/join">
       <div class="form__row">
         <label>Your name
           <input type="text" name="name" required>
@@ -791,10 +980,13 @@ ${projects.map(generateProjectCard).join('\n\n')}
       <label>Affiliation <span class="form__hint">(optional &mdash; independent is fine)</span>
         <input type="text" name="affiliation">
       </label>
-      <label>Which project
-        <select name="project">
+      <label>What you are responding to
+        <select name="interest">
           <option value="">&mdash; select &mdash;</option>
-${projects.map(p => `          <option value="${p.id}">${p.title}</option>`).join('\n')}
+${(rolesData.entryTasks || []).map(t => `          <option value="${t.id}">Task: ${t.task}</option>`).join('\n')}
+${projects.map(p => `          <option value="project-${p.id}">Project: ${p.title}</option>`).join('\n')}
+          <option value="affiliate">An ongoing research role</option>
+          <option value="organisation">Applied work / partnership</option>
           <option value="other">Something else entirely</option>
         </select>
       </label>
@@ -810,8 +1002,11 @@ ${getFooterHtml('')}
 </body>
 </html>`;
 
-  fs.writeFileSync(path.join('public', 'collaborate.html'), html);
-  console.log(`  collaborate.html (${projects.length} open projects)`);
+  fs.writeFileSync(path.join('public', 'join.html'), html);
+  const nTiers = (rolesData.tiers || []).length;
+  const nTasks = (rolesData.entryTasks || []).length;
+  const nAdv = ((advisorsData && advisorsData.advisors) || []).length;
+  console.log(`  join.html (${nTiers} tiers, ${nTasks} entry tasks, advisory: ${nAdv ? nAdv + ' listed' : 'empty — section omitted'})`);
 }
 
 // ─── Sync nav + footer into hand-authored pages ──────────────────────────────
@@ -828,11 +1023,9 @@ function syncStaticChrome() {
     ['about.html', 'about', ''],
     ['research.html', 'research', ''],
     ['news.html', 'news', ''],
-    ['manifesto.html', null, ''],
-    ['charter.html', null, ''],
-    ['reading.html', null, ''],
-    ['press.html', null, ''],
-    ['subscribe.html', null, ''],
+    // manifesto / charter / reading / press / subscribe were retired in Aug 2026.
+    // The files are deleted and _redirects sends their URLs elsewhere, so they are
+    // deliberately absent here rather than listed and skipped.
     ['privacy.html', null, ''],
     ['terms.html', null, ''],
     ['404.html', null, ''],
@@ -962,13 +1155,13 @@ function generateSitemap() {
     { loc: 'https://dissensus.ai/research.html', priority: '0.8', changefreq: 'weekly' },
     { loc: 'https://dissensus.ai/news.html', priority: '0.8', changefreq: 'weekly' },
     { loc: 'https://dissensus.ai/tools.html', priority: '0.7', changefreq: 'monthly' },
-    ...(projectsData ? [{ loc: 'https://dissensus.ai/collaborate.html', priority: '0.7', changefreq: 'monthly' }] : []),
+    // Recruiting surfaces rank above the catalogue pages: join.html is the one page
+    // the lab actually needs found. The retired pages (manifesto, charter, reading,
+    // press, subscribe) are gone from here — a sitemap advertising a 301 is worse
+    // than no entry, and they were listed for three weeks after being redirected.
+    ...(rolesData ? [{ loc: 'https://dissensus.ai/join.html', priority: '0.8', changefreq: 'monthly' }] : []),
+    ...(projectsData ? [{ loc: 'https://dissensus.ai/projects.html', priority: '0.7', changefreq: 'monthly' }] : []),
     { loc: 'https://dissensus.ai/about.html', priority: '0.7', changefreq: 'monthly' },
-    { loc: 'https://dissensus.ai/manifesto.html', priority: '0.6', changefreq: 'monthly' },
-    { loc: 'https://dissensus.ai/charter.html', priority: '0.5', changefreq: 'monthly' },
-    { loc: 'https://dissensus.ai/reading.html', priority: '0.5', changefreq: 'monthly' },
-    { loc: 'https://dissensus.ai/press.html', priority: '0.5', changefreq: 'monthly' },
-    { loc: 'https://dissensus.ai/subscribe.html', priority: '0.5', changefreq: 'monthly' },
     { loc: 'https://dissensus.ai/privacy.html', priority: '0.3', changefreq: 'yearly' },
     { loc: 'https://dissensus.ai/terms.html', priority: '0.3', changefreq: 'yearly' },
   ];
@@ -1062,9 +1255,13 @@ updateResearchPage();
 console.log('\nTools page:');
 generateToolsPage();
 
-// Generate the open-projects / collaborate page from projects.json
-console.log('\nCollaborate page:');
-generateCollaboratePage();
+// Generate the open-projects dossiers from projects.json
+console.log('\nProjects page:');
+generateProjectsPage();
+
+// Generate the roles ladder + entry tasks from roles.json (+ advisors.json)
+console.log('\nJoin page:');
+generateJoinPage();
 
 // Sync nav + footer into the hand-authored pages
 console.log('\nChrome sync (hand-authored pages):');
@@ -1083,5 +1280,5 @@ console.log('\nCache-busting:');
 bustCss();
 
 // Summary
-console.log(`\n✓ Generated ${papers.length} paper pages${toolsData ? ' + tools.html' : ''}${projectsData ? ' + collaborate.html' : ''} + sitemap`);
+console.log(`\n✓ Generated ${papers.length} paper pages${toolsData ? ' + tools.html' : ''}${projectsData ? ' + projects.html' : ''}${rolesData ? ' + join.html' : ''} + sitemap`);
 console.log('  Run: python -m http.server 8000 --directory public');
