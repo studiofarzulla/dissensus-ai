@@ -1009,6 +1009,37 @@ ${getFooterHtml('')}
   console.log(`  join.html (${nTiers} tiers, ${nTasks} entry tasks, advisory: ${nAdv ? nAdv + ' listed' : 'empty — section omitted'})`);
 }
 
+// ─── Featured open tasks on the homepage ─────────────────────────────────────
+
+// The homepage's Contribute section shows three concrete tasks so the recruiting ask
+// is on the front door rather than described there. They come from roles.json
+// (entryTasks where featured:true) between the OPEN-TASKS markers, so the front page
+// cannot drift from the Join page — the previous homepage listed research directions
+// that appeared nowhere else on the site.
+function syncHomeTasks() {
+  const file = path.join('public', 'index.html');
+  if (!rolesData || !fs.existsSync(file)) return;
+
+  const featured = (rolesData.entryTasks || []).filter(t => t.featured);
+  if (!featured.length) { console.log('  (no featured tasks in roles.json — homepage block left empty)'); return; }
+
+  const cards = featured.map(t => `          <a class="opentask" href="join.html#${t.id}" data-reveal>
+            <span class="opentask__effort">${t.effort}</span>
+            <span class="opentask__task">${t.task}</span>
+            <span class="opentask__who">${t.whoFits}</span>
+          </a>`).join('\n');
+
+  const block = `        <div class="opentasks">
+${cards}
+        </div>`;
+
+  const re = /(<!-- OPEN-TASKS:START[\s\S]*?-->)[\s\S]*?(<!-- OPEN-TASKS:END -->)/;
+  const html = fs.readFileSync(file, 'utf8');
+  if (!re.test(html)) { console.log('  ! index.html has no OPEN-TASKS markers — skipped'); return; }
+  fs.writeFileSync(file, html.replace(re, `$1\n${block}\n        $2`));
+  console.log(`  index.html open-tasks block (${featured.length} featured)`);
+}
+
 // ─── Sync nav + footer into hand-authored pages ──────────────────────────────
 
 // The hand-authored pages own their CONTENT but not their chrome. Both blocks are
@@ -1262,6 +1293,10 @@ generateProjectsPage();
 // Generate the roles ladder + entry tasks from roles.json (+ advisors.json)
 console.log('\nJoin page:');
 generateJoinPage();
+
+// Featured open tasks on the homepage (from roles.json)
+console.log('\nHomepage open tasks:');
+syncHomeTasks();
 
 // Sync nav + footer into the hand-authored pages
 console.log('\nChrome sync (hand-authored pages):');

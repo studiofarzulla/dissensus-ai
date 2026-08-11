@@ -1,6 +1,10 @@
-/* Homepage-only interactions: the moving-optima canvas (#optima) and the
-   draggable publications ribbon. The generic scroll polish (reveal, progress
-   bar, count-ups) lives in the shared motion.js.
+/* Homepage-only interaction: the moving-optima canvas (#optima). The generic
+   scroll polish (reveal, progress bar, count-ups) lives in the shared motion.js.
+
+   The publications ribbon went in Aug 2026 along with the credibility strip's
+   duplication of it: the ribbon's ten chips restated the strip's four arXiv IDs,
+   its Digital Finance accept and its under-review venues, as an auto-scrolling
+   marquee that ran a requestAnimationFrame loop for the life of the page.
 
    The hero friction-network canvas (#net) was removed in the Aug 2026 diet. It
    recomputed every pairwise distance between up to 60 nodes on every frame —
@@ -79,35 +83,4 @@
     }
   }
 
-  /* ── publications ribbon: auto-scroll + drag + click ── */
-  var rvp = document.getElementById('ribbon');
-  if (rvp) {
-    var rtrack = rvp.querySelector('.ribbon-track');
-    rtrack.innerHTML += rtrack.innerHTML;                 // duplicate for seamless loop
-    var rpos = 0, rspeed = 0.35, rhalf = 0, rpaused = false;
-    function rmeasure() { rhalf = rtrack.scrollWidth / 2; }
-    rmeasure(); window.addEventListener('resize', rmeasure);
-    var rdrag = false, rStartX = 0, rStartPos = 0, rMoved = 0;
-    rvp.addEventListener('pointerdown', function (e) {
-      rdrag = true; rMoved = 0; rStartX = e.clientX; rStartPos = rpos;
-      rvp.classList.add('dragging'); try { rvp.setPointerCapture(e.pointerId); } catch (x) {}
-    });
-    rvp.addEventListener('pointermove', function (e) {
-      if (!rdrag) return; var dx = e.clientX - rStartX;
-      rMoved = Math.max(rMoved, Math.abs(dx)); rpos = rStartPos + dx;
-    });
-    function rend() { rdrag = false; rvp.classList.remove('dragging'); }
-    rvp.addEventListener('pointerup', rend);
-    rvp.addEventListener('pointercancel', rend);
-    rvp.addEventListener('mouseenter', function () { rpaused = true; });
-    rvp.addEventListener('mouseleave', function () { rpaused = false; });
-    rtrack.addEventListener('click', function (e) { if (rMoved > 6) e.preventDefault(); }, true);
-    function rloop() {
-      if (!rdrag && !rpaused && !reduce) rpos -= rspeed;
-      if (rhalf) { if (rpos <= -rhalf) rpos += rhalf; else if (rpos > 0) rpos -= rhalf; }
-      rtrack.style.transform = 'translateX(' + rpos + 'px)';
-      requestAnimationFrame(rloop);
-    }
-    requestAnimationFrame(rloop);
-  }
 })();
