@@ -122,6 +122,54 @@ Homepage sections are now `01 Who we are · 02 The lab · 03 Contribute · 04 El
 - [x] The friction-equation CSS added to `site.css` earlier in this session was deleted —
       with the equation gone from every page it was dead within the hour.
 
+### Round four — complexity-science reframe, linear pages, wider canvas (MF review)
+
+- [x] **Renamed** to *Adversarial Systems & Complex Adaptive Dynamics Research*, and the
+      homepage reframed around complexity science: complex adaptive systems, no central
+      controller, aggregate behaviour no part intends. Still one programme, but the
+      friction thesis is now the *specific question* rather than the whole pitch.
+- [x] **The dissensus definition moved into the hero**, immediately under the title, as the
+      first thing on the page — it explains the name the reader has just read. Its own
+      section three screens down is gone.
+- [x] **Credibility strip removed** — it restated the archive a third time, directly under
+      the updates band that already carried the accept.
+- [x] **X + Discord + Patreon.** X and Discord in the footer social row; Patreon added as
+      "back it directly" on the funding route and "Support the research" in the footer base,
+      deliberately not as an icon among identity channels.
+- [x] **systems.ac / ASCRI parked.** No outbound links anywhere, dropped from the
+      Organization `sameAs`, and the About programme card rewritten to describe one
+      programme without the acronym or the link. The only surviving mentions are a code
+      comment and the dated incorporation post, where it is historical record.
+- [x] **Research page rebuilt.** Open research agendas gone. `papers.json` gained a
+      `stage` field — current focus / accepted / in peer review / preprints / preliminary
+      drafts / discontinued lines — and the page is one linear list grouped by it, no card
+      grid. Tools render **beside the paper they came out of** via the pre-existing
+      `relatedPapers` field. Title is now *Research papers, tools and ideas*, and the
+      "20 publications across five agendas" line is replaced by what the group's research
+      spans. Notation, Lineage and Timeline are gone (round three).
+- [x] **Status changes applied as instructed:** ASRI preprint → in peer review; Extremity
+      Premium under review → preprint. Both papers' `journal` fields were cleared so a
+      preprint cannot advertise a venue, while the accepted paper keeps naming Digital
+      Finance.
+- [x] **Research vs Projects split.** Research is the record of what is finished, stalled or
+      abandoned; Projects is what is open. Where a paper is both, Research carries a
+      one-line *Open to collaborators →* pointer instead of repeating the dossier.
+- [x] **Projects and Join went linear** — `.projrow` and `.rung` rows instead of two-column
+      card grids. A dossier is a document and a ladder is a sequence; neither is a tile.
+- [x] **About commitments sharpened**: each of the five now leads with the promise and ends
+      with *Breaking it looks like:* — a concrete, observable failure mode.
+- [x] **Large-viewport density fixed.** The container was pinned at 1080px, so a full-screen
+      desktop squeezed everything into the middle third. It now opens to 1160px at 1280
+      and 1280px at 1600, with the section rhythm and body size stepping up too; prose
+      stays readable because `--measure` caps it independently.
+- [x] **Footer rebuilt** — three columns (identity, site, contact) with real vertical
+      rhythm, plus a base row for socials and small print. It had been two flex blocks with
+      inline styles that collided into a cramped strip at full width.
+- [x] Homepage **Elsewhere section removed**: once the footer had a proper social row, the
+      page printed the same five icons twice within one screen.
+- [x] Dead CSS swept again: `.grid--wide` (nothing used it after tools.html retired and the
+      two pages went linear), the credibility strip, and the standalone `.home .etym`.
+
 ### Fixes found on the way
 - [x] `.section > .container > h2` never matched generated pages — they write
       `<section class="section container">`, one element with both classes, so every h2 on

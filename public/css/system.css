@@ -76,6 +76,17 @@
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
+/* A fixed 1080px container reads as a narrow, compact column on a full-screen desktop
+   — everything squeezed into the middle third with the footer worst hit. The container
+   and the section rhythm both open up with the viewport instead. Prose stays readable
+   because it is capped by --measure regardless of how wide the container gets. */
+@media (min-width: 1280px) {
+  :root { --container: 1160px; --sp-24: 7rem; }
+}
+@media (min-width: 1600px) {
+  :root { --container: 1280px; --sp-24: 8rem; --fs-body: 1.06rem; }
+}
+
 /* ---- reset / base --------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
@@ -170,15 +181,9 @@ img, svg { max-width: 100%; display: block; }
    button label) holds the track open past the container. Let them shrink, and let
    the tokens themselves break. */
 .grid > *, .grid--wide > * { min-width: 0; }
-/* Wide variant for content-rich records (tools, open projects). These carry a long
-   description plus a feature list, so they need real width — an auto-fill track floor
-   strands a lone card in a narrow column (a tall thin tower on a wide screen). Two
-   explicit columns above 46rem, one below: deterministic, unlike minmax(min(100%,…))
-   which resolves differently depending on how the container is sized. Cards flex so
-   their action rows bottom-align across a row regardless of description length. */
-.grid--wide { grid-template-columns: 1fr; align-items: stretch; }
-@media (min-width: 52rem) { .grid--wide { grid-template-columns: repeat(2, 1fr); } }
-.grid--wide > .card { display: flex; flex-direction: column; }
+/* The .grid--wide two-column variant is gone: tools.html was retired, and the projects
+   and join pages went linear in Aug 2026, so nothing used it. */
+.card { display: flex; flex-direction: column; }
 .grid--wide > .card > .btn-row { margin-top: auto; padding-top: var(--sp-4); }
 .card {
   background: var(--surface);
@@ -209,12 +214,40 @@ img, svg { max-width: 100%; display: block; }
 .btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
 
 /* ---- footer --------------------------------------------------------------- */
-.footer { border-top: 1px solid var(--line); padding-block: var(--sp-12); }
+/* Rebuilt Aug 2026. It had been two flex blocks with inline styles, and at full-screen
+   width the link list and the legal block collided into a cramped strip. Three columns
+   with real vertical rhythm, then a base row for socials and the small print. */
+.footer { border-top: 1px solid var(--line); padding-block: var(--sp-16) var(--sp-8); margin-top: var(--sp-8); }
 .footer, .footer a { font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--text-dim); letter-spacing: 0.06em; }
 .footer a:hover { color: var(--accent); }
-.footer__social { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-4); margin-top: 0.55rem; }
-.footer__social a { display: inline-flex; align-items: center; gap: 0.4rem; text-transform: uppercase; }
+
+.footer__grid { display: grid; gap: var(--sp-12); }
+@media (min-width: 62rem) {
+  .footer__grid { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr) minmax(0, 1fr); gap: var(--sp-16); }
+}
+.footer__col { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.footer__col p { max-width: 44ch; line-height: 1.75; }
+.footer__brand {
+  font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--text); margin-bottom: var(--sp-1);
+}
+.footer__legal { margin-top: var(--sp-4); line-height: 1.8; opacity: 0.85; }
+.footer__k {
+  font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--text); margin-bottom: var(--sp-3);
+}
+.footer__col--nav a, .footer__col--contact a { padding-block: 0.18rem; }
+
+.footer__base {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--sp-4) var(--sp-8); margin-top: var(--sp-16);
+  padding-top: var(--sp-6); border-top: 1px solid var(--line);
+}
+.footer__social { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-6); margin: 0; }
+.footer__social a { display: inline-flex; align-items: center; gap: 0.45rem; text-transform: uppercase; }
 .footer__social svg { width: 14px; height: 14px; fill: currentColor; flex: none; }
+.footer__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
+.footer__meta .sep { color: var(--line); }
 
 /* ---- responsive ----------------------------------------------------------- */
 @media (max-width: 720px) {
