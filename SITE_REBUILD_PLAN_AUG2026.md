@@ -90,6 +90,38 @@ Two notes from MF on the shipped homepage, both acted on.
 
 Homepage sections are now `01 Who we are · 02 The lab · 03 Contribute · 04 Elsewhere`.
 
+### Round three — leaner still (MF review)
+
+- [x] **X and Discord added.** `https://x.com/dissensusAI` and
+      `https://discord.gg/5VtRcb45N7`, in the footer row and the homepage Elsewhere row.
+      One `SOCIALS` list in `build-papers.js` now drives both, and the homepage row is
+      written between `SOCIAL` markers — the X anchor previously sat commented out in
+      `index.html` waiting to be uncommented by hand. X is in the Organization JSON-LD
+      `sameAs` too. Discord also became the second CTA on Join.
+- [x] **Research page cut back.** Notation section gone — the equation "does no work"
+      on an archive page, and the six symbol cards existed to gloss it; the papers carry
+      the formalism. Its "Cite framework" button called a `copyBibTeX()` that was never
+      defined on that page, so it had been broken. Lineage and Timeline gone. Sections are
+      now `01 The agenda · 02 Archive · 03 Tools`.
+- [x] **Tools folded into Research and out of the nav.** `generateToolsPage()` became
+      `generateToolsSection()`, injected between `TOOLS` markers in research.html by
+      `updateResearchPage()`; `tools.html`, `toolsNavHtml()` and `toolsFooterHtml()` are
+      deleted, `/tools` 301s to `/research#tools`, and the two prose links to it (About's
+      services paragraph, the news status block) now point at the anchor.
+- [x] **Homepage at-a-glance panel removed** (focus / publications / latest accept /
+      status). The accept is in the updates band immediately below it and the paper count
+      is on Research. The hero is a single column again, and the two-column grid CSS went
+      with it.
+- [x] **Join reframed.** It led on "No money." — accurate but a deficit-first pitch. It now
+      leads on the actual situation: a lab that started this year, where what it works on
+      and how it decides a result is finished are still open, so joining now means shaping
+      it rather than filling a slot. H1 is "A new lab, still deciding what it is." The
+      money facts are unchanged but sit under **The limits**, framed as a funding
+      constraint that carries first refusal rather than a policy. The homepage Contribute
+      paragraph was rewritten to match, since it still opened on the old framing.
+- [x] The friction-equation CSS added to `site.css` earlier in this session was deleted —
+      with the equation gone from every page it was dead within the hour.
+
 ### Fixes found on the way
 - [x] `.section > .container > h2` never matched generated pages — they write
       `<section class="section container">`, one element with both classes, so every h2 on

@@ -98,7 +98,6 @@ function getNavHtml(activeLink, prefix = '../') {
 ${item('index.html', 'Home', 'home')}
 ${item('research.html', 'Research', 'research')}
 ${item('projects.html', 'Projects', 'projects')}
-${item('tools.html', 'Tools', 'tools')}
 ${item('join.html', 'Join', 'join')}
 ${item('about.html', 'About', 'about')}
 ${item('news.html', 'News', 'news')}
@@ -107,16 +106,44 @@ ${item('news.html', 'News', 'news')}
 }
 
 // Social marks are inlined (no CDN, no external fetch — matches the self-hosted-assets rule).
-const LINKEDIN_URL = 'https://www.linkedin.com/company/dissensus-ai/';
-const GITHUB_ORG_URL = 'https://github.com/dissensus-ai';
-const LINKEDIN_ICON_PATH = 'M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z';
-const GITHUB_ICON_PATH = 'M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.83.58A12 12 0 0 0 12 .3z';
+// One list drives the footer row and the homepage "Elsewhere" section, so a new channel is
+// added in exactly one place. X and Discord landed Aug 2026 — before that the X anchor sat
+// commented out in index.html because no handle existed, and it had to be uncommented by hand.
+const SOCIALS = [
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/company/dissensus-ai/',
+    path: 'M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z' },
+  { label: 'X', url: 'https://x.com/dissensusAI',
+    path: 'M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.4z' },
+  { label: 'Discord', url: 'https://discord.gg/5VtRcb45N7',
+    path: 'M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c1.8483 1.3568 3.6396 2.1808 5.3973 2.7273a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.198.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 5.3993-2.7273a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z' },
+  { label: 'GitHub', url: 'https://github.com/dissensus-ai',
+    path: 'M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.83.58A12 12 0 0 0 12 .3z' },
+  { label: 'Zenodo', url: 'https://zenodo.org/communities/dissensus',
+    path: 'M3 3h18v4H3V3zm2 6h14v12H5V9zm4 3v2h6v-2H9z' },
+];
+
+function socialLink(s) {
+  return `<a href="${s.url}" target="_blank" rel="noopener" aria-label="Dissensus on ${s.label}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${s.path}"/></svg>${s.label}</a>`;
+}
 
 function getSocialHtml() {
   return `<p class="footer__social">
-<a href="${LINKEDIN_URL}" target="_blank" rel="noopener" aria-label="Dissensus on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${LINKEDIN_ICON_PATH}"/></svg>LinkedIn</a>
-<a href="${GITHUB_ORG_URL}" target="_blank" rel="noopener" aria-label="Dissensus on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${GITHUB_ICON_PATH}"/></svg>GitHub</a>
+${SOCIALS.map(socialLink).join('\n')}
 </p>`;
+}
+
+// The homepage "Elsewhere" row, written between markers in index.html.
+function syncHomeSocial() {
+  const file = path.join('public', 'index.html');
+  if (!fs.existsSync(file)) return;
+  const row = `        <div class="social-row" data-reveal>
+${SOCIALS.map(s => '          ' + socialLink(s)).join('\n')}
+        </div>`;
+  const re = /(<!-- SOCIAL:START[\s\S]*?-->)[\s\S]*?(<!-- SOCIAL:END -->)/;
+  const html = fs.readFileSync(file, 'utf8');
+  if (!re.test(html)) { console.log('  ! index.html has no SOCIAL markers — skipped'); return; }
+  fs.writeFileSync(file, html.replace(re, `$1\n${row}\n        $2`));
+  console.log(`  index.html social row (${SOCIALS.length} channels)`);
 }
 
 // Public contact — keep in sync with ~/.claude/CLAUDE.md / site CLAUDE.md
@@ -139,7 +166,6 @@ ${getSocialHtml()}
 <a href="${p}index.html">Home</a> &middot;
 <a href="${p}research.html">Research</a> &middot;
 <a href="${p}projects.html">Projects</a> &middot;
-<a href="${p}tools.html">Tools</a> &middot;
 <a href="${p}join.html">Join</a> &middot;
 <a href="${p}about.html">About</a> &middot;
 <a href="${p}news.html">News</a> &middot;
@@ -453,19 +479,25 @@ function updateResearchPage() {
   // abstracts, and a literal $& / $` / $1 in any of them would otherwise be interpreted as a
   // replacement pattern and corrupt the output.
   html = html.replace(re, (_m, head, tail) => `${head}\n${block.replace(/\s+$/, '')}\n\n    ${tail}`);
+
+  // Tools moved in here from the retired tools.html. Same marker discipline as the
+  // publications list: a replacement function, not a string, because tool descriptions
+  // and install commands can contain $& and friends.
+  const toolsRe = /(<!-- TOOLS:START[\s\S]*?-->)[\s\S]*?(<!-- TOOLS:END -->)/;
+  const toolsBlock = generateToolsSection('03');
+  if (toolsRe.test(html)) {
+    html = html.replace(toolsRe, (_m, head, tail) =>
+      toolsBlock ? `${head}\n${toolsBlock}\n  ${tail}` : `${head}\n  ${tail}`);
+  } else {
+    console.log('  ! research.html has no TOOLS markers — tools section skipped');
+  }
+
   fs.writeFileSync(file, html);
-  console.log('  research.html (publications list regenerated)');
+  const nTools = (toolsData && toolsData.tools || []).length;
+  console.log(`  research.html (publications list + ${nTools} tools regenerated)`);
 }
 
 // ─── Generate Tools / Packages page (data-driven from tools.json) ─────────────
-
-function toolsNavHtml() {
-  return getNavHtml('tools', '');
-}
-
-function toolsFooterHtml() {
-  return getFooterHtml('');
-}
 
 function toolActionButtons(tool) {
   const btns = [];
@@ -519,7 +551,7 @@ function toolMetricBadges(tool) {
 function generateToolCard(tool) {
   const statusLabel = (toolsData.toolStatuses && toolsData.toolStatuses[tool.status]) || tool.status;
   const catLabel = (toolsData.toolCategories && toolsData.toolCategories[tool.category]) || null;
-  // Category rides on the card now that all tools share one grid — see generateToolsPage().
+  // Category rides on the card now that all tools share one grid — see generateToolsSection().
   const labelBits = [catLabel, tool.kind, tool.version ? `v${tool.version}` : null].filter(Boolean).join(' &middot; ');
   const pillClass = (tool.status === 'live' || tool.status === 'released') ? 'pill pill--review' : 'pill pill--preprint';
   return `        <div class="card">
@@ -538,18 +570,20 @@ ${toolIdentifierBadges(tool)}
         </div>`;
 }
 
-function generateToolsPage() {
-  if (!toolsData || !toolsData.tools || !toolsData.tools.length) {
-    console.log('  (tools.json absent or empty — tools.html skipped)');
-    return;
-  }
+// Tools used to be a top-level page and a nav item. It is a catalogue of four
+// artefacts that exist because the research needed them, so in Aug 2026 it became a
+// section of research.html — written between the TOOLS markers there — and came out of
+// the nav. /tools 301s to /research#tools. Returns the section HTML; the page shell,
+// its own nav/footer helpers and the "Build with us" block are gone.
+function generateToolsSection(index) {
+  if (!toolsData || !toolsData.tools || !toolsData.tools.length) return '';
   const cats = toolsData.toolCategories || {};
   const order = toolsData.categoryOrder || Object.keys(cats).map(c => [c, '']);
 
   // One grid for the whole catalogue rather than a section per category. With only a
   // handful of tools, per-category sections each rendered a single card stranded in a
   // narrow auto-fill track — a tall thin column on a wide screen. Category survives as
-  // a card label plus the legend below, and this layout stays correct as tools are added.
+  // a card label plus the legend, and this layout stays correct as tools are added.
   const ordered = [];
   order.forEach(([cat]) => {
     toolsData.tools.filter(t => t.category === cat).forEach(t => ordered.push(t));
@@ -567,9 +601,10 @@ function generateToolsPage() {
     })
     .join('\n');
 
-  const sections = `  <section class="section container">
-    <span class="index">01 &middot; Catalogue</span>
-    <h2>What we maintain</h2>
+  return `  <section class="section container" id="tools">
+    <span class="index">${index} &middot; Tools</span>
+    <h2>Software and indices</h2>
+    <p class="lead">Every tool here exists because a paper needed it. All of it is open-access and citable, with install commands and DOIs per package.</p>
     <div class="legend">
 ${legend}
     </div>
@@ -578,75 +613,7 @@ ${legend}
 ${ordered.map(generateToolCard).join('\n\n')}
 
     </div>
-  </section>
-
-`;
-
-  const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tools &amp; Packages — Dissensus</title>
-  <meta name="description" content="Open-source software packages, indices, and live dashboards from Dissensus, implementing the lab's quantitative methods for friction analysis and systemic risk.">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Tools &amp; Packages — Dissensus">
-  <meta property="og:description" content="Open-source packages and live indices implementing the lab's quantitative methods.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://dissensus.ai/tools.html">
-  <meta property="og:image" content="https://dissensus.ai/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:site_name" content="Dissensus">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tools &amp; Packages — Dissensus">
-  <meta name="twitter:description" content="Open-source packages and live indices implementing the lab's quantitative methods.">
-  <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
-
-  <link rel="canonical" href="https://dissensus.ai/tools.html">
-  <meta name="theme-color" content="#faf8f5">
-  <link rel="stylesheet" href="css/system.css">
-  <link rel="stylesheet" href="css/site.css">
-  <script src="js/theme.js"></script>
-  <script src="js/motion.js" defer></script>
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
-</head>
-<body>
-
-  <div id="progress"></div>
-
-${toolsNavHtml()}
-
-  <!-- Hero -->
-  <header class="container hero hero--editorial" style="padding-block: clamp(3rem, 8vw, 6rem);">
-    <span class="kicker">Tools &amp; Packages</span>
-    <h1>Open tooling</h1>
-    <p class="lead">Software, indices, and live dashboards that implement the lab's quantitative methods. Everything here is open-access and citable; install commands and DOIs are listed per package.</p>
-  </header>
-
-${sections}  <!-- Contribute -->
-  <section class="section container">
-    <span class="index">02 &middot; Contribute</span>
-    <h2>Build with us</h2>
-    <p class="lead">These packages are released open-access as the research that produced them is published. If a tool is useful to your work, or broken in an interesting way, we want to hear about it.</p>
-    <div class="btn-row">
-      <a href="mailto:research@dissensus.ai" class="btn">research@dissensus.ai</a>
-    </div>
-  </section>
-
-${toolsFooterHtml()}
-
-</body>
-</html>`;
-
-  fs.writeFileSync(path.join('public', 'tools.html'), html);
-  console.log(`  tools.html (${toolsData.tools.length} tools)`);
+  </section>`;
 }
 
 // ─── Generate Collaborate / Open Projects page ───────────────────────────────
@@ -909,22 +876,22 @@ function generateJoinPage() {
 
   const advisory = generateAdvisorySection('05');
 
-  const html = `${pageHead('Join', 'Research roles at Dissensus: a three-rung ladder from a weekend task to a named affiliation, the hour-sized ways in, and an honest account of what an unfunded lab can and cannot offer.', 'join')}
+  const html = `${pageHead('Join', 'Dissensus is a new research lab still taking shape. Research roles from a weekend task to a standing affiliation, the hour-sized ways in, and a plain account of the limits.', 'join')}
 ${getNavHtml('join', '')}
 
   <header class="container hero hero--editorial" style="padding-block: clamp(3rem, 8vw, 6rem);">
     <span class="kicker">Join</span>
-    <h1>No money. Specified problems. Real authorship.</h1>
+    <h1>A new lab, still deciding what it is.</h1>
     <p class="lead">${rolesData.intro || ''}</p>
     <div class="cta-row" style="margin-top:1.5rem;">
       <a class="btn" href="#start">Start with one task &rarr;</a>
-      <a class="btn btn--ghost" href="projects.html">The six projects</a>
+      <a class="btn btn--ghost" href="https://discord.gg/5VtRcb45N7" target="_blank" rel="noopener">Join the Discord</a>
     </div>
   </header>
 
   <section class="section container" id="roles">
     <span class="index">01 &middot; Roles</span>
-    <h2>Three rungs, entered by doing the previous one</h2>
+    <h2>Three rungs, each entered by doing the previous one</h2>
     <p class="body-text">${rolesData.introSecond || ''}</p>
     <div class="grid grid--wide" style="margin-top: var(--sp-8);">
 
@@ -945,9 +912,9 @@ ${tasks}
   </section>
 
   <section class="section container" id="not-offering">
-    <span class="index">03 &middot; The other half</span>
-    <h2>What the lab does not offer</h2>
-    <p class="body-text">Stated plainly, because finding it out later wastes more of your time than reading it now.</p>
+    <span class="index">03 &middot; The limits</span>
+    <h2>What the lab cannot offer</h2>
+    <p class="body-text">Up front, because finding it out later wastes more of your time than reading it now. Some of these are constraints that change with funding; the rest are choices, and they are marked.</p>
     <ul class="plainlist">
       ${(rolesData.notOffering || []).map(n => `<li>${n}</li>`).join('\n      ')}
     </ul>
@@ -1185,7 +1152,6 @@ function generateSitemap() {
     { loc: 'https://dissensus.ai/', priority: '1.0', changefreq: 'weekly' },
     { loc: 'https://dissensus.ai/research.html', priority: '0.8', changefreq: 'weekly' },
     { loc: 'https://dissensus.ai/news.html', priority: '0.8', changefreq: 'weekly' },
-    { loc: 'https://dissensus.ai/tools.html', priority: '0.7', changefreq: 'monthly' },
     // Recruiting surfaces rank above the catalogue pages: join.html is the one page
     // the lab actually needs found. The retired pages (manifesto, charter, reading,
     // press, subscribe) are gone from here — a sitemap advertising a 301 is worse
@@ -1282,10 +1248,6 @@ papers.forEach(paper => {
 console.log('\nResearch page:');
 updateResearchPage();
 
-// Generate tools / packages catalog page from tools.json
-console.log('\nTools page:');
-generateToolsPage();
-
 // Generate the open-projects dossiers from projects.json
 console.log('\nProjects page:');
 generateProjectsPage();
@@ -1295,8 +1257,9 @@ console.log('\nJoin page:');
 generateJoinPage();
 
 // Featured open tasks on the homepage (from roles.json)
-console.log('\nHomepage open tasks:');
+console.log('\nHomepage blocks:');
 syncHomeTasks();
+syncHomeSocial();
 
 // Sync nav + footer into the hand-authored pages
 console.log('\nChrome sync (hand-authored pages):');
@@ -1315,5 +1278,5 @@ console.log('\nCache-busting:');
 bustCss();
 
 // Summary
-console.log(`\n✓ Generated ${papers.length} paper pages${toolsData ? ' + tools.html' : ''}${projectsData ? ' + projects.html' : ''}${rolesData ? ' + join.html' : ''} + sitemap`);
+console.log(`\n✓ Generated ${papers.length} paper pages${projectsData ? ' + projects.html' : ''}${rolesData ? ' + join.html' : ''} + sitemap`);
 console.log('  Run: python -m http.server 8000 --directory public');

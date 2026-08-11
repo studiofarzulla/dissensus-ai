@@ -22,8 +22,8 @@
 
   <title>Research — Dissensus</title>
 
-  <link rel="stylesheet" href="css/system.css?v=decef08c">
-  <link rel="stylesheet" href="css/site.css?v=decef08c">
+  <link rel="stylesheet" href="css/system.css?v=71dd03b7">
+  <link rel="stylesheet" href="css/site.css?v=71dd03b7">
   <script src="js/theme.js"></script>
   <script src="js/motion.js" defer></script>
 
@@ -44,7 +44,6 @@
       <a href="index.html">Home</a>
       <a href="research.html" class="is-active">Research</a>
       <a href="projects.html">Projects</a>
-      <a href="tools.html">Tools</a>
       <a href="join.html">Join</a>
       <a href="about.html">About</a>
       <a href="news.html">News</a>
@@ -95,41 +94,9 @@
     </article>
   </section>
 
-  <!-- Notation reference -->
-  <section class="section container">
-    <span class="index">02 &middot; Notation</span>
-    <h2>Notation reference</h2>
-    <p class="lead">Coordination has overhead. Delegation produces friction, and friction decomposes into three measurable primitives &mdash; it rises with stake and entropy, and falls with alignment. One functional underwrites the programme; the symbols it uses are defined below.</p>
-
-    <div class="friction-eq">
-      <div class="eq">
-        <span class="eq-var">F</span>
-        <span class="eq-op">=</span>
-        <span class="eq-frac">
-          <span class="eq-num"><span class="eq-var">&sigma;</span>&#8202;(1 + <span class="eq-var">&epsilon;</span>)</span>
-          <span class="eq-bar"></span>
-          <span class="eq-den">1 + <span class="eq-var">&alpha;</span></span>
-        </span>
-      </div>
-      <div class="eq-cap">Friction, decomposed &mdash; it <b>rises</b> with stake and entropy, and <b>falls</b> with alignment. A single functional, three measurable primitives.</div>
-    </div>
-
-    <div class="grid">
-      <article class="card"><span class="sym">F</span><h3>Friction</h3><p>Total coordination overhead in multi-agent delegation.</p></article>
-      <article class="card"><span class="sym">&alpha;</span><h3>Alignment</h3><p>Convergence or divergence of optimisation targets between principal and agent.</p></article>
-      <article class="card"><span class="sym">&sigma;</span><h3>Stake</h3><p>Magnitude of optimisation being delegated (what is at risk).</p></article>
-      <article class="card"><span class="sym">&epsilon;</span><h3>Entropy</h3><p>Efficiency loss in optimisation transfer (information degradation).</p></article>
-      <article class="card"><span class="sym">&Lambda;</span><h3>Legitimacy</h3><p>Stakes-weighted consent alignment across affected populations.</p></article>
-      <article class="card"><span class="sym">&Psi;</span><h3>Consent function</h3><p>Mapping from agent state to valid delegation authorisation.</p></article>
-    </div>
-    <div class="btn-row">
-      <button class="btn btn--ghost" onclick="copyBibTeX()" id="cite-btn">&#10216;/&#10217; Cite framework</button>
-    </div>
-  </section>
-
   <!-- Publications -->
   <section class="section container">
-    <span class="index">03 &middot; Archive</span>
+    <span class="index">02 &middot; Archive</span>
     <h2>Publications</h2>
 
     <div class="pubgroup">
@@ -290,32 +257,142 @@
     <p class="research-note">Full PDFs and Google Scholar metadata on each paper page. Also indexed at <a href="https://farzulla.org" target="_blank" rel="noopener">farzulla.org</a>.</p>
   </section>
 
-  <!-- Intellectual lineage -->
-  <section class="section container">
-    <span class="index">04 &middot; Lineage</span>
-    <h2>Intellectual lineage</h2>
-    <div class="grid">
-      <article class="card"><span class="card__meta">Builds on &middot; Coase</span><h3>Transaction Cost Economics</h3><p>Friction as coordination overhead.</p></article>
-      <article class="card"><span class="card__meta">Builds on &middot; Arrow</span><h3>Impossibility Theorem</h3><p>Structural constraints on preference aggregation.</p></article>
-      <article class="card"><span class="card__meta">Builds on &middot; Dennett</span><h3>Intentional Stance</h3><p>Substrate-independent agency.</p></article>
-      <article class="card"><span class="card__meta">Builds on &middot; Dawkins</span><h3>Extended Phenotype</h3><p>Replicator dynamics beyond biology.</p></article>
-      <article class="card"><span class="card__meta">Extends toward</span><h3>Pre-game theory</h3><p>What happens before payoffs are assigned.</p></article>
-      <article class="card"><span class="card__meta">Extends toward</span><h3>Quantified legitimacy</h3><p>Empirical measurement of political friction.</p></article>
+  <!-- TOOLS:START — generated from tools.json by build-papers.js.
+       Do not hand-edit; edit tools.json and rebuild. -->
+  <section class="section container" id="tools">
+    <span class="index">03 &middot; Tools</span>
+    <h2>Software and indices</h2>
+    <p class="lead">Every tool here exists because a paper needed it. All of it is open-access and citable, with install commands and DOIs per package.</p>
+    <div class="legend">
+      <div class="legend__item">
+        <span class="legend__k">Software Packages <span class="legend__n">2</span></span>
+        <span class="legend__v">Open-source libraries implementing the lab's quantitative methods</span>
+      </div>
+      <div class="legend__item">
+        <span class="legend__k">Live Indices &amp; Dashboards <span class="legend__n">1</span></span>
+        <span class="legend__v">Hosted indices and interactive risk dashboards</span>
+      </div>
+      <div class="legend__item">
+        <span class="legend__k">Research Code &amp; Formalisations <span class="legend__n">1</span></span>
+        <span class="legend__v">Experiment codebases and machine-checked formalisations behind the papers, released as the research is published</span>
+      </div>
     </div>
-  </section>
+    <div class="grid grid--wide" style="margin-top: var(--sp-8);">
 
-  <!-- Timeline -->
-  <section class="section container">
-    <span class="index">05 &middot; Timeline</span>
-    <h2>Research timeline</h2>
-    <div class="grid">
-      <article class="card"><span class="card__meta">2024</span><h3>Genesis</h3><p>Initial axiomatisation of consent mechanics. First formulation of the friction equation.</p></article>
-      <article class="card"><span class="card__meta">Early 2025</span><h3>Empirical validation</h3><p>Market microstructure studies probe friction dynamics in cryptocurrency markets.</p></article>
-      <article class="card"><span class="card__meta">Mid 2025</span><h3>Theoretical extension</h3><p>The Replicator-Optimization Mechanism unifies biological and computational substrates.</p></article>
-      <article class="card"><span class="card__meta">Late 2025</span><h3>Journal submissions</h3><p>Multiple papers under peer review at Springer journals.</p></article>
-      <article class="card"><span class="card__meta">2026</span><h3>Current phase</h3><p>arXiv presence established. UK incorporation complete. Research partnerships open.</p></article>
+        <div class="card">
+          <div class="tool__head">
+            <span class="card__meta">Software Packages &middot; Python package &middot; v0.3.0</span>
+            <span class="pill pill--review">Released</span>
+          </div>
+          <h3>GJR-GARCH-X</h3>
+          <p class="tool__tagline">Student-t GJR-GARCH with exogenous regressors in the variance equation</p>
+          <p>A small, dependency-light Python implementation of the asymmetric GJR-GARCH(1,1,1) volatility model with Student-t innovations and arbitrary exogenous regressors (the X) entering the conditional variance equation — the specification that appears as TARCH-X in the lab's event-study papers. Built for the cryptocurrency event-study pipeline, where infrastructure and regulatory shocks are encoded as exogenous variance covariates and tested for asymmetric volatility response.</p>
+          <code class="tool__install">pip install gjr-garch-x</code>
+          <ul class="tool__features">
+            <li>Asymmetric leverage effect via the GJR indicator term</li>
+            <li>Student-t innovations for heavy-tailed crypto returns</li>
+            <li>Exogenous regressors in the variance equation (the -X)</li>
+            <li>Maximum-likelihood estimation, NumPy/SciPy only</li>
+          </ul>
+
+          <div class="btn-row">
+            <a href="https://pypi.org/project/gjr-garch-x/" class="btn btn--ghost" target="_blank" rel="noopener">PyPI: gjr-garch-x</a>
+            <a href="https://doi.org/10.5281/zenodo.17988193" class="btn btn--ghost" target="_blank" rel="noopener">DOI</a>
+            <a href="https://github.com/studiofarzulla/gjr-garch-x" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>
+            <a href="papers/market-reaction-asymmetry.html" class="btn btn--ghost" title="Do Cryptocurrency Markets Differentiate Infrastructure from Regulatory Shocks? A Multi-Moment Event Study with Dependence-Robust Inference">Paper &rarr;</a>
+          </div>
+          <div class="badges">
+            <span class="badge"><span class="badge__k">Version</span><span class="badge__v">v0.3.0</span></span>
+            <span class="badge"><span class="badge__k">DOI</span><span class="badge__v">10.5281/zenodo.17988193</span></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="tool__head">
+            <span class="card__meta">Software Packages &middot; Python package &middot; v0.1.0</span>
+            <span class="pill pill--review">Released</span>
+          </div>
+          <h3>robust-eventstudy</h3>
+          <p class="tool__tagline">Dependence-robust inference for heavy-tailed cross-asset event studies</p>
+          <p>Event studies on cross-listed assets violate the independence assumption their standard errors are built on: the same shock hits every asset at once, so abnormal returns are correlated across the cross-section and naive tests reject far too often. This package implements the inference toolkit used in the lab's cryptocurrency event-study work — cluster-robust and copula-based procedures that keep their nominal size when returns are heavy-tailed and cross-sectionally dependent. Extracted from the event-study pipeline so the correction is reusable outside the paper that motivated it.</p>
+          <code class="tool__install">pip install robust-eventstudy</code>
+          <ul class="tool__features">
+            <li>Cluster-robust standard errors for correlated abnormal returns</li>
+            <li>t-copula bootstrap for heavy-tailed cross-sectional dependence</li>
+            <li>Design-effect diagnostics — how much your effective N really is</li>
+            <li>Golden-anchor regression tests pinned to the published results</li>
+          </ul>
+
+          <div class="btn-row">
+            <a href="https://pypi.org/project/robust-eventstudy/" class="btn btn--ghost" target="_blank" rel="noopener">PyPI: robust-eventstudy</a>
+            <a href="https://doi.org/10.5281/zenodo.21316120" class="btn btn--ghost" target="_blank" rel="noopener">DOI</a>
+            <a href="https://github.com/studiofarzulla/robust-eventstudy" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>
+            <a href="papers/market-reaction-asymmetry.html" class="btn btn--ghost" title="Do Cryptocurrency Markets Differentiate Infrastructure from Regulatory Shocks? A Multi-Moment Event Study with Dependence-Robust Inference">Paper &rarr;</a>
+          </div>
+          <div class="badges">
+            <span class="badge"><span class="badge__k">Version</span><span class="badge__v">v0.1.0</span></span>
+            <span class="badge"><span class="badge__k">DOI</span><span class="badge__v">10.5281/zenodo.21316120</span></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="tool__head">
+            <span class="card__meta">Live Indices &amp; Dashboards &middot; Live index &amp; dashboard</span>
+            <span class="pill pill--review">Live</span>
+          </div>
+          <h3>ASRI — Aggregated Systemic Risk Index</h3>
+          <p class="tool__tagline">A composite early-warning index for systemic risk at the DeFi–TradFi boundary</p>
+          <p>ASRI aggregates four weighted sub-indices — Stablecoin Concentration, DeFi Liquidity, Contagion, and Regulatory Opacity — into a single 0–100 systemic-risk score for cryptocurrency markets. Validated against the Terra/Luna (2022-05), Celsius/3AC (2022-06), FTX (2022-11), and SVB (2023-03) crises, it correctly flagged the February 2025 Bybit hack ($1.5B, the largest exchange theft in history) as non-systemic — ASRI did not spike, because no contagion channels were active. The live dashboard tracks the index, its sub-components, and the HMM risk regime in real time.</p>
+          <ul class="tool__features">
+            <li>Four-channel composite score: Stablecoin · DeFi Liquidity · Contagion · Opacity</li>
+            <li>Alert bands — Low &lt;30 · Moderate 30–50 · Elevated 50–70 · High ≥70</li>
+            <li>Three-regime hidden Markov model: Low Risk · Moderate · Crisis</li>
+            <li>Lead time ≈19d (fixed threshold) / ≈26d (walk-forward) before crisis onset</li>
+          </ul>
+          <div class="badges">
+            <span class="badge"><span class="badge__k">AUROC (ASRI / D-Y)</span><span class="badge__v">0.866 / 0.670</span></span>
+            <span class="badge"><span class="badge__k">AUPRC (ASRI / D-Y)</span><span class="badge__v">0.298 / 0.121</span></span>
+            <span class="badge"><span class="badge__k">Precision @ Youden</span><span class="badge__v">35.2% / 14.9%</span></span>
+          </div>
+          <div class="btn-row">
+            <a href="https://asri.dissensus.ai" class="btn" target="_blank" rel="noopener">Open dashboard &rarr;</a>
+            <a href="https://arxiv.org/abs/2602.03874" class="btn btn--ghost" target="_blank" rel="noopener">arXiv: 2602.03874</a>
+            <a href="papers/asri.html" class="btn btn--ghost" title="ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets">Paper &rarr;</a>
+          </div>
+          <div class="badges">
+            <span class="badge"><span class="badge__k">arXiv</span><span class="badge__v">2602.03874</span></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="tool__head">
+            <span class="card__meta">Research Code &amp; Formalisations &middot; Lean 4 proof library</span>
+            <span class="pill pill--review">Released</span>
+          </div>
+          <h3>FarzullaProofs — Lean 4 Formalisations</h3>
+          <p class="tool__tagline">Machine-checked proofs for results across the lab's papers</p>
+          <p>A Lean 4 + Mathlib library formalising core results from the research programme — the Axiom of Consent friction functional, the Replicator-Optimization Mechanism, and supporting results — with formalisation depth tiered (Bronze/Silver/Gold) and tracked per paper. The library builds clean with zero `sorry` placeholders and no added axioms; each paper module ships a map from manuscript theorem IDs to Lean declarations, so a referee can go from an equation in a PDF to the machine-checked statement in one hop.</p>
+          <ul class="tool__features">
+            <li>Friction-functional results proved: F = 0 ⇔ σ = 0, positivity, the F ≥ σ/2 lower bound</li>
+            <li>Per-paper theorem maps linking manuscript IDs to Lean declarations</li>
+            <li>Explicit assumptions ledger — no silent axioms</li>
+            <li>CI-checked builds on Lean v4.27.0 + Mathlib</li>
+          </ul>
+          <div class="badges">
+            <span class="badge"><span class="badge__k">Theorems</span><span class="badge__v">246 across 15 paper modules</span></span>
+            <span class="badge"><span class="badge__k">Incomplete proofs</span><span class="badge__v">0 sorry · 0 custom axioms</span></span>
+          </div>
+          <div class="btn-row">
+            <a href="https://github.com/dissensus-ai/lean-formalizations" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>
+            <a href="papers/axiom-of-consent.html" class="btn btn--ghost" title="The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination">Paper &rarr;</a>
+            <a href="papers/replicator-optimization-mechanism.html" class="btn btn--ghost" title="The Replicator-Optimization Mechanism: A Scale-Relative Formalism for Persistence-Conditioned Dynamics">Paper &rarr;</a>
+          </div>
+
+        </div>
+
     </div>
   </section>
+  <!-- TOOLS:END -->
 
   <!-- Footer -->
 <footer class="footer">
@@ -326,14 +403,16 @@
 <p style="margin-top:.35rem;">Tel: <a href="tel:+442038071624">020 3807 1624</a> &middot; <a href="https://cal.com/dissensus/15min" target="_blank" rel="noopener">Book 15&nbsp;min</a> &middot; <a href="mailto:research@dissensus.ai">research@dissensus.ai</a></p>
 <p class="footer__social">
 <a href="https://www.linkedin.com/company/dissensus-ai/" target="_blank" rel="noopener" aria-label="Dissensus on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+<a href="https://x.com/dissensusAI" target="_blank" rel="noopener" aria-label="Dissensus on X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.4z"/></svg>X</a>
+<a href="https://discord.gg/5VtRcb45N7" target="_blank" rel="noopener" aria-label="Dissensus on Discord"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c1.8483 1.3568 3.6396 2.1808 5.3973 2.7273a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.198.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 5.3993-2.7273a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>Discord</a>
 <a href="https://github.com/dissensus-ai" target="_blank" rel="noopener" aria-label="Dissensus on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.83.58A12 12 0 0 0 12 .3z"/></svg>GitHub</a>
+<a href="https://zenodo.org/communities/dissensus" target="_blank" rel="noopener" aria-label="Dissensus on Zenodo"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3h18v4H3V3zm2 6h14v12H5V9zm4 3v2h6v-2H9z"/></svg>Zenodo</a>
 </p>
 </div>
 <div style="max-width:560px;">
 <a href="index.html">Home</a> &middot;
 <a href="research.html">Research</a> &middot;
 <a href="projects.html">Projects</a> &middot;
-<a href="tools.html">Tools</a> &middot;
 <a href="join.html">Join</a> &middot;
 <a href="about.html">About</a> &middot;
 <a href="news.html">News</a> &middot;
