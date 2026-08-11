@@ -132,49 +132,52 @@ ${SOCIALS.map(socialLink).join('\n')}
 </p>`;
 }
 
-// The homepage "Elsewhere" row, written between markers in index.html.
-function syncHomeSocial() {
-  const file = path.join('public', 'index.html');
-  if (!fs.existsSync(file)) return;
-  const row = `        <div class="social-row" data-reveal>
-${SOCIALS.map(s => '          ' + socialLink(s)).join('\n')}
-        </div>`;
-  const re = /(<!-- SOCIAL:START[\s\S]*?-->)[\s\S]*?(<!-- SOCIAL:END -->)/;
-  const html = fs.readFileSync(file, 'utf8');
-  if (!re.test(html)) { console.log('  ! index.html has no SOCIAL markers — skipped'); return; }
-  fs.writeFileSync(file, html.replace(re, `$1\n${row}\n        $2`));
-  console.log(`  index.html social row (${SOCIALS.length} channels)`);
-}
-
 // Public contact — keep in sync with ~/.claude/CLAUDE.md / site CLAUDE.md
 const PHONE_DISPLAY = '020 3807 1624';
 const PHONE_TEL = '+442038071624';
 const CAL_URL = 'https://cal.com/dissensus/15min';
 const FORM_URL = 'https://formspree.io/f/mreezoko';
 
+const PATREON_URL = 'https://www.patreon.com/cw/dissensus';
+
+// Three columns with real breathing room. The old footer was two flex blocks with inline
+// styles, and at full-screen width the link list and the legal block collided into a
+// cramped strip at the bottom of every page. Columns collapse to one below 62rem.
 function getFooterHtml(prefix = '../') {
   const p = prefix;
   return `<footer class="footer">
-<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
-<div>
-<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
-<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
-<p style="margin-top:.35rem;">Tel: <a href="tel:${PHONE_TEL}">${PHONE_DISPLAY}</a> &middot; <a href="${CAL_URL}" target="_blank" rel="noopener">Book 15&nbsp;min</a> &middot; <a href="mailto:research@dissensus.ai">research@dissensus.ai</a></p>
-${getSocialHtml()}
+<div class="container footer__grid">
+
+<div class="footer__col footer__col--id">
+<p class="footer__brand">Dissensus</p>
+<p>An independent research group working on complex adaptive systems &mdash; how they hold together when their parts want different things.</p>
+<p class="footer__legal">&copy; 2026 Dissensus Ltd &middot; registered in England and Wales, company no. 17309927<br>71-75 Shelton Street, Covent Garden, London WC2H 9JQ</p>
 </div>
-<div style="max-width:560px;">
-<a href="${p}index.html">Home</a> &middot;
-<a href="${p}research.html">Research</a> &middot;
-<a href="${p}projects.html">Projects</a> &middot;
-<a href="${p}join.html">Join</a> &middot;
-<a href="${p}about.html">About</a> &middot;
-<a href="${p}news.html">News</a> &middot;
-<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-<a href="${p}privacy.html">Privacy</a> &middot;
-<a href="${p}terms.html">Terms</a> &middot;
+
+<nav class="footer__col footer__col--nav" aria-label="Footer">
+<span class="footer__k">Site</span>
+<a href="${p}index.html">Home</a>
+<a href="${p}research.html">Research</a>
+<a href="${p}projects.html">Projects</a>
+<a href="${p}join.html">Join</a>
+<a href="${p}about.html">About</a>
+<a href="${p}news.html">News</a>
+</nav>
+
+<div class="footer__col footer__col--contact">
+<span class="footer__k">Get in touch</span>
+<a href="mailto:research@dissensus.ai">research@dissensus.ai</a>
+<a href="tel:${PHONE_TEL}">${PHONE_DISPLAY}</a>
+<a href="${CAL_URL}" target="_blank" rel="noopener">Book 15&nbsp;min</a>
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI dashboard</a>
 <a href="${p}feed.xml" title="RSS Feed">RSS</a>
 </div>
+
+</div>
+
+<div class="container footer__base">
+${getSocialHtml()}
+<p class="footer__meta"><a href="${PATREON_URL}" target="_blank" rel="noopener">Support the research</a><span class="sep">&middot;</span><a href="${p}privacy.html">Privacy</a><span class="sep">&middot;</span><a href="${p}terms.html">Terms</a></p>
 </div>
 </footer>`;
 }
@@ -397,64 +400,112 @@ ${getFooterHtml()}
 
 // ─── Regenerate research.html publication list from papers.json ───────────────
 
+// Still used by the per-paper pages, which keep their status pill.
 function pillClassForStatus(status) {
   if (status === 'accepted' || status === 'forthcoming') return 'pill--review';
   if (status === 'under-review') return 'pill--review';
   return 'pill--preprint';
 }
 
-function pubItemMeta(paper) {
-  if ((paper.status === 'accepted' || paper.status === 'forthcoming') && paper.journal) {
-    return `${paper.status === 'forthcoming' ? 'Forthcoming' : 'Accepted'} &middot; ${paper.journal}`;
-  }
-  if (paper.status === 'under-review' && paper.journal) return `Under review &middot; ${paper.journal}`;
-  if (paper.arxiv) return `arXiv: ${paper.arxiv}`;
-  return `Preprint`;
+// Papers that are also open to collaborators point at their Projects entry rather than
+// repeating the dossier. Research shows the artefact; Projects shows the open work.
+const PAPER_TO_PROJECT = {
+  'semantic-first-vision': 'semantic-vision',
+  'autonomous-red-team': 'autonomous-red-team',
+  'genre-mimicry': 'genre-mimicry',
+  'consensual-sovereignty': 'consensual-sovereignty',
+};
+
+function projectIdFor(paperId) {
+  const pid = PAPER_TO_PROJECT[paperId] || paperId;
+  const list = (projectsData && projectsData.projects) || [];
+  return list.some(pr => pr.id === pid) ? pid : null;
 }
 
-function pubItemPill(paper) {
-  if (paper.status === 'accepted') return `<span class="pill pill--review">Accepted</span>`;
-  if (paper.status === 'forthcoming') return `<span class="pill pill--review">Forthcoming</span>`;
-  if (paper.status === 'under-review') return `<span class="pill pill--review">Under review</span>`;
-  return `<span class="pill pill--preprint">Preprint</span>`;
+// Compact inline tool row: a tool belongs to the paper it came out of, so it renders
+// under that paper instead of in a separate catalogue.
+function inlineToolHtml(tool) {
+  const bits = [];
+  if (tool.dashboard) bits.push(`<a href="${tool.dashboard}" target="_blank" rel="noopener">Dashboard</a>`);
+  if (tool.pypi) bits.push(`<a href="https://pypi.org/project/${tool.pypi}/" target="_blank" rel="noopener">PyPI</a>`);
+  if (tool.zenodo) bits.push(`<a href="https://doi.org/${tool.zenodo}" target="_blank" rel="noopener">DOI</a>`);
+  if (tool.github) bits.push(`<a href="${tool.github}" target="_blank" rel="noopener">GitHub</a>`);
+  if (tool.docs) bits.push(`<a href="${tool.docs}" target="_blank" rel="noopener">Docs</a>`);
+  const install = tool.install ? `          <code class="pubtool__install">${tool.install}</code>\n` : '';
+  const links = bits.length ? `          <div class="pubtool__links">${bits.join('<span class="sep">&middot;</span>')}</div>\n` : '';
+  const ver = tool.version ? ` <span class="pubtool__ver">v${tool.version}</span>` : '';
+  return `        <div class="pubtool">
+          <span class="pubtool__k">${tool.kind || 'Tool'}${tool.status === 'live' ? ' &middot; live' : ''}</span>
+          <span class="pubtool__name">${tool.name}${ver}</span>
+          <p class="pubtool__desc">${tool.tagline || ''}</p>
+${install}${links}        </div>`;
 }
 
-function pubItemDetail(paper) {
-  if (paper.subtitle) return paper.subtitle;
-  if (paper.methods && paper.methods.length) return paper.methods.slice(0, 3).join(' &middot; ');
-  return paper.tags.map(t => tagLabels[t] || t).join(', ');
+function paperRowLinks(paper) {
+  const bits = [];
+  if (paper.arxiv) bits.push(`<a href="https://arxiv.org/abs/${paper.arxiv}" target="_blank" rel="noopener">arXiv</a>`);
+  if (paper.doi) bits.push(`<a href="https://doi.org/${paper.doi}" target="_blank" rel="noopener">DOI</a>`);
+  else if (paper.zenodo) bits.push(`<a href="https://doi.org/${paper.zenodo}" target="_blank" rel="noopener">Zenodo</a>`);
+  if (paper.ssrn) bits.push(`<a href="${/^https?:/.test(paper.ssrn) ? paper.ssrn : 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=' + paper.ssrn}" target="_blank" rel="noopener">SSRN</a>`);
+  if (paper.github) bits.push(`<a href="${paper.github}" target="_blank" rel="noopener">Code</a>`);
+  if (paper.dashboard) bits.push(`<a href="${paper.dashboard}" target="_blank" rel="noopener">Dashboard</a>`);
+  const proj = projectIdFor(paper.id);
+  if (proj) bits.push(`<a href="projects.html#${proj}" class="pubrow__open">Open to collaborators &rarr;</a>`);
+  return bits.length ? `          <div class="pubrow__links">${bits.join('<span class="sep">&middot;</span>')}</div>\n` : '';
 }
 
+// Linear list, grouped by stage. Replaced a five-category grid of boxed cards: on an
+// archive the reader wants to know how finished a thing is, not which of five internal
+// categories it was filed under, and a card grid makes twenty items read as twenty
+// equal-weight products.
 function generateResearchPublications() {
-  // Ordered category sections with their descriptive sub-line.
-  const categoryOrder = [
-    ['governance-dynamics', 'Consent, legitimacy, and multi-agent coordination'],
-    ['market-microstructure', 'Risk asymmetry, volatility, and digital asset markets'],
-    ['process-philosophy', 'Metaphysics, identity, consciousness, and substrates'],
-    ['political-economy', 'Inequality, privacy, and regulatory structures'],
-    ['computational-cognition', 'Machine learning, safety, and phenomenology'],
-  ];
-  const categoryLabels = papersData.categories;
+  const stages = papersData.stages || {};
+  const blurbs = papersData.stageBlurbs || {};
+  const order = papersData.stageOrder || Object.keys(stages);
+  const tools = (toolsData && toolsData.tools) || [];
+
+  // A tool linked to several papers (FarzullaProofs covers two) must not print its block
+  // once per paper — it rendered twice in a row under the Current focus group. Each tool
+  // appears once, under the first paper it attaches to.
+  const shownTools = new Set();
 
   let out = '';
-  categoryOrder.forEach(([cat, blurb]) => {
-    const items = papers.filter(p => p.category === cat);
+  order.forEach((stage, i) => {
+    const items = papers.filter(p => p.stage === stage);
     if (!items.length) return;
-    out += `    <div class="pubgroup">\n`;
-    out += `      <h3>${categoryLabels[cat] || cat}</h3>\n`;
-    out += `      <p class="pubgroup__blurb">${blurb}</p>\n`;
-    out += `      <div class="grid">\n`;
+    out += `    <div class="stagegroup" id="${stage}">\n`;
+    out += `      <h3 class="stagegroup__h"><span class="stagegroup__n">${String(i + 1).padStart(2, '0')}</span> ${stages[stage] || stage} <span class="stagegroup__c">${items.length}</span></h3>\n`;
+    if (blurbs[stage]) out += `      <p class="stagegroup__blurb">${blurbs[stage]}</p>\n`;
+
     items.forEach(paper => {
-      out += `        <a href="papers/${paper.id}.html" class="card">\n`;
-      out += `          <span class="card__meta">${pubItemMeta(paper)}</span>\n`;
-      out += `          <h3>${paper.title}</h3>\n`;
-      out += `          <p>${pubItemDetail(paper)}</p>\n`;
-      out += `          ${pubItemPill(paper)}\n`;
-      out += `        </a>\n`;
+      const meta = paper.status === 'accepted' && paper.journal
+        ? `Accepted &middot; ${paper.journal}`
+        : paper.status === 'under-review' && paper.journal
+          ? `Under review &middot; ${paper.journal}`
+          : paper.arxiv ? `arXiv:${paper.arxiv}` : '';
+      const attached = tools.filter(t =>
+        (t.relatedPapers || []).includes(paper.id) && !shownTools.has(t.id));
+      attached.forEach(t => shownTools.add(t.id));
+      out += `      <article class="pubrow" data-reveal>\n`;
+      if (meta) out += `        <span class="pubrow__meta">${meta}</span>\n`;
+      out += `        <h4><a href="papers/${paper.id}.html">${paper.title}</a></h4>\n`;
+      if (paper.subtitle) out += `        <p class="pubrow__sub">${paper.subtitle}</p>\n`;
+      out += paperRowLinks(paper).replace(/^ {10}/gm, '        ');
+      if (attached.length) out += attached.map(inlineToolHtml).join('\n') + '\n';
+      out += `      </article>\n`;
     });
-    out += `      </div>\n`;
     out += `    </div>\n\n`;
   });
+
+  // Any tool not attached to a paper still needs somewhere to live.
+  const orphanTools = tools.filter(t => !(t.relatedPapers || []).length);
+  if (orphanTools.length) {
+    out += `    <div class="stagegroup" id="standalone-tools">\n`;
+    out += `      <h3 class="stagegroup__h"><span class="stagegroup__n">${String(order.length + 1).padStart(2, '0')}</span> Standalone software <span class="stagegroup__c">${orphanTools.length}</span></h3>\n`;
+    out += `      <p class="stagegroup__blurb">Tools that are not tied to a single paper.</p>\n`;
+    out += orphanTools.map(t => `      <article class="pubrow" data-reveal>\n${inlineToolHtml(t)}\n      </article>`).join('\n') + '\n';
+    out += `    </div>\n\n`;
+  }
   return out;
 }
 
@@ -466,157 +517,24 @@ function updateResearchPage() {
   }
   let html = fs.readFileSync(file, 'utf8');
   const block = generateResearchPublications();
-  // Replace everything between the Publications heading and the closing research-note paragraph.
-  // The whitespace before <p class="research-note"> is matched but NOT captured, and re-emitted
-  // as a fixed string — capturing it made the build non-idempotent, adding two blank lines to
-  // research.html on every run, unbounded.
-  const re = /(<h2>Publications<\/h2>\n)[\s\S]*?\n[ \t]*(<p class="research-note">)/;
+  // Marker-delimited, not heading-anchored. The previous version keyed off the literal
+  // `<h2>Publications</h2>` and silently skipped the whole list the moment that heading
+  // was reworded — which is exactly what happened when the page was retitled.
+  const re = /(<!-- PUBLICATIONS:START[\s\S]*?-->)[\s\S]*?(<!-- PUBLICATIONS:END -->)/;
   if (!re.test(html)) {
-    console.log('  (research.html publications anchors not found — skipped)');
+    console.log('  ! research.html has no PUBLICATIONS markers — list NOT written');
     return;
   }
-  // Replacement FUNCTION, not a string: `block` is generated HTML built from paper titles and
-  // abstracts, and a literal $& / $` / $1 in any of them would otherwise be interpreted as a
-  // replacement pattern and corrupt the output.
+  // Replacement FUNCTION, not a string: `block` is built from paper titles and abstracts,
+  // and a literal $& / $` / $1 in any of them would be read as a replacement pattern.
   html = html.replace(re, (_m, head, tail) => `${head}\n${block.replace(/\s+$/, '')}\n\n    ${tail}`);
-
-  // Tools moved in here from the retired tools.html. Same marker discipline as the
-  // publications list: a replacement function, not a string, because tool descriptions
-  // and install commands can contain $& and friends.
-  const toolsRe = /(<!-- TOOLS:START[\s\S]*?-->)[\s\S]*?(<!-- TOOLS:END -->)/;
-  const toolsBlock = generateToolsSection('03');
-  if (toolsRe.test(html)) {
-    html = html.replace(toolsRe, (_m, head, tail) =>
-      toolsBlock ? `${head}\n${toolsBlock}\n  ${tail}` : `${head}\n  ${tail}`);
-  } else {
-    console.log('  ! research.html has no TOOLS markers — tools section skipped');
-  }
 
   fs.writeFileSync(file, html);
   const nTools = (toolsData && toolsData.tools || []).length;
-  console.log(`  research.html (publications list + ${nTools} tools regenerated)`);
+  console.log(`  research.html (${papers.length} papers in ${(papersData.stageOrder||[]).length} stages, ${nTools} tools inline)`);
 }
 
 // ─── Generate Tools / Packages page (data-driven from tools.json) ─────────────
-
-function toolActionButtons(tool) {
-  const btns = [];
-  if (tool.dashboard) {
-    btns.push(`<a href="${tool.dashboard}" class="btn" target="_blank" rel="noopener">Open dashboard &rarr;</a>`);
-  }
-  if (tool.pypi) {
-    btns.push(`<a href="https://pypi.org/project/${tool.pypi}/" class="btn btn--ghost" target="_blank" rel="noopener">PyPI: ${tool.pypi}</a>`);
-  }
-  if (tool.arxiv) {
-    btns.push(`<a href="https://arxiv.org/abs/${tool.arxiv}" class="btn btn--ghost" target="_blank" rel="noopener">arXiv: ${tool.arxiv}</a>`);
-  }
-  if (tool.zenodo) {
-    btns.push(`<a href="https://doi.org/${tool.zenodo}" class="btn btn--ghost" target="_blank" rel="noopener">DOI</a>`);
-  }
-  if (tool.github) {
-    btns.push(`<a href="${tool.github}" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>`);
-  }
-  if (tool.docs) {
-    btns.push(`<a href="${tool.docs}" class="btn btn--ghost" target="_blank" rel="noopener">Docs</a>`);
-  }
-  (tool.relatedPapers || []).forEach(id => {
-    const p = papersById[id];
-    if (!p) return;
-    btns.push(`<a href="papers/${id}.html" class="btn btn--ghost" title="${escapeHtml(p.title)}">Paper &rarr;</a>`);
-  });
-  if (!btns.length) return '';
-  return `          <div class="btn-row">
-            ${btns.join('\n            ')}
-          </div>`;
-}
-
-function toolIdentifierBadges(tool) {
-  const badges = [];
-  if (tool.version) badges.push(['Version', `v${tool.version}`]);
-  if (tool.zenodo) badges.push(['DOI', tool.zenodo]);
-  if (tool.arxiv) badges.push(['arXiv', tool.arxiv]);
-  if (!badges.length) return '';
-  return `          <div class="badges">
-            ${badges.map(([l, v]) => `<span class="badge"><span class="badge__k">${l}</span><span class="badge__v">${v}</span></span>`).join('\n            ')}
-          </div>`;
-}
-
-function toolMetricBadges(tool) {
-  if (!tool.metrics || !tool.metrics.length) return '';
-  return `          <div class="badges">
-            ${tool.metrics.map(m => `<span class="badge"><span class="badge__k">${m.label}</span><span class="badge__v">${m.value}</span></span>`).join('\n            ')}
-          </div>`;
-}
-
-function generateToolCard(tool) {
-  const statusLabel = (toolsData.toolStatuses && toolsData.toolStatuses[tool.status]) || tool.status;
-  const catLabel = (toolsData.toolCategories && toolsData.toolCategories[tool.category]) || null;
-  // Category rides on the card now that all tools share one grid — see generateToolsSection().
-  const labelBits = [catLabel, tool.kind, tool.version ? `v${tool.version}` : null].filter(Boolean).join(' &middot; ');
-  const pillClass = (tool.status === 'live' || tool.status === 'released') ? 'pill pill--review' : 'pill pill--preprint';
-  return `        <div class="card">
-          <div class="tool__head">
-            <span class="card__meta">${labelBits}</span>
-            <span class="${pillClass}">${statusLabel}</span>
-          </div>
-          <h3>${tool.name}</h3>
-          <p class="tool__tagline">${tool.tagline}</p>
-          <p>${tool.description}</p>
-${tool.install ? `          <code class="tool__install">${tool.install}</code>\n` : ''}${tool.features && tool.features.length ? `          <ul class="tool__features">
-            ${tool.features.map(f => `<li>${f}</li>`).join('\n            ')}
-          </ul>\n` : ''}${toolMetricBadges(tool)}
-${toolActionButtons(tool)}
-${toolIdentifierBadges(tool)}
-        </div>`;
-}
-
-// Tools used to be a top-level page and a nav item. It is a catalogue of four
-// artefacts that exist because the research needed them, so in Aug 2026 it became a
-// section of research.html — written between the TOOLS markers there — and came out of
-// the nav. /tools 301s to /research#tools. Returns the section HTML; the page shell,
-// its own nav/footer helpers and the "Build with us" block are gone.
-function generateToolsSection(index) {
-  if (!toolsData || !toolsData.tools || !toolsData.tools.length) return '';
-  const cats = toolsData.toolCategories || {};
-  const order = toolsData.categoryOrder || Object.keys(cats).map(c => [c, '']);
-
-  // One grid for the whole catalogue rather than a section per category. With only a
-  // handful of tools, per-category sections each rendered a single card stranded in a
-  // narrow auto-fill track — a tall thin column on a wide screen. Category survives as
-  // a card label plus the legend, and this layout stays correct as tools are added.
-  const ordered = [];
-  order.forEach(([cat]) => {
-    toolsData.tools.filter(t => t.category === cat).forEach(t => ordered.push(t));
-  });
-  toolsData.tools.forEach(t => { if (!ordered.includes(t)) ordered.push(t); });
-
-  const legend = order
-    .filter(([cat]) => toolsData.tools.some(t => t.category === cat))
-    .map(([cat, blurb]) => {
-      const n = toolsData.tools.filter(t => t.category === cat).length;
-      return `      <div class="legend__item">
-        <span class="legend__k">${cats[cat] || cat} <span class="legend__n">${n}</span></span>
-        ${blurb ? `<span class="legend__v">${blurb}</span>` : ''}
-      </div>`;
-    })
-    .join('\n');
-
-  return `  <section class="section container" id="tools">
-    <span class="index">${index} &middot; Tools</span>
-    <h2>Software and indices</h2>
-    <p class="lead">Every tool here exists because a paper needed it. All of it is open-access and citable, with install commands and DOIs per package.</p>
-    <div class="legend">
-${legend}
-    </div>
-    <div class="grid grid--wide" style="margin-top: var(--sp-8);">
-
-${ordered.map(generateToolCard).join('\n\n')}
-
-    </div>
-  </section>`;
-}
-
-// ─── Generate Collaborate / Open Projects page ───────────────────────────────
 
 function projectStatePills(project) {
   const bits = [];
@@ -626,40 +544,39 @@ function projectStatePills(project) {
 }
 
 function generateProjectCard(project, i) {
-  const pillClass = project.publicStatus === 'Under review' ? 'pill pill--review' : 'pill pill--preprint';
   const exists = (project.whatExists || []).length
-    ? `          <span class="proj__k">What exists</span>
-          <ul class="tool__features">
-            ${project.whatExists.map(x => `<li>${x}</li>`).join('\n            ')}
-          </ul>\n`
+    ? `        <span class="proj__k">What exists</span>
+        <ul class="tool__features">
+          ${project.whatExists.map(x => `<li>${x}</li>`).join('\n          ')}
+        </ul>\n`
     : '';
   const missing = (project.whatIsMissing || []).length
-    ? `          <span class="proj__k">What is missing</span>
-          <ul class="proj__gaps">
-            ${project.whatIsMissing.map(x => `<li>${x}</li>`).join('\n            ')}
-          </ul>\n`
+    ? `        <span class="proj__k">What is missing</span>
+        <ul class="proj__gaps">
+          ${project.whatIsMissing.map(x => `<li>${x}</li>`).join('\n          ')}
+        </ul>\n`
     : '';
   const links = (project.links || []).length
-    ? `          <div class="btn-row">
-            ${project.links.map(l => `<a href="${l.href}" class="btn btn--ghost"${/^https?:/.test(l.href) ? ' target="_blank" rel="noopener"' : ''}>${l.label}</a>`).join('\n            ')}
-          </div>\n`
+    ? `        <div class="projrow__links">${project.links.map(l => `<a href="${l.href}"${/^https?:/.test(l.href) ? ' target="_blank" rel="noopener"' : ''}>${l.label}</a>`).join('<span class="sep">&middot;</span>')}</div>\n`
     : '';
 
-  return `        <div class="card" id="${project.id}">
-          <div class="tool__head">
-            <span class="card__meta">${String(i + 1).padStart(2, '0')} &middot; ${project.domain || ''}</span>
-            <span class="${pillClass}">${project.publicStatus || 'Early'}</span>
-          </div>
-          <h3>${project.title}</h3>
-          <p class="tool__tagline">${project.oneLine}</p>
-          <p>${project.currentState}</p>
-${exists}${missing}          <div class="proj__ask">
-            <span class="proj__k">Who would move this</span>
-            <p>${project.collaboratorProfile}</p>
-          </div>
-${links}        </div>`;
+  return `      <article class="projrow" id="${project.id}" data-reveal>
+        <div class="projrow__head">
+          <span class="projrow__n">${String(i + 1).padStart(2, '0')}</span>
+          <span class="projrow__domain">${project.domain || ''}</span>
+          <span class="pill">${project.publicStatus || 'Early'}</span>
+        </div>
+        <h3>${project.title}</h3>
+        <p class="projrow__one">${project.oneLine}</p>
+        <p class="projrow__state">${project.currentState}</p>
+${exists}${missing}        <div class="proj__ask">
+          <span class="proj__k">Who would move this</span>
+          <p>${project.collaboratorProfile}</p>
+        </div>
+${links}      </article>`;
 }
 
+// Shared <head> + opening body for the generated top-level pages.
 function pageHead(title, desc, slug) {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -702,12 +619,6 @@ function pageHead(title, desc, slug) {
 `;
 }
 
-// ─── Projects page (the deep dossiers, split out of the old collaborate.html) ──
-
-// These records are long by design — each one names what is missing in the
-// project's own unflattering words — so they get their own page. join.html carries
-// the short version and links in here. Before the split, the dossiers and the
-// recruiting copy shared one 4,000-word page and neither was readable.
 function generateProjectsPage() {
   if (!projectsData || !projectsData.projects || !projectsData.projects.length) {
     console.log('  (projects.json absent or empty — projects.html skipped)');
@@ -754,7 +665,7 @@ ${getNavHtml('projects', '')}
     <span class="index">01 &middot; The records</span>
     <h2>What exists, and what is missing</h2>
     <p class="body-text">${projectsData.stateNote || ''}</p>
-    <div class="grid grid--wide" style="margin-top: var(--sp-8);">
+    <div class="projlist">
 
 ${cards}
 
@@ -843,23 +754,22 @@ function generateJoinPage() {
   const projects = (projectsData && projectsData.projects) || [];
   const projectTitle = id => (projects.find(p => p.id === id) || {}).title || id;
 
-  const tiers = (rolesData.tiers || []).map(t => `        <div class="card" id="${t.id}" data-reveal>
-          <div class="tool__head">
-            <span class="card__index">${t.index}</span>
-            <span class="pill">${t.openings}</span>
-          </div>
+  const tiers = (rolesData.tiers || []).map(t => `      <article class="rung" id="${t.id}" data-reveal>
+        <div class="rung__head">
+          <span class="rung__n">${t.index}</span>
           <h3>${t.title}</h3>
-          <span class="tier__commit">${t.commitment}</span>
-          <p>${t.whatItIs}</p>
+          <span class="pill">${t.openings}</span>
+        </div>
+        <span class="rung__commit">${t.commitment}</span>
+        <p class="rung__what">${t.whatItIs}</p>
+        <div class="rung__get">
           <span class="proj__k">What you get</span>
           <ul class="tool__features">
             ${(t.whatYouGet || []).map(g => `<li>${g}</li>`).join('\n            ')}
           </ul>
-          <div class="tier__enter">
-            <span class="proj__k">How to enter</span>
-            <p>${t.howToEnter}</p>
-          </div>
-        </div>`).join('\n\n');
+        </div>
+        <p class="rung__enter"><span class="proj__k">How to enter</span>${t.howToEnter}</p>
+      </article>`).join('\n\n');
 
   const tasks = (rolesData.entryTasks || []).map(t => `      <li class="task" id="${t.id}" data-reveal>
         <div class="task__effort"><span>Effort</span>${t.effort}</div>
@@ -893,7 +803,7 @@ ${getNavHtml('join', '')}
     <span class="index">01 &middot; Roles</span>
     <h2>Three rungs, each entered by doing the previous one</h2>
     <p class="body-text">${rolesData.introSecond || ''}</p>
-    <div class="grid grid--wide" style="margin-top: var(--sp-8);">
+    <div class="runglist">
 
 ${tiers}
 
@@ -1259,7 +1169,6 @@ generateJoinPage();
 // Featured open tasks on the homepage (from roles.json)
 console.log('\nHomepage blocks:');
 syncHomeTasks();
-syncHomeSocial();
 
 // Sync nav + footer into the hand-authored pages
 console.log('\nChrome sync (hand-authored pages):');

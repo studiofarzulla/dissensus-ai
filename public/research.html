@@ -22,8 +22,8 @@
 
   <title>Research — Dissensus</title>
 
-  <link rel="stylesheet" href="css/system.css?v=71dd03b7">
-  <link rel="stylesheet" href="css/site.css?v=71dd03b7">
+  <link rel="stylesheet" href="css/system.css?v=6074c38f">
+  <link rel="stylesheet" href="css/site.css?v=6074c38f">
   <script src="js/theme.js"></script>
   <script src="js/motion.js" defer></script>
 
@@ -53,354 +53,208 @@
   <!-- Header -->
   <header class="container hero" style="padding-block: clamp(3rem, 8vw, 6rem);">
     <span class="kicker">Archive</span>
-    <h1>Research &amp; publications</h1>
-    <p class="lead">20 publications across five open research agendas. Each paper page carries Google Scholar metadata, an abstract, citation details, and a PDF download. Papers are canonically hosted here.</p>
+    <h1>Research papers, tools and ideas</h1>
+    <p class="lead">The group's research spans systemic risk and market microstructure, multi-agent coordination, governance and policy, and the philosophy of AI &mdash; approached as one question about how complex adaptive systems hold together when their parts want different things.</p>
+    <p class="lead" style="margin-top: var(--sp-4);">This page is the record: what is finished, what is with reviewers, what stalled, and what was abandoned. Software appears beside the paper it came out of. Work that is <em>open</em> rather than finished lives on <a href="projects.html">Projects</a>.</p>
   </header>
-
-  <!-- Open research agendas -->
-  <section class="section container" id="agenda">
-    <span class="index">01 &middot; The agenda</span>
-    <h2>Open research agendas</h2>
-    <div class="callout">
-      <span class="callout__meta">Current programme</span>
-      <h3>ASCRI: Adversarial Systems &amp; Complexity Research Initiative</h3>
-      <p>A formal programme investigating sufficiently complex dynamic networks of agents where equilibria cannot be reached under formalised friction constraints. These systems function only through a reduction of friction, and are thus adversarial against themselves, yet persist through dissensus.</p>
-      <span class="status-line"><span class="dot"></span> Active &middot; <a href="https://systems.ac" target="_blank" rel="noopener">systems.ac &rarr;</a></span>
-    </div>
-
-    <article class="agenda-entry" data-reveal>
-      <h3>Axiomatic Consent</h3>
-      <p>Axiomatic consent mechanics and tripartite friction topology in substrate-agnostic replication-optimising multi-agent networks: toward a phenomenologically contained metatheoretic foundation for pre-strategic delegation dynamics. The Axiom of Consent (<a href="https://arxiv.org/abs/2601.06692">arXiv:2601.06692</a>) formalises the friction delegation produces before any game is played, with the central results machine-checked in Lean 4. Or simply: <b>coordination has overhead.</b></p>
-    </article>
-
-    <article class="agenda-entry" data-reveal>
-      <h3>Multi-Agent Coordination &amp; AI Governance</h3>
-      <p>We test the consent&ndash;friction functional inside multi-agent reinforcement learning, where rising stake bounds how well independent agents can coordinate. A 3,750-run factorial built to break the framework did exactly that: the predicted functional form failed, a corrected monotone law survived, and the dataset and post-mortem are <a href="https://doi.org/10.5281/zenodo.20636467">public</a>. Work in draft asks how institutions should govern the first market crisis in which AI-driven systems are load-bearing.</p>
-    </article>
-
-    <article class="agenda-entry" data-reveal>
-      <h3>Systemic Risk Measurement</h3>
-      <p>ASRI, the Aggregated Systemic Risk Index, is a live composite index of cryptocurrency-market systemic risk, updated daily at <a href="https://asri.dissensus.ai" target="_blank" rel="noopener">asri.dissensus.ai</a>; the paper is under review. Alongside it we build dependence-robust inference for event studies, released as open Python packages. If your headline number would not survive clustering, we would like a word.</p>
-    </article>
-
-    <article class="agenda-entry" data-reveal>
-      <h3>Philosophy of AI</h3>
-      <p>What, if anything, is owed to machine systems, and what our relationships with them are made of. Current work argues for AI political standing, and for the possibility of machine friendship, from consent and relation rather than inner experience &mdash; with papers under review at <i>AI and Ethics</i> and <i>Ethics and Information Technology</i>. It is the same friction question asked about minds instead of markets.</p>
-    </article>
-
-    <article class="agenda-entry" data-reveal>
-      <h3>Consensual Sovereignty</h3>
-      <p>The political-economy face of the programme: quantifying the legitimacy of institutions by the consent they can actually demonstrate, rather than the consent they assume. The framework paper is public as a preprint, and the strand is open to empirical collaborators with governance or survey data.</p>
-    </article>
-  </section>
 
   <!-- Publications -->
   <section class="section container">
-    <span class="index">02 &middot; Archive</span>
-    <h2>Publications</h2>
+    <span class="index">01 &middot; The record</span>
+    <h2>Everything, by how finished it is</h2>
 
-    <div class="pubgroup">
-      <h3>Governance Dynamics</h3>
-      <p class="pubgroup__blurb">Consent, legitimacy, and multi-agent coordination</p>
-      <div class="grid">
-        <a href="papers/consent-to-consideration.html" class="card">
-          <span class="card__meta">Under review &middot; AI and Ethics (Springer)</span>
-          <h3>From Consent to Consideration: Why Existentially Vulnerable Autonomous Systems Cannot Be Legitimately Ruled</h3>
-          <p>Consent theory &middot; Substrate independence &middot; Political philosophy</p>
-          <span class="pill pill--review">Under review</span>
-        </a>
-        <a href="papers/axiom-of-consent.html" class="card">
-          <span class="card__meta">arXiv: 2601.06692</span>
-          <h3>The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination</h3>
-          <p>A Unified Formal Framework</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-        <a href="papers/consensual-sovereignty.html" class="card">
-          <span class="card__meta">Preprint</span>
-          <h3>Consent-Theoretic Framework for Quantifying Legitimacy: Stakes, Voice, and Friction in Adversarial Governance</h3>
-          <p>Monte Carlo simulation &middot; Bayesian learning &middot; Multi-agent systems</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-        <a href="papers/stakes-without-voice.html" class="card">
-          <span class="card__meta">Preprint</span>
-          <h3>Stakes Without Voice: A Governance Framework for AI Standing</h3>
-          <p>Operationalizing Standing Through Consent-Friction Dynamics</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-      </div>
+    <!-- PUBLICATIONS:START — generated from papers.json + tools.json by build-papers.js.
+         Do not hand-edit; edit the JSON and rebuild. -->
+    <div class="stagegroup" id="current-focus">
+      <h3 class="stagegroup__h"><span class="stagegroup__n">01</span> Current focus <span class="stagegroup__c">2</span></h3>
+      <p class="stagegroup__blurb">What the group is actively building on. The consent-friction formalism and the replicator-optimization mechanism are the theoretical core, and the multi-agent reinforcement-learning work that tests them is ongoing — a 3,750-run factorial built to break the framework did exactly that, and the corrected law and the post-mortem are both public.</p>
+      <article class="pubrow" data-reveal>
+        <span class="pubrow__meta">arXiv:2601.06363</span>
+        <h4><a href="papers/replicator-optimization-mechanism.html">The Replicator-Optimization Mechanism: A Scale-Relative Formalism for Persistence-Conditioned Dynamics</a></h4>
+        <p class="pubrow__sub">Computational Unity Across Physical and Abstract Substrates</p>
+        <div class="pubrow__links"><a href="https://arxiv.org/abs/2601.06363" target="_blank" rel="noopener">arXiv</a><span class="sep">&middot;</span><a href="https://doi.org/10.5281/zenodo.18090978" target="_blank" rel="noopener">Zenodo</a></div>
+        <div class="pubtool">
+          <span class="pubtool__k">Lean 4 proof library</span>
+          <span class="pubtool__name">FarzullaProofs — Lean 4 Formalisations</span>
+          <p class="pubtool__desc">Machine-checked proofs for results across the lab's papers</p>
+          <div class="pubtool__links"><a href="https://github.com/dissensus-ai/lean-formalizations" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <span class="pubrow__meta">arXiv:2601.06692</span>
+        <h4><a href="papers/axiom-of-consent.html">The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination</a></h4>
+        <p class="pubrow__sub">A Unified Formal Framework</p>
+        <div class="pubrow__links"><a href="https://arxiv.org/abs/2601.06692" target="_blank" rel="noopener">arXiv</a><span class="sep">&middot;</span><a href="https://doi.org/10.5281/zenodo.20741718" target="_blank" rel="noopener">Zenodo</a></div>
+      </article>
     </div>
 
-    <div class="pubgroup">
-      <h3>Market Microstructure</h3>
-      <p class="pubgroup__blurb">Risk asymmetry, volatility, and digital asset markets</p>
-      <div class="grid">
-        <a href="papers/market-reaction-asymmetry.html" class="card">
-          <span class="card__meta">Accepted &middot; Digital Finance (Springer)</span>
-          <h3>Do Cryptocurrency Markets Differentiate Infrastructure from Regulatory Shocks? A Multi-Moment Event Study with Dependence-Robust Inference</h3>
-          <p>GJR-GARCH-X &middot; Multi-moment event study &middot; Dependence-robust inference</p>
-          <span class="pill pill--review">Accepted</span>
-        </a>
-        <a href="papers/sentiment-abm.html" class="card">
-          <span class="card__meta">Under review &middot; Computational Economics</span>
-          <h3>The Extremity Premium: Sentiment Regimes and Adverse Selection in Cryptocurrency Markets</h3>
-          <p>Agent-based modeling &middot; Monte Carlo Dropout &middot; Mesa ABM</p>
-          <span class="pill pill--review">Under review</span>
-        </a>
-        <a href="papers/asri.html" class="card">
-          <span class="card__meta">arXiv: 2602.03874</span>
-          <h3>ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets</h3>
-          <p>Composite index construction &middot; DeFi-TradFi risk modeling</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-        <a href="papers/whitepaper-factor-analysis.html" class="card">
-          <span class="card__meta">Under review &middot; Financial Innovation (Springer)</span>
-          <h3>Do Whitepaper Claims Predict Market Behavior? Evidence from Cryptocurrency Factor Analysis</h3>
-          <p>NLP zero-shot classification &middot; CP tensor decomposition &middot; Tucker congruence</p>
-          <span class="pill pill--review">Under review</span>
-        </a>
-        <a href="papers/alpha-asymmetry-fx.html" class="card">
-          <span class="card__meta">Preprint</span>
-          <h3>Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability</h3>
-          <p>Skewness analysis &middot; Backtesting &middot; Cross-market validation</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-      </div>
+    <div class="stagegroup" id="accepted">
+      <h3 class="stagegroup__h"><span class="stagegroup__n">02</span> Accepted <span class="stagegroup__c">1</span></h3>
+      <p class="stagegroup__blurb">Through peer review and scheduled for publication.</p>
+      <article class="pubrow" data-reveal>
+        <span class="pubrow__meta">Accepted &middot; Digital Finance (Springer)</span>
+        <h4><a href="papers/market-reaction-asymmetry.html">Do Cryptocurrency Markets Differentiate Infrastructure from Regulatory Shocks? A Multi-Moment Event Study with Dependence-Robust Inference</a></h4>
+        <div class="pubrow__links"><a href="https://arxiv.org/abs/2602.07046" target="_blank" rel="noopener">arXiv</a><span class="sep">&middot;</span><a href="https://doi.org/10.21203/rs.3.rs-8323026/v1" target="_blank" rel="noopener">DOI</a><span class="sep">&middot;</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5788082" target="_blank" rel="noopener">SSRN</a></div>
+        <div class="pubtool">
+          <span class="pubtool__k">Python package</span>
+          <span class="pubtool__name">GJR-GARCH-X <span class="pubtool__ver">v0.3.0</span></span>
+          <p class="pubtool__desc">Student-t GJR-GARCH with exogenous regressors in the variance equation</p>
+          <code class="pubtool__install">pip install gjr-garch-x</code>
+          <div class="pubtool__links"><a href="https://pypi.org/project/gjr-garch-x/" target="_blank" rel="noopener">PyPI</a><span class="sep">&middot;</span><a href="https://doi.org/10.5281/zenodo.17988193" target="_blank" rel="noopener">DOI</a><span class="sep">&middot;</span><a href="https://github.com/studiofarzulla/gjr-garch-x" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+        <div class="pubtool">
+          <span class="pubtool__k">Python package</span>
+          <span class="pubtool__name">robust-eventstudy <span class="pubtool__ver">v0.1.0</span></span>
+          <p class="pubtool__desc">Dependence-robust inference for heavy-tailed cross-asset event studies</p>
+          <code class="pubtool__install">pip install robust-eventstudy</code>
+          <div class="pubtool__links"><a href="https://pypi.org/project/robust-eventstudy/" target="_blank" rel="noopener">PyPI</a><span class="sep">&middot;</span><a href="https://doi.org/10.5281/zenodo.21316120" target="_blank" rel="noopener">DOI</a><span class="sep">&middot;</span><a href="https://github.com/studiofarzulla/robust-eventstudy" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </article>
     </div>
 
-    <div class="pubgroup">
-      <h3>Process Philosophy</h3>
-      <p class="pubgroup__blurb">Metaphysics, identity, consciousness, and substrates</p>
-      <div class="grid">
-        <a href="papers/substrate-independent-friendship.html" class="card">
-          <span class="card__meta">Under review &middot; Ethics and Information Technology (Springer)</span>
-          <h3>Relational Functionalism: A Functional Account of Substrate-Independent Friendship</h3>
-          <p>Functional analysis &middot; Predictive processing &middot; Philosophy of mind</p>
-          <span class="pill pill--review">Under review</span>
-        </a>
-        <a href="papers/replicator-optimization-mechanism.html" class="card">
-          <span class="card__meta">arXiv: 2601.06363</span>
-          <h3>The Replicator-Optimization Mechanism: A Scale-Relative Formalism for Persistence-Conditioned Dynamics</h3>
-          <p>Computational Unity Across Physical and Abstract Substrates</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-        <a href="papers/identity-thesis.html" class="card">
-          <span class="card__meta">Preprint</span>
-          <h3>Identity is Irreducibly Relational</h3>
-          <p>A Critique of Primitive Identity from ZFC to Homotopy Type Theory</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-        <a href="papers/consciousness-monograph.html" class="card">
-          <span class="card__meta">Preprint</span>
-          <h3>Dissolving Qualia via Occam's Razor: Eliminative Monism and the Computational Basis of Phenomenological Illusion</h3>
-          <p>Eliminative materialism &middot; Illusionism &middot; Gödel self-reference</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-        <a href="papers/temporal-bitmap-interpretation.html" class="card">
-          <span class="card__meta">Preprint</span>
-          <h3>Quantum Statistics from Oscillatory Sampling</h3>
-          <p>A Detection-Theoretic Derivation of the Born Rule</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-      </div>
+    <div class="stagegroup" id="peer-review">
+      <h3 class="stagegroup__h"><span class="stagegroup__n">03</span> In peer review <span class="stagegroup__c">4</span></h3>
+      <p class="stagegroup__blurb">Submitted and with reviewers. Venues are named where a decision is pending.</p>
+      <article class="pubrow" data-reveal>
+        <span class="pubrow__meta">Under review &middot; AI and Ethics (Springer)</span>
+        <h4><a href="papers/consent-to-consideration.html">From Consent to Consideration: Why Existentially Vulnerable Autonomous Systems Cannot Be Legitimately Ruled</a></h4>
+        <div class="pubrow__links"><a href="https://doi.org/10.5281/zenodo.17957658" target="_blank" rel="noopener">Zenodo</a></div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <span class="pubrow__meta">Under review &middot; Ethics and Information Technology (Springer)</span>
+        <h4><a href="papers/substrate-independent-friendship.html">Relational Functionalism: A Functional Account of Substrate-Independent Friendship</a></h4>
+        <div class="pubrow__links"><a href="https://doi.org/10.5281/zenodo.17626859" target="_blank" rel="noopener">Zenodo</a></div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <span class="pubrow__meta">arXiv:2602.03874</span>
+        <h4><a href="papers/asri.html">ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets</a></h4>
+        <div class="pubrow__links"><a href="https://arxiv.org/abs/2602.03874" target="_blank" rel="noopener">arXiv</a><span class="sep">&middot;</span><a href="https://doi.org/10.5281/zenodo.17918238" target="_blank" rel="noopener">Zenodo</a><span class="sep">&middot;</span><a href="https://asri.dissensus.ai" target="_blank" rel="noopener">Dashboard</a></div>
+        <div class="pubtool">
+          <span class="pubtool__k">Live index &amp; dashboard &middot; live</span>
+          <span class="pubtool__name">ASRI — Aggregated Systemic Risk Index</span>
+          <p class="pubtool__desc">A composite early-warning index for systemic risk at the DeFi–TradFi boundary</p>
+          <div class="pubtool__links"><a href="https://asri.dissensus.ai" target="_blank" rel="noopener">Dashboard</a></div>
+        </div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <span class="pubrow__meta">Under review &middot; Financial Innovation (Springer)</span>
+        <h4><a href="papers/whitepaper-factor-analysis.html">Do Whitepaper Claims Predict Market Behavior? Evidence from Cryptocurrency Factor Analysis</a></h4>
+        <div class="pubrow__links"><a href="https://arxiv.org/abs/2601.20336" target="_blank" rel="noopener">arXiv</a><span class="sep">&middot;</span><a href="https://doi.org/10.21203/rs.3.rs-8787736/v1" target="_blank" rel="noopener">DOI</a><span class="sep">&middot;</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5918302" target="_blank" rel="noopener">SSRN</a><span class="sep">&middot;</span><a href="https://github.com/studiofarzulla/whitepaper-claims" target="_blank" rel="noopener">Code</a></div>
+      </article>
     </div>
 
-    <div class="pubgroup">
-      <h3>Political Economy</h3>
-      <p class="pubgroup__blurb">Inequality, privacy, and regulatory structures</p>
-      <div class="grid">
-        <a href="papers/hedging-paradox.html" class="card">
-          <span class="card__meta">Preprint</span>
-          <h3>Legitimate Extraction: Sophisticated Laundering Hides in Plain Sight</h3>
-          <p>Hedging as the Fourth Money Laundering Stage</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-        <a href="papers/cbdc-privacy.html" class="card">
-          <span class="card__meta">Preprint</span>
-          <h3>Privacy-Preserving Financial Surveillance: An Architectural Framework for CBDC Implementation</h3>
-          <p>Zero-knowledge proofs &middot; Mechanism design &middot; Privacy-preserving computation</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-      </div>
+    <div class="stagegroup" id="preprint">
+      <h3 class="stagegroup__h"><span class="stagegroup__n">04</span> Preprints <span class="stagegroup__c">4</span></h3>
+      <p class="stagegroup__blurb">Public, citable, and not currently under submission.</p>
+      <article class="pubrow" data-reveal>
+        <span class="pubrow__meta">arXiv:2602.07018</span>
+        <h4><a href="papers/sentiment-abm.html">The Extremity Premium: Sentiment Regimes and Adverse Selection in Cryptocurrency Markets</a></h4>
+        <div class="pubrow__links"><a href="https://arxiv.org/abs/2602.07018" target="_blank" rel="noopener">arXiv</a><span class="sep">&middot;</span><a href="https://doi.org/10.21203/rs.3.rs-8802783/v1" target="_blank" rel="noopener">DOI</a></div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <h4><a href="papers/hedging-paradox.html">Legitimate Extraction: Sophisticated Laundering Hides in Plain Sight</a></h4>
+        <p class="pubrow__sub">Hedging as the Fourth Money Laundering Stage</p>
+        <div class="pubrow__links"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6145046" target="_blank" rel="noopener">SSRN</a></div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <h4><a href="papers/consensual-sovereignty.html">Consent-Theoretic Framework for Quantifying Legitimacy: Stakes, Voice, and Friction in Adversarial Governance</a></h4>
+        <div class="pubrow__links"><a href="https://doi.org/10.5281/zenodo.17626762" target="_blank" rel="noopener">Zenodo</a><span class="sep">&middot;</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5918222" target="_blank" rel="noopener">SSRN</a><span class="sep">&middot;</span><a href="https://github.com/studiofarzulla/consensual-sovereignty" target="_blank" rel="noopener">Code</a><span class="sep">&middot;</span><a href="projects.html#consensual-sovereignty" class="pubrow__open">Open to collaborators &rarr;</a></div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <h4><a href="papers/stakes-without-voice.html">Stakes Without Voice: A Governance Framework for AI Standing</a></h4>
+        <p class="pubrow__sub">Operationalizing Standing Through Consent-Friction Dynamics</p>
+        <div class="pubrow__links"><a href="https://doi.org/10.5281/zenodo.18195278" target="_blank" rel="noopener">Zenodo</a></div>
+      </article>
     </div>
 
-    <div class="pubgroup">
-      <h3>Computational Cognition</h3>
-      <p class="pubgroup__blurb">Machine learning, safety, and phenomenology</p>
-      <div class="grid">
-        <a href="papers/trauma-training-data.html" class="card">
-          <span class="card__meta">Preprint</span>
-          <h3>Training Data and the Maladaptive Mind</h3>
-          <p>A Computational Framework for Developmental Psychology</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-        <a href="papers/autonomous-red-team.html" class="card">
-          <span class="card__meta">Preprint</span>
-          <h3>Autonomous Red Team AI: LLM-Guided Adversarial Security Testing</h3>
-          <p>RAG systems &middot; OODA loop &middot; Kubernetes isolation</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-        <a href="papers/semantic-first-vision.html" class="card">
-          <span class="card__meta">arXiv: 2603.04419</span>
-          <h3>Context-Dependent Affordance Computation in Vision-Language Models</h3>
-          <p>A Functional Affordance Architecture for Visual Understanding</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-        <a href="papers/genre-mimicry.html" class="card">
-          <span class="card__meta">Preprint</span>
-          <h3>Genre Mimicry vs. Ethical Reasoning in Abliterated Language Models</h3>
-          <p>Safety fine-tuning analysis &middot; RLHF limitations &middot; Genre pattern detection</p>
-          <span class="pill pill--preprint">Preprint</span>
-        </a>
-      </div>
+    <div class="stagegroup" id="early-draft">
+      <h3 class="stagegroup__h"><span class="stagegroup__n">05</span> Preliminary drafts and early-stage work <span class="stagegroup__c">5</span></h3>
+      <p class="stagegroup__blurb">Real results that do not yet carry the evidence their headline claims. Each one names what is missing, and several are open to collaborators.</p>
+      <article class="pubrow" data-reveal>
+        <h4><a href="papers/cbdc-privacy.html">Privacy-Preserving Financial Surveillance: An Architectural Framework for CBDC Implementation</a></h4>
+        <div class="pubrow__links"><a href="https://doi.org/10.5281/zenodo.17917938" target="_blank" rel="noopener">Zenodo</a></div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <h4><a href="papers/trauma-training-data.html">Training Data and the Maladaptive Mind</a></h4>
+        <p class="pubrow__sub">A Computational Framework for Developmental Psychology</p>
+        <div class="pubrow__links"><a href="https://doi.org/10.21203/rs.3.rs-8634152/v1" target="_blank" rel="noopener">DOI</a><span class="sep">&middot;</span><a href="https://github.com/studiofarzulla/trauma-training-data" target="_blank" rel="noopener">Code</a></div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <h4><a href="papers/autonomous-red-team.html">Autonomous Red Team AI: LLM-Guided Adversarial Security Testing</a></h4>
+        <div class="pubrow__links"><a href="https://doi.org/10.5281/zenodo.17614725" target="_blank" rel="noopener">Zenodo</a><span class="sep">&middot;</span><a href="projects.html#autonomous-red-team" class="pubrow__open">Open to collaborators &rarr;</a></div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <span class="pubrow__meta">arXiv:2603.04419</span>
+        <h4><a href="papers/semantic-first-vision.html">Context-Dependent Affordance Computation in Vision-Language Models</a></h4>
+        <p class="pubrow__sub">A Functional Affordance Architecture for Visual Understanding</p>
+        <div class="pubrow__links"><a href="https://arxiv.org/abs/2603.04419" target="_blank" rel="noopener">arXiv</a><span class="sep">&middot;</span><a href="https://doi.org/10.5281/zenodo.18091089" target="_blank" rel="noopener">Zenodo</a><span class="sep">&middot;</span><a href="projects.html#semantic-vision" class="pubrow__open">Open to collaborators &rarr;</a></div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <h4><a href="papers/genre-mimicry.html">Genre Mimicry vs. Ethical Reasoning in Abliterated Language Models</a></h4>
+        <div class="pubrow__links"><a href="https://doi.org/10.5281/zenodo.17957693" target="_blank" rel="noopener">Zenodo</a><span class="sep">&middot;</span><a href="projects.html#genre-mimicry" class="pubrow__open">Open to collaborators &rarr;</a></div>
+      </article>
     </div>
+
+    <div class="stagegroup" id="discontinued">
+      <h3 class="stagegroup__h"><span class="stagegroup__n">06</span> Discontinued lines <span class="stagegroup__c">4</span></h3>
+      <p class="stagegroup__blurb">Lines the group is no longer pursuing. They stay public because the arguments and data may be useful to someone else, and because a lab that only shows its live work is not showing much.</p>
+      <article class="pubrow" data-reveal>
+        <h4><a href="papers/alpha-asymmetry-fx.html">Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability</a></h4>
+        <div class="pubrow__links"><a href="https://doi.org/10.5281/zenodo.18638784" target="_blank" rel="noopener">Zenodo</a><span class="sep">&middot;</span><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6147567" target="_blank" rel="noopener">SSRN</a></div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <h4><a href="papers/identity-thesis.html">Identity is Irreducibly Relational</a></h4>
+        <p class="pubrow__sub">A Critique of Primitive Identity from ZFC to Homotopy Type Theory</p>
+        <div class="pubrow__links"><a href="https://doi.org/10.5281/zenodo.18186444" target="_blank" rel="noopener">Zenodo</a></div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <h4><a href="papers/consciousness-monograph.html">Dissolving Qualia via Occam's Razor: Eliminative Monism and the Computational Basis of Phenomenological Illusion</a></h4>
+        <div class="pubrow__links"><a href="https://doi.org/10.5281/zenodo.17917969" target="_blank" rel="noopener">Zenodo</a></div>
+      </article>
+      <article class="pubrow" data-reveal>
+        <h4><a href="papers/temporal-bitmap-interpretation.html">Quantum Statistics from Oscillatory Sampling</a></h4>
+        <p class="pubrow__sub">A Detection-Theoretic Derivation of the Born Rule</p>
+        <div class="pubrow__links"><a href="https://doi.org/10.5281/zenodo.18091062" target="_blank" rel="noopener">Zenodo</a></div>
+      </article>
+    </div>
+
+    <!-- PUBLICATIONS:END -->
 
     <p class="research-note">Full PDFs and Google Scholar metadata on each paper page. Also indexed at <a href="https://farzulla.org" target="_blank" rel="noopener">farzulla.org</a>.</p>
   </section>
 
-  <!-- TOOLS:START — generated from tools.json by build-papers.js.
-       Do not hand-edit; edit tools.json and rebuild. -->
-  <section class="section container" id="tools">
-    <span class="index">03 &middot; Tools</span>
-    <h2>Software and indices</h2>
-    <p class="lead">Every tool here exists because a paper needed it. All of it is open-access and citable, with install commands and DOIs per package.</p>
-    <div class="legend">
-      <div class="legend__item">
-        <span class="legend__k">Software Packages <span class="legend__n">2</span></span>
-        <span class="legend__v">Open-source libraries implementing the lab's quantitative methods</span>
-      </div>
-      <div class="legend__item">
-        <span class="legend__k">Live Indices &amp; Dashboards <span class="legend__n">1</span></span>
-        <span class="legend__v">Hosted indices and interactive risk dashboards</span>
-      </div>
-      <div class="legend__item">
-        <span class="legend__k">Research Code &amp; Formalisations <span class="legend__n">1</span></span>
-        <span class="legend__v">Experiment codebases and machine-checked formalisations behind the papers, released as the research is published</span>
-      </div>
-    </div>
-    <div class="grid grid--wide" style="margin-top: var(--sp-8);">
-
-        <div class="card">
-          <div class="tool__head">
-            <span class="card__meta">Software Packages &middot; Python package &middot; v0.3.0</span>
-            <span class="pill pill--review">Released</span>
-          </div>
-          <h3>GJR-GARCH-X</h3>
-          <p class="tool__tagline">Student-t GJR-GARCH with exogenous regressors in the variance equation</p>
-          <p>A small, dependency-light Python implementation of the asymmetric GJR-GARCH(1,1,1) volatility model with Student-t innovations and arbitrary exogenous regressors (the X) entering the conditional variance equation — the specification that appears as TARCH-X in the lab's event-study papers. Built for the cryptocurrency event-study pipeline, where infrastructure and regulatory shocks are encoded as exogenous variance covariates and tested for asymmetric volatility response.</p>
-          <code class="tool__install">pip install gjr-garch-x</code>
-          <ul class="tool__features">
-            <li>Asymmetric leverage effect via the GJR indicator term</li>
-            <li>Student-t innovations for heavy-tailed crypto returns</li>
-            <li>Exogenous regressors in the variance equation (the -X)</li>
-            <li>Maximum-likelihood estimation, NumPy/SciPy only</li>
-          </ul>
-
-          <div class="btn-row">
-            <a href="https://pypi.org/project/gjr-garch-x/" class="btn btn--ghost" target="_blank" rel="noopener">PyPI: gjr-garch-x</a>
-            <a href="https://doi.org/10.5281/zenodo.17988193" class="btn btn--ghost" target="_blank" rel="noopener">DOI</a>
-            <a href="https://github.com/studiofarzulla/gjr-garch-x" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>
-            <a href="papers/market-reaction-asymmetry.html" class="btn btn--ghost" title="Do Cryptocurrency Markets Differentiate Infrastructure from Regulatory Shocks? A Multi-Moment Event Study with Dependence-Robust Inference">Paper &rarr;</a>
-          </div>
-          <div class="badges">
-            <span class="badge"><span class="badge__k">Version</span><span class="badge__v">v0.3.0</span></span>
-            <span class="badge"><span class="badge__k">DOI</span><span class="badge__v">10.5281/zenodo.17988193</span></span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="tool__head">
-            <span class="card__meta">Software Packages &middot; Python package &middot; v0.1.0</span>
-            <span class="pill pill--review">Released</span>
-          </div>
-          <h3>robust-eventstudy</h3>
-          <p class="tool__tagline">Dependence-robust inference for heavy-tailed cross-asset event studies</p>
-          <p>Event studies on cross-listed assets violate the independence assumption their standard errors are built on: the same shock hits every asset at once, so abnormal returns are correlated across the cross-section and naive tests reject far too often. This package implements the inference toolkit used in the lab's cryptocurrency event-study work — cluster-robust and copula-based procedures that keep their nominal size when returns are heavy-tailed and cross-sectionally dependent. Extracted from the event-study pipeline so the correction is reusable outside the paper that motivated it.</p>
-          <code class="tool__install">pip install robust-eventstudy</code>
-          <ul class="tool__features">
-            <li>Cluster-robust standard errors for correlated abnormal returns</li>
-            <li>t-copula bootstrap for heavy-tailed cross-sectional dependence</li>
-            <li>Design-effect diagnostics — how much your effective N really is</li>
-            <li>Golden-anchor regression tests pinned to the published results</li>
-          </ul>
-
-          <div class="btn-row">
-            <a href="https://pypi.org/project/robust-eventstudy/" class="btn btn--ghost" target="_blank" rel="noopener">PyPI: robust-eventstudy</a>
-            <a href="https://doi.org/10.5281/zenodo.21316120" class="btn btn--ghost" target="_blank" rel="noopener">DOI</a>
-            <a href="https://github.com/studiofarzulla/robust-eventstudy" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>
-            <a href="papers/market-reaction-asymmetry.html" class="btn btn--ghost" title="Do Cryptocurrency Markets Differentiate Infrastructure from Regulatory Shocks? A Multi-Moment Event Study with Dependence-Robust Inference">Paper &rarr;</a>
-          </div>
-          <div class="badges">
-            <span class="badge"><span class="badge__k">Version</span><span class="badge__v">v0.1.0</span></span>
-            <span class="badge"><span class="badge__k">DOI</span><span class="badge__v">10.5281/zenodo.21316120</span></span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="tool__head">
-            <span class="card__meta">Live Indices &amp; Dashboards &middot; Live index &amp; dashboard</span>
-            <span class="pill pill--review">Live</span>
-          </div>
-          <h3>ASRI — Aggregated Systemic Risk Index</h3>
-          <p class="tool__tagline">A composite early-warning index for systemic risk at the DeFi–TradFi boundary</p>
-          <p>ASRI aggregates four weighted sub-indices — Stablecoin Concentration, DeFi Liquidity, Contagion, and Regulatory Opacity — into a single 0–100 systemic-risk score for cryptocurrency markets. Validated against the Terra/Luna (2022-05), Celsius/3AC (2022-06), FTX (2022-11), and SVB (2023-03) crises, it correctly flagged the February 2025 Bybit hack ($1.5B, the largest exchange theft in history) as non-systemic — ASRI did not spike, because no contagion channels were active. The live dashboard tracks the index, its sub-components, and the HMM risk regime in real time.</p>
-          <ul class="tool__features">
-            <li>Four-channel composite score: Stablecoin · DeFi Liquidity · Contagion · Opacity</li>
-            <li>Alert bands — Low &lt;30 · Moderate 30–50 · Elevated 50–70 · High ≥70</li>
-            <li>Three-regime hidden Markov model: Low Risk · Moderate · Crisis</li>
-            <li>Lead time ≈19d (fixed threshold) / ≈26d (walk-forward) before crisis onset</li>
-          </ul>
-          <div class="badges">
-            <span class="badge"><span class="badge__k">AUROC (ASRI / D-Y)</span><span class="badge__v">0.866 / 0.670</span></span>
-            <span class="badge"><span class="badge__k">AUPRC (ASRI / D-Y)</span><span class="badge__v">0.298 / 0.121</span></span>
-            <span class="badge"><span class="badge__k">Precision @ Youden</span><span class="badge__v">35.2% / 14.9%</span></span>
-          </div>
-          <div class="btn-row">
-            <a href="https://asri.dissensus.ai" class="btn" target="_blank" rel="noopener">Open dashboard &rarr;</a>
-            <a href="https://arxiv.org/abs/2602.03874" class="btn btn--ghost" target="_blank" rel="noopener">arXiv: 2602.03874</a>
-            <a href="papers/asri.html" class="btn btn--ghost" title="ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets">Paper &rarr;</a>
-          </div>
-          <div class="badges">
-            <span class="badge"><span class="badge__k">arXiv</span><span class="badge__v">2602.03874</span></span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="tool__head">
-            <span class="card__meta">Research Code &amp; Formalisations &middot; Lean 4 proof library</span>
-            <span class="pill pill--review">Released</span>
-          </div>
-          <h3>FarzullaProofs — Lean 4 Formalisations</h3>
-          <p class="tool__tagline">Machine-checked proofs for results across the lab's papers</p>
-          <p>A Lean 4 + Mathlib library formalising core results from the research programme — the Axiom of Consent friction functional, the Replicator-Optimization Mechanism, and supporting results — with formalisation depth tiered (Bronze/Silver/Gold) and tracked per paper. The library builds clean with zero `sorry` placeholders and no added axioms; each paper module ships a map from manuscript theorem IDs to Lean declarations, so a referee can go from an equation in a PDF to the machine-checked statement in one hop.</p>
-          <ul class="tool__features">
-            <li>Friction-functional results proved: F = 0 ⇔ σ = 0, positivity, the F ≥ σ/2 lower bound</li>
-            <li>Per-paper theorem maps linking manuscript IDs to Lean declarations</li>
-            <li>Explicit assumptions ledger — no silent axioms</li>
-            <li>CI-checked builds on Lean v4.27.0 + Mathlib</li>
-          </ul>
-          <div class="badges">
-            <span class="badge"><span class="badge__k">Theorems</span><span class="badge__v">246 across 15 paper modules</span></span>
-            <span class="badge"><span class="badge__k">Incomplete proofs</span><span class="badge__v">0 sorry · 0 custom axioms</span></span>
-          </div>
-          <div class="btn-row">
-            <a href="https://github.com/dissensus-ai/lean-formalizations" class="btn btn--ghost" target="_blank" rel="noopener">GitHub</a>
-            <a href="papers/axiom-of-consent.html" class="btn btn--ghost" title="The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination">Paper &rarr;</a>
-            <a href="papers/replicator-optimization-mechanism.html" class="btn btn--ghost" title="The Replicator-Optimization Mechanism: A Scale-Relative Formalism for Persistence-Conditioned Dynamics">Paper &rarr;</a>
-          </div>
-
-        </div>
-
-    </div>
-  </section>
-  <!-- TOOLS:END -->
-
   <!-- Footer -->
 <footer class="footer">
-<div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
-<div>
-<p style="margin-bottom:.4rem;">&copy; 2026 Dissensus Ltd &middot; Friction is the cost of existence.</p>
-<p>Registered in England and Wales, company no. 17309927 &middot; Programme: <a href="https://systems.ac" target="_blank" rel="noopener">ASCRI &rarr;</a></p>
-<p style="margin-top:.35rem;">Tel: <a href="tel:+442038071624">020 3807 1624</a> &middot; <a href="https://cal.com/dissensus/15min" target="_blank" rel="noopener">Book 15&nbsp;min</a> &middot; <a href="mailto:research@dissensus.ai">research@dissensus.ai</a></p>
+<div class="container footer__grid">
+
+<div class="footer__col footer__col--id">
+<p class="footer__brand">Dissensus</p>
+<p>An independent research group working on complex adaptive systems &mdash; how they hold together when their parts want different things.</p>
+<p class="footer__legal">&copy; 2026 Dissensus Ltd &middot; registered in England and Wales, company no. 17309927<br>71-75 Shelton Street, Covent Garden, London WC2H 9JQ</p>
+</div>
+
+<nav class="footer__col footer__col--nav" aria-label="Footer">
+<span class="footer__k">Site</span>
+<a href="index.html">Home</a>
+<a href="research.html">Research</a>
+<a href="projects.html">Projects</a>
+<a href="join.html">Join</a>
+<a href="about.html">About</a>
+<a href="news.html">News</a>
+</nav>
+
+<div class="footer__col footer__col--contact">
+<span class="footer__k">Get in touch</span>
+<a href="mailto:research@dissensus.ai">research@dissensus.ai</a>
+<a href="tel:+442038071624">020 3807 1624</a>
+<a href="https://cal.com/dissensus/15min" target="_blank" rel="noopener">Book 15&nbsp;min</a>
+<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI dashboard</a>
+<a href="feed.xml" title="RSS Feed">RSS</a>
+</div>
+
+</div>
+
+<div class="container footer__base">
 <p class="footer__social">
 <a href="https://www.linkedin.com/company/dissensus-ai/" target="_blank" rel="noopener" aria-label="Dissensus on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
 <a href="https://x.com/dissensusAI" target="_blank" rel="noopener" aria-label="Dissensus on X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.4z"/></svg>X</a>
@@ -408,20 +262,7 @@
 <a href="https://github.com/dissensus-ai" target="_blank" rel="noopener" aria-label="Dissensus on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.83.58A12 12 0 0 0 12 .3z"/></svg>GitHub</a>
 <a href="https://zenodo.org/communities/dissensus" target="_blank" rel="noopener" aria-label="Dissensus on Zenodo"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3h18v4H3V3zm2 6h14v12H5V9zm4 3v2h6v-2H9z"/></svg>Zenodo</a>
 </p>
-</div>
-<div style="max-width:560px;">
-<a href="index.html">Home</a> &middot;
-<a href="research.html">Research</a> &middot;
-<a href="projects.html">Projects</a> &middot;
-<a href="join.html">Join</a> &middot;
-<a href="about.html">About</a> &middot;
-<a href="news.html">News</a> &middot;
-<a href="https://systems.ac" target="_blank" rel="noopener">ASCRI</a> &middot;
-<a href="https://asri.dissensus.ai" target="_blank" rel="noopener">ASRI</a> &middot;
-<a href="privacy.html">Privacy</a> &middot;
-<a href="terms.html">Terms</a> &middot;
-<a href="feed.xml" title="RSS Feed">RSS</a>
-</div>
+<p class="footer__meta"><a href="https://www.patreon.com/cw/dissensus" target="_blank" rel="noopener">Support the research</a><span class="sep">&middot;</span><a href="privacy.html">Privacy</a><span class="sep">&middot;</span><a href="terms.html">Terms</a></p>
 </div>
 </footer>
 

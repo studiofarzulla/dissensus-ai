@@ -1,5 +1,5 @@
 {
-  "_note": "Published catalogue. friction-marl held pending TMLR review (deanonymisation); epistemic-engine internal — both withheld 11 Jul 2026. tools.html is GENERATED: run `node build-papers.js` after editing.",
+  "_note": "Published catalogue. friction-marl held pending TMLR review (deanonymisation); epistemic-engine internal — both withheld 11 Jul 2026. tools.html is GENERATED: run `node build-papers.js` after editing. `relatedPapers` links a tool to the paper(s) it came out of; research.html renders the tool beside its paper rather than in a separate catalogue. A tool with no relatedPapers falls into the standalone group at the end.",
   "tools": [
     {
       "id": "gjr-garch-x",

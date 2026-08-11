@@ -45,17 +45,9 @@
 .home .hero h1 {
   font-size: clamp(1.9rem, 4.3vw, 3.05rem);
   line-height: 1.1; font-weight: 700; letter-spacing: -0.015em;
-  margin: 0 0 1.5rem; text-wrap: balance; max-width: 19ch; color: var(--text);
+  margin: 0 0 1.5rem; text-wrap: balance; max-width: 24ch; color: var(--text);
 }
-.home .lede { font-size: 1.12rem; color: var(--text-dim); max-width: 34rem; margin: 0 0 1.8rem; }
-
-.home .etym {
-  font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-dim);
-  max-width: 40rem; margin: 0 0 1.6rem; line-height: 1.7;
-  border-left: 2px solid var(--line); padding-left: 1.1rem;
-}
-.home .etym b { color: var(--accent); font-weight: 500; }
-.home .etym i { color: var(--text); font-style: italic; }
+.home .lede { font-size: 1.12rem; color: var(--text-dim); max-width: 46rem; margin: 0 0 1.8rem; }
 
 .home .verbose { font-style: italic; color: var(--text-dim); max-width: 38rem; margin: 0 0 1.4rem; font-size: 0.98rem; opacity: 0.85; }
 .home .simple { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-dim); margin: 0 0 1.8rem; }
@@ -88,14 +80,8 @@
 .home .btn-primary { background: var(--burgundy); border-color: transparent; color: #fdf0f2; }
 .home .btn-primary:hover { background: var(--accent); color: #fff; box-shadow: 0 6px 24px rgba(var(--burgundy-rgb), 0.45); }
 
-/* ── credibility strip ────────────────────────────────────────────────────── */
-.home .strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
-.home .strip .container { padding-block: 1.4rem; font-family: var(--font-mono); font-size: 0.76rem; }
-.home .strip-row { color: var(--text-dim); margin-bottom: 0.5rem; }
-.home .strip-row:last-child { margin-bottom: 0; }
-.home .strip b { color: var(--accent); font-weight: 600; }
-.home .strip a { color: var(--accent); }
-.home .strip .sep { color: var(--text-dim); opacity: 0.6; margin: 0 0.55rem; }
+/* The credibility strip is gone (Aug 2026): it restated the archive a third time,
+   directly under the updates band that already carried the latest accept. */
 
 /* ── sections ─────────────────────────────────────────────────────────────── */
 .home .block { padding-block: 5.5rem; border-top: 0; }
@@ -183,3 +169,17 @@
 @media (max-width: 780px) {
   .home .crew, .home .opentasks { grid-template-columns: 1fr; }
 }
+
+/* ── hero etymology ───────────────────────────────────────────────────────── */
+/* Moved into the hero (Aug 2026) from a standalone section three screens down. It
+   explains the name the reader has just read, so it belongs before the lede, not
+   after the whole pitch. Kept in mono at a smaller size than the lede so it reads
+   as a gloss rather than as the opening argument. */
+.home .hero__etym {
+  font-family: var(--font-mono); font-size: 0.88rem; line-height: 1.75;
+  color: var(--text-dim); max-width: 46rem; margin: 0 0 1.6rem;
+  border-left: 2px solid var(--burgundy); padding-left: 1.15rem;
+}
+.home .hero__etym b { color: var(--accent); font-weight: 500; }
+.home .hero__etym i { color: var(--text); font-style: italic; }
+.home .hero__ipa { color: var(--text); }

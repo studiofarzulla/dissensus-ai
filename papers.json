@@ -32,7 +32,8 @@
         "Multi-moment event study",
         "Dependence-robust inference",
         "Block bootstrap"
-      ]
+      ],
+      "stage": "accepted"
     },
     {
       "id": "consent-to-consideration",
@@ -65,7 +66,8 @@
         "Consent theory",
         "Substrate independence",
         "Political philosophy"
-      ]
+      ],
+      "stage": "peer-review"
     },
     {
       "id": "substrate-independent-friendship",
@@ -97,15 +99,16 @@
         "Functional analysis",
         "Predictive processing",
         "Philosophy of mind"
-      ]
+      ],
+      "stage": "peer-review"
     },
     {
       "id": "sentiment-abm",
       "title": "The Extremity Premium: Sentiment Regimes and Adverse Selection in Cryptocurrency Markets",
       "subtitle": null,
       "date": "2025-12-01",
-      "status": "under-review",
-      "journal": "Computational Economics",
+      "status": "preprint",
+      "journal": "",
       "tags": [
         "finance",
         "crypto",
@@ -132,14 +135,15 @@
         "Mesa ABM",
         "CryptoBERT",
         "ASRI integration"
-      ]
+      ],
+      "stage": "preprint"
     },
     {
       "id": "asri",
       "title": "ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets",
       "subtitle": null,
       "date": "2025-12-01",
-      "status": "preprint",
+      "status": "under-review",
       "tags": [
         "finance",
         "crypto",
@@ -164,7 +168,8 @@
       "methods": [
         "Composite index construction",
         "DeFi-TradFi risk modeling"
-      ]
+      ],
+      "stage": "peer-review"
     },
     {
       "id": "replicator-optimization-mechanism",
@@ -196,7 +201,8 @@
         "Category theory",
         "Universal Darwinism",
         "Optimization theory"
-      ]
+      ],
+      "stage": "current-focus"
     },
     {
       "id": "axiom-of-consent",
@@ -228,7 +234,8 @@
         "Kernel triple formalism",
         "ROM dynamics",
         "Monte Carlo validation"
-      ]
+      ],
+      "stage": "current-focus"
     },
     {
       "id": "whitepaper-factor-analysis",
@@ -261,7 +268,8 @@
         "NLP zero-shot classification",
         "CP tensor decomposition",
         "Tucker congruence"
-      ]
+      ],
+      "stage": "peer-review"
     },
     {
       "id": "alpha-asymmetry-fx",
@@ -292,7 +300,8 @@
         "Skewness analysis",
         "Backtesting",
         "Cross-market validation"
-      ]
+      ],
+      "stage": "discontinued"
     },
     {
       "id": "hedging-paradox",
@@ -323,7 +332,8 @@
         "Regulatory frameworks",
         "Game theory",
         "Case study analysis"
-      ]
+      ],
+      "stage": "preprint"
     },
     {
       "id": "consensual-sovereignty",
@@ -355,7 +365,8 @@
         "Monte Carlo simulation",
         "Bayesian learning",
         "Multi-agent systems"
-      ]
+      ],
+      "stage": "preprint"
     },
     {
       "id": "stakes-without-voice",
@@ -387,7 +398,8 @@
         "Consent-friction formalism",
         "ROM framework",
         "Graduated governance"
-      ]
+      ],
+      "stage": "preprint"
     },
     {
       "id": "cbdc-privacy",
@@ -420,7 +432,8 @@
         "Zero-knowledge proofs",
         "Mechanism design",
         "Privacy-preserving computation"
-      ]
+      ],
+      "stage": "early-draft"
     },
     {
       "id": "identity-thesis",
@@ -452,7 +465,8 @@
         "Homotopy Type Theory",
         "ZFC",
         "Modal Logic"
-      ]
+      ],
+      "stage": "discontinued"
     },
     {
       "id": "consciousness-monograph",
@@ -483,7 +497,8 @@
         "Illusionism",
         "Gödel self-reference",
         "Network epistemology"
-      ]
+      ],
+      "stage": "discontinued"
     },
     {
       "id": "trauma-training-data",
@@ -515,7 +530,8 @@
         "PyTorch simulation",
         "Gradient analysis",
         "Catastrophic forgetting"
-      ]
+      ],
+      "stage": "early-draft"
     },
     {
       "id": "autonomous-red-team",
@@ -547,7 +563,8 @@
         "RAG systems",
         "OODA loop",
         "Kubernetes isolation"
-      ]
+      ],
+      "stage": "early-draft"
     },
     {
       "id": "semantic-first-vision",
@@ -579,7 +596,8 @@
         "Ecological psychology",
         "Phenomenology",
         "Action-distance metrics"
-      ]
+      ],
+      "stage": "early-draft"
     },
     {
       "id": "genre-mimicry",
@@ -609,7 +627,8 @@
         "Safety fine-tuning analysis",
         "RLHF limitations",
         "Genre pattern detection"
-      ]
+      ],
+      "stage": "early-draft"
     },
     {
       "id": "temporal-bitmap-interpretation",
@@ -641,7 +660,8 @@
         "Digital physics",
         "Undersampling theory",
         "Retrocausality"
-      ]
+      ],
+      "stage": "discontinued"
     }
   ],
   "tags": {
@@ -712,5 +732,29 @@
     "process-philosophy": "Process Philosophy",
     "political-economy": "Political Economy",
     "computational-cognition": "Computational Cognition"
-  }
+  },
+  "stages": {
+    "current-focus": "Current focus",
+    "accepted": "Accepted",
+    "peer-review": "In peer review",
+    "preprint": "Preprints",
+    "early-draft": "Preliminary drafts and early-stage work",
+    "discontinued": "Discontinued lines"
+  },
+  "stageBlurbs": {
+    "current-focus": "What the group is actively building on. The consent-friction formalism and the replicator-optimization mechanism are the theoretical core, and the multi-agent reinforcement-learning work that tests them is ongoing — a 3,750-run factorial built to break the framework did exactly that, and the corrected law and the post-mortem are both public.",
+    "accepted": "Through peer review and scheduled for publication.",
+    "peer-review": "Submitted and with reviewers. Venues are named where a decision is pending.",
+    "preprint": "Public, citable, and not currently under submission.",
+    "early-draft": "Real results that do not yet carry the evidence their headline claims. Each one names what is missing, and several are open to collaborators.",
+    "discontinued": "Lines the group is no longer pursuing. They stay public because the arguments and data may be useful to someone else, and because a lab that only shows its live work is not showing much."
+  },
+  "stageOrder": [
+    "current-focus",
+    "accepted",
+    "peer-review",
+    "preprint",
+    "early-draft",
+    "discontinued"
+  ]
 }
