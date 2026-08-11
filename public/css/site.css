@@ -86,12 +86,9 @@ blockquote strong { color: var(--text); }
 .pubgroup__blurb { color: var(--text-dim); font-size: var(--fs-sm); margin: var(--sp-2) 0 var(--sp-6); }
 .research-note { margin-top: var(--sp-8); font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--text-dim); }
 
-/* ---- stat grid ------------------------------------------------------------- */
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-top: var(--sp-6); }
-.stat { background: var(--surface); padding: var(--sp-6); }
-.stat__k { font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
-.stat__v { color: var(--text); font-size: 1.15rem; margin-top: var(--sp-2); }
-
+/* The .stats grid is gone (Aug 2026). It was repeat(auto-fit, minmax(180px, 1fr)) over a
+   1px-gap-on-background trick, and with five or six items it broke sentences into two-word
+   columns and rendered any leftover track as a grey block. Prose content uses .deflist. */
 /* ---- callout (programme intro) --------------------------------------------- */
 .callout { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--sp-6); margin: var(--sp-6) 0; }
 .callout__meta { font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
@@ -470,3 +467,34 @@ html.js [data-reveal].in { opacity: 1; transform: none; }
   font-family: var(--font-mono); font-size: var(--fs-mono);
 }
 .projrow__links .sep { color: var(--line); }
+
+/* ---- definition rows -------------------------------------------------------- */
+/* Replaces the `.stats` grid for prose content. That grid was
+   `repeat(auto-fit, minmax(180px, 1fr))` over a 1px-gap-on-background trick, which had
+   two failure modes with more than four items: 180px tracks broke sentences into
+   two-word lines, and any leftover track rendered the container's line colour as a
+   grey block beside the last cell (visible with five and six items).
+   These are rows: a narrow key column, a body column capped at the measure, hairline
+   separators, no boxes and no empty tracks to leak. Stacks below 52rem. */
+.deflist { margin-top: var(--sp-6); border-top: 1px solid var(--line); }
+.defrow { display: grid; gap: var(--sp-2); padding: var(--sp-6) 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 52rem) {
+  .defrow { grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: var(--sp-8); align-items: baseline; }
+}
+/* Numeric keys need a narrow gutter, not the 13rem text-key column — a two-digit
+   number followed by 11rem of whitespace reads as a layout mistake. */
+@media (min-width: 52rem) {
+  .deflist--tight .defrow { grid-template-columns: minmax(0, 3.25rem) minmax(0, 1fr); gap: var(--sp-6); }
+}
+.defrow__k {
+  font-family: var(--font-mono); font-size: var(--fs-mono); letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text); line-height: 1.6;
+}
+.defrow__n { color: var(--accent); }
+.defrow__v { color: var(--text-dim); max-width: var(--measure); }
+.defrow__v b { color: var(--text); font-weight: 600; }
+.defrow__promise {
+  display: block; font-family: var(--font-serif); font-size: 1.12rem; font-weight: 600;
+  color: var(--text); margin-bottom: var(--sp-2); letter-spacing: -0.01em;
+}
+.defrow__fail { color: var(--accent); font-weight: 500; }

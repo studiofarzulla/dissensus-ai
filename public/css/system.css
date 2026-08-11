@@ -112,6 +112,10 @@ img, svg { max-width: 100%; display: block; }
 .container { max-width: var(--container); margin-inline: auto; padding-inline: var(--sp-6); }
 .section { padding-block: var(--sp-24); border-top: 1px solid var(--line); }
 .section:first-of-type { border-top: 0; }
+/* A .section directly after the hero stacked its own 6-8rem top padding onto the hero's
+   bottom padding, leaving ~14rem of dead space that read as a rendering fault at large
+   widths. The hero already provides the separation. */
+.hero + .section { padding-top: var(--sp-12); }
 
 /* mono kicker / section index — the unifying signature */
 .kicker {
