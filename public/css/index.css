@@ -104,31 +104,6 @@
 .home .strip a { color: var(--accent); }
 .home .strip .sep { color: var(--text-dim); opacity: 0.6; margin: 0 0.55rem; }
 
-/* ── publications ribbon (drag + click + auto-scroll) ─────────────────────── */
-.home .ribbon-wrap { padding-block: 2.2rem; }
-.home .ribbon-lbl { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); opacity: 0.85; padding: 0 var(--sp-6); margin-bottom: 0.7rem; }
-.home .ribbon {
-  position: relative; overflow: hidden; border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line); padding: 1.15rem 0; cursor: grab; touch-action: pan-y;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-}
-.home .ribbon.dragging { cursor: grabbing; }
-.home .ribbon-track { display: flex; gap: 0.85rem; width: max-content; will-change: transform; padding-left: 0.85rem; }
-.home .chip {
-  display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap;
-  padding: 0.5rem 0.95rem; border: 1px solid var(--line); border-radius: var(--radius);
-  font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-dim);
-  background: var(--surface); user-select: none; -webkit-user-drag: none;
-  transition: border-color 0.2s var(--ease), color 0.2s var(--ease), background 0.2s var(--ease);
-}
-.home .chip:hover { border-color: var(--accent); color: var(--text); background: var(--surface-2); }
-.home .chip .lead { color: var(--text); }
-.home .chip .id { color: var(--accent); }
-.home .chip .rev { color: var(--text-dim); opacity: 0.8; }
-.home .chip .st { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 5px var(--accent); flex: none; }
-.home .chip .st.review { background: transparent; border: 1px solid var(--accent); box-shadow: none; }
-
 /* ── sections ─────────────────────────────────────────────────────────────── */
 .home .block { padding-block: 5.5rem; border-top: 0; }
 .home .kicker { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; color: var(--text-dim); text-transform: none; margin-bottom: 1rem; display: block; }
@@ -136,18 +111,8 @@
 .home .block h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 600; letter-spacing: -0.01em; margin: 0 0 1.6rem; text-wrap: balance; color: var(--text); }
 .home .body-text { color: var(--text-dim); max-width: 42rem; }
 
-/* ── friction equation + primitives ───────────────────────────────────────── */
-.home .friction-eq { display: flex; flex-direction: column; align-items: center; text-align: center; margin: 3.2rem 0 3rem; }
-.home .eq { display: inline-flex; align-items: center; gap: 0.9rem; font-family: var(--font-mono); font-size: clamp(1.5rem, 3.6vw, 2.3rem); color: var(--text); text-align: center; margin: 0; }
-.home .eq-op { color: var(--text-dim); }
-.home .eq-var { color: var(--accent); font-style: italic; }
-.home .eq-frac { display: inline-flex; flex-direction: column; align-items: center; }
-.home .eq-num { padding: 0 0.5rem 0.25rem; }
-.home .eq-den { padding: 0.25rem 0.5rem 0; }
-.home .eq-bar { width: 100%; height: 1.5px; background: var(--accent); }
-.home .eq-cap { margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim); max-width: 36rem; line-height: 1.6; }
-.home .eq-cap b { color: var(--accent); font-weight: 500; }
-
+/* ── primitives (the Contribute triad; the friction equation moved to
+   site.css + research.html Notation when the homepage stopped arguing the thesis) ── */
 .home .primitives { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
 .home .prim { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.7rem 1.4rem; background: var(--surface); transition: border-color 0.25s var(--ease), transform 0.25s var(--ease); }
 .home .prim:hover { border-color: var(--accent); transform: translateY(-3px); }
@@ -180,3 +145,48 @@
 
 /* ── responsive ───────────────────────────────────────────────────────────── */
 @media (max-width: 680px) { .home .primitives { grid-template-columns: 1fr; } }
+
+/* ── the lab: crew row ────────────────────────────────────────────────────── */
+/* A compact three-up of who actually works here. Deliberately not .person from
+   site.css — that carries an 88px avatar and biography prose, which is About's
+   job. This is a name, a role, and a link. */
+.home .crew { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.4rem; }
+.home .crew__member {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.5rem 1.4rem; background: var(--surface);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.home .crew__member:hover { border-color: var(--accent); transform: translateY(-3px); }
+.home .crew__mark {
+  font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.12em;
+  color: var(--accent); margin-bottom: 0.4rem;
+}
+.home .crew__name { font-size: 1rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+.home .crew__role {
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-dim); line-height: 1.5;
+}
+
+/* ── featured open tasks (generated from roles.json) ──────────────────────── */
+/* The effort figure leads, because "a weekend" is the part that makes someone
+   read the second line. Same argument as the .task rows on join.html. */
+.home .opentasks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 1.4rem; }
+.home .opentask {
+  display: flex; flex-direction: column; gap: 0.55rem;
+  border: 1px solid var(--line); border-left: 3px solid var(--burgundy);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.3rem 1.4rem; background: var(--surface);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.home .opentask:hover { border-color: var(--accent); border-left-color: var(--accent); transform: translateY(-3px); }
+.home .opentask__effort {
+  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent);
+}
+.home .opentask__task { font-size: 0.95rem; color: var(--text); line-height: 1.45; font-weight: 500; }
+.home .opentask__who { font-size: 0.82rem; color: var(--text-dim); line-height: 1.5; }
+
+@media (max-width: 780px) {
+  .home .crew, .home .opentasks { grid-template-columns: 1fr; }
+}

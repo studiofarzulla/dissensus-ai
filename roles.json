@@ -66,7 +66,8 @@
       "effort": "A weekend, ×2 coders",
       "output": "A reportable inter-coder agreement statistic, replacing one author's self-coded consistency check",
       "whoFits": "Public-policy or regulatory-studies researcher who works with focusing-event or agenda-setting theory",
-      "note": "This is the test the paper itself names as the real one. It has never been run."
+      "note": "This is the test the paper itself names as the real one. It has never been run.",
+      "featured": true
     },
     {
       "id": "arxiv-endorsement",
@@ -76,7 +77,8 @@
       "effort": "Fifteen minutes",
       "output": "Unblocks an arXiv deposit that is drafted and unsent; the paper currently has SSRN as its only public surface",
       "whoFits": "Anyone already holding endorsement rights in econ.GN or cs.CY",
-      "note": "The smallest useful thing anyone can do for this lab."
+      "note": "The smallest useful thing anyone can do for this lab.",
+      "featured": true
     },
     {
       "id": "mandate-boundary-review",
@@ -126,7 +128,8 @@
       "effort": "Two to three weeks",
       "output": "Converts the result from 'genre changes the vocabulary models emit' to 'genre changes what models do'",
       "whoFits": "Measurement or psychometrics researcher who has run annotation properly",
-      "note": "The binding gap on this project. The current outcome variable is a fifteen-term keyword matcher measuring safety register, not refusal. Nothing else about the project matters more."
+      "note": "The binding gap on this project. The current outcome variable is a fifteen-term keyword matcher measuring safety register, not refusal. Nothing else about the project matters more.",
+      "featured": true
     },
     {
       "id": "severity-rating",
