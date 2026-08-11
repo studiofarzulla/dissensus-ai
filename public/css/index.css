@@ -31,17 +31,10 @@
 .home .hero { position: relative; padding-block: 5rem 4rem; border-top: 0; }
 .home .hero .container { position: relative; z-index: 2; }
 
-/* Two columns once there is room for them. The canvas used to occupy the right half
-   of the hero; the stats panel occupies it now, which keeps the container balanced
-   without putting decoration back. Single column below 62rem, stats last. */
-.home .hero__grid { display: grid; gap: 2.6rem; }
-@media (min-width: 62rem) {
-  .home .hero__grid { grid-template-columns: minmax(0, 1.6fr) minmax(14rem, 0.8fr); gap: 4rem; align-items: start; }
-  .home .hero__side { padding-top: 0.6rem; }
-  /* In the side column the row layout would squeeze three items into 14rem, so the
-     stats stack and the shared border becomes a divider between them. */
-  .home .hero__side .hero-stats { flex-direction: column; gap: 1.5rem; max-width: none; }
-}
+/* The hero was briefly a two-column grid with an at-a-glance stats panel on the right,
+   filling the space the removed #net canvas left. The panel restated things the page
+   already says — the accept is in the updates band immediately below it, the paper count
+   is on Research — so it went, and the hero is one column again. */
 
 .home .eyebrow {
   font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.22em;

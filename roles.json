@@ -1,7 +1,7 @@
 {
   "_note": "Source of truth for the Roles + Start-here sections of join.html. Rebuild with `node build-papers.js`. RULE: research roles only. Do not add operations, communications, administrative or board roles as unpaid positions — an unfunded lab advertising unpaid non-research labour repels exactly the senior people it needs. Every entryTask must trace to a real gap in projects.json; do not invent tasks or hour estimates. The hour figures below are the project author's own framings ('a weekend', 'an afternoon', 'one inference run'), not marketing estimates.",
-  "intro": "Dissensus has no money. That is the first thing worth saying, because it determines everything else on this page: there is no stipend, no compute grant, no travel budget and no institutional affiliation to lend. What the lab has instead is a set of research problems specified down to the blocking task, the data and code already on the table, a co-author who publishes where a result failed, and titles that cost nothing to give and are honest to hold.",
-  "introSecond": "Roles here are research roles. There is no unpaid operations work, no unpaid communications work and no advisory board seat available by application. The ladder below is short on purpose: it starts at a task you could finish in a weekend and ends at a title you could put on a CV, and each rung is entered by doing the previous one rather than by applying.",
+  "intro": "Dissensus started this year and is still taking shape. There are two researchers and an affiliate, twenty papers, six open problems, and a company incorporated this July — which means very little here is settled. Someone joining now is not filling a slot in something already built; they get a say in what the lab works on, how it decides a result is finished, and what it becomes over the next few years.",
+  "introSecond": "What that looks like in practice: research roles, entered by doing research. The ladder below is short on purpose — it starts at a task you could finish in a weekend and ends at a standing affiliation and a title you can put on a CV, and each rung is reached by doing the previous one rather than by applying. There is no funding yet, so none of it is paid, and the limits are set out plainly further down rather than buried. Everything else — which problems matter, which methods the lab trusts, what it refuses to do — is genuinely open, and more so now than it will be later.",
   "tiers": [
     {
       "id": "contributor",
@@ -50,13 +50,13 @@
     }
   ],
   "notOffering": [
-    "No salary, stipend, hourly rate or honorarium, for any role on this page, including the senior ones.",
+    "No salary, stipend, hourly rate or honorarium, for any role on this page. This is a funding problem rather than a policy, and the first two tiers carry first refusal on the paid version of the role if and when that changes.",
     "No compute grant, data budget, travel money, publication-fee cover or equipment. Where a task needs inference budget, that is named as part of the task, because the person who has it is the person who can do it.",
-    "No unpaid operations, communications, administration, fundraising or board work. Those are jobs, and the lab does not have the money to hire for them, so it does not advertise them.",
-    "No directorship, company officer position or Companies House filing for any collaborator or advisor. Dissensus Ltd has one director and that is a legal structure, not a reward.",
+    "No unpaid operations, communications, administration, fundraising or board work. Those are jobs, and the lab does not have the money to hire for them, so it does not advertise them as volunteering.",
+    "No directorship, company officer position or Companies House filing for any collaborator or advisor. Dissensus Ltd has one director and that is a legal structure, not a reward — having a say in the research does not and should not require taking on a statutory role.",
     "No visa sponsorship, and no claim that an affiliation here substitutes for an institutional post. If a paid position or an institutional host is what you need, this is the wrong lab, and that is a reasonable conclusion to reach."
   ],
-  "startHere": "Every task below is a real gap in a real project, described in the project's own words on the Projects page. The hour figures are the estimates written into those project notes, not sales copy. People say yes to a weekend and no to an open-ended collaboration, so the tasks are listed at the size they actually are.",
+  "startHere": "Every task below is a real gap in a real project, described in the project's own words on the Projects page. The hour figures are the estimates written into those project notes, not sales copy. People say yes to a weekend and no to an open-ended collaboration, so the tasks are listed at the size they actually are — and the fastest way to end up shaping the lab is to close one of them and then disagree with us about what comes next.",
   "entryTasks": [
     {
       "id": "blind-code-event-table",

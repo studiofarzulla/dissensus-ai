@@ -36,3 +36,8 @@
 /collaborate.html  /join  301
 /work-with-us  /join  301
 /work-with-us.html  /join  301
+
+# Tools became a section of Research in Aug 2026 and left the nav. Four artefacts that
+# exist because papers needed them do not need a top-level page.
+/tools  /research#tools  301
+/tools.html  /research#tools  301
