@@ -102,8 +102,9 @@ Phases 0–2 are done, plus the theme cleanup that had been parked in Phase 3.
 1. **Advisor names.** `advisors.json` stays empty until people say yes in writing. Start with
    referees who have already written substantive reports — they have donated the expensive
    hour already. `templates/advisor-outreach.md` has the sequence.
-2. **The `research-affiliate` tier promises a `dissensus.ai` email alias.** Confirm that is
-   actually set up, or cut the line.
+2. ~~Confirm the `dissensus.ai` email alias promised in the Affiliate tier.~~ **Confirmed
+   available (MF, 10 Aug).** The line stays; the alias gets created when the first Affiliate
+   is appointed, not before.
 3. **First refusal on paid roles** is promised in two tiers. It costs nothing now and is
    honest, but it is a promise — keep a list of who holds it.
 4. **`CLAUDE.md` is gitignored** and still describes the old IA (collaborate.html, the
@@ -111,6 +112,12 @@ Phases 0–2 are done, plus the theme cleanup that had been parked in Phase 3.
 5. **GitHub org description** still reads "Dissensus AI is a research group…" — a brand-rule
    violation on a public surface.
 6. **No X/Twitter handle**; the homepage "Elsewhere" anchor stays commented out.
+
+## Deployment state
+
+As of the last push, this work is on `claude/website-redesign-content-2wbk0e` behind draft
+PR #1 and built only to a Cloudflare **preview** URL. Production deploys from `master`, so
+`dissensus.ai` still serves the pre-diet site until the PR is merged.
 
 **Optional later:**
 
