@@ -41,3 +41,7 @@
 # exist because papers needed them do not need a top-level page.
 /tools  /research#tools  301
 /tools.html  /research#tools  301
+
+# /papers/<slug> is a real page but the parent path was a 404 that Google kept trying.
+# The archive lives on /research.
+/papers  /research  301

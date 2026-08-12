@@ -978,13 +978,36 @@ function syncStaticChrome() {
 
 // The host 307-redirects every /x.html to /x, so a canonical, og:url or
 // citation_abstract_html_url written as .html points at a redirect rather than the
-// 200 it should name. Rewrites ONLY those metadata fields plus sitemap <loc>;
-// citation_pdf_url is left alone (it names a real .pdf, which does not redirect),
-// and navigation hrefs are left alone (relative links are fine as .html).
+// 200 it should name. Rewrites those metadata fields, sitemap <loc>, feed <link>,
+// and internal navigation hrefs. citation_pdf_url is left alone — it names a real
+// .pdf, which does not redirect, and Google Scholar has to be able to fetch it.
+//
+// Nav hrefs used to be left alone on the grounds that relative .html links "are fine".
+// They resolve, but every one is a 307 hop, and Search Console showed the bill: Google
+// discovered the .html twin of each page by following them and filed 13 of them as
+// "alternate page with proper canonical tag". Links now name the 200 directly.
 function canonicaliseUrls() {
   const strip = url => url
     .replace(/^(https:\/\/dissensus\.ai\/[^"']*?)index\.html$/, '$1')
     .replace(/^(https:\/\/dissensus\.ai\/[^"']*?)\.html$/, '$1');
+
+  // Resolve an internal href against the page holding it and return an absolute,
+  // extensionless path. Returns null for anything that must not be touched.
+  const toAbsolute = (href, fileRelDir) => {
+    if (/^[a-z][a-z0-9+.-]*:/i.test(href)) return null;   // http:, mailto:, tel:
+    if (href.startsWith('//') || href.startsWith('#')) return null;
+    const [rawPath, frag = ''] = href.split('#');
+    if (!/\.html$/.test(rawPath)) return null;             // .pdf, .xml, .css, assets
+    const base = href.startsWith('/')
+      ? rawPath.replace(/^\//, '')
+      : path.posix.join(fileRelDir, rawPath);
+    let out = path.posix.normalize(base);
+    if (out.startsWith('..')) return null;                 // escapes public/, leave it
+    out = out.replace(/index\.html$/, '').replace(/\.html$/, '');
+    out = '/' + out.replace(/\/$/, '');
+    if (out === '/') out = '/';
+    return out + (frag ? '#' + frag : '');
+  };
 
   const FIELDS = [
     /(<link rel="canonical" href=")([^"]+)(")/g,
@@ -998,12 +1021,20 @@ function canonicaliseUrls() {
   });
 
   let touched = 0;
+  let hrefs = 0;
   for (const file of walk('public')) {
     const before = fs.readFileSync(file, 'utf8');
     let after = before;
     for (const re of FIELDS) {
       after = after.replace(re, (_m, head, url, tail) => `${head}${strip(url)}${tail}`);
     }
+    const relDir = path.posix.dirname(path.relative('public', file).split(path.sep).join('/'));
+    after = after.replace(/(<a\b[^>]*\bhref=")([^"]+)(")/g, (m, head, href, tail) => {
+      const abs = toAbsolute(href, relDir === '.' ? '' : relDir);
+      if (!abs) return m;
+      hrefs++;
+      return `${head}${abs}${tail}`;
+    });
     if (after !== before) { fs.writeFileSync(file, after); touched++; }
   }
 
@@ -1015,7 +1046,20 @@ function canonicaliseUrls() {
       (_m, head, url, tail) => { const s = strip(url); if (s !== url) smFixed++; return `${head}${s}${tail}`; });
     if (after !== before) fs.writeFileSync(smPath, after);
   }
-  console.log(`  canonical/og:url stripped of .html in ${touched} pages, ${smFixed} sitemap URLs`);
+
+  // The feed advertised the .html twin of every item, which is a second way for a
+  // redirecting URL to enter an index.
+  const feedPath = path.join('public', 'feed.xml');
+  let feedFixed = 0;
+  if (fs.existsSync(feedPath)) {
+    const before = fs.readFileSync(feedPath, 'utf8');
+    const after = before.replace(/(<link>|<guid[^>]*>)([^<]+)(<\/link>|<\/guid>)/g,
+      (_m, head, url, tail) => { const s = strip(url); if (s !== url) feedFixed++; return `${head}${s}${tail}`; });
+    if (after !== before) fs.writeFileSync(feedPath, after);
+  }
+
+  console.log(`  canonical/og:url stripped of .html in ${touched} pages, ${smFixed} sitemap URLs, ${feedFixed} feed URLs`);
+  console.log(`  internal nav hrefs rewritten to extensionless absolute paths: ${hrefs}`);
 }
 
 // ─── Cache-bust stylesheets ──────────────────────────────────────────────────

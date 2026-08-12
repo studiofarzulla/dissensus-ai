@@ -13,34 +13,34 @@
 
     <item>
       <title>Dissensus Ltd: the lab has a legal shape</title>
-      <link>https://dissensus.ai/news/incorporation.html</link>
+      <link>https://dissensus.ai/news/incorporation</link>
       <description>Dissensus is incorporated as a private limited company in England and Wales; the research stays open.</description>
       <pubDate>Fri, 17 Jul 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="true">https://dissensus.ai/news/incorporation.html</guid>
+      <guid isPermaLink="true">https://dissensus.ai/news/incorporation</guid>
       <category>Announcement</category>
     </item>
 
     <item>
       <title>The Trident: three ways a claim fails, counted properly</title>
-      <link>https://dissensus.ai/news/trident.html</link>
+      <link>https://dissensus.ai/news/trident</link>
       <description>A pocket-sized diagnostic for single claims, a Lean 4 core that checks the count, and a framework that failed its own test and printed the repair.</description>
       <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="true">https://dissensus.ai/news/trident.html</guid>
+      <guid isPermaLink="true">https://dissensus.ai/news/trident</guid>
       <category>Formal Methods</category>
     </item>
 
     <item>
       <title>The Born Rule, Demodulated</title>
-      <link>https://dissensus.ai/news/temporal-bitmap.html</link>
+      <link>https://dissensus.ai/news/temporal-bitmap</link>
       <description>Notes on a speculative preprint: measurement as finite-window demodulation plus threshold detection, and the square in |ψ|² as the signature of an energy detector.</description>
       <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="true">https://dissensus.ai/news/temporal-bitmap.html</guid>
+      <guid isPermaLink="true">https://dissensus.ai/news/temporal-bitmap</guid>
       <category>Physics</category>
     </item>
 
     <item>
       <title>Paper Archive with Google Scholar Metadata</title>
-      <link>https://dissensus.ai/papers/market-reaction-asymmetry.html</link>
+      <link>https://dissensus.ai/papers/market-reaction-asymmetry</link>
       <description>Individual paper pages now available with Highwire Press, Dublin Core, and JSON-LD metadata for Google Scholar indexing. 26 papers across all ASCRI programmes.</description>
       <pubDate>Tue, 04 Feb 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">dissensus-paper-archive-2026</guid>
@@ -49,7 +49,7 @@
 
     <item>
       <title>The Replicator-Optimization Mechanism - arXiv Submission</title>
-      <link>https://dissensus.ai/papers/replicator-optimization-mechanism.html</link>
+      <link>https://dissensus.ai/papers/replicator-optimization-mechanism</link>
       <description>A unified computational framework for self-replicating, optimization-executing systems across physical and abstract substrates. Submitted to arXiv and under review at Synthese.</description>
       <pubDate>Fri, 10 Jan 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="true">https://doi.org/10.5281/zenodo.18090978</guid>
@@ -58,7 +58,7 @@
 
     <item>
       <title>Stakes Without Voice - New Working Paper</title>
-      <link>https://dissensus.ai/papers/stakes-without-voice.html</link>
+      <link>https://dissensus.ai/papers/stakes-without-voice</link>
       <description>Structural exclusion and the legitimacy deficit problem. When stakeholders bear costs but lack representation in governance decisions.</description>
       <pubDate>Thu, 09 Jan 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="true">https://doi.org/10.5281/zenodo.18195278</guid>
@@ -67,7 +67,7 @@
 
     <item>
       <title>Identity is Irreducibly Relational</title>
-      <link>https://dissensus.ai/papers/identity-thesis.html</link>
+      <link>https://dissensus.ai/papers/identity-thesis</link>
       <description>Ontological foundations for relational functionalism. Why identity cannot be reduced to intrinsic properties.</description>
       <pubDate>Wed, 08 Jan 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="true">https://doi.org/10.5281/zenodo.18186444</guid>
@@ -86,7 +86,7 @@
 
     <item>
       <title>The Doctrine of Consensual Sovereignty</title>
-      <link>https://dissensus.ai/papers/consensual-sovereignty.html</link>
+      <link>https://dissensus.ai/papers/consensual-sovereignty</link>
       <description>Quantifying legitimacy in adversarial environments. Introduces stakes-weighted consent alignment as a formal measure of political legitimacy.</description>
       <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="true">https://doi.org/10.5281/zenodo.17626762</guid>
@@ -95,7 +95,7 @@
 
     <item>
       <title>Dissolving Qualia via Occam's Razor</title>
-      <link>https://dissensus.ai/papers/consciousness-monograph.html</link>
+      <link>https://dissensus.ai/papers/consciousness-monograph</link>
       <description>Eliminative monism and the computational basis of phenomenological illusion. A ~33,000 word monograph on consciousness.</description>
       <pubDate>Fri, 01 Nov 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="true">https://doi.org/10.5281/zenodo.18013187</guid>
