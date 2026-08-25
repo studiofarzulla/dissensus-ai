@@ -403,7 +403,7 @@
     },
     {
       "id": "cbdc-privacy",
-      "title": "Privacy-Preserving Financial Surveillance: An Architectural Framework for CBDC Implementation",
+      "title": "What Does Identity Access Buy? Pricing the Surveillance Increments in CBDC Transaction Monitoring",
       "subtitle": null,
       "date": "2025-12-01",
       "status": "preprint",
@@ -416,7 +416,7 @@
         "Murad Farzulla",
         "Andrew Maksakov"
       ],
-      "abstract": "Central bank digital currencies create fundamental tensions between regulatory surveillance requirements and individual privacy rights. This paper proposes an architectural framework leveraging zero-knowledge proofs and privacy-preserving computation to enable AML/CFT compliance without exposing transaction-level data.",
+      "abstract": "Proposals for retail central bank digital currency increasingly accept that anti-money-laundering obligations require identity-linked transaction monitoring. The cost of that requirement has not been measured. This paper builds a tiered ablation harness in which four nested evidence tiers - structure only on unlinked pseudonyms, plus pseudonymous linkage, plus identity attributes, plus watchlist access - are scored on identical data with entity-disjoint folds and entity-clustered bootstrap intervals. A pre-specified degeneracy audit fails the run if any single feature separates the classes above entity-level AUC 0.95; this rejects the wallet-count artefact that drove an earlier version of this work. Equivalence is tested by TOST rather than inferred from a null. On synthetic data the answer is detector-dependent: for a gradient-boosted model, pseudonymous linkage carries the increment and full identity access is statistically equivalent to linkage alone; for a logistic model, identity access is decisively superior on average precision. The marginal value of identity access is therefore model- and metric-dependent rather than a fixed property of the data.",
       "arxiv": null,
       "doi": null,
       "zenodo": "10.5281/zenodo.17917938",
@@ -429,11 +429,12 @@
       "program": "economic-pharmakon",
       "category": "political-economy",
       "methods": [
-        "Zero-knowledge proofs",
-        "Mechanism design",
-        "Privacy-preserving computation"
+        "Tiered ablation",
+        "Entity-clustered bootstrap",
+        "TOST equivalence testing",
+        "Zero-knowledge proofs"
       ],
-      "stage": "early-draft"
+      "stage": "working-paper"
     },
     {
       "id": "identity-thesis",
