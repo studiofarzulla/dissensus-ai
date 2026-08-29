@@ -6,10 +6,37 @@
     <link>https://dissensus.ai/</link>
     <atom:link href="https://dissensus.ai/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-gb</language>
-    <lastBuildDate>Fri, 17 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 00:00:00 +0000</lastBuildDate>
     <managingEditor>research@dissensus.ai (Murad Farzulla)</managingEditor>
     <webMaster>research@dissensus.ai</webMaster>
     <ttl>1440</ttl>
+
+    <item>
+      <title>Dissensus is now an IASEAI affiliate</title>
+      <link>https://dissensus.ai/news/iaseai-affiliate</link>
+      <description>Accepted into the affiliate network of the International Association for Safe and Ethical AI, listed alongside MIRI, METR, FAR.AI and MATS Research — with a plain account of what affiliation does not mean.</description>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://dissensus.ai/news/iaseai-affiliate</guid>
+      <category>Announcement</category>
+    </item>
+
+    <item>
+      <title>Two additions, and a plainer open door</title>
+      <link>https://dissensus.ai/news/lab-update-aug2026</link>
+      <description>Helena Dye joins as operations associate, a standing partnership with the Sineidocracia movement, and a clearer account of how to work with the lab.</description>
+      <pubDate>Thu, 27 Aug 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://dissensus.ai/news/lab-update-aug2026</guid>
+      <category>Announcement</category>
+    </item>
+
+    <item>
+      <title>Accepted at Digital Finance</title>
+      <link>https://dissensus.ai/news/digital-finance-accept</link>
+      <description>Multi-moment crypto event study: directional under curation, not distinguishable from zero under dependence-robust inference. A self-correction that survived peer review.</description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://dissensus.ai/news/digital-finance-accept</guid>
+      <category>Publication</category>
+    </item>
 
     <item>
       <title>Dissensus Ltd: the lab has a legal shape</title>
