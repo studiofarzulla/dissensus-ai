@@ -943,7 +943,43 @@ function initialiseStory() {
   renderStory();
 }
 
+// --- Deep links -------------------------------------------------------------
+// ?example=housing&mode=silent_error&path=safeguarding&story=4
+//
+// Any state the tabletop can be in is reachable by URL. Useful for sending a
+// colleague the exact path you are arguing about, and it is what makes the
+// video capture reproducible — every frame is a URL rather than a sequence of
+// clicks somebody has to perform identically twice.
+
+function applyDeepLink() {
+  const q = new URLSearchParams(window.location.search);
+  if (![...q.keys()].length) return;
+
+  const example = q.get("example");
+  if (example && EXAMPLES[example]) loadExample(example);
+
+  const mode = q.get("mode");
+  if (mode && MODE_IDS.includes(mode)) state.mode = mode;
+
+  const path = q.get("path");
+  if (path && state.scenario.nodes.some((n) => n.id === path && n.type === "service")) {
+    state.selectedServiceId = path;
+  }
+
+  if (example || mode || path) render();
+
+  const story = q.get("story");
+  if (story !== null) {
+    const n = Number(story);
+    if (Number.isInteger(n) && n >= 0 && n <= STORY.beats.length) {
+      storyStep = n;
+      renderStory();
+    }
+  }
+}
+
 initialise();
 renderScaleLadder();
 initialiseStory();
+applyDeepLink();
 
