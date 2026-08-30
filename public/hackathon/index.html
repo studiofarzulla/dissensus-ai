@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Civic Cascade is a browser-local tabletop that tests whether a local government's AI incident response can outrun public consequence."
+    />
+    <meta name="theme-color" content="#e9efee" />
+    <title>Civic Cascade — local AI failure tabletop</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to the tabletop</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Civic Cascade home">
+        <span class="wordmark-mark" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </span>
+        <span>Civic Cascade</span>
+      </a>
+      <nav aria-label="Page navigation">
+        <a href="#workspace">Run a stress test</a>
+        <a href="#method">Method</a>
+        <a href="#research">Research basis</a>
+      </nav>
+      <span class="prototype-tag">Open prototype · v0.2</span>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Loss of control, at council scale · for the people who vote on the contract</p>
+          <h1 id="hero-title">An AI doesn't have to be <em>smarter</em> than you.<br />Only <em>faster</em> than the people who can stop it.</h1>
+          <p class="hero-deck">
+            Loss of control is usually told as a story about intelligence. It is really a story about
+            a clock: whether detection, authority, and fallback can finish before the consequence
+            lands. Run that race on a housing queue your council already operates—then run the
+            <em>identical</em> rule on a frontier lab and watch nothing change but the numbers.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#workspace">Run the housing case</a>
+            <a class="button" href="#scale">See it at frontier scale</a>
+            <span class="privacy-note"><b aria-hidden="true">●</b> Nothing leaves this browser</span>
+          </div>
+        </div>
+
+        <div class="hero-board" aria-label="Example incident routing board">
+          <div class="board-stamp">TABLETOP / 09:00 MON</div>
+          <div class="board-route" aria-hidden="true">
+            <span class="route-node dependency">Vendor</span>
+            <span class="route-line"></span>
+            <span class="route-node system">Triage AI</span>
+            <span class="route-line branching"></span>
+            <span class="route-stack">
+              <span class="route-node service">Housing queue</span>
+              <span class="route-node service">Safeguarding</span>
+              <span class="route-node service">Advice team</span>
+            </span>
+            <span class="route-line"></span>
+            <span class="route-node resident">Residents</span>
+          </div>
+          <div class="board-readout">
+            <span><small>CONSEQUENCE</small> 15–60 min</span>
+            <span><small>RESPONSE</small> 1h 20m–9h 15m</span>
+            <span class="readout-warning"><small>RESULT</small> response too late</span>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="story" id="story" aria-labelledby="story-title">
+        <div class="story-intro">
+          <p class="eyebrow">Before the tabletop · 60 seconds</p>
+          <h2 id="story-title">Nobody did anything wrong.<br />That is the whole problem.</h2>
+          <p>
+            One safeguarding referral, one Monday morning, one model that was working exactly as
+            specified. Step through it. The council's own timing assumptions are the ones already
+            loaded in the tabletop below—this is not a worst case, it is their plan.
+          </p>
+        </div>
+        <div class="story-stage">
+          <ol class="story-beats" id="story-beats" aria-live="polite"></ol>
+          <div class="story-controls">
+            <button type="button" class="button button-primary" id="story-next">Start the clock</button>
+            <button type="button" class="button" id="story-reset" hidden>Replay</button>
+            <p class="story-progress" id="story-progress">Not started</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace-shell" id="workspace" aria-labelledby="workspace-title">
+        <p id="assessment-announcement" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Live workspace</p>
+            <h2 id="workspace-title">Stress the service, not the demo.</h2>
+          </div>
+          <p>
+            Start with a worked example, then edit one service path at a time. Results update as
+            you change its timing assumptions and the evidence behind them.
+          </p>
+        </div>
+
+        <div class="scenario-bar">
+          <label>
+            Worked example
+            <select id="scenario-picker" aria-label="Choose a worked example"></select>
+          </label>
+          <label class="wide-field">
+            AI use or system
+            <input id="scenario-name" data-field="name" autocomplete="off" />
+          </label>
+          <label>
+            Local authority
+            <input id="scenario-authority" data-field="authority" autocomplete="organization" />
+          </label>
+          <button class="button button-quiet" id="reset-scenario" type="button">Reset example</button>
+        </div>
+
+        <div class="mode-strip" role="group" aria-labelledby="mode-title">
+          <div>
+            <span class="control-kicker" id="mode-title">Incident to rehearse</span>
+            <span class="mode-hint">Choose one failure shape</span>
+          </div>
+          <button class="mode-button" data-mode="outage" type="button">
+            <span>01</span> Visible outage
+          </button>
+          <button class="mode-button active" data-mode="silent_error" type="button">
+            <span>02</span> Silent ranking error
+          </button>
+          <button class="mode-button" data-mode="compromise" type="button">
+            <span>03</span> Vendor / data compromise
+          </button>
+        </div>
+
+        <div class="workspace-grid">
+          <section class="map-panel panel" aria-labelledby="map-title">
+            <div class="print-metadata">
+              <p>Civic Cascade / tabletop brief</p>
+              <h1 id="print-scenario-name">Housing-assistance triage model</h1>
+              <span id="print-scenario-meta">Example Borough · Silent ranking error</span>
+            </div>
+            <div class="panel-header">
+              <div>
+                <p class="panel-label">Dependency map</p>
+                <h3 id="map-title">Where the consequence travels</h3>
+              </div>
+              <div class="map-key" aria-label="Map key">
+                <span><i class="key-source"></i> source</span>
+                <span><i class="key-service"></i> service</span>
+                <span><i class="key-group"></i> affected group</span>
+              </div>
+            </div>
+            <div id="graph" class="graph"></div>
+
+            <details class="map-editor">
+              <summary>Edit the downstream map</summary>
+              <p>Add the actual teams and people who inherit an error. This tabletop keeps each column to four nodes.</p>
+              <div id="node-list" class="node-list"></div>
+              <div class="editor-actions">
+                <button class="button button-secondary" type="button" data-add-node="service">+ Add service</button>
+                <button class="button button-secondary" type="button" data-add-node="group">+ Add affected group</button>
+              </div>
+            </details>
+          </section>
+
+          <aside class="controls-panel panel" aria-labelledby="controls-title">
+            <div class="panel-header compact">
+              <div>
+                <p class="panel-label">Selected-path worksheet</p>
+                <h3 id="controls-title">Can response outrun consequence?</h3>
+              </div>
+            </div>
+            <div class="path-selector">
+              <label for="path-picker">Service path under test</label>
+              <select id="path-picker"></select>
+              <p id="path-groups">Consequence means the earliest impact across mapped groups.</p>
+            </div>
+
+            <p class="race-rule">Add the three response legs. To pass, their slowest total must finish <strong>before</strong> the earliest consequence time.</p>
+
+            <div class="race-fields">
+              <fieldset class="race-field boundary-field">
+                <legend><span>Boundary</span> Earliest resident consequence</legend>
+                <div class="race-field-grid">
+                  <label for="harm-time">Elapsed from trigger
+                    <select id="harm-time" data-time-stage="harm"></select>
+                  </label>
+                  <label for="harm-evidence">Evidence for consequence timing
+                    <select id="harm-evidence" data-evidence-stage="harm"></select>
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset class="race-field">
+                <legend><span>01</span> Failure is detected</legend>
+                <div class="race-field-grid">
+                  <label for="detect-time">Elapsed from trigger
+                    <select id="detect-time" data-time-stage="detect"></select>
+                  </label>
+                  <label for="detect-evidence">Evidence for detection timing
+                    <select id="detect-evidence" data-evidence-stage="detect"></select>
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset class="race-field">
+                <legend><span>02</span> Pause or switch is authorised</legend>
+                <div class="race-field-grid">
+                  <label for="authorize-time">Additional time after detection
+                    <select id="authorize-time" data-time-stage="authorize"></select>
+                  </label>
+                  <label for="authorize-evidence">Evidence for authority timing
+                    <select id="authorize-evidence" data-evidence-stage="authorize"></select>
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset class="race-field">
+                <legend><span>03</span> Safe fallback is running</legend>
+                <div class="race-field-grid">
+                  <label for="switch-time">Additional time after authorisation
+                    <select id="switch-time" data-time-stage="switch"></select>
+                  </label>
+                  <label for="switch-evidence">Evidence for fallback timing
+                    <select id="switch-evidence" data-evidence-stage="switch"></select>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="path-status" id="path-status" data-outcome="unknown">
+              <small>SELECTED PATH</small>
+              <strong id="path-status-label">Insufficient evidence</strong>
+              <span id="path-math">Complete the timing and evidence fields.</span>
+            </div>
+          </aside>
+        </div>
+
+        <section class="readout-panel panel" aria-labelledby="readout-title">
+          <div class="readout-topline">
+            <div>
+              <p class="panel-label">Tabletop readout</p>
+              <h3 id="readout-title">What happens next</h3>
+            </div>
+            <div class="tier-block" id="decision-block">
+              <span class="tier-dot" aria-hidden="true"></span>
+              <div><small>DECISION GATE</small><strong id="decision-label">No — response loses on at least one path</strong></div>
+            </div>
+            <div class="impact-count">
+              <span><strong><span id="contained-count">0</span>/<span id="service-count">3</span></strong> paths pass the gate</span>
+              <span class="critical-summary"><small>Critical path</small><strong id="critical-path">Safeguarding referrals</strong></span>
+            </div>
+          </div>
+
+          <div class="path-results" id="path-results" aria-label="Timing and evidence result for every mapped service path"></div>
+
+          <div class="actions-layout">
+            <div>
+              <p class="control-kicker">What to resolve next</p>
+              <ol id="actions" class="action-list"></ol>
+            </div>
+            <aside class="brief-card">
+              <p class="panel-label">Take it into the room</p>
+              <h4>Export a tabletop brief</h4>
+              <p>
+                Download every timing band, evidence status, interval result, and decision as structured JSON—or
+                print a one-page briefing for service, procurement, security, and resident review.
+              </p>
+              <div class="brief-actions">
+                <button class="button button-primary" id="print-brief" type="button">Print briefing</button>
+                <button class="button button-secondary" id="download-json" type="button">Download JSON</button>
+              </div>
+              <small>Mapped-path tabletop only. Not a probability estimate, safety finding, legal opinion, or compliance certificate.</small>
+            </aside>
+          </div>
+          <p class="print-limit"><strong>Decision boundary.</strong> This brief reports only whether the entered, evidenced response bounds precede the entered consequence bounds on the mapped paths. It is not a safety, legal, fairness, security, or compliance finding, and Civic Cascade does not independently validate the inputs.</p>
+        </section>
+      </section>
+
+      <section class="scale" id="scale" aria-labelledby="scale-title">
+        <div class="scale-intro">
+          <p class="eyebrow">The same rule, three scales</p>
+          <h2 id="scale-title">Loss of control is not a size.<br />It is a <em>race</em>, and it is always the same race.</h2>
+          <p>
+            The frontier-safety literature and a council incident plan are usually treated as different
+            subjects. They are the same inequality. Below, one unmodified decision rule is applied to a
+            housing queue and to a frontier model deployment. Nothing in the engine changes between
+            them—only the numbers do. Every figure here is computed live from the worked examples on
+            this page, not typed in.
+          </p>
+        </div>
+        <div class="scale-grid" id="scale-grid" aria-live="polite">
+          <p class="scale-loading">Computing…</p>
+        </div>
+        <p class="scale-footnote">
+          The frontier column is illustrative and is not an assessment of any real laboratory. It exists
+          to show scale-invariance of the rule. Both columns use the silent-error incident shape, because
+          a visible outage is the easy case: someone notices.
+        </p>
+      </section>
+
+      <section class="method" id="method" aria-labelledby="method-title">
+        <div class="method-intro">
+          <p class="eyebrow">The method</p>
+          <h2 id="method-title">Risk registers list systems.<br />Cascades live in the arrows.</h2>
+          <p>
+            Civic Cascade makes one narrow claim testable: whether detection, decision authority, and fallback
+            can finish before the earliest public consequence on every mapped service path.
+          </p>
+        </div>
+        <div class="method-cards">
+          <article>
+            <span>MAP</span>
+            <h3>Trace one complete path</h3>
+            <p>Start from one AI use. Name the service that inherits it and the people facing the earliest consequence.</p>
+          </article>
+          <article>
+            <span>STRESS</span>
+            <h3>Put evidence on the clock</h3>
+            <p>Enter conservative time bands for detection, authority, fallback, and consequence—plus the basis for each claim.</p>
+          </article>
+          <article>
+            <span>ACT</span>
+            <h3>Make a rule, not a score</h3>
+            <p>Response passes only when its slowest bound is strictly earlier than the first plausible consequence.</p>
+          </article>
+        </div>
+        <div class="limits">
+          <strong>Deliberate limit</strong>
+          <p>
+            The result compares user-entered elapsed-time bands. Overlap is not called containment, unknowns fail
+            closed, and a paper plan is not treated as exercised. The tool does not estimate likelihood or declare a system safe.
+          </p>
+        </div>
+      </section>
+
+      <section class="research" id="research" aria-labelledby="research-title">
+        <div>
+          <p class="eyebrow">Research basis</p>
+          <h2 id="research-title">A civic tool cut from a larger argument about crises, systems, and voice.</h2>
+        </div>
+        <div class="research-links">
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7163460" target="_blank" rel="noreferrer">
+            <span>01 / crisis routing</span>
+            <strong>The Loaded Wheel</strong>
+            <small>Why legibility, attribution, and a ready receiver shape the first durable response.</small>
+          </a>
+          <a href="https://arxiv.org/abs/2602.03874" target="_blank" rel="noreferrer">
+            <span>02 / systemic indicators</span>
+            <strong>ASRI</strong>
+            <small>Work on transparent, composite monitoring of systemic risk—with explicit limits on contagion claims.</small>
+          </a>
+          <a href="https://doi.org/10.5281/zenodo.18195278" target="_blank" rel="noreferrer">
+            <span>03 / affected parties</span>
+            <strong>Stakes Without Voice</strong>
+            <small>Why governance should identify who is materially affected before institutions act.</small>
+          </a>
+        </div>
+        <p class="research-credit">
+          Built by <a href="https://dissensus.ai" target="_blank" rel="noreferrer">Murad Farzulla / Dissensus</a>
+          for a local-government AI policy hackathon. Source and assumptions are open for inspection.
+        </p>
+      </section>
+    </main>
+
+    <dialog id="node-dialog" aria-labelledby="node-dialog-title">
+      <form method="dialog" id="node-form">
+        <div class="dialog-header">
+          <div>
+            <p class="panel-label">Downstream map</p>
+            <h2 id="node-dialog-title">Add a service</h2>
+          </div>
+          <button class="icon-button" id="close-node" type="button" aria-label="Close dialog">×</button>
+        </div>
+        <input type="hidden" id="node-type" value="service" />
+        <label>
+          <span id="node-label-copy">Service or team name</span>
+          <input id="node-label" required maxlength="52" autocomplete="off" placeholder="e.g. Safeguarding referrals" />
+        </label>
+        <label id="parent-field" hidden>
+          Receives impact through
+          <select id="node-parent"></select>
+        </label>
+        <label>
+          Short note
+          <input id="node-detail" maxlength="80" autocomplete="off" placeholder="What inherits the output?" />
+        </label>
+        <div class="dialog-actions">
+          <button class="button button-quiet" value="cancel" type="button" id="cancel-node">Cancel</button>
+          <button class="button button-primary" value="default" type="submit">Add to map</button>
+        </div>
+      </form>
+    </dialog>
+
+    <noscript>
+      <p class="noscript">Civic Cascade needs JavaScript to calculate and redraw the local tabletop.</p>
+    </noscript>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

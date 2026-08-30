@@ -126,7 +126,7 @@ unrelated `papers.json`. Review before committing.
 ### Exact review commands
 
 ```bash
-cd ~/Resurrexi/projects/websites/dissensus-ai
+cd ~/work/projects/websites/dissensus-ai
 
 git status                 # see everything in the working tree
 git diff -- public/        # review the site changes (the deploy surface)
