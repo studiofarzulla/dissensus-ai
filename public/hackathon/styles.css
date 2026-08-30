@@ -2603,3 +2603,39 @@ dialog::backdrop {
 .graph-node[data-select-service]:hover rect { stroke: #2563eb; }
 
 @media print { .path-delta { background: none; color: #000; border: 1px solid #000; } }
+
+/* --- Walkthrough video ----------------------------------------------------
+   Sits between the hero and the story. The piece has to work for someone who
+   lands on it alone with nobody presenting, so the film is the first offer. */
+
+.filmstrip {
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 5vw, 4rem);
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: start;
+  border-top: 1px solid var(--rule, #cfd8d6);
+}
+
+@media (min-width: 62rem) {
+  /* minmax(0, 1fr), not 1fr: a bare 1fr track refuses to shrink below the
+     video's intrinsic 1280px, which pushed 276px of horizontal overflow onto
+     the whole page. */
+  .filmstrip { grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr); }
+}
+
+.filmstrip-copy { max-width: 46ch; }
+.filmstrip-copy h2 { margin: 0.4rem 0 0.8rem; line-height: 1.15; }
+.filmstrip-copy p { margin: 0; line-height: 1.6; }
+
+.filmstrip-video {
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0.6rem;
+  border: 1px solid var(--rule, #cfd8d6);
+  background: #14201e;
+  display: block;
+}
+
+@media print { .filmstrip { display: none; } }
