@@ -2567,3 +2567,39 @@ dialog::backdrop {
 .linklike:hover { text-decoration: none; }
 
 @media print { .loaded-state { border-left-color: #000; background: none; } }
+
+/* --- Before / after delta -------------------------------------------------- */
+
+.path-delta {
+  margin: 0 0 0.7rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.4rem;
+  background: #14201e;
+  color: #eef3f2;
+  font-size: 0.83rem;
+  line-height: 1.6;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.5rem;
+  align-items: baseline;
+}
+
+.path-delta[data-direction="better"] { background: #1d3a2f; }
+.delta-kicker { opacity: .7; text-transform: uppercase; letter-spacing: .07em; font-size: .72rem; }
+.path-delta b { font-weight: 650; }
+.path-delta i { font-style: normal; opacity: .6; padding: 0 .1rem; }
+.delta-verdict { color: #ffd9a6; }
+
+/* --- Selectable paths ------------------------------------------------------ */
+
+.path-card[data-select-service]:hover,
+.path-card[data-select-service]:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.graph-node[data-select-service] { cursor: pointer; }
+.graph-node[data-select-service]:focus-visible rect { stroke: #2563eb; stroke-width: 2.5; }
+.graph-node[data-select-service]:hover rect { stroke: #2563eb; }
+
+@media print { .path-delta { background: none; color: #000; border: 1px solid #000; } }

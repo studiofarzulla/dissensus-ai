@@ -183,6 +183,7 @@ function initialise() {
 
 function loadExample(key) {
   const example = EXAMPLES[key] ?? EXAMPLES.housing;
+  pathSnapshots = {};
   state = makeState(example);
   render();
 }
@@ -256,6 +257,7 @@ function renderWorksheet(assessment) {
   });
 
   renderLoadedState(assessment, selectedPath);
+  renderDelta(selectedPath);
   const outcome = selectedPath?.outcome ?? "unknown";
   refs.pathStatus.dataset.outcome = outcome;
   refs.pathStatusLabel.textContent = selectedPath?.outcomeLabel ?? OUTCOME_LABELS.unknown;
@@ -303,6 +305,86 @@ function renderLoadedState(assessment, selectedPath) {
   }
 }
 
+// --- Before / after ---------------------------------------------------------
+// Improvements recalculate instantly, which means the payoff of the whole
+// exercise — "we moved detection and the path went from paper to evidenced" —
+// depends on the viewer remembering the old numbers. With nobody narrating,
+// they will not. So show the delta explicitly, for one edit at a time.
+
+let pathSnapshots = {};
+
+function snapshotOf(path) {
+  if (!path) return null;
+  return {
+    response: path.response ? formatInterval(path.response) : null,
+    harm: path.harm ? formatInterval(path.harm) : null,
+    outcome: path.outcome,
+    outcomeLabel: OUTCOME_LABELS[path.outcome] || path.outcome,
+    marginLower: path.harm && path.response
+      ? path.harm.lower - path.response.upper
+      : null,
+  };
+}
+
+function renderDelta(selectedPath) {
+  const host = document.getElementById("path-delta");
+  if (!host) return;
+  const now = snapshotOf(selectedPath);
+  if (!selectedPath || !now) {
+    host.hidden = true;
+    return;
+  }
+
+  const key = selectedPath.serviceId;
+  const before = pathSnapshots[key];
+  pathSnapshots[key] = now;
+
+  // Nothing to compare against yet, or nothing actually moved.
+  if (!before || (before.response === now.response
+                  && before.outcome === now.outcome
+                  && before.harm === now.harm)) {
+    host.hidden = true;
+    return;
+  }
+
+  const bits = [];
+  if (before.response !== now.response) {
+    bits.push(`<span><b>Response</b> ${escapeHtml(before.response ?? "—")}`
+      + ` <i aria-hidden="true">→</i> ${escapeHtml(now.response ?? "—")}</span>`);
+  }
+  if (before.harm !== now.harm) {
+    bits.push(`<span><b>Consequence</b> ${escapeHtml(before.harm ?? "—")}`
+      + ` <i aria-hidden="true">→</i> ${escapeHtml(now.harm ?? "—")}</span>`);
+  }
+  if (before.marginLower !== null && now.marginLower !== null
+      && before.marginLower !== now.marginLower) {
+    const d = now.marginLower - before.marginLower;
+    bits.push(`<span><b>Margin</b> ${d > 0 ? "+" : ""}${escapeHtml(formatMinutesShort(d))}</span>`);
+  }
+  if (before.outcome !== now.outcome) {
+    bits.push(`<span class="delta-verdict"><b>${escapeHtml(before.outcomeLabel)}</b>`
+      + ` <i aria-hidden="true">→</i> <b>${escapeHtml(now.outcomeLabel)}</b></span>`);
+  }
+
+  if (!bits.length) { host.hidden = true; return; }
+  host.innerHTML = `<span class="delta-kicker">That change:</span> ${bits.join(" · ")}`;
+  host.dataset.direction =
+    before.outcome !== now.outcome
+      ? (now.outcome === "contained" ? "better" : "changed")
+      : "changed";
+  host.hidden = false;
+}
+
+function formatMinutesShort(mins) {
+  const m = Math.abs(Math.round(mins));
+  if (m < 60) return `${m}m`;
+  const h = Math.floor(m / 60);
+  const r = m % 60;
+  if (h < 24) return r ? `${h}h ${r}m` : `${h}h`;
+  const d = Math.floor(h / 24);
+  return `${d}d`;
+}
+
 function outcomeForGroup(groupId, assessment) {
   const severity = { escapes: 5, unknown: 4, no_margin: 3, paper: 2, contained: 1 };
   return assessment.paths
@@ -330,6 +412,11 @@ function renderGraph(assessment) {
       positions.set(node.id, { x: xByType[type], y: 40 + gap * (index + 1), width: widths[type] });
     });
   });
+
+  const groupParent = (groupId) => {
+    const edge = state.scenario.edges.find((e) => e.to === groupId);
+    return edge ? edge.from : null;
+  };
 
   const edges = state.scenario.edges
     .map((edge) => {
@@ -379,8 +466,16 @@ function renderGraph(assessment) {
       if (selected) classes.push("selected");
       if (node.type === "system") classes.push("active");
 
+      // Service boxes (and the groups hanging off them) select their path when
+      // clicked. The map already told you which path was in trouble; it just
+      // could not take you there.
+      const selectId = node.type === "service"
+        ? node.id
+        : (node.type === "group" ? groupParent(node.id) : null);
+
       return `
-        <g class="${classes.join(" ")}" transform="translate(${pos.x} ${pos.y - 34})">
+        <g class="${classes.join(" ")}" transform="translate(${pos.x} ${pos.y - 34})"${
+          selectId ? ` data-select-service="${escapeHtml(selectId)}" tabindex="0" role="button"` : ""}>
           ${node.type === "system" ? `<circle class="system-pulse" cx="${pos.width / 2}" cy="34" r="52"></circle>` : ""}
           <rect width="${pos.width}" height="68" rx="4"></rect>
           <text class="node-type" x="12" y="16">${typeLabel}</text>
@@ -421,6 +516,36 @@ function renderGraph(assessment) {
       <g class="graph-edges">${edges}</g>
       <g class="graph-nodes">${nodes}</g>
     </svg>`;
+}
+
+function installPathSelection() {
+  // Delegated, and installed once. Attaching listeners per render meant the
+  // graph — rebuilt later in the same render pass — lost them every time, so
+  // the map looked clickable and did nothing.
+  const go = (serviceId) => {
+    if (!serviceId) return;
+    if (!state.scenario.nodes.some((n) => n.id === serviceId && n.type === "service")) return;
+    state.selectedServiceId = serviceId;
+    render();
+    document.getElementById("path-status")
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  const find = (target) =>
+    target && target.closest && target.closest("[data-select-service]");
+
+  document.addEventListener("click", (e) => {
+    const el = find(e.target);
+    if (el) go(el.dataset.selectService);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const el = find(e.target);
+    if (!el) return;
+    e.preventDefault();
+    go(el.dataset.selectService);
+  });
 }
 
 function renderNodeList() {
@@ -518,7 +643,10 @@ function renderReadout(assessment) {
           .filter(Boolean)
           .join(", ");
         return `
-          <article class="path-card" data-outcome="${path.outcome}">
+          <article class="path-card" data-outcome="${path.outcome}"
+                   data-select-service="${escapeHtml(path.serviceId)}"
+                   tabindex="0" role="button"
+                   aria-label="Select path ${escapeHtml(path.serviceLabel)}">
             <div class="path-card-head"><span>PATH ${String(index + 1).padStart(2, "0")}</span><em>${escapeHtml(path.outcomeLabel)}</em></div>
             <h4>${escapeHtml(path.serviceLabel)}</h4>
             <p class="path-groups">${escapeHtml(groupNames || "No affected group mapped")}</p>
@@ -1038,6 +1166,7 @@ function applyDeepLink() {
 }
 
 initialise();
+installPathSelection();
 renderScaleLadder();
 initialiseStory();
 applyDeepLink();
