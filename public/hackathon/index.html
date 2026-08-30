@@ -78,14 +78,17 @@
           <h2 id="story-title">Nobody did anything wrong.<br />That is the whole problem.</h2>
           <p>
             One safeguarding referral, one Monday morning, one model that was working exactly as
-            specified. Step through it. The council's own timing assumptions are the ones already
-            loaded in the tabletop below—this is not a worst case, it is their plan.
+            specified. Step through it. ⚠️ <b>Example Borough is invented</b> and so are its timings —
+            they are the synthetic seed values loaded in the tabletop below, not any real council's
+            plan. A real team replaces every one of them with their own evidenced numbers; the shape
+            of the failure is what transfers, not the figures.
           </p>
         </div>
         <div class="story-stage">
           <ol class="story-beats" id="story-beats" aria-live="polite"></ol>
           <div class="story-controls">
             <button type="button" class="button button-primary" id="story-next">Start the clock</button>
+            <button type="button" class="button button-primary" id="story-handoff" hidden>Test this service yourself</button>
             <button type="button" class="button" id="story-reset" hidden>Replay</button>
             <p class="story-progress" id="story-progress">Not started</p>
           </div>
@@ -181,52 +184,77 @@
               <p id="path-groups">Consequence means the earliest impact across mapped groups.</p>
             </div>
 
-            <p class="race-rule">Add the three response legs. To pass, their slowest total must finish <strong>before</strong> the earliest consequence time.</p>
+            <p class="race-rule">Three legs, added together. To pass, even the <strong>slowest</strong> version of your response has to finish <strong>before</strong> the <strong>earliest</strong> version of the consequence. If those two overlap at all, it does not pass — an overlap means it could go either way, and that is not a margin.</p>
+
+
+            <details class="evidence-help">
+              <summary>What do the “how do you know?” answers mean?</summary>
+              <p>
+                This is the part most risk registers skip. A timing you believe is not the same as
+                a timing you have watched happen. The ladder runs from weakest to strongest:
+              </p>
+              <ol class="evidence-ladder">
+                <li><b>Asserted in the room</b> — someone said it just now. Fine to start with; not a basis for a decision.</li>
+                <li><b>Documented</b> — it is written in a plan or contract. Still nobody has done it.</li>
+                <li><b>Technically verified</b> — a system can demonstrably do its part. Says nothing about the humans.</li>
+                <li><b>Exercised</b> — you have rehearsed it end to end, deliberately.</li>
+                <li><b>Observed in operation</b> — it has actually happened, in real conditions.</li>
+              </ol>
+              <p>
+                Favourable timing backed only by the first two returns <b>“Timing works on paper.”</b>
+                That is not the tool being awkward — it is the difference between a plan and a
+                capability, and it is usually the finding worth taking out of the room.
+              </p>
+            </details>
 
             <div class="race-fields">
               <fieldset class="race-field boundary-field">
-                <legend><span>Boundary</span> Earliest resident consequence</legend>
+                <legend><span>The fuse</span> How soon does this reach a resident?</legend>
                 <div class="race-field-grid">
-                  <label for="harm-time">Elapsed from trigger
+                  <label for="harm-time">From the moment the system goes wrong, how long before someone outside the council feels it?
                     <select id="harm-time" data-time-stage="harm"></select>
+                    <small class="field-hint">Ask the service manager. Not the worst case — the earliest realistic one.</small>
                   </label>
-                  <label for="harm-evidence">Evidence for consequence timing
+                  <label for="harm-evidence">How do you know?
                     <select id="harm-evidence" data-evidence-stage="harm"></select>
                   </label>
                 </div>
               </fieldset>
 
               <fieldset class="race-field">
-                <legend><span>01</span> Failure is detected</legend>
+                <legend><span>01</span> When would you find out?</legend>
                 <div class="race-field-grid">
-                  <label for="detect-time">Elapsed from trigger
+                  <label for="detect-time">From the same moment, how long until someone here knows something is wrong?
                     <select id="detect-time" data-time-stage="detect"></select>
+                    <small class="field-hint">Ask whoever is actually on the rota. If the answer is “a resident tells us”, that is after the consequence.</small>
                   </label>
-                  <label for="detect-evidence">Evidence for detection timing
+                  <label for="detect-evidence">How do you know?
                     <select id="detect-evidence" data-evidence-stage="detect"></select>
                   </label>
                 </div>
               </fieldset>
 
               <fieldset class="race-field">
-                <legend><span>02</span> Pause or switch is authorised</legend>
+                <legend><span>02</span> Who can say stop, and how fast?</legend>
                 <div class="race-field-grid">
-                  <label for="authorize-time">Additional time after detection
+                  <label for="authorize-time">Once you know, how long to reach someone with authority to pause it?
                     <select id="authorize-time" data-time-stage="authorize"></select>
+                    <small class="field-hint">Ask: is that person reachable at 2am on a Sunday? Name them.</small>
                   </label>
-                  <label for="authorize-evidence">Evidence for authority timing
+                  <label for="authorize-evidence">How do you know?
                     <select id="authorize-evidence" data-evidence-stage="authorize"></select>
                   </label>
                 </div>
               </fieldset>
 
               <fieldset class="race-field">
-                <legend><span>03</span> Safe fallback is running</legend>
+                <legend><span>03</span> How long until the safe route is running?</legend>
                 <div class="race-field-grid">
-                  <label for="switch-time">Additional time after authorisation
+                  <label for="switch-time">Once it is authorised, how long before the manual or backup process is actually operating?
                     <select id="switch-time" data-time-stage="switch"></select>
+                    <small class="field-hint">Ask the team who would run it. Existing on paper is not the same as running.</small>
                   </label>
-                  <label for="switch-evidence">Evidence for fallback timing
+                  <label for="switch-evidence">How do you know?
                     <select id="switch-evidence" data-evidence-stage="switch"></select>
                   </label>
                 </div>
@@ -284,7 +312,7 @@
 
       <section class="scale" id="scale" aria-labelledby="scale-title">
         <div class="scale-intro">
-          <p class="eyebrow">The same rule, three scales</p>
+          <p class="eyebrow">Two scales, one rule</p>
           <h2 id="scale-title">Loss of control is not a size.<br />It is a <em>race</em>, and it is always the same race.</h2>
           <p>
             The frontier-safety literature and a council incident plan are usually treated as different
@@ -363,7 +391,12 @@
         </div>
         <p class="research-credit">
           Built by <a href="https://dissensus.ai" target="_blank" rel="noreferrer">Murad Farzulla / Dissensus</a>
-          for a local-government AI policy hackathon. Source and assumptions are open for inspection.
+          for the Translating AI Safety Hackathon.
+          Source, decision rule and every assumption are open for inspection:
+          <a href="METHODOLOGY.md">the methodology</a>,
+          the <a href="engine.js">decision engine</a>, and the
+          <a href="scenarios.js">worked examples</a> — all served from this page.
+          ⚠️ All worked examples are <b>synthetic</b> — invented boroughs, invented timings.
         </p>
       </section>
     </main>

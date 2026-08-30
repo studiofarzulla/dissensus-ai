@@ -2485,3 +2485,52 @@ dialog::backdrop {
   color: #ffb4a6;
   max-width: 52ch;
 }
+
+/* --- Guidance for non-specialists ----------------------------------------- */
+
+.field-hint {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  opacity: 0.72;
+  font-weight: 400;
+}
+
+.evidence-help {
+  margin: 0 0 1rem;
+  border: 1px solid var(--rule, #cfd8d6);
+  border-radius: 0.55rem;
+  padding: 0.6rem 0.85rem;
+  background: rgba(0, 0, 0, 0.015);
+}
+
+.evidence-help summary {
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.evidence-help p {
+  margin: 0.6rem 0;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.evidence-ladder {
+  margin: 0.5rem 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.evidence-ladder li {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* .button sets display:inline-flex, which beats [hidden]'s display:none on
+   specificity — so hidden buttons stayed visible. The Replay control showed
+   before the story started and the exhausted Next button sat there doing
+   nothing. Attribute-level, so it covers every future hidden control too. */
+[hidden] { display: none !important; }

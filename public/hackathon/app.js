@@ -691,8 +691,9 @@ function renderScaleLadder() {
       <h3>Same inequality, either column</h3>
       <pre class="scale-rule">upper(detect + authorise + fallback)\n        &lt;\nlower(time to consequence)</pre>
       <p class="scale-card-plain">
-        If that is false, the system is out of your control for the gap between the two —
-        whether the gap is four hours or four months.
+        Fail it and you have not <em>shown</em> you could stop it in time. Fail it because the
+        consequence bound is wholly earlier, and you could not have — the gap is how long that
+        was true, whether it is four hours or four months.
       </p>
     </article>`;
 }
@@ -808,12 +809,12 @@ const STORY = {
       stamp: "consequence",
       head: "The window closes.",
       body:
-        "This is the council's own estimate of how quickly this path reaches a person. Not a "
-        + "worst case: the number already in their plan.",
+        "This is the seed value for how quickly this path reaches a person \u2014 invented for the "
+        + "example, and the first thing a real service team would overwrite.",
       figure: "harm",
     },
     {
-      stamp: "Monday 09:04",
+      stamp: "Monday 09:12",
       head: "The resident is told.",
       body:
         "An automated call goes out. Every word of it is true, procedurally correct, and "
@@ -824,7 +825,8 @@ const STORY = {
       stamp: "detection",
       head: "The council finds out.",
       body:
-        "Also their own estimate. On this path the entered value is not a duration at all.",
+        "Also a seed value. What matters is its shape: on this path the entered value is not a "
+        + "duration at all.",
       figure: "detect",
     },
     {
@@ -833,7 +835,8 @@ const STORY = {
       body:
         "Not because the AI was clever, resisted shutdown, or wanted anything. Because the "
         + "people with the authority to act did not yet know there was anything to act on. "
-        + "That gap is what loss of control actually feels like from inside an institution.",
+        + "That gap is what loss of control actually feels like from inside an institution \u2014 "
+        + "and note what it took: no capability claim, just an ordinary Monday.",
       terminal: true,
     },
   ],
@@ -895,11 +898,13 @@ function renderStory() {
   }
 
   const done = storyStep >= STORY.beats.length;
+  const handoff = document.getElementById("story-handoff");
+  if (handoff) handoff.hidden = !done;
   next.hidden = done;
   next.textContent = storyStep === 0 ? "Start the clock" : "Next";
   reset.hidden = !done;
   progress.textContent = done
-    ? "That is one path, in one borough. The tabletop below runs the same test on every path you map."
+    ? "That is one path, in one invented borough. The tabletop runs the same test on every path you map."
     : `Step ${storyStep} of ${STORY.beats.length}`;
 }
 
@@ -916,6 +921,25 @@ function initialiseStory() {
     storyStep = 0;
     renderStory();
   });
+
+  const handoff = document.getElementById("story-handoff");
+  if (handoff) {
+    handoff.addEventListener("click", () => {
+      stopCall();
+      // Open the tabletop on the path the story just told, not whichever path
+      // happened to be selected. Without this the reader lands on Temporary
+      // housing queue having just read about Safeguarding referrals.
+      loadExample(STORY.exampleKey);
+      state.mode = STORY.mode;
+      state.selectedServiceId = STORY.serviceId;
+      render();
+      const workspace = document.getElementById("workspace");
+      if (workspace) workspace.scrollIntoView({ behavior: "smooth", block: "start" });
+      const picker = document.getElementById("path-picker");
+      if (picker) window.setTimeout(() => picker.focus(), 400);
+    });
+  }
+
   renderStory();
 }
 
