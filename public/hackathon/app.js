@@ -255,6 +255,7 @@ function renderWorksheet(assessment) {
     select.disabled = !profile;
   });
 
+  renderLoadedState(assessment, selectedPath);
   const outcome = selectedPath?.outcome ?? "unknown";
   refs.pathStatus.dataset.outcome = outcome;
   refs.pathStatusLabel.textContent = selectedPath?.outcomeLabel ?? OUTCOME_LABELS.unknown;
@@ -264,6 +265,42 @@ function renderWorksheet(assessment) {
   refs.pathMath.textContent = selectedPath
     ? `${selectedPath.reason}${intervalCopy}`
     : "Add a service path to begin.";
+}
+
+function renderLoadedState(assessment, selectedPath) {
+  // Switching example or incident replaces a lot of assumptions at once. Without
+  // a standing line saying what is loaded, a reader who was not watching the
+  // click cannot tell what they are looking at — and nobody is narrating this.
+  const host = document.getElementById("loaded-state");
+  if (!host) return;
+  const example = EXAMPLES[state.exampleKey];
+  const name = example ? example.name : state.scenario.name;
+  const mode = MODE_LABELS[state.mode] || state.mode;
+  const path = selectedPath ? selectedPath.serviceLabel : "no path selected";
+  const verdict = selectedPath ? (OUTCOME_LABELS[selectedPath.outcome] || "") : "";
+  const gate = assessment ? (assessment.decisionLabel || "") : "";
+  host.innerHTML =
+    `<b>Loaded:</b> ${escapeHtml(name)} · ${escapeHtml(mode)}`
+    + ` &nbsp;<b>Selected:</b> ${escapeHtml(path)}${verdict ? ` — ${escapeHtml(verdict)}` : ""}`
+    + (gate ? ` &nbsp;<b>Overall gate:</b> ${escapeHtml(String(gate))}` : "");
+
+  const blocker = assessment && assessment.criticalPath;
+  if (blocker && selectedPath && blocker.serviceId !== selectedPath.serviceId) {
+    host.innerHTML +=
+      ` &nbsp;<span class="loaded-blocker">Blocking path: `
+      + `<button type="button" class="linklike" id="goto-blocker" `
+      + `data-service="${escapeHtml(blocker.serviceId)}">`
+      + `${escapeHtml(blocker.serviceLabel)}</button></span>`;
+    const btn = document.getElementById("goto-blocker");
+    if (btn) {
+      btn.addEventListener("click", () => {
+        state.selectedServiceId = btn.dataset.service;
+        render();
+        document.getElementById("path-status")
+          ?.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    }
+  }
 }
 
 function outcomeForGroup(groupId, assessment) {
@@ -530,8 +567,16 @@ function openNodeDialog(type) {
   refs.nodeLabelCopy.textContent = isGroup ? "Affected group" : "Service or team name";
   refs.nodeLabel.placeholder = isGroup ? "e.g. Residents needing interpreters" : "e.g. Safeguarding referrals";
   refs.nodeDetail.placeholder = isGroup ? "Why is the impact distinct?" : "What inherits the output?";
-  refs.parentField.hidden = !isGroup;
-  refs.nodeParent.innerHTML = serviceNodes()
+  refs.parentField.hidden = false;
+  const parentLabel = document.querySelector("#parent-field-copy");
+  if (parentLabel) {
+    parentLabel.textContent = isGroup ? "Affected through" : "Inherits its input from";
+  }
+  const system = state.scenario.nodes.find((n) => n.id === state.scenario.systemId);
+  const options = isGroup
+    ? serviceNodes()
+    : [...(system ? [system] : []), ...serviceNodes()];
+  refs.nodeParent.innerHTML = options
     .map((node) => `<option value="${escapeHtml(node.id)}">${escapeHtml(node.label)}</option>`)
     .join("");
   refs.nodeLabel.value = "";
@@ -543,7 +588,14 @@ function openNodeDialog(type) {
 function addNode() {
   const type = refs.nodeType.value;
   const label = refs.nodeLabel.value.trim();
-  if (!label) return;
+  if (!label) {
+    // A whitespace-only name used to close nothing and add nothing, with no
+    // explanation. Say so rather than appearing to ignore the click.
+    refs.nodeLabel.setCustomValidity("Give it a name — spaces alone will not do.");
+    refs.nodeLabel.reportValidity();
+    return;
+  }
+  refs.nodeLabel.setCustomValidity("");
   const id = `custom-${type}-${Date.now()}`;
   state.scenario.nodes.push({
     id,
@@ -551,8 +603,15 @@ function addNode() {
     label,
     detail: refs.nodeDetail.value.trim() || (type === "group" ? "Mapped affected group" : "Mapped service"),
   });
+  // The upstream selector applies to both node types. It used to be read only
+  // for groups, so a service added "through Temporary housing queue" was silently
+  // wired to the AI system instead and the rendered map contradicted the choice.
+  // Service-to-service edges are meaningful here: a service inheriting another
+  // service's output is the cascade the tool exists to make visible.
+  const parent = refs.nodeParent.value;
+  const validParent = parent && state.scenario.nodes.some((n) => n.id === parent);
   state.scenario.edges.push({
-    from: type === "group" ? refs.nodeParent.value : state.scenario.systemId,
+    from: validParent ? parent : state.scenario.systemId,
     to: id,
   });
   if (type === "service") {

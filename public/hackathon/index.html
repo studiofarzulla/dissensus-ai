@@ -124,6 +124,8 @@
           <button class="button button-quiet" id="reset-scenario" type="button">Reset example</button>
         </div>
 
+        <p class="loaded-state" id="loaded-state" aria-live="polite"></p>
+
         <div class="mode-strip" role="group" aria-labelledby="mode-title">
           <div>
             <span class="control-kicker" id="mode-title">Incident to rehearse</span>
@@ -215,8 +217,9 @@
                     <select id="harm-time" data-time-stage="harm"></select>
                     <small class="field-hint">Ask the service manager. Not the worst case — the earliest realistic one.</small>
                   </label>
-                  <label for="harm-evidence">How do you know?
-                    <select id="harm-evidence" data-evidence-stage="harm"></select>
+                  <label for="harm-evidence">How do you know? <span class="visually-hidden">— evidence for the consequence timing</span>
+                    <select id="harm-evidence" data-evidence-stage="harm"
+                            aria-label="How do you know? Evidence for the consequence timing"></select>
                   </label>
                 </div>
               </fieldset>
@@ -228,8 +231,9 @@
                     <select id="detect-time" data-time-stage="detect"></select>
                     <small class="field-hint">Ask whoever is actually on the rota. If the answer is “a resident tells us”, that is after the consequence.</small>
                   </label>
-                  <label for="detect-evidence">How do you know?
-                    <select id="detect-evidence" data-evidence-stage="detect"></select>
+                  <label for="detect-evidence">How do you know? <span class="visually-hidden">— evidence for the detection timing</span>
+                    <select id="detect-evidence" data-evidence-stage="detect"
+                            aria-label="How do you know? Evidence for the detection timing"></select>
                   </label>
                 </div>
               </fieldset>
@@ -241,8 +245,9 @@
                     <select id="authorize-time" data-time-stage="authorize"></select>
                     <small class="field-hint">Ask: is that person reachable at 2am on a Sunday? Name them.</small>
                   </label>
-                  <label for="authorize-evidence">How do you know?
-                    <select id="authorize-evidence" data-evidence-stage="authorize"></select>
+                  <label for="authorize-evidence">How do you know? <span class="visually-hidden">— evidence for the authority timing</span>
+                    <select id="authorize-evidence" data-evidence-stage="authorize"
+                            aria-label="How do you know? Evidence for the authority timing"></select>
                   </label>
                 </div>
               </fieldset>
@@ -254,8 +259,9 @@
                     <select id="switch-time" data-time-stage="switch"></select>
                     <small class="field-hint">Ask the team who would run it. Existing on paper is not the same as running.</small>
                   </label>
-                  <label for="switch-evidence">How do you know?
-                    <select id="switch-evidence" data-evidence-stage="switch"></select>
+                  <label for="switch-evidence">How do you know? <span class="visually-hidden">— evidence for the fallback timing</span>
+                    <select id="switch-evidence" data-evidence-stage="switch"
+                            aria-label="How do you know? Evidence for the fallback timing"></select>
                   </label>
                 </div>
               </fieldset>
@@ -415,8 +421,8 @@
           <span id="node-label-copy">Service or team name</span>
           <input id="node-label" required maxlength="52" autocomplete="off" placeholder="e.g. Safeguarding referrals" />
         </label>
-        <label id="parent-field" hidden>
-          Receives impact through
+        <label id="parent-field">
+          <span id="parent-field-copy">Receives impact through</span>
           <select id="node-parent"></select>
         </label>
         <label>

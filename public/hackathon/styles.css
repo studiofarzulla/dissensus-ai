@@ -2534,3 +2534,36 @@ dialog::backdrop {
    before the story started and the exhausted Next button sat there doing
    nothing. Attribute-level, so it covers every future hidden control too. */
 [hidden] { display: none !important; }
+
+/* --- Standing state line --------------------------------------------------
+   Switching example or incident replaces many assumptions at once. With nobody
+   narrating, this line is the only thing telling a reader what they are
+   looking at — and which path is actually blocking the gate. */
+
+.loaded-state {
+  margin: 0 0 0.9rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--rule, #cfd8d6);
+  border-left: 3px solid #2563eb;
+  border-radius: 0.4rem;
+  background: rgba(37, 99, 235, 0.04);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.loaded-state b { font-weight: 650; }
+.loaded-blocker { color: #97382f; }
+
+.linklike {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: #97382f;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.linklike:hover { text-decoration: none; }
+
+@media print { .loaded-state { border-left-color: #000; background: none; } }
