@@ -1,10 +1,15 @@
 # assets/audio
 
-`automated-call.mp3` is optional and is **not** committed by default.
+`automated-call.mp3` — the automated call played in story mode.
 
-When present, story mode plays it at the beat where the consequence lands. When
-absent, the same script is spoken by the browser's own `speechSynthesis`, which
-requires no key and no network. The page works offline in both cases.
+**Currently rendered with [Piper](https://github.com/OHF-Voice/piper1-gpl)**
+(`en_GB-jenny_dioco-medium`), locally and offline, then given a telephone
+bandpass (300–3400 Hz, mono, 64 kbps) so it sounds like the robocall it is
+supposed to be. Committed deliberately: it removes any dependency on the
+demo machine having speech voices installed.
 
-Generate with `../../tools/generate-voice.sh` once an ElevenLabs key is in
-`~/.env.elevenlabs`.
+To re-render with ElevenLabs once a key exists in `~/.env.elevenlabs`, run
+`../../tools/generate-voice.sh`, which overwrites this file.
+
+If the file is deleted, story mode falls back to the browser's own
+`speechSynthesis`. Either way there is no runtime network call.

@@ -700,11 +700,12 @@ function renderScaleLadder() {
 // --- The automated call -----------------------------------------------------
 // Played at the beat where the consequence lands. Two sources, in order:
 //
-//   1. assets/audio/automated-call.mp3  — an ElevenLabs render, if one has been
-//      generated (see tools/generate-voice.sh). A static file.
+//   1. assets/audio/automated-call.mp3  — a committed static render. Currently
+//      produced locally with Piper and given a telephone bandpass; regenerate
+//      with ElevenLabs via tools/generate-voice.sh, which overwrites it.
 //   2. the browser's own speechSynthesis  — a local OS API, no network call.
 //
-// Both keep the tool's promise intact: nothing leaves the browser and the page
+// Both keep the tool's promise intact: the user's inputs are never transmitted and the page
 // still works offline. The fallback is not a degraded mode; the flat municipal
 // delivery of a system voice is the content either way.
 
