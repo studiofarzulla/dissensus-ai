@@ -2452,3 +2452,36 @@ dialog::backdrop {
   .story-controls { display: none; }
   .story-beat { animation: none; }
 }
+
+/* --- The automated call ---------------------------------------------------- */
+
+.story-audio {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.story-call { font-size: 0.88rem; padding: 0.4rem 0.9rem; }
+
+.story-call-script {
+  quotes: none;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  opacity: 0.62;
+  border-left: 2px solid #3f5a54;
+  padding-left: 0.8rem;
+  max-width: 52ch;
+  font-style: italic;
+}
+
+@media print { .story-call { display: none; } .story-call-script { opacity: 1; } }
+
+.story-call-note {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #ffb4a6;
+  max-width: 52ch;
+}

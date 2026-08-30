@@ -697,6 +697,85 @@ function renderScaleLadder() {
     </article>`;
 }
 
+// --- The automated call -----------------------------------------------------
+// Played at the beat where the consequence lands. Two sources, in order:
+//
+//   1. assets/audio/automated-call.mp3  — an ElevenLabs render, if one has been
+//      generated (see tools/generate-voice.sh). A static file.
+//   2. the browser's own speechSynthesis  — a local OS API, no network call.
+//
+// Both keep the tool's promise intact: nothing leaves the browser and the page
+// still works offline. The fallback is not a degraded mode; the flat municipal
+// delivery of a system voice is the content either way.
+
+const CALL_SCRIPT =
+  "Hello. This is an automated message from the housing service. "
+  + "Your application has been reviewed. "
+  + "Your current priority band is: standard. "
+  + "You do not need to take any action. "
+  + "If you believe this is incorrect, you may request a review within twenty-eight days. "
+  + "Goodbye.";
+
+const CALL_AUDIO_SRC = "assets/audio/automated-call.mp3";
+let callAudio = null;
+let callSpeaking = false;
+
+function stopCall() {
+  if (callAudio) { callAudio.pause(); callAudio.currentTime = 0; }
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  callSpeaking = false;
+}
+
+function playCall(button) {
+  if (callSpeaking) { stopCall(); if (button) button.textContent = "Play the call"; return; }
+
+  const finish = () => {
+    callSpeaking = false;
+    if (button) button.textContent = "Play the call";
+  };
+
+  callSpeaking = true;
+  if (button) button.textContent = "Stop";
+
+  if (!callAudio) {
+    callAudio = new Audio(CALL_AUDIO_SRC);
+    callAudio.addEventListener("ended", finish);
+  }
+
+  callAudio.play().catch(() => {
+    // No render available — use the local speech synthesiser instead.
+    // Fail loudly rather than silently: a button that does nothing when clicked
+    // reads as a broken demo. On a machine with no installed voices (common on
+    // Linux without speech-dispatcher) speak() succeeds and produces silence, so
+    // the voice list has to be checked up front rather than trusting the call.
+    const voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+    if (!window.speechSynthesis || voices.length === 0) {
+      finish();
+      const audio = button && button.closest(".story-audio");
+      if (audio && !audio.querySelector(".story-call-note")) {
+        const note = document.createElement("p");
+        note.className = "story-call-note";
+        note.textContent =
+          "No speech voice is installed on this machine, so there is nothing to play. "
+          + "The call is written out below \u2014 read it in a flat, helpful tone.";
+        audio.append(note);
+      }
+      if (button) button.textContent = "No voice available";
+      return;
+    }
+    const utter = new SpeechSynthesisUtterance(CALL_SCRIPT);
+    utter.rate = 0.95;
+    utter.pitch = 0.9;
+    const preferred = window.speechSynthesis
+      .getVoices()
+      .find((v) => /en-GB/i.test(v.lang)) || null;
+    if (preferred) utter.voice = preferred;
+    utter.addEventListener("end", finish);
+    utter.addEventListener("error", finish);
+    window.speechSynthesis.speak(utter);
+  });
+}
+
 // --- Story mode -------------------------------------------------------------
 // A narrated run of the housing safeguarding path under a silent ranking error.
 // The beats are prose, but the two numbers that matter (when the consequence
@@ -731,6 +810,14 @@ const STORY = {
         "This is the council's own estimate of how quickly this path reaches a person. Not a "
         + "worst case: the number already in their plan.",
       figure: "harm",
+    },
+    {
+      stamp: "Monday 09:04",
+      head: "The resident is told.",
+      body:
+        "An automated call goes out. Every word of it is true, procedurally correct, and "
+        + "signed off by nobody. Listen to it \u2014 the smoothness is the point.",
+      audio: true,
     },
     {
       stamp: "detection",
@@ -793,9 +880,18 @@ function renderStory() {
           <h3>${escapeHtml(beat.head)}</h3>
           <p>${escapeHtml(beat.body)}</p>
           ${figure ? `<p class="story-figure">${escapeHtml(figure)}</p>` : ""}
+          ${beat.audio ? `<div class="story-audio">
+            <button type="button" class="button story-call">Play the call</button>
+            <q class="story-call-script">${escapeHtml(CALL_SCRIPT)}</q>
+          </div>` : ""}
         </li>`;
     })
     .join("");
+
+  const callButton = list.querySelector(".story-call");
+  if (callButton) {
+    callButton.addEventListener("click", () => playCall(callButton));
+  }
 
   const done = storyStep >= STORY.beats.length;
   next.hidden = done;
@@ -815,6 +911,7 @@ function initialiseStory() {
     renderStory();
   });
   reset.addEventListener("click", () => {
+    stopCall();
     storyStep = 0;
     renderStory();
   });
