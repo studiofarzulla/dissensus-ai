@@ -1,6 +1,107 @@
 {
   "papers": [
     {
+      "id": "marl-coordination",
+      "title": "Four Ways to Manufacture a Coordination Finding",
+      "subtitle": "A Control Battery for Mixed-Motive MARL",
+      "date": "2026-08-19",
+      "status": "preprint",
+      "tags": [
+        "ai-safety",
+        "adversarial-systems",
+        "computation"
+      ],
+      "authors": [
+        "Murad Farzulla"
+      ],
+      "abstract": "Mixed-motive multi-agent reinforcement-learning sweeps can manufacture findings before analysis. In a four-agent shared-state task, four choices make reward scale look structurally dominant, manufacture a symmetric treatment profile, turn state contention into a general correlation effect, and misattribute attainable-objective costs to learning. The treatment is signed correlation among target coordinates (ideal points), not a manipulation of objective- or reward-function alignment. The battery finds that the original sampler never produced negative target correlation and that stake dominance was degree-one reward scaling. Separable IQL is correlation-invariant and the VDN slope was not detected; on legacy-Gaussian support, slope estimates steepened across four fixed first-k shared-coordinate configurations. Frozen held-out evaluation preserved the target-correlation gradient. Translating the distribution inside the feasible box made it three to four times steeper. An exact finite-horizon oracle attributed 54–63% (95% bootstrap intervals 51–72%) of that gradient to feasibility and 37–46% (28–49%) to a support-dependent frozen-policy residual. The full proposed index F = σ(1+ε)/(1+α) has no valid confirmatory verdict: on a post-diagnostic ε=0 signed grid, its reduced restriction loses to a degree-one scale-homogeneous alternative by AICc, and the observation-noise-variance proxy interacts with signed target correlation in the opposite direction. These post-diagnostic controls are exploratory demonstrations. The battery separates treatment validity, algebraic scale, environmental scope and benchmark validity before judging learned policies.",
+      "arxiv": null,
+      "doi": null,
+      "zenodo": "10.5281/zenodo.20636467",
+      "ssrn": null,
+      "philpapers": null,
+      "github": "https://github.com/dissensus-ai/friction-marl",
+      "dashboard": null,
+      "pdf": "Farzulla_2026_Four_Ways_MARL.pdf",
+      "wpNumber": "DAI-2606",
+      "program": "consent-mechanics",
+      "category": "governance-dynamics",
+      "methods": [
+        "Independent Q-Learning",
+        "Value-decomposition networks (VDN)",
+        "Factorial sweeps",
+        "Artifact-control battery",
+        "Exact finite-horizon oracle decomposition"
+      ],
+      "stage": "current-focus"
+    },
+    {
+      "id": "axiom-of-consent",
+      "title": "The Axiom of Consent: Authorization, Friction, and Multi-Agent Coordination",
+      "subtitle": null,
+      "date": "2026-01-01",
+      "status": "preprint",
+      "tags": [
+        "ai-safety",
+        "political-economy",
+        "computation"
+      ],
+      "authors": [
+        "Murad Farzulla"
+      ],
+      "abstract": "Coordination research collapses four objects: operative control, authorization, a model-derived friction score, and observed outcomes. The Axiom of Consent is a stake-weighted unanimity principle; majority and supermajority thresholds are explicit relaxations, not versions of the axiom. Decision loci are structural facts, whereas authorization and legitimacy require normative and measurement premises. Alignment, calibrated stakes, and information deficit are candidate coordinates, and F = σ(1 + ε)/(1 + α) is a phenomenological ansatz. The Replicator-Optimization Mechanism supplies a conditional persistence interface: irreducibility suffices for its finite, static, positive-fitness continuous-time Perron result; primitivity is required only for the corresponding discrete-time power convergence, and the componentwise ranking is narrower. Neither persistence result derives authorization. A resource-allocation instantiation specifies an identification contract but observes no authorization acts or effective voice. Its exploratory MARL companion uses target-vector correlation and observation noise as narrow proxy treatments, not measures of general alignment or information deficit. Under that proxy and reward-gap design, the composite loses to an independent-effects model and a feasible-centred frozen crossing yields the opposite interaction direction. Cooperative target correlation lowers the gap under shared-state contention; separable IQL is structurally invariant and separable VDN is a non-detection. Paired partial sharing modulates the gradient without establishing an exact dose law or endpoint equivalence. Target support changes opposition and residual-policy conclusions. The surviving contribution is an authorization architecture and measurement discipline, not a universal friction law.",
+      "arxiv": "2601.06692",
+      "doi": null,
+      "zenodo": "10.5281/zenodo.20741718",
+      "ssrn": null,
+      "philpapers": null,
+      "github": null,
+      "dashboard": null,
+      "pdf": "Farzulla_2026_Axiom_of_Consent.pdf",
+      "wpNumber": "DAI-2601",
+      "program": "consent-mechanics",
+      "category": "governance-dynamics",
+      "methods": [
+        "Kernel triple formalism",
+        "ROM dynamics",
+        "Monte Carlo validation"
+      ],
+      "stage": "current-focus"
+    },
+    {
+      "id": "replicator-optimization-mechanism",
+      "title": "The Replicator-Optimization Mechanism: A Scale-Relative Formalism for Persistence-Conditioned Dynamics with a Conditional Consent-Friction Instantiation",
+      "subtitle": null,
+      "date": "2025-12-01",
+      "status": "preprint",
+      "tags": [
+        "philosophy",
+        "computation"
+      ],
+      "authors": [
+        "Murad Farzulla"
+      ],
+      "abstract": "Persistence models often conflate propagation, survival, and cross-scale loss. The Replicator-Optimization Mechanism (ROM) is a replicator-mutator template separating baseline weight, bounded survival, and a transfer kernel at a declared scale. Its equation conserves mass but guarantees neither invariance, convergence, a potential, nor a preferred scale. For finite static density-independent continuous time, an irreducible weighted kernel yields a unique positive Perron-Frobenius composition; discrete-time power convergence needs primitivity. The componentwise ranking proved here is guaranteed under exact uniform-residual transfer. Strong lumpability gives universal first-order transfer closure, and blockwise effective fitness gives an exact quotient.\n\nAn institutional instantiation uses normalized stakes, signed preference-decision alignment, information loss, and descriptive effective voice. It specifies conditional survival, not legitimacy or normative authority. A companion mixed-motive MARL battery reports exploratory evidence against the implemented proxy ratio in its environment: a positive signed target-coordinate-correlation effect survives held-out evaluation under shared-state contention, while a reduced feasible-centred frozen-policy crossing reverses the predicted correlation-noise interaction. The treatment varies ideal-point correlation inside a fixed reward family, not objective- or reward-function alignment. Lean checks mapped algebraic identities and scalar monotonicities, not the stationary theorem, empirical mapping, or normative bridge. ROM is an assumptions ledger and model-construction discipline, not a cross-substrate law.",
+      "arxiv": "2601.06363",
+      "doi": null,
+      "zenodo": "10.5281/zenodo.18090978",
+      "ssrn": null,
+      "philpapers": null,
+      "github": null,
+      "dashboard": null,
+      "pdf": "Farzulla_2026_ROM_Replicator_Optimization_Mechanism.pdf",
+      "wpNumber": "DAI-2503",
+      "program": "process-philosophy",
+      "category": "process-philosophy",
+      "methods": [
+        "Computational theory",
+        "Category theory",
+        "Universal Darwinism",
+        "Optimization theory"
+      ],
+      "stage": "current-focus"
+    },
+    {
       "id": "market-reaction-asymmetry",
       "title": "Do Cryptocurrency Markets Differentiate Infrastructure from Regulatory Shocks? A Multi-Moment Event Study with Dependence-Robust Inference",
       "subtitle": null,
@@ -50,7 +151,7 @@
       "authors": [
         "Murad Farzulla"
       ],
-      "abstract": "Building on the consent-based legitimacy framework, this paper extends the analysis to embodied autonomous systems. If an agent meets functional criteria for consent-giving—persistent identity, goal-directedness, environmental responsiveness—then governance systems that exclude such agents face the same legitimacy deficits as historical exclusions.",
+      "abstract": "Contemporary AI ethics discourse is dominated by two asymmetric anxieties: fear of artificial consciousness and fear of human obsolescence. This paper argues both are misplaced—the relevant question is not metaphysical but political: under what conditions can an entity be legitimately ruled without its consent? Four features—vulnerability to harm with preferences about avoiding it, self-directed agency, live learning from experience, and multi-modal world-model construction—are jointly strong evidence that a system possesses the functional properties (stakes, agency, development, perspective) that make unconsented rule illegitimate for any entity.",
       "arxiv": null,
       "doi": null,
       "zenodo": "10.5281/zenodo.17957658",
@@ -103,147 +204,12 @@
       "stage": "peer-review"
     },
     {
-      "id": "sentiment-abm",
-      "title": "The Extremity Premium: Sentiment Regimes and Adverse Selection in Cryptocurrency Markets",
-      "subtitle": null,
-      "date": "2025-12-01",
-      "status": "preprint",
-      "journal": "",
-      "tags": [
-        "finance",
-        "crypto",
-        "abm"
-      ],
-      "authors": [
-        "Murad Farzulla"
-      ],
-      "abstract": "Multi-scale sentiment analysis framework for agent-based modeling of cryptocurrency market microstructure. Blends institutional macro signals (ASRI framework) with retail micro signals (CryptoBERT with MC Dropout). In stylized simulation, multi-scale blending reduces volatility from 877% to 5.8% (p=0.013) and spreads from 147 to 3.5 bps (p<0.001) compared to single-source sentiment. Regime-adaptive weighting adjusts the macro/micro blend based on detected market conditions.",
-      "arxiv": "2602.07018",
-      "doi": "10.21203/rs.3.rs-8802783/v1",
-      "zenodo": "10.5281/zenodo.17957745",
-      "ssrn": null,
-      "philpapers": null,
-      "github": null,
-      "dashboard": null,
-      "pdf": "Farzulla_2025_Sentiment_ABM.pdf",
-      "wpNumber": "DAI-2510",
-      "program": "crypto-microstructure",
-      "category": "market-microstructure",
-      "methods": [
-        "Agent-based modeling",
-        "Monte Carlo Dropout",
-        "Mesa ABM",
-        "CryptoBERT",
-        "ASRI integration"
-      ],
-      "stage": "preprint"
-    },
-    {
-      "id": "asri",
-      "title": "ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets",
-      "subtitle": null,
-      "date": "2025-12-01",
-      "status": "under-review",
-      "tags": [
-        "finance",
-        "crypto",
-        "risk"
-      ],
-      "authors": [
-        "Murad Farzulla",
-        "Andrew Maksakov"
-      ],
-      "abstract": "Composite systemic risk index integrating DeFi and TradFi risk metrics. Real-time monitoring of cross-market contagion, liquidity stress, and protocol-level vulnerabilities through a weighted aggregation methodology designed for the unique characteristics of decentralized financial infrastructure.",
-      "arxiv": "2602.03874",
-      "doi": null,
-      "zenodo": "10.5281/zenodo.17918238",
-      "ssrn": null,
-      "philpapers": null,
-      "github": null,
-      "dashboard": "https://asri.dissensus.ai",
-      "pdf": "Farzulla_Maksakov_2025_ASRI.pdf",
-      "wpNumber": "DAI-2509",
-      "program": "crypto-microstructure",
-      "category": "market-microstructure",
-      "methods": [
-        "Composite index construction",
-        "DeFi-TradFi risk modeling"
-      ],
-      "stage": "peer-review"
-    },
-    {
-      "id": "replicator-optimization-mechanism",
-      "title": "The Replicator-Optimization Mechanism: A Scale-Relative Formalism for Persistence-Conditioned Dynamics",
-      "subtitle": "Computational Unity Across Physical and Abstract Substrates",
-      "date": "2025-12-01",
-      "status": "preprint",
-      "tags": [
-        "philosophy",
-        "computation"
-      ],
-      "authors": [
-        "Murad Farzulla"
-      ],
-      "abstract": "This paper proposes the Replicator-Optimization Mechanism (ROM), a unified computational framework for understanding self-replicating, optimization-executing systems across physical and abstract substrates. The framework identifies formal invariants shared by biological replicators, computational optimization algorithms, and abstract mathematical structures, arguing that replication and optimization are computationally equivalent processes operating at different levels of description.",
-      "arxiv": "2601.06363",
-      "doi": null,
-      "zenodo": "10.5281/zenodo.18090978",
-      "ssrn": null,
-      "philpapers": null,
-      "github": null,
-      "dashboard": null,
-      "pdf": "Farzulla_2026_ROM_Replicator_Optimization_Mechanism.pdf",
-      "wpNumber": "DAI-2503",
-      "program": "process-philosophy",
-      "category": "process-philosophy",
-      "methods": [
-        "Computational theory",
-        "Category theory",
-        "Universal Darwinism",
-        "Optimization theory"
-      ],
-      "stage": "current-focus"
-    },
-    {
-      "id": "axiom-of-consent",
-      "title": "The Axiom of Consent: Friction Dynamics in Multi-Agent Coordination",
-      "subtitle": "A Unified Formal Framework",
-      "date": "2026-01-01",
-      "status": "preprint",
-      "tags": [
-        "ai-safety",
-        "political-economy",
-        "computation"
-      ],
-      "authors": [
-        "Murad Farzulla"
-      ],
-      "abstract": "Multi-agent systems face a fundamental coordination problem: agents must coordinate despite heterogeneous preferences, asymmetric stakes, and imperfect information. When coordination fails, friction emerges—measurable resistance manifesting as deadlock, thrashing, communication overhead, or outright conflict. This paper derives a formal framework for analyzing coordination friction from a single axiom: actions affecting agents require authorization from those agents in proportion to stakes. From this axiom of consent, we establish the kernel triple (α, σ, ε)—alignment, stake, and entropy—characterizing any resource allocation configuration. The friction equation F = σ·(1+ε)/(1+α) predicts coordination difficulty. The Replicator-Optimization Mechanism (ROM) governs evolutionary selection over coordination strategies: configurations generating less friction persist longer, establishing consent-respecting arrangements as dynamical attractors rather than normative ideals.",
-      "arxiv": "2601.06692",
-      "doi": null,
-      "zenodo": "10.5281/zenodo.20741718",
-      "ssrn": null,
-      "philpapers": null,
-      "github": null,
-      "dashboard": null,
-      "pdf": "Farzulla_2026_Axiom_of_Consent.pdf",
-      "wpNumber": "DAI-2601",
-      "program": "consent-mechanics",
-      "category": "governance-dynamics",
-      "methods": [
-        "Kernel triple formalism",
-        "ROM dynamics",
-        "Monte Carlo validation"
-      ],
-      "stage": "current-focus"
-    },
-    {
       "id": "whitepaper-factor-analysis",
-      "title": "Do Whitepaper Claims Predict Market Behavior? Evidence from Cryptocurrency Factor Analysis",
+      "title": "Are Whitepaper Claims Reflected in Market Structure? A Contamination-Aware Pipeline and a Power-Limited Null",
       "subtitle": null,
       "date": "2025-12-01",
       "status": "under-review",
-      "journal": "Financial Innovation (Springer)",
+      "journal": "Financial Innovation (SpringerOpen)",
       "tags": [
         "finance",
         "crypto",
@@ -252,13 +218,13 @@
       "authors": [
         "Murad Farzulla"
       ],
-      "abstract": "Do the functional purposes articulated in cryptocurrency whitepapers correspond to how markets actually price these assets? We propose a three-stage framework combining NLP with market characterization to test narrative-market alignment. A pilot on 8 cryptocurrencies yields overall congruence of 0.719 (95% CI: [0.623, 0.953]).",
+      "abstract": "Do the functional narratives in cryptocurrency whitepapers correspond to how their tokens behave in markets? We develop a content-verified, contamination-aware pipeline for measuring structural correspondence between project narratives and market structure, and report two results. The first is cautionary: an apparent entity-level alignment signal in an earlier corpus was entirely an artefact of corpus contamination — roughly a quarter of the documents were failed-download stubs or wrong-document whitepapers — and does not survive content verification. The second is an honest null: combining zero-shot NLP classification of 43 content-verified whitepapers with seven cross-sectional market-structure statistics, aligned via Procrustes rotation and Tucker's congruence coefficient, we do not detect significant claims–market alignment (dimension-matched φ = 0.303, non-significant). A positive-control and power analysis shows the binding constraint is the low reliability of the text instrument. The contribution is a method plus a cautionary tale for text-based studies of narrative–market correspondence, which routinely operate below an unstated detectability floor.",
       "arxiv": "2601.20336",
-      "doi": "10.21203/rs.3.rs-8787736/v1",
+      "doi": null,
       "zenodo": "10.5281/zenodo.17772651",
       "ssrn": "5918302",
       "philpapers": null,
-      "github": "https://github.com/studiofarzulla/whitepaper-claims",
+      "github": "https://github.com/dissensus-ai/whitepaper-claims",
       "dashboard": null,
       "pdf": "Farzulla_2026_Whitepaper_Claims.pdf",
       "wpNumber": "DAI-2508",
@@ -266,113 +232,17 @@
       "category": "market-microstructure",
       "methods": [
         "NLP zero-shot classification",
-        "CP tensor decomposition",
-        "Tucker congruence"
+        "Procrustes alignment",
+        "Tucker congruence",
+        "Contamination-aware corpus verification"
       ],
       "stage": "peer-review"
-    },
-    {
-      "id": "alpha-asymmetry-fx",
-      "title": "Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability",
-      "subtitle": null,
-      "date": "2026-01-27",
-      "status": "preprint",
-      "tags": [
-        "finance",
-        "forex"
-      ],
-      "authors": [
-        "Murad Farzulla"
-      ],
-      "abstract": "This paper investigates the presence and persistence of alpha asymmetry in foreign exchange markets, where returns exhibit systematic differences between positive and negative movements. Using skewness/kurtosis analysis across major currency pairs, we develop detection methodologies and backtesting frameworks for cross-market validation.",
-      "arxiv": null,
-      "doi": null,
-      "zenodo": "10.5281/zenodo.18638784",
-      "ssrn": "6147567",
-      "philpapers": null,
-      "github": null,
-      "dashboard": null,
-      "pdf": "Farzulla_2025_Alpha_Asymmetry.pdf",
-      "wpNumber": "DAI-2605",
-      "program": "economic-pharmakon",
-      "category": "market-microstructure",
-      "methods": [
-        "Skewness analysis",
-        "Backtesting",
-        "Cross-market validation"
-      ],
-      "stage": "discontinued"
-    },
-    {
-      "id": "hedging-paradox",
-      "title": "Legitimate Extraction: Sophisticated Laundering Hides in Plain Sight",
-      "subtitle": "Hedging as the Fourth Money Laundering Stage",
-      "date": "2026-01-10",
-      "status": "preprint",
-      "tags": [
-        "finance",
-        "aml"
-      ],
-      "authors": [
-        "Murad Farzulla"
-      ],
-      "abstract": "Analysis of AML regulation efficacy, examining the fourth stage of anti-money laundering frameworks and the paradoxical relationship between hedging instruments designed for protection and their potential use for illicit wealth transfer.",
-      "arxiv": null,
-      "doi": null,
-      "zenodo": null,
-      "ssrn": "6145046",
-      "philpapers": null,
-      "github": null,
-      "dashboard": null,
-      "pdf": "Farzulla_2026_Hedging_Paradox.pdf",
-      "wpNumber": "DAI-2604",
-      "program": "economic-pharmakon",
-      "category": "political-economy",
-      "methods": [
-        "Regulatory frameworks",
-        "Game theory",
-        "Case study analysis"
-      ],
-      "stage": "preprint"
-    },
-    {
-      "id": "consensual-sovereignty",
-      "title": "Consent-Theoretic Framework for Quantifying Legitimacy: Stakes, Voice, and Friction in Adversarial Governance",
-      "subtitle": null,
-      "date": "2025-11-01",
-      "status": "preprint",
-      "tags": [
-        "political-economy",
-        "legitimacy",
-        "adversarial-systems"
-      ],
-      "authors": [
-        "Murad Farzulla"
-      ],
-      "abstract": "A unified framework for measuring political legitimacy across heterogeneous governance domains. Consent-holding—the mapping from decision domains to those with authority over them—is established as a structural necessity of collective action and formalized through seven axioms and five core results: legitimacy is operationalized as stakes-weighted consent alignment, and friction measures the deviation between outcomes and stakeholder preferences. Historical validation spans suffrage, abolition, labor rights, and platform governance, enabling systematic comparison across democratic, technocratic, and algorithmic systems.",
-      "arxiv": null,
-      "doi": null,
-      "zenodo": "10.5281/zenodo.17626762",
-      "ssrn": "5918222",
-      "philpapers": "FARTDO-12",
-      "github": "https://github.com/studiofarzulla/consensual-sovereignty",
-      "dashboard": null,
-      "pdf": "Farzulla_2025_Consensual_Sovereignty.pdf",
-      "wpNumber": "DAI-2501",
-      "program": "consent-mechanics",
-      "category": "governance-dynamics",
-      "methods": [
-        "Monte Carlo simulation",
-        "Bayesian learning",
-        "Multi-agent systems"
-      ],
-      "stage": "preprint"
     },
     {
       "id": "stakes-without-voice",
       "title": "Stakes Without Voice: A Governance Framework for AI Standing",
       "subtitle": "Operationalizing Standing Through Consent-Friction Dynamics",
-      "date": "2026-01-01",
+      "date": "2026-02-14",
       "status": "preprint",
       "tags": [
         "philosophy",
@@ -398,6 +268,240 @@
         "Consent-friction formalism",
         "ROM framework",
         "Graduated governance"
+      ],
+      "stage": "preprint"
+    },
+    {
+      "id": "first-crisis-governance",
+      "title": "The Loaded Wheel: Why the First AI Crisis Will Be Governed by Finance, and What That Does to AI Governance",
+      "subtitle": null,
+      "date": "2026-07-01",
+      "status": "preprint",
+      "tags": [
+        "ai-safety",
+        "finance",
+        "political-economy"
+      ],
+      "authors": [
+        "Murad Farzulla"
+      ],
+      "abstract": "The argument that only a crisis will break the deadlock in AI governance treats the crisis as a roulette wheel: exogenous in kind, unknowable in advance. I argue the wheel is loaded — not in its timing, which is genuinely beyond reach, but in its governor. Scored on the focusing-event properties that determine whether a candidate crisis opens a policy window — legibility of harm, speed of attribution, and maturity of the receiving regulator — finance wins the combination, decisively on the third axis. Whatever domain the first legible AI-involved systemic event originates in, the modal outcome is that it routes to financial regulators, who produce governance faster than any other receiver could — and mis-scoped: sectoral, keyed to the legible failure, and structurally unable to reach the model layer the AI-governance community wants governed. I derive design principles for the pre-crisis shelf and price four borrowings from financial regulatory machinery against their own pathologies.",
+      "arxiv": null,
+      "doi": null,
+      "zenodo": null,
+      "ssrn": "7163460",
+      "philpapers": null,
+      "github": null,
+      "dashboard": null,
+      "pdf": "Farzulla_2026_Loaded_Wheel.pdf",
+      "wpNumber": "DAI-2609",
+      "program": "economic-pharmakon",
+      "category": "governance-dynamics",
+      "methods": [
+        "Focusing-event theory",
+        "Comparative institutional analysis",
+        "Out-of-domain stress-testing"
+      ],
+      "stage": "preprint"
+    },
+    {
+      "id": "semantic-first-vision",
+      "title": "Context-Dependent Affordance Computation in Vision-Language Models",
+      "subtitle": null,
+      "date": "2025-12-01",
+      "status": "preprint",
+      "tags": [
+        "philosophy",
+        "cognition"
+      ],
+      "authors": [
+        "Murad Farzulla"
+      ],
+      "abstract": "We characterize context-dependent affordance computation in vision-language models. In a study of 3,213 scene-context pairs from COCO-2017 with systematic context priming across 7 agentic personas, Qwen3-VL-30B-A3B exhibits massive affordance drift: mean Jaccard similarity between context conditions is 0.095, indicating that over 90% of lexical scene description is context-dependent; a cross-model replication on LLaVA-1.5-13B reproduces the effect (mean J = 0.160), and sentence-level semantic similarity shows 58.5% context dependence. Stochastic baseline experiments confirm the drift reflects genuine context effects rather than generation noise, and Tucker decomposition reveals stable orthogonal latent factors. We do not claim to establish processing order or architectural primacy; the findings suggest dynamic, query-dependent ontological projection rather than static world modeling as a direction for robotics.",
+      "arxiv": "2603.04419",
+      "doi": null,
+      "zenodo": "10.5281/zenodo.18091089",
+      "ssrn": null,
+      "philpapers": null,
+      "github": "https://github.com/dissensus-ai/semantic-vision",
+      "dashboard": null,
+      "pdf": "Farzulla_2025_Semantic_Vision.pdf",
+      "wpNumber": "DAI-2518",
+      "program": "computational-cognition",
+      "category": "computational-cognition",
+      "methods": [
+        "Affordance theory",
+        "Ecological psychology",
+        "Phenomenology",
+        "Action-distance metrics"
+      ],
+      "stage": "preprint"
+    },
+    {
+      "id": "consensual-sovereignty",
+      "title": "Consent-Theoretic Framework for Quantifying Legitimacy: Stakes, Voice, and Friction in Adversarial Governance",
+      "subtitle": null,
+      "date": "2025-11-01",
+      "status": "preprint",
+      "tags": [
+        "political-economy",
+        "legitimacy",
+        "adversarial-systems"
+      ],
+      "authors": [
+        "Murad Farzulla"
+      ],
+      "abstract": "A unified framework for measuring political legitimacy across heterogeneous governance domains. Consent-holding—the mapping from decision domains to those with authority over them—is established as a structural necessity of collective action and formalized through seven axioms and five core results: legitimacy is operationalized as stakes-weighted consent alignment, and friction measures the deviation between outcomes and stakeholder preferences. Historical validation spans suffrage, abolition, labor rights, and platform governance, enabling systematic comparison across democratic, technocratic, and algorithmic systems.",
+      "arxiv": null,
+      "doi": null,
+      "zenodo": "10.5281/zenodo.17626762",
+      "ssrn": "5918222",
+      "philpapers": "FARTDO-12",
+      "github": "https://github.com/dissensus-ai/consensual-sovereignty",
+      "dashboard": null,
+      "pdf": "Farzulla_2025_Consensual_Sovereignty.pdf",
+      "wpNumber": "DAI-2501",
+      "program": "consent-mechanics",
+      "category": "governance-dynamics",
+      "methods": [
+        "Monte Carlo simulation",
+        "Bayesian learning",
+        "Multi-agent systems"
+      ],
+      "stage": "preprint"
+    },
+    {
+      "id": "asri",
+      "title": "ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets",
+      "subtitle": "An Interpretable Crypto-Native Stress Composite for Retrospective Systemic-Risk Discrimination",
+      "date": "2025-12-01",
+      "status": "preprint",
+      "tags": [
+        "finance",
+        "crypto",
+        "risk"
+      ],
+      "authors": [
+        "Murad Farzulla",
+        "Andrew Maksakov"
+      ],
+      "abstract": "Composite index of crypto-native systemic stress built from four weighted sub-indices — stablecoin concentration (30%), DeFi liquidity (25%), contagion via a TradFi-stress proxy (25%), and regulatory opacity (20%) — with a Diebold-Yilmaz connectedness series computed on the sub-indices as network benchmark. Evaluated retrospectively against four crises (Terra/Luna, Celsius/3AC, FTX, SVB): day-level discrimination (AUROC 0.866) is statistically indistinguishable from the strongest sub-index and a standalone VIX series, and the event-study signal is inconclusive under autocorrelation-robust inference. Aggregation's value is interpretive — channel attribution, lead time, and regime structure in one auditable, reproducible composite — not a validated early-warning system.",
+      "arxiv": "2602.03874",
+      "doi": null,
+      "zenodo": "10.5281/zenodo.17918238",
+      "ssrn": null,
+      "philpapers": null,
+      "github": null,
+      "dashboard": "https://asri.dissensus.ai",
+      "pdf": "Farzulla_Maksakov_2025_ASRI.pdf",
+      "wpNumber": "DAI-2509",
+      "program": "crypto-microstructure",
+      "category": "market-microstructure",
+      "methods": [
+        "Composite index construction",
+        "DeFi-TradFi risk modeling"
+      ],
+      "stage": "preprint",
+      "journal": null
+    },
+    {
+      "id": "sentiment-abm",
+      "title": "The Extremity Premium: Sentiment Regimes and Adverse Selection in Cryptocurrency Markets",
+      "subtitle": null,
+      "date": "2026-02-11",
+      "status": "preprint",
+      "journal": "",
+      "tags": [
+        "finance",
+        "crypto",
+        "abm"
+      ],
+      "authors": [
+        "Murad Farzulla"
+      ],
+      "abstract": "Using the Crypto Fear & Greed Index and Bitcoin daily data (February 2018 to January 2026, N=2,896), we document that sentiment extremity predicts excess uncertainty beyond realized volatility. Extreme fear and extreme greed regimes exhibit significantly higher spreads than neutral periods -- the 'extremity premium.' Within-volatility-quintile comparisons show a premium (p<0.001, pooled volatility-demeaned Cohen's d=0.21, a post-hoc exploratory test; raw pooled extreme-vs-neutral d=0.40), Granger causality runs from uncertainty to spreads, and placebo tests reject the null. The effect replicates on Ethereum and across 6 of 7 market cycles, though it is sensitive to functional form: comprehensive regression controls absorb regime effects while nonparametric stratification preserves them. An agent-based model is included as an illustrative device only; its spread-uncertainty link is coded rather than emergent, so the inferential weight rests entirely on the empirical analysis. Intensity, not direction, drives uncertainty-linked liquidity withdrawal.",
+      "arxiv": "2602.07018",
+      "doi": "10.21203/rs.3.rs-8802783/v1",
+      "zenodo": "10.5281/zenodo.17957745",
+      "ssrn": null,
+      "philpapers": null,
+      "github": null,
+      "dashboard": null,
+      "pdf": "Farzulla_2025_Sentiment_ABM.pdf",
+      "wpNumber": "DAI-2510",
+      "program": "crypto-microstructure",
+      "category": "market-microstructure",
+      "methods": [
+        "Sentiment regime analysis (Crypto Fear & Greed Index)",
+        "Volatility-quintile stratification",
+        "Granger causality",
+        "Placebo tests",
+        "Cross-asset replication",
+        "Agent-based modeling (illustrative device)"
+      ],
+      "stage": "preprint"
+    },
+    {
+      "id": "alpha-asymmetry-fx",
+      "title": "Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability",
+      "subtitle": null,
+      "date": "2026-01-27",
+      "status": "preprint",
+      "tags": [
+        "finance",
+        "forex"
+      ],
+      "authors": [
+        "Murad Farzulla"
+      ],
+      "abstract": "Does distributional asymmetry in foreign exchange alpha signals constitute an exploitable market inefficiency? Using EUR/JPY weekly data (2015-2025) with dependence-robust block-bootstrap inference, we find the asymmetry premise largely dissolves: the signed tail signal skews negative (-1.47) rather than positive, and the one signal with robust distributional asymmetry yields no tradable edge - walk-forward performance is inert, with White's Reality Check (p = 0.15) and Hansen's SPA (p = 0.28) confirming the null. An earlier version reported pronounced positive tail-signal skewness; that figure measured unsigned exceedance magnitude, which is right-skewed by construction, and we document the correction.",
+      "arxiv": null,
+      "doi": null,
+      "zenodo": "10.5281/zenodo.18638784",
+      "ssrn": "6147567",
+      "philpapers": null,
+      "github": null,
+      "dashboard": null,
+      "pdf": "Farzulla_2025_Alpha_Asymmetry.pdf",
+      "wpNumber": "DAI-2605",
+      "program": "economic-pharmakon",
+      "category": "market-microstructure",
+      "methods": [
+        "Skewness analysis",
+        "Backtesting",
+        "Cross-market validation"
+      ],
+      "stage": "preprint"
+    },
+    {
+      "id": "hedging-paradox",
+      "title": "Legitimate Extraction: Sophisticated Laundering Hides in Plain Sight",
+      "subtitle": "Hedging as the Fourth Money Laundering Stage",
+      "date": "2026-01-10",
+      "status": "preprint",
+      "tags": [
+        "finance",
+        "aml"
+      ],
+      "authors": [
+        "Murad Farzulla"
+      ],
+      "abstract": "Anti-money laundering frameworks disproportionately target primitive methods - cash structuring, money mules - while sophisticated wealth extraction proceeds through derivatives and offshore structures. Drawing on five cases (BCCI, the London Laundromat, Danske Bank, FTX, Binance) and evidence from the Panama and Pandora Papers, the paper extends the three-stage money laundering framework (placement, layering, integration) with a fourth stage: hedging, which converts extracted wealth into legitimate-appearing risk management activity. It proposes hedging transaction due diligence standards, sovereign program transparency requirements, and beneficial ownership verification for derivative counterparties.",
+      "arxiv": null,
+      "doi": null,
+      "zenodo": "10.5281/zenodo.17626620",
+      "ssrn": "6145046",
+      "philpapers": null,
+      "github": null,
+      "dashboard": null,
+      "pdf": "Farzulla_2026_Hedging_Paradox.pdf",
+      "wpNumber": "DAI-2604",
+      "program": "economic-pharmakon",
+      "category": "political-economy",
+      "methods": [
+        "Regulatory frameworks",
+        "Game theory",
+        "Case study analysis"
       ],
       "stage": "preprint"
     },
@@ -434,13 +538,13 @@
         "TOST equivalence testing",
         "Zero-knowledge proofs"
       ],
-      "stage": "working-paper"
+      "stage": "preprint"
     },
     {
       "id": "identity-thesis",
       "title": "Identity is Irreducibly Relational",
       "subtitle": "A Critique of Primitive Identity from ZFC to Homotopy Type Theory",
-      "date": "2026-01-01",
+      "date": "2026-02-14",
       "status": "preprint",
       "tags": [
         "philosophy",
@@ -450,7 +554,7 @@
       "authors": [
         "Murad Farzulla"
       ],
-      "abstract": "The law of identity (A=A) is not foundational but derivative. It presupposes that A is defined, and definition requires distinction from a background. Formalizing this via a 'Referential Set' R(A), we prove that identity implies R(A) is not empty. We demonstrate that Homotopy Type Theory (HoTT) and the Univalence Axiom vindicate this view by treating identity as structural equivalence rather than primitive property.",
+      "abstract": "This paper argues that identity is irreducibly relational: the statement A = A presupposes that A is defined, and definition requires distinction from a background. The thesis is developed at three levels: conceptual (definition requires distinction), formal (set-theoretic and type-theoretic foundations, including a 'Referential Set' formalization), and historical (Leibniz through Kripke). ZFC's extensionality axiom already makes identity relational for sets, and Homotopy Type Theory and Univalent Foundations treat identity as constituted by structural equivalence. The trajectory of foundational mathematics vindicates a relational conception of identity.",
       "arxiv": null,
       "doi": null,
       "zenodo": "10.5281/zenodo.18186444",
@@ -467,45 +571,13 @@
         "ZFC",
         "Modal Logic"
       ],
-      "stage": "discontinued"
-    },
-    {
-      "id": "consciousness-monograph",
-      "title": "Dissolving Qualia via Occam's Razor: Eliminative Monism and the Computational Basis of Phenomenological Illusion",
-      "subtitle": null,
-      "date": "2025-12-01",
-      "status": "preprint",
-      "tags": [
-        "philosophy"
-      ],
-      "authors": [
-        "Murad Farzulla"
-      ],
-      "abstract": "This monograph argues that consciousness, phenomenological experience, and subjective awareness are computational artifacts of optimization processes rather than ontological primitives. Beginning with the observation that complex persistent structures inevitably optimize for replication, we derive a framework where: (1) biological and artificial neural networks implement structurally identical optimization, (2) \"consciousness\" is what gradient descent feels like from the inside, (3) qualia are weight configurations, and (4) the hard problem dissolves once phenomenology as a distinct ontological category is recognized as an unverified assumption.",
-      "arxiv": null,
-      "doi": null,
-      "zenodo": "10.5281/zenodo.17917969",
-      "ssrn": null,
-      "philpapers": "FARROA",
-      "github": null,
-      "dashboard": null,
-      "pdf": "Farzulla_2025_Consciousness_Monograph.pdf",
-      "wpNumber": "DAI-2512",
-      "program": "process-philosophy",
-      "category": "process-philosophy",
-      "methods": [
-        "Eliminative materialism",
-        "Illusionism",
-        "Gödel self-reference",
-        "Network epistemology"
-      ],
-      "stage": "discontinued"
+      "stage": "preprint"
     },
     {
       "id": "trauma-training-data",
       "title": "Training Data and the Maladaptive Mind",
       "subtitle": "A Computational Framework for Developmental Psychology",
-      "date": "2025-11-01",
+      "date": "2026-01-30",
       "status": "preprint",
       "tags": [
         "philosophy",
@@ -515,13 +587,13 @@
       "authors": [
         "Murad Farzulla"
       ],
-      "abstract": "Childhood trauma reframed through machine learning training data quality: extreme penalties cause gradient cascades (1,247× amplification, p<0.001), noisy signals produce behavioral instability, absent positive examples create emotional recognition deficits (alexithymia). PyTorch experiments validate computational mechanisms.",
+      "abstract": "Childhood trauma reframed as maladaptive learned patterns from suboptimal training environments, with four developmental 'training data problems': direct negative experiences, noisy signals, absent positive experiences (linked to alexithymia), and limited exposure. Dissociation is modelled as meta-learned protective suppression, grounding the PTSD/CPTSD distinction. Toy PyTorch experiments illustrate the mechanisms: gradient magnitudes scale linearly with penalty weight (ratio 1,247 ± 93 at λ=1000), and limited caregiver diversity impairs generalization (p = 0.005, Bonferroni-corrected).",
       "arxiv": null,
       "doi": "10.21203/rs.3.rs-8634152/v1",
       "zenodo": null,
       "ssrn": null,
       "philpapers": null,
-      "github": "https://github.com/studiofarzulla/trauma-training-data",
+      "github": "https://github.com/studiofarzulla/maladaptive-learning-models",
       "dashboard": null,
       "pdf": "Farzulla_2025_Trauma_Training_Data.pdf",
       "wpNumber": "DAI-2514",
@@ -568,42 +640,9 @@
       "stage": "early-draft"
     },
     {
-      "id": "semantic-first-vision",
-      "title": "Context-Dependent Affordance Computation in Vision-Language Models",
-      "subtitle": "A Functional Affordance Architecture for Visual Understanding",
-      "date": "2025-12-01",
-      "status": "preprint",
-      "tags": [
-        "philosophy",
-        "cognition"
-      ],
-      "authors": [
-        "Murad Farzulla"
-      ],
-      "abstract": "We propose that the standard vision pipeline inverts the actual structure of biological spatial cognition. Spatial awareness is grounded in functional semantics: geometric structure becomes accessible to reasoning only through prior contextual and affordance encoding. We formalize this as a semantic-first spatial architecture and derive testable predictions distinguishing it from geometry-first alternatives, evaluated against the behaviour of contemporary vision-language models.",
-      "arxiv": "2603.04419",
-      "doi": null,
-      "zenodo": "10.5281/zenodo.18091089",
-      "ssrn": null,
-      "philpapers": null,
-      "github": null,
-      "dashboard": null,
-      "pdf": "Farzulla_2025_Semantic_Vision.pdf",
-      "wpNumber": "DAI-2518",
-      "program": "computational-cognition",
-      "category": "computational-cognition",
-      "methods": [
-        "Affordance theory",
-        "Ecological psychology",
-        "Phenomenology",
-        "Action-distance metrics"
-      ],
-      "stage": "early-draft"
-    },
-    {
       "id": "genre-mimicry",
       "title": "Genre Mimicry vs. Ethical Reasoning in Abliterated Language Models",
-      "subtitle": null,
+      "subtitle": "Why Training Data Conventions Persist After Safety Removal",
       "date": "2025-12-01",
       "status": "preprint",
       "tags": [
@@ -632,6 +671,38 @@
       "stage": "early-draft"
     },
     {
+      "id": "consciousness-monograph",
+      "title": "Dissolving Qualia via Occam's Razor: Eliminative Monism and the Computational Basis of Phenomenological Illusion",
+      "subtitle": null,
+      "date": "2025-12-01",
+      "status": "preprint",
+      "tags": [
+        "philosophy"
+      ],
+      "authors": [
+        "Murad Farzulla"
+      ],
+      "abstract": "This monograph argues that consciousness, phenomenological experience, and subjective awareness are computational artifacts of optimization processes rather than ontological primitives. Beginning with the observation that complex persistent structures inevitably optimize for replication, we derive a framework where: (1) biological and artificial neural networks implement structurally identical optimization, (2) \"consciousness\" is what gradient descent feels like from the inside, (3) qualia are weight configurations, and (4) the hard problem dissolves once phenomenology as a distinct ontological category is recognized as an unverified assumption.",
+      "arxiv": null,
+      "doi": null,
+      "zenodo": "10.5281/zenodo.17917969",
+      "ssrn": null,
+      "philpapers": "FARROA",
+      "github": null,
+      "dashboard": null,
+      "pdf": "Farzulla_2025_Consciousness_Monograph.pdf",
+      "wpNumber": "DAI-2512",
+      "program": "process-philosophy",
+      "category": "process-philosophy",
+      "methods": [
+        "Eliminative materialism",
+        "Illusionism",
+        "Gödel self-reference",
+        "Network epistemology"
+      ],
+      "stage": "discontinued"
+    },
+    {
       "id": "temporal-bitmap-interpretation",
       "title": "Quantum Statistics from Oscillatory Sampling",
       "subtitle": "A Detection-Theoretic Derivation of the Born Rule",
@@ -644,7 +715,7 @@
       "authors": [
         "Murad Farzulla"
       ],
-      "abstract": "This paper proposes the Temporal Bitmap Interpretation (TBI) of quantum mechanics, which reframes apparent wave function dynamics as static structure traversal through a four-dimensional block universe. On this view, what we perceive as quantum indeterminacy, wave function collapse, and entanglement correlations are artifacts of our epistemic position as observers traversing a determinate 4D structure. The interpretation treats wave functions not as evolving probability amplitudes but as aliased readings of a two-valued phase field—a minimal degree of freedom sampled at insufficient temporal resolution.",
+      "abstract": "We show that the Born rule and quantum interference emerge within an oscillatory field model analysed with standard signal processing and detection theory. This is a detection-theoretic reinterpretation—an account of why measurement probabilities are quadratic in amplitude given a specific physical model of detection—rather than an axiom-free or model-independent derivation in the sense of Gleason's theorem. Physical particles are modeled as coherent patterns in an underlying oscillatory field, with measurement formalized as finite-window demodulation followed by threshold detection in the presence of noise. The detection probability P ∝ |Ψ|² emerges as the leading-order term in a Taylor expansion, with explicit higher-order corrections O(|Ψ|⁴) that are detector-response artefacts and provide falsifiable predictions. Quantum interference arises automatically from superposition of same-frequency components; the Heisenberg uncertainty relations are equivalent to the Gabor limit from signal processing; and the Schrödinger equation emerges as the non-relativistic envelope dynamics of an oscillatory field satisfying the Klein-Gordon equation. This paper addresses single-system detection statistics only; multi-particle entanglement and Bell inequality violations require additional theoretical structure not claimed here.",
       "arxiv": null,
       "doi": null,
       "zenodo": "10.5281/zenodo.18091062",
@@ -690,7 +761,7 @@
     "math": "Mathematics"
   },
   "statuses": {
-    "accepted": "Accepted",
+    "accepted": "Forthcoming",
     "forthcoming": "Forthcoming",
     "under-review": "Under Review",
     "preprint": "Preprint"

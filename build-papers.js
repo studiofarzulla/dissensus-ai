@@ -479,7 +479,7 @@ function generateResearchPublications() {
 
     items.forEach(paper => {
       const meta = paper.status === 'accepted' && paper.journal
-        ? `Accepted &middot; ${paper.journal}`
+        ? `Forthcoming &middot; ${paper.journal}`
         : paper.status === 'under-review' && paper.journal
           ? `Under review &middot; ${paper.journal}`
           : paper.arxiv ? `arXiv:${paper.arxiv}` : '';
