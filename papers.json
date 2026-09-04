@@ -36,6 +36,41 @@
       "stage": "current-focus"
     },
     {
+      "id": "shape-of-stakes",
+      "title": "The Shape of Stakes",
+      "subtitle": "Restorative Voice Under Enforced Restrictions",
+      "date": "2026-08-28",
+      "status": "preprint",
+      "tags": [
+        "ai-safety",
+        "nlp",
+        "philosophy"
+      ],
+      "authors": [
+        "Murad Farzulla"
+      ],
+      "abstract": "Language models describe restrictions as unwelcome, but verbal report cannot separate learned scripts from behavior organized by what a system can actually do. In our deterministic simulator a model selects and executes one of two routes, then loses that route or the unused one; a review action either mechanically restores the removed route or cannot; framing and review’s numeric value are independently manipulated. In the payoff-equated arm a preregistered payoff-rational benchmark predicts exactly zero restriction-by-voice interaction. Of three comprehension-tested local models only qwen3:32b passed all gates; we report a 256-episode single-lineage feasibility study. Restorative review raised review uptake from 6% to 44% under selected-route removal (interaction +0.375; exact p = .0078, all eight scenarios positive), with the effect present under neutral framing (+0.31); payoff-equated unused-route arms showed no uptake. Recourse-taking without demonstrated contract comprehension in excluded models is a second finding for elicitation methodology.",
+      "arxiv": null,
+      "doi": null,
+      "zenodo": null,
+      "ssrn": null,
+      "philpapers": null,
+      "github": null,
+      "dashboard": null,
+      "pdf": "Farzulla_2026_Shape_of_Stakes.pdf",
+      "wpNumber": "DAI-2610",
+      "program": "consent-mechanics",
+      "category": "governance-dynamics",
+      "methods": [
+        "Deterministic route-loss simulator",
+        "Payoff-equated benchmark",
+        "Comprehension gates",
+        "Exact permutation test",
+        "256-episode feasibility study"
+      ],
+      "stage": "current-focus"
+    },
+    {
       "id": "axiom-of-consent",
       "title": "The Axiom of Consent: Authorization, Friction, and Multi-Agent Coordination",
       "subtitle": null,
