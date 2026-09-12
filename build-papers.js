@@ -342,7 +342,8 @@ ${getNavHtml('research')}
       </header>
 
       <div class="paper__actions">
-        ${paper.pdf ? `<a href="${paper.pdf}" class="btn" download>Download PDF</a>` : ''}
+        ${paper.pdf ? `<a href="${paper.pdf}" class="btn" download>Download PDF</a>` : ''}${paper.supplement ? `
+        <a href="${paper.supplement}" class="btn btn--ghost" download>Technical supplement${paper.supplementPages ? ` (${paper.supplementPages}pp)` : ''}</a>` : ''}
         ${arxivUrl ? `<a href="${arxivUrl}" class="btn btn--ghost" target="_blank" rel="noopener">arXiv: ${paper.arxiv}</a>` : ''}
         ${doiOnlyUrl ? `<a href="${doiOnlyUrl}" class="btn btn--ghost" target="_blank" rel="noopener">DOI</a>` : ''}
         ${zenodoUrl ? `<a href="${zenodoUrl}" class="btn btn--ghost" target="_blank" rel="noopener">Zenodo</a>` : ''}
