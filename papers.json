@@ -620,7 +620,7 @@
       "authors": [
         "Murad Farzulla"
       ],
-      "abstract": "Childhood trauma reframed as maladaptive learned patterns from suboptimal training environments, with four developmental 'training data problems': direct negative experiences, noisy signals, absent positive experiences (linked to alexithymia), and limited exposure. Dissociation is modelled as meta-learned protective suppression, grounding the PTSD/CPTSD distinction. Toy PyTorch experiments illustrate the mechanisms: gradient magnitudes scale linearly with penalty weight (ratio 1,247 ± 93 at λ=1000), and limited caregiver diversity impairs generalization (p = 0.005, Bonferroni-corrected).",
+      "abstract": "Childhood trauma reframed as maladaptive learned patterns from suboptimal training environments, with four developmental 'training data problems': direct negative experiences, noisy signals, absent positive experiences (linked to alexithymia), and limited exposure. Dissociation is modelled as meta-learned protective suppression, grounding the PTSD/CPTSD distinction. Toy PyTorch experiments serve as one realizer of the functional profile, not as evidence about children: extreme penalty weights raise boundary-region misclassification from about 5% to about 48% in a synthetic classifier, and adding simulated caregivers narrows the generalization gap (t(18) = 3.20, p = 0.005, Holm-corrected).",
       "arxiv": null,
       "doi": "10.21203/rs.3.rs-8634152/v1",
       "zenodo": null,
