@@ -1,8 +1,8 @@
 {
   "_note": "Drives dissensus.ai/collaborate.html — open, unfinished research. collaborate.html is GENERATED: run `node build-papers.js` after editing.",
-  "intro": "This page lists research that is early, unfinished, or stalled, published with its actual state visible rather than tidied up. None of these is a polished programme: one is an outline and nothing else, several are preprints whose public headline outruns the evidence behind it, and one has a live version its own author has already corrected on disk. The gaps are listed because the gaps are the part someone else can act on.",
-  "introSecond": "What a collaborator gets here is a specified problem with the data, the code and the prior mistakes already on the table, plus co-authorship on whatever closes it. In several cases the blocking task is small enough to name in a sentence: two coders for a weekend, one inference run, one annotation study.",
-  "stateNote": "Each entry is split into what exists and what is missing. The missing column is deliberately unflattering — it names companion repositories that were never pushed, controls that were never run, experiments that were installed and never executed, and public versions that claim more than the committed code supports.",
+  "intro": "These are open research problems, with a record of what exists and what still needs testing. Some have public preprints and reproducibility archives; others remain exploratory. Each entry names the evidence a collaborator could help produce.",
+  "introSecond": "Collaborations start from a concrete contribution: a replication, an independent coding exercise, a control or a new evaluation. Scope, responsibilities and authorship are agreed around the work.",
+  "stateNote": "The two columns distinguish released work from proposed experiments. Completed controls are recorded as completed; an experiment suggested by a paper is not counted as a result.",
   "projects": [
     {
       "id": "first-crisis-governance",
@@ -35,26 +35,24 @@
     },
     {
       "id": "semantic-vision",
-      "title": "Context-dependent affordance computation in vision-language models",
+      "title": "Context-dependent affordance reports in vision-language models",
       "domain": "Vision-language models",
       "publicStatus": "Preprint",
-      "oneLine": "Does a vision-language model's account of what a scene affords change with the agent's goal, and by how much?",
-      "currentState": "A preprint is public and the analysis code and raw model outputs are committed, so the descriptive result can be rechecked by anyone who wants to. The result is weaker than the live version's headline suggests: the seven context primes ask seven genuinely different questions, so an unknown share of the measured drift is ordinary instruction-following rather than affordance computation, and the control that would separate the two has not been run. A revised manuscript that re-headlines the finding as metric-dependent — about 58.5% drift at the semantic embedding level against the above-90% lexical figure, leaving a roughly 40% context-invariant core — is finished on disk and has not been posted. The embodied and representational work the paper points towards was never started.",
+      "oneLine": "When the image and question are held fixed, how much does a persona change the report relative to wording and sampling?",
+      "currentState": "A corrected 16-page paper, source and reproducibility archive were published on Zenodo on 12 September 2026. The historical response audit separates answer availability from content similarity and withdraws the latent-manifold and percentage-of-meaning interpretations. New matched-question controls were run in two configurations. Persona variation does not uniformly exceed wording or sampling variation; larger replications and behavioural validation remain open.",
       "whatExists": [
-        "Preprint, 33pp, arXiv:2603.04419 (v2, 11 July 2026), mirrored on Zenodo under concept DOI 10.5281/zenodo.18091089",
-        "Primary experiment: 3,213 valid scene-context pairs from 3,349 attempted, over 479 COCO-2017 validation images and 7 agentic personas on Qwen3-VL-30B-A3B; raw JSONL committed alongside the code",
-        "Analysis pipeline in the repository, including the cluster-robust image-level statistics of record (N = 479), a Tucker decomposition with 1,000-resample bootstrap, and pinned requirements",
-        "Cross-model replication on LLaVA-1.5-13B (mean Jaccard 0.160), reproducible from the committed scripts",
-        "A revised 35-page manuscript staged locally, naming the task-instruction confound as the paper's most important limitation, plus two written adversarial reviews with itemised verdicts against the code"
+        "Corrected paper and reproducibility archive: Zenodo v3.0.0, DOI 10.5281/zenodo.22721059",
+        "Audit tracing the historical empty-response treatment and its effect on overlap scores and the Tucker factor",
+        "1,536 matched-question requests: 48 images per configuration × four personas × two wordings × two requested seeds, across Qwen3.5-9B and Ollama llava:13b",
+        "Image-level analysis with complete-image primary estimates, explicit response-availability reporting and raw-response provenance"
       ],
       "whatIsMissing": [
-        "The three controls that would isolate the effect have never been run, because each needs a fresh inference pass: identical question with varied persona, an equal-cardinality set, and a paraphrase set. Until the first exists, the persona-specific share of the drift is not separated out.",
-        "The primes cap object counts differently, which mechanically caps set overlap. That confound is understood and unaddressed.",
-        "Embodied validation never happened. The simulator was installed and the scene-context experiment produced no output, so the just-in-time ontology proposal for robotics has no embodied test behind it and is labelled a design hypothesis.",
-        "No internal evidence of any kind. Everything measured is output text — no layerwise probes, no attention analysis, no intervention — so 'semantic-first' names an output pattern rather than a claim about processing order.",
-        "Two models, both open-weight, and no human behavioural baseline."
+        "Broader replication across models and image samples; the current results are configuration-specific.",
+        "A design that distinguishes valid empty reports from generation or parsing failures without conditioning the main result on a selected subset of answers.",
+        "Human behavioural and embodied-task validation: the current experiment measures language-model reports.",
+        "Internal interventions or probes that could support a claim about processing order; output text alone cannot do that."
       ],
-      "collaboratorProfile": "Four different people would each unblock a different part. Anyone with spare VLM inference budget and eval experience: the queued controls are cheap in wall-clock time and expensive only in access, and the identical-question set alone decides whether the headline survives. Someone from mechanistic interpretability who can do layerwise or attention probing on an open-weight model, since the processing-order question is entirely untouched. An embodied AI or robotics person with a working AI2-THOR or Habitat setup, to test the JIT Ontology proposal instead of leaving it as a suggestion. And anyone with human-subjects capacity — eye-tracking, response times, task-conditioned rankings — to replace an unconstrained zero-shot comparison with a real baseline. The data and code are already public, so the claim can be audited before anyone commits; expect to edit hardcoded paths and a local inference endpoint before the pipeline runs elsewhere.",
+      "collaboratorProfile": "Researchers in VLM evaluation, missing-data analysis, mechanistic interpretability or embodied AI. A useful next contribution would replicate the matched-question design, audit response availability, or test whether reported affordances predict behaviour. The released code and raw outputs make it possible to inspect the existing result before extending it.",
       "links": [
         {
           "label": "arXiv:2603.04419",

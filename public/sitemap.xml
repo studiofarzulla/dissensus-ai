@@ -73,6 +73,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dissensus.ai/news/research-update-september-2026</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dissensus.ai/news/temporal-bitmap</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>yearly</changefreq>
@@ -83,6 +89,18 @@
     <lastmod>2026-09-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dissensus.ai/papers/semantic-first-vision</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dissensus.ai/papers/market-reaction-asymmetry</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dissensus.ai/papers/marl-coordination</loc>
@@ -145,12 +163,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dissensus.ai/papers/market-reaction-asymmetry</loc>
-    <lastmod>2026-09-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://dissensus.ai/papers/consent-to-consideration</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -158,12 +170,6 @@
   </url>
   <url>
     <loc>https://dissensus.ai/papers/whitepaper-factor-analysis</loc>
-    <lastmod>2026-09-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dissensus.ai/papers/semantic-first-vision</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

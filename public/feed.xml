@@ -6,10 +6,19 @@
     <link>https://dissensus.ai/</link>
     <atom:link href="https://dissensus.ai/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-gb</language>
-    <lastBuildDate>Sat, 29 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 00:00:00 +0000</lastBuildDate>
     <managingEditor>research@dissensus.ai (Murad Farzulla)</managingEditor>
     <webMaster>research@dissensus.ai</webMaster>
     <ttl>1440</ttl>
+
+    <item>
+      <title>September research update</title>
+      <link>https://dissensus.ai/news/research-update-september-2026</link>
+      <description>A corrected vision-language release, the approved Digital Finance author copy, and current work on multi-agent evaluation.</description>
+      <pubDate>Sat, 19 Sep 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="true">https://dissensus.ai/news/research-update-september-2026</guid>
+      <category>Research</category>
+    </item>
 
     <item>
       <title>Dissensus is now an IASEAI affiliate</title>

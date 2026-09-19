@@ -341,10 +341,15 @@ ${getNavHtml('research')}
         <p class="paper__authors">${authors}</p>
       </header>
 
-      <div class="paper__actions">
+${paper.updateNote ? `      <section class="paper__section paper__version" aria-label="Version note">
+        <h2>Version note · ${paper.updateDate ? escapeHtml(formatDate(paper.updateDate)) : 'Current version'}</h2>
+        <p>${escapeHtml(paper.updateNote)}</p>
+      </section>
+
+` : ''}      <div class="paper__actions">
         ${paper.pdf ? `<a href="${paper.pdf}" class="btn" download>Download PDF</a>` : ''}
         ${arxivUrl ? `<a href="${arxivUrl}" class="btn btn--ghost" target="_blank" rel="noopener">arXiv: ${paper.arxiv}</a>` : ''}
-        ${doiOnlyUrl ? `<a href="${doiOnlyUrl}" class="btn btn--ghost" target="_blank" rel="noopener">DOI</a>` : ''}
+${doiOnlyUrl ? `        <a href="${doiOnlyUrl}" class="btn btn--ghost" target="_blank" rel="noopener">DOI</a>` : ''}
         ${zenodoUrl ? `<a href="${zenodoUrl}" class="btn btn--ghost" target="_blank" rel="noopener">Zenodo</a>` : ''}
         ${ssrnUrl ? `<a href="${ssrnUrl}" class="btn btn--ghost" target="_blank" rel="noopener">SSRN</a>` : ''}
         ${philpapersUrl ? `<a href="${philpapersUrl}" class="btn btn--ghost" target="_blank" rel="noopener">PhilPapers</a>` : ''}
@@ -353,7 +358,7 @@ ${getNavHtml('research')}
       </div>
 
       <section class="paper__section paper__abstract">
-        <h2>Abstract</h2>
+        <h2>${escapeHtml(paper.summaryLabel || 'Abstract')}</h2>
         <p>${paper.abstract}</p>
       </section>
 

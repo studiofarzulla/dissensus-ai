@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Proposals for retail central bank digital currency increasingly accept that anti-money-laundering obligations require identity-linked transaction monitoring. Th...">
+  <meta name="description" content="A research programme with Andrew Maksakov on CBDC privacy architecture and the informational requirements of transaction monitoring. The linked preprint explore...">
   <meta name="author" content="Murad Farzulla, Andrew Maksakov">
   <meta name="keywords" content="Financial Markets, Cryptocurrency, Privacy &amp; Cryptography">
   <meta name="theme-color" content="#faf8f5">
@@ -28,7 +28,7 @@
   <meta name="DC.creator" content="Murad Farzulla, Andrew Maksakov">
   <meta name="DC.date" content="2025-12-01">
   <meta name="DC.publisher" content="Dissensus">
-  <meta name="DC.description" content="Proposals for retail central bank digital currency increasingly accept that anti-money-laundering obligations require identity-linked transaction monitoring. The cost of that requirement has not been measured. This paper builds a tiered ablation harness in which four nested evidence tiers - structur...">
+  <meta name="DC.description" content="A research programme with Andrew Maksakov on CBDC privacy architecture and the informational requirements of transaction monitoring. The linked preprint explores identity access in synthetic monitoring. Subsequent checks narrowed the interpretation: these experiments do not establish identity-free e...">
   <meta name="DC.type" content="Text">
   <meta name="DC.format" content="text/html">
   <meta name="DC.language" content="en">
@@ -65,7 +65,7 @@
       "name": "Dissensus",
       "url": "https://dissensus.ai"
     },
-    "description": "Proposals for retail central bank digital currency increasingly accept that anti-money-laundering obligations require identity-linked transaction monitoring. The cost of that requirement has not been measured. This paper builds a tiered ablation harness in which four nested evidence tiers - structure only on unlinked pseudonyms, plus pseudonymous linkage, plus identity attributes, plus watchlist access - are scored on identical data with entity-disjoint folds and entity-clustered bootstrap intervals. A pre-specified degeneracy audit fails the run if any single feature separates the classes above entity-level AUC 0.95; this rejects the wallet-count artefact that drove an earlier version of this work. Equivalence is tested by TOST rather than inferred from a null. On synthetic data the answer is detector-dependent: for a gradient-boosted model, pseudonymous linkage carries the increment and full identity access is statistically equivalent to linkage alone; for a logistic model, identity access is decisively superior on average precision. The marginal value of identity access is therefore model- and metric-dependent rather than a fixed property of the data.",
+    "description": "A research programme with Andrew Maksakov on CBDC privacy architecture and the informational requirements of transaction monitoring. The linked preprint explores identity access in synthetic monitoring. Subsequent checks narrowed the interpretation: these experiments do not establish identity-free equivalence, deployment readiness or a privacy guarantee.",
     "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.17917938"},
     "url": "https://dissensus.ai/papers/cbdc-privacy",
     "inLanguage": "en"
@@ -76,7 +76,7 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://dissensus.ai/papers/cbdc-privacy">
   <meta property="og:title" content="What Does Identity Access Buy? Pricing the Surveillance Increments in CBDC Transaction Monitoring">
-  <meta property="og:description" content="Proposals for retail central bank digital currency increasingly accept that anti-money-laundering obligations require identity-linked transaction monitoring. The cost of that requirement has not been ...">
+  <meta property="og:description" content="A research programme with Andrew Maksakov on CBDC privacy architecture and the informational requirements of transaction monitoring. The linked preprint explores identity access in synthetic monitorin...">
   <meta property="og:site_name" content="Dissensus">
   <meta property="og:image" content="https://dissensus.ai/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -85,7 +85,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="What Does Identity Access Buy? Pricing the Surveillance Increments in CBDC Transaction Monitoring">
-  <meta name="twitter:description" content="Proposals for retail central bank digital currency increasingly accept that anti-money-laundering obligations require identity-linked transaction monitoring. The cost of that requirement has not been ...">
+  <meta name="twitter:description" content="A research programme with Andrew Maksakov on CBDC privacy architecture and the informational requirements of transaction monitoring. The linked preprint explores identity access in synthetic monitorin...">
   <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
 
   <!-- Canonical -->
@@ -93,8 +93,8 @@
 
   <title>What Does Identity Access Buy? Pricing the Surveillance Increments in CBDC Transaction Monitoring — Dissensus</title>
 
-  <link rel="stylesheet" href="../css/system.css?v=97aa7405">
-  <link rel="stylesheet" href="../css/site.css?v=97aa7405">
+  <link rel="stylesheet" href="../css/system.css?v=7e56aaaa">
+  <link rel="stylesheet" href="../css/site.css?v=7e56aaaa">
   <script src="../js/theme.js"></script>
   <script src="../js/motion.js" defer></script>
   <link rel="icon" href="/favicon.ico">
@@ -133,10 +133,15 @@
         <p class="paper__authors">Murad Farzulla, Andrew Maksakov</p>
       </header>
 
+      <section class="paper__section paper__version" aria-label="Version note">
+        <h2>Version note · 19 September 2026</h2>
+        <p>The hosted PDF is the earlier public version. A September revision on detector flexibility and review budgets is under coauthor review and has not replaced this download. Earlier equivalence claims should not be treated as established.</p>
+      </section>
+
       <div class="paper__actions">
         <a href="Farzulla_2025_CBDC_Privacy.pdf" class="btn" download>Download PDF</a>
         
-        
+
         <a href="https://doi.org/10.5281/zenodo.17917938" class="btn btn--ghost" target="_blank" rel="noopener">Zenodo</a>
         
         
@@ -145,8 +150,8 @@
       </div>
 
       <section class="paper__section paper__abstract">
-        <h2>Abstract</h2>
-        <p>Proposals for retail central bank digital currency increasingly accept that anti-money-laundering obligations require identity-linked transaction monitoring. The cost of that requirement has not been measured. This paper builds a tiered ablation harness in which four nested evidence tiers - structure only on unlinked pseudonyms, plus pseudonymous linkage, plus identity attributes, plus watchlist access - are scored on identical data with entity-disjoint folds and entity-clustered bootstrap intervals. A pre-specified degeneracy audit fails the run if any single feature separates the classes above entity-level AUC 0.95; this rejects the wallet-count artefact that drove an earlier version of this work. Equivalence is tested by TOST rather than inferred from a null. On synthetic data the answer is detector-dependent: for a gradient-boosted model, pseudonymous linkage carries the increment and full identity access is statistically equivalent to linkage alone; for a logistic model, identity access is decisively superior on average precision. The marginal value of identity access is therefore model- and metric-dependent rather than a fixed property of the data.</p>
+        <h2>Summary</h2>
+        <p>A research programme with Andrew Maksakov on CBDC privacy architecture and the informational requirements of transaction monitoring. The linked preprint explores identity access in synthetic monitoring. Subsequent checks narrowed the interpretation: these experiments do not establish identity-free equivalence, deployment readiness or a privacy guarantee.</p>
       </section>
 
       <section class="paper__section">
@@ -160,10 +165,9 @@
       <section class="paper__section">
         <h2>Methodology</h2>
         <div class="taglist">
-          <span class="tag">Tiered ablation</span>
-          <span class="tag">Entity-clustered bootstrap</span>
-          <span class="tag">TOST equivalence testing</span>
-          <span class="tag">Zero-knowledge proofs</span>
+          <span class="tag">Synthetic transaction monitoring</span>
+          <span class="tag">Information ablation</span>
+          <span class="tag">Review-budget analysis</span>
         </div>
       </section>
 

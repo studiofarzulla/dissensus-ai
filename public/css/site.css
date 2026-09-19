@@ -22,6 +22,10 @@
   background: radial-gradient(58% 60% at 28% 0%, rgba(128, 0, 32, 0.06), transparent 70%);
   pointer-events: none;
 }
+/* Keep the decorative glow inside the viewport on narrow screens. */
+@media (max-width: 640px) {
+  .hero::before { left: 0; right: 0; }
+}
 .hero__logo { width: 76px; height: 76px; margin-bottom: var(--sp-6); }
 .hero .lead { font-size: 1.2rem; }
 

@@ -1,7 +1,7 @@
 {
   "_note": "Source of truth for the Roles + Start-here sections of join.html. Rebuild with `node build-papers.js`. RULE: research roles only. Do not add operations, communications, administrative or board roles as unpaid positions — an unfunded lab advertising unpaid non-research labour repels exactly the senior people it needs. Every entryTask must trace to a real gap in projects.json; do not invent tasks or hour estimates. The hour figures below are the project author's own framings ('a weekend', 'an afternoon', 'one inference run'), not marketing estimates.",
-  "intro": "Dissensus started this year and is still taking shape. There are two researchers, an operations associate and an affiliate, twenty papers, six open problems, and a company incorporated this July — which means very little here is settled. Someone joining now is not filling a slot in something already built; they get a say in what the lab works on, how it decides a result is finished, and what it becomes over the next few years.",
-  "introSecond": "What that looks like in practice: research roles, entered by doing research. The ladder below is short on purpose — it starts at a task you could finish in a weekend and ends at a standing affiliation and a title you can put on a CV, and each rung is reached by doing the previous one rather than by applying. There is no funding yet, so none of it is paid, and the limits are set out plainly further down rather than buried. Everything else — which problems matter, which methods the lab trusts, what it refuses to do — is genuinely open, and more so now than it will be later.",
+  "intro": "Dissensus is a small independent group: a founder, two research assistants, an operations associate and a cross-disciplinary affiliate. The research spans multi-agent AI, measurement validity, computational finance and governance. Joining starts with a specific research contribution and a conversation about where it could lead.",
+  "introSecond": "What that looks like in practice: research roles, entered by doing research. The ladder below is short on purpose — it starts at a task you could finish in a weekend and ends at a standing affiliation and a title you can put on a CV, and each rung is reached by doing the previous one rather than by applying. There is no salary funding for these roles, so none of them is paid, and the limits are set out plainly further down rather than buried. Everything else — which problems matter, which methods the lab trusts, what it refuses to do — is genuinely open, and more so now than it will be later.",
   "tiers": [
     {
       "id": "contributor",
@@ -93,27 +93,27 @@
     {
       "id": "vlm-control-runs",
       "project": "semantic-vision",
-      "projectShort": "Semantic-first vision",
-      "task": "Run the three queued controls: identical question with varied persona, an equal-cardinality set, a paraphrase set",
-      "effort": "One inference pass each — cheap in wall-clock, expensive only in access",
-      "output": "Separates the persona-specific share of the drift; the identical-question set alone decides whether the headline survives",
-      "whoFits": "Anyone with spare VLM inference budget and eval experience",
-      "note": "Data and code are already public, so the claim can be audited before you commit. Expect to edit hardcoded paths and a local inference endpoint."
+      "projectShort": "VLM affordance reports",
+      "task": "Replicate the matched-question experiment on another model or image sample",
+      "effort": "Scope agreed around the model and inference budget",
+      "output": "Tests whether the configuration-specific persona-versus-wording contrasts generalise",
+      "whoFits": "VLM evaluation researcher with inference access",
+      "note": "The first matched-question controls are already released. Start from the September paper, code and raw-response archive; report availability separately from content similarity."
     },
     {
       "id": "vlm-interp-probe",
       "project": "semantic-vision",
-      "projectShort": "Semantic-first vision",
+      "projectShort": "VLM affordance reports",
       "task": "Layerwise or attention probing on an open-weight model",
       "effort": "One to two weeks",
-      "output": "The processing-order question is currently entirely untouched — 'semantic-first' names an output pattern, not a claim about processing",
+      "output": "Tests a mechanistic hypothesis beyond the paper’s output-level measurements; processing order is not established by the current study",
       "whoFits": "Mechanistic interpretability researcher",
       "note": "There is no internal evidence of any kind in the paper at present. The paper says so."
     },
     {
       "id": "embodied-validation",
       "project": "semantic-vision",
-      "projectShort": "Semantic-first vision",
+      "projectShort": "VLM affordance reports",
       "task": "Run the scene-context experiment in AI2-THOR or Habitat",
       "effort": "About a week with a working setup",
       "output": "Turns the just-in-time ontology proposal from a labelled design hypothesis into something with an embodied test behind it",
@@ -202,5 +202,5 @@
       "note": "There is no draft yet. Zero words of manuscript prose exist. Joining now means shaping what the paper argues."
     }
   ],
-  "contactNote": "Say which task or which project, what you would bring, and what you want out of it. Concrete beats enthusiastic. If nothing on this page fits, write anyway — the listed tasks are the gaps the lab happens to have noticed, not the boundary of what it will work on. Anything touching complex adaptive systems under competing objectives is worth a message: multi-agent alignment, market microstructure, formal verification, political economy, or a field none of us has thought to look at yet. So is any capacity, from one afternoon to a standing collaboration. A first reply usually takes weeks rather than days — the lab is one researcher and a research assistant, both with papers of their own in flight — and a reminder after a month is a courtesy rather than a nuisance."
+  "contactNote": "Say which task or which project, what you would bring, and what you want out of it. Concrete beats enthusiastic. If nothing on this page fits, write anyway — the listed tasks are the gaps the lab happens to have noticed, not the boundary of what it will work on. Anything touching complex adaptive systems under competing objectives is worth a message: multi-agent alignment, market microstructure, formal verification, political economy, or a field none of us has thought to look at yet. So is any capacity, from one afternoon to a standing collaboration. A first reply usually takes weeks rather than days — the research team is small and has papers in flight — and a reminder after a month is a courtesy rather than a nuisance."
 }

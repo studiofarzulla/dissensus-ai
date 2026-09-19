@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Do the functional narratives in cryptocurrency whitepapers correspond to how their tokens behave in markets? We develop a content-verified, contamination-aware ...">
+  <meta name="description" content="A contamination-aware study of whether claims made in cryptocurrency whitepapers correspond to observed market structure. The analysis combines corpus verificat...">
   <meta name="author" content="Murad Farzulla">
   <meta name="keywords" content="Financial Markets, Cryptocurrency, Natural Language Processing">
   <meta name="theme-color" content="#faf8f5">
@@ -27,7 +27,7 @@
   <meta name="DC.creator" content="Murad Farzulla">
   <meta name="DC.date" content="2025-12-01">
   <meta name="DC.publisher" content="Dissensus">
-  <meta name="DC.description" content="Do the functional narratives in cryptocurrency whitepapers correspond to how their tokens behave in markets? We develop a content-verified, contamination-aware pipeline for measuring structural correspondence between project narratives and market structure, and report two results. The first is cauti...">
+  <meta name="DC.description" content="A contamination-aware study of whether claims made in cryptocurrency whitepapers correspond to observed market structure. The analysis combines corpus verification, NLP classification and factor comparisons. Non-detection is interpreted in light of the corpus, power and measurement limits; it does n...">
   <meta name="DC.type" content="Text">
   <meta name="DC.format" content="text/html">
   <meta name="DC.language" content="en">
@@ -63,7 +63,7 @@
       "name": "Dissensus",
       "url": "https://dissensus.ai"
     },
-    "description": "Do the functional narratives in cryptocurrency whitepapers correspond to how their tokens behave in markets? We develop a content-verified, contamination-aware pipeline for measuring structural correspondence between project narratives and market structure, and report two results. The first is cautionary: an apparent entity-level alignment signal in an earlier corpus was entirely an artefact of corpus contamination — roughly a quarter of the documents were failed-download stubs or wrong-document whitepapers — and does not survive content verification. The second is an honest null: combining zero-shot NLP classification of 43 content-verified whitepapers with seven cross-sectional market-structure statistics, aligned via Procrustes rotation and Tucker's congruence coefficient, we do not detect significant claims–market alignment (dimension-matched φ = 0.303, non-significant). A positive-control and power analysis shows the binding constraint is the low reliability of the text instrument. The contribution is a method plus a cautionary tale for text-based studies of narrative–market correspondence, which routinely operate below an unstated detectability floor.",
+    "description": "A contamination-aware study of whether claims made in cryptocurrency whitepapers correspond to observed market structure. The analysis combines corpus verification, NLP classification and factor comparisons. Non-detection is interpreted in light of the corpus, power and measurement limits; it does not establish that whitepaper claims and market structure are unrelated.",
     "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.17772651"},
     "url": "https://dissensus.ai/papers/whitepaper-factor-analysis",
     "inLanguage": "en"
@@ -74,7 +74,7 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://dissensus.ai/papers/whitepaper-factor-analysis">
   <meta property="og:title" content="Are Whitepaper Claims Reflected in Market Structure? A Contamination-Aware Pipeline and a Power-Limited Null">
-  <meta property="og:description" content="Do the functional narratives in cryptocurrency whitepapers correspond to how their tokens behave in markets? We develop a content-verified, contamination-aware pipeline for measuring structural corres...">
+  <meta property="og:description" content="A contamination-aware study of whether claims made in cryptocurrency whitepapers correspond to observed market structure. The analysis combines corpus verification, NLP classification and factor compa...">
   <meta property="og:site_name" content="Dissensus">
   <meta property="og:image" content="https://dissensus.ai/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -83,7 +83,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Are Whitepaper Claims Reflected in Market Structure? A Contamination-Aware Pipeline and a Power-Limited Null">
-  <meta name="twitter:description" content="Do the functional narratives in cryptocurrency whitepapers correspond to how their tokens behave in markets? We develop a content-verified, contamination-aware pipeline for measuring structural corres...">
+  <meta name="twitter:description" content="A contamination-aware study of whether claims made in cryptocurrency whitepapers correspond to observed market structure. The analysis combines corpus verification, NLP classification and factor compa...">
   <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
 
   <!-- Canonical -->
@@ -91,8 +91,8 @@
 
   <title>Are Whitepaper Claims Reflected in Market Structure? A Contamination-Aware Pipeline and a Power-Limited Null — Dissensus</title>
 
-  <link rel="stylesheet" href="../css/system.css?v=97aa7405">
-  <link rel="stylesheet" href="../css/site.css?v=97aa7405">
+  <link rel="stylesheet" href="../css/system.css?v=7e56aaaa">
+  <link rel="stylesheet" href="../css/site.css?v=7e56aaaa">
   <script src="../js/theme.js"></script>
   <script src="../js/motion.js" defer></script>
   <link rel="icon" href="/favicon.ico">
@@ -131,10 +131,15 @@
         <p class="paper__authors">Murad Farzulla</p>
       </header>
 
+      <section class="paper__section paper__version" aria-label="Version note">
+        <h2>Version note · 19 September 2026</h2>
+        <p>Under review at Financial Innovation. A major revision was invited on 13 September 2026 and is in preparation. The linked public manuscript is an earlier version; the working revision has not yet replaced it.</p>
+      </section>
+
       <div class="paper__actions">
         <a href="Farzulla_2026_Whitepaper_Claims.pdf" class="btn" download>Download PDF</a>
         <a href="https://arxiv.org/abs/2601.20336" class="btn btn--ghost" target="_blank" rel="noopener">arXiv: 2601.20336</a>
-        
+
         <a href="https://doi.org/10.5281/zenodo.17772651" class="btn btn--ghost" target="_blank" rel="noopener">Zenodo</a>
         <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5918302" class="btn btn--ghost" target="_blank" rel="noopener">SSRN</a>
         
@@ -143,8 +148,8 @@
       </div>
 
       <section class="paper__section paper__abstract">
-        <h2>Abstract</h2>
-        <p>Do the functional narratives in cryptocurrency whitepapers correspond to how their tokens behave in markets? We develop a content-verified, contamination-aware pipeline for measuring structural correspondence between project narratives and market structure, and report two results. The first is cautionary: an apparent entity-level alignment signal in an earlier corpus was entirely an artefact of corpus contamination — roughly a quarter of the documents were failed-download stubs or wrong-document whitepapers — and does not survive content verification. The second is an honest null: combining zero-shot NLP classification of 43 content-verified whitepapers with seven cross-sectional market-structure statistics, aligned via Procrustes rotation and Tucker's congruence coefficient, we do not detect significant claims–market alignment (dimension-matched φ = 0.303, non-significant). A positive-control and power analysis shows the binding constraint is the low reliability of the text instrument. The contribution is a method plus a cautionary tale for text-based studies of narrative–market correspondence, which routinely operate below an unstated detectability floor.</p>
+        <h2>Summary</h2>
+        <p>A contamination-aware study of whether claims made in cryptocurrency whitepapers correspond to observed market structure. The analysis combines corpus verification, NLP classification and factor comparisons. Non-detection is interpreted in light of the corpus, power and measurement limits; it does not establish that whitepaper claims and market structure are unrelated.</p>
       </section>
 
       <section class="paper__section">

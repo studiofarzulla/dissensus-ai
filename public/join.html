@@ -24,8 +24,8 @@
 
   <link rel="canonical" href="https://dissensus.ai/join">
   <meta name="theme-color" content="#faf8f5">
-  <link rel="stylesheet" href="css/system.css?v=97aa7405">
-  <link rel="stylesheet" href="css/site.css?v=97aa7405">
+  <link rel="stylesheet" href="css/system.css?v=7e56aaaa">
+  <link rel="stylesheet" href="css/site.css?v=7e56aaaa">
   <script src="js/theme.js"></script>
   <script src="js/motion.js" defer></script>
   <link rel="icon" href="/favicon.ico">
@@ -53,7 +53,7 @@
   <header class="container hero hero--editorial" style="padding-block: clamp(3rem, 8vw, 6rem);">
     <span class="kicker">Join</span>
     <h1>A new lab, still deciding what it is.</h1>
-    <p class="lead">Dissensus started this year and is still taking shape. There are two researchers, an operations associate and an affiliate, twenty papers, six open problems, and a company incorporated this July — which means very little here is settled. Someone joining now is not filling a slot in something already built; they get a say in what the lab works on, how it decides a result is finished, and what it becomes over the next few years.</p>
+    <p class="lead">Dissensus is a small independent group: a founder, two research assistants, an operations associate and a cross-disciplinary affiliate. The research spans multi-agent AI, measurement validity, computational finance and governance. Joining starts with a specific research contribution and a conversation about where it could lead.</p>
     <div class="cta-row" style="margin-top:1.5rem;">
       <a class="btn" href="#start">Start with one task &rarr;</a>
       <a class="btn btn--ghost" href="https://discord.gg/5VtRcb45N7" target="_blank" rel="noopener">Join the Discord</a>
@@ -63,7 +63,7 @@
   <section class="section container" id="roles">
     <span class="index">01 &middot; Roles</span>
     <h2>Three rungs, each entered by doing the previous one</h2>
-    <p class="body-text">What that looks like in practice: research roles, entered by doing research. The ladder below is short on purpose — it starts at a task you could finish in a weekend and ends at a standing affiliation and a title you can put on a CV, and each rung is reached by doing the previous one rather than by applying. There is no funding yet, so none of it is paid, and the limits are set out plainly further down rather than buried. Everything else — which problems matter, which methods the lab trusts, what it refuses to do — is genuinely open, and more so now than it will be later.</p>
+    <p class="body-text">What that looks like in practice: research roles, entered by doing research. The ladder below is short on purpose — it starts at a task you could finish in a weekend and ends at a standing affiliation and a title you can put on a CV, and each rung is reached by doing the previous one rather than by applying. There is no salary funding for these roles, so none of them is paid, and the limits are set out plainly further down rather than buried. Everything else — which problems matter, which methods the lab trusts, what it refuses to do — is genuinely open, and more so now than it will be later.</p>
     <div class="runglist">
 
       <article class="rung" id="contributor" data-reveal>
@@ -175,14 +175,14 @@
       </li>
 
       <li class="task" id="vlm-control-runs" data-reveal>
-        <div class="task__effort"><span>Effort</span>One inference pass each — cheap in wall-clock, expensive only in access</div>
+        <div class="task__effort"><span>Effort</span>Scope agreed around the model and inference budget</div>
         <div class="task__body">
-          <h3>Run the three queued controls: identical question with varied persona, an equal-cardinality set, a paraphrase set</h3>
-          <p>Separates the persona-specific share of the drift; the identical-question set alone decides whether the headline survives</p>
-          <p class="task__note">Data and code are already public, so the claim can be audited before you commit. Expect to edit hardcoded paths and a local inference endpoint.</p>
+          <h3>Replicate the matched-question experiment on another model or image sample</h3>
+          <p>Tests whether the configuration-specific persona-versus-wording contrasts generalise</p>
+          <p class="task__note">The first matched-question controls are already released. Start from the September paper, code and raw-response archive; report availability separately from content similarity.</p>
           <div class="task__meta">
-            <span>Fits: Anyone with spare VLM inference budget and eval experience</span>
-            <a href="/projects#semantic-vision" title="Context-dependent affordance computation in vision-language models">Semantic-first vision &rarr;</a>
+            <span>Fits: VLM evaluation researcher with inference access</span>
+            <a href="/projects#semantic-vision" title="Context-dependent affordance reports in vision-language models">VLM affordance reports &rarr;</a>
           </div>
         </div>
       </li>
@@ -191,11 +191,11 @@
         <div class="task__effort"><span>Effort</span>One to two weeks</div>
         <div class="task__body">
           <h3>Layerwise or attention probing on an open-weight model</h3>
-          <p>The processing-order question is currently entirely untouched — 'semantic-first' names an output pattern, not a claim about processing</p>
+          <p>Tests a mechanistic hypothesis beyond the paper’s output-level measurements; processing order is not established by the current study</p>
           <p class="task__note">There is no internal evidence of any kind in the paper at present. The paper says so.</p>
           <div class="task__meta">
             <span>Fits: Mechanistic interpretability researcher</span>
-            <a href="/projects#semantic-vision" title="Context-dependent affordance computation in vision-language models">Semantic-first vision &rarr;</a>
+            <a href="/projects#semantic-vision" title="Context-dependent affordance reports in vision-language models">VLM affordance reports &rarr;</a>
           </div>
         </div>
       </li>
@@ -208,7 +208,7 @@
           <p class="task__note">The simulator was installed once and the experiment produced no output.</p>
           <div class="task__meta">
             <span>Fits: Embodied-AI or robotics researcher with a running simulator</span>
-            <a href="/projects#semantic-vision" title="Context-dependent affordance computation in vision-language models">Semantic-first vision &rarr;</a>
+            <a href="/projects#semantic-vision" title="Context-dependent affordance reports in vision-language models">VLM affordance reports &rarr;</a>
           </div>
         </div>
       </li>
@@ -358,7 +358,7 @@
   <section class="section container" id="propose">
     <span class="index">06 &middot; Get in touch</span>
     <h2>Propose something</h2>
-    <p class="lead">Say which task or which project, what you would bring, and what you want out of it. Concrete beats enthusiastic. If nothing on this page fits, write anyway — the listed tasks are the gaps the lab happens to have noticed, not the boundary of what it will work on. Anything touching complex adaptive systems under competing objectives is worth a message: multi-agent alignment, market microstructure, formal verification, political economy, or a field none of us has thought to look at yet. So is any capacity, from one afternoon to a standing collaboration. A first reply usually takes weeks rather than days — the lab is one researcher and a research assistant, both with papers of their own in flight — and a reminder after a month is a courtesy rather than a nuisance.</p>
+    <p class="lead">Say which task or which project, what you would bring, and what you want out of it. Concrete beats enthusiastic. If nothing on this page fits, write anyway — the listed tasks are the gaps the lab happens to have noticed, not the boundary of what it will work on. Anything touching complex adaptive systems under competing objectives is worth a message: multi-agent alignment, market microstructure, formal verification, political economy, or a field none of us has thought to look at yet. So is any capacity, from one afternoon to a standing collaboration. A first reply usually takes weeks rather than days — the research team is small and has papers in flight — and a reminder after a month is a courtesy rather than a nuisance.</p>
     <form class="form" style="margin-top: 2.4rem;" action="https://formspree.io/f/mreezoko" method="POST">
       <input type="hidden" name="_subject" value="Join enquiry — dissensus.ai/join">
       <div class="form__row">
@@ -378,7 +378,7 @@
           <option value="blind-code-event-table">Task: Blind-code the focusing-event table with the outcome column stripped</option>
           <option value="arxiv-endorsement">Task: Endorse an arXiv submission in econ.GN or cs.CY</option>
           <option value="mandate-boundary-review">Task: Pressure-test the mandate-boundary claims against the Bank Service Company Act, the DORA critical-third-party regime, and the UK CTP designations</option>
-          <option value="vlm-control-runs">Task: Run the three queued controls: identical question with varied persona, an equal-cardinality set, a paraphrase set</option>
+          <option value="vlm-control-runs">Task: Replicate the matched-question experiment on another model or image sample</option>
           <option value="vlm-interp-probe">Task: Layerwise or attention probing on an open-weight model</option>
           <option value="embodied-validation">Task: Run the scene-context experiment in AI2-THOR or Habitat</option>
           <option value="annotation-study">Task: Design a codebook, train multiple raters, and report a real reliability statistic on a stratified subset of the 215 responses</option>
@@ -390,7 +390,7 @@
           <option value="ownership-literature-sweep">Task: Verified literature sweep across the nationalisation-of-AGI debate against the outline's two novelty claims</option>
           <option value="steelman-state-ownership">Task: Argue the state-ownership position at full strength, as a co-author rather than as a foil</option>
           <option value="project-first-crisis-governance">Project: The Loaded Wheel: crisis governance for the first AI-involved systemic event</option>
-          <option value="project-semantic-vision">Project: Context-dependent affordance computation in vision-language models</option>
+          <option value="project-semantic-vision">Project: Context-dependent affordance reports in vision-language models</option>
           <option value="project-autonomous-red-team">Project: Autonomous Red Team AI</option>
           <option value="project-genre-mimicry">Project: Genre mimicry versus ethical reasoning in abliterated language models</option>
           <option value="project-consensual-sovereignty">Project: Consensual Sovereignty: the empirical arm of legitimacy quantification</option>
