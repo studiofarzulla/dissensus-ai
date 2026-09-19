@@ -1,4 +1,4 @@
-# Dissensus AI
+# Dissensus
 
 **Adversarial systems research lab** founded by [Murad Farzulla](https://farzulla.org).
 
@@ -6,7 +6,7 @@ Live site: [dissensus.ai](https://dissensus.ai)
 
 ## About
 
-Dissensus AI investigates stability, alignment, and friction dynamics in complex adversarial systems. The lab's research programme spans computational finance, political economy, AI alignment, and formal methods, with 25+ publications to date.
+Dissensus investigates stability, alignment, and friction dynamics in complex adversarial systems. The lab's research programme spans computational finance, political economy, AI alignment, and formal methods, with 25+ publications to date.
 
 Each paper is a proof-of-concept for a different application domain -- political governance, financial markets, developmental psychology, AI alignment -- unified by the study of how competing interests generate structural conflict.
 
@@ -22,7 +22,11 @@ Each paper is a proof-of-concept for a different application domain -- political
 node build-papers.js
 ```
 
-Regenerates paper pages from `papers.json`.
+Regenerates paper pages from `papers.json`, along with the research list, `sitemap.xml`,
+`llms.txt` and the JSON-LD blocks on the news posts.
+
+After a deploy, `node indexnow.js` submits the sitemap's URLs to the IndexNow engines
+(Bing, Yandex, Naver); Google does not participate and is fed by the sitemap instead.
 
 ## Related
 

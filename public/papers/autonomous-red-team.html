@@ -5,22 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="This technical report describes an architecture for autonomous penetration testing using LLM-guided agents operating within Kubernetes-isolated environments. Th...">
   <meta name="author" content="Murad Farzulla, Andrew Maksakov">
-  <meta name="keywords" content="AI Safety, Security Research">
+  <meta name="keywords" content="autonomous agents, red team, blue team, LLM, security testing, adversarial systems, patch generation, scoring, AI Safety, Security Research">
   <meta name="theme-color" content="#faf8f5">
   <meta name="robots" content="index, follow">
 
   <!-- Highwire Press (Google Scholar) -->
   <meta name="citation_title" content="Autonomous Red Team AI: LLM-Guided Adversarial Security Testing">
     <meta name="citation_author" content="Murad Farzulla">
+    <meta name="citation_author_institution" content="Dissensus">
+    <meta name="citation_author_orcid" content="https://orcid.org/0009-0002-7164-8704">
     <meta name="citation_author" content="Andrew Maksakov">
   <meta name="citation_publication_date" content="2025/12/01">
   <meta name="citation_pdf_url" content="https://dissensus.ai/papers/Farzulla_2025_Autonomous_Red_Team.pdf">
   <meta name="citation_doi" content="10.5281/zenodo.17614725">
 
+
+    <meta name="citation_technical_report_institution" content="Dissensus" />
     <meta name="citation_technical_report_number" content="DAI-2513" />
   <meta name="citation_publisher" content="Dissensus">
   <meta name="citation_abstract_html_url" content="https://dissensus.ai/papers/autonomous-red-team">
-  <meta name="citation_keywords" content="AI Safety; Security Research">
+  <meta name="citation_keywords" content="autonomous agents; red team; blue team; LLM; security testing; adversarial systems; patch generation; scoring; AI Safety; Security Research">
   <meta name="citation_language" content="en">
 
   <!-- Dublin Core -->
@@ -29,46 +33,111 @@
   <meta name="DC.date" content="2025-12-01">
   <meta name="DC.publisher" content="Dissensus">
   <meta name="DC.description" content="This technical report describes an architecture for autonomous penetration testing using LLM-guided agents operating within Kubernetes-isolated environments. The system combines RAG knowledge bases with OODA-loop decision cycles, enabling systematic vulnerability discovery while maintaining strict N...">
+  <meta name="DC.subject" content="autonomous agents; red team; blue team; LLM; security testing; adversarial systems; patch generation; scoring; AI Safety; Security Research">
   <meta name="DC.type" content="Text">
   <meta name="DC.format" content="text/html">
   <meta name="DC.language" content="en">
   <meta name="DC.identifier" content="doi:10.5281/zenodo.17614725">
   <meta name="DC.rights" content="CC BY 4.0">
+  <link rel="alternate" type="application/pdf" href="https://dissensus.ai/papers/Farzulla_2025_Autonomous_Red_Team.pdf" title="PDF">
 
   <!-- Schema.org ScholarlyArticle -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
+    "@id": "https://doi.org/10.5281/zenodo.17614725",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://dissensus.ai/papers/autonomous-red-team"
+    },
+    "url": "https://dissensus.ai/papers/autonomous-red-team",
+    "name": "Autonomous Red Team AI: LLM-Guided Adversarial Security Testing",
     "headline": "Autonomous Red Team AI: LLM-Guided Adversarial Security Testing",
     "author": [
-        {
-          "@type": "Person",
-          "name": "Murad Farzulla",
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "ORCID",
-            "value": "0009-0002-7164-8704"
-          },
-          "url": "https://orcid.org/0009-0002-7164-8704",
-          "affiliation": {
-            "@type": "Organization",
-            "name": "Dissensus",
-            "url": "https://dissensus.ai"
-          }
+      {
+        "@type": "Person",
+        "@id": "https://orcid.org/0009-0002-7164-8704",
+        "name": "Murad Farzulla",
+        "url": "https://farzulla.com",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "ORCID",
+          "value": "0009-0002-7164-8704"
         },
-        {"@type": "Person", "name": "Andrew Maksakov"}
+        "affiliation": {
+          "@type": "Organization",
+          "@id": "https://dissensus.ai/#organization",
+          "name": "Dissensus",
+          "url": "https://dissensus.ai"
+        },
+        "sameAs": [
+          "https://orcid.org/0009-0002-7164-8704",
+          "https://farzulla.com",
+          "https://scholar.google.com/citations?user=bmplqfwAAAAJ",
+          "https://www.semanticscholar.org/author/Murad-Farzulla/2403682991"
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Andrew Maksakov"
+      }
     ],
     "datePublished": "2025-12-01",
+    "dateModified": "2025-12-01",
     "publisher": {
       "@type": "Organization",
+      "@id": "https://dissensus.ai/#organization",
       "name": "Dissensus",
       "url": "https://dissensus.ai"
     },
+    "abstract": "This technical report describes an architecture for autonomous penetration testing using LLM-guided agents operating within Kubernetes-isolated environments. The system combines RAG knowledge bases with OODA-loop decision cycles, enabling systematic vulnerability discovery while maintaining strict NetworkPolicy isolation.",
     "description": "This technical report describes an architecture for autonomous penetration testing using LLM-guided agents operating within Kubernetes-isolated environments. The system combines RAG knowledge bases with OODA-loop decision cycles, enabling systematic vulnerability discovery while maintaining strict NetworkPolicy isolation.",
-    "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.17614725"},
-    "url": "https://dissensus.ai/papers/autonomous-red-team",
-    "inLanguage": "en"
+    "keywords": [
+      "autonomous agents",
+      "red team",
+      "blue team",
+      "LLM",
+      "security testing",
+      "adversarial systems",
+      "patch generation",
+      "scoring",
+      "AI Safety",
+      "Security Research"
+    ],
+    "identifier": [
+      {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.5281/zenodo.17614725"
+      },
+      {
+        "@type": "PropertyValue",
+        "propertyID": "Dissensus paper number",
+        "value": "DAI-2513"
+      }
+    ],
+    "sameAs": [
+      "https://doi.org/10.5281/zenodo.17614725"
+    ],
+    "isPartOf": [
+      {
+        "@type": "CreativeWorkSeries",
+        "name": "Dissensus Working Paper Series",
+        "publisher": {
+          "@id": "https://dissensus.ai/#organization"
+        }
+      }
+    ],
+    "creativeWorkStatus": "Preprint",
+    "inLanguage": "en",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "isAccessibleForFree": true,
+    "encoding": {
+      "@type": "MediaObject",
+      "contentUrl": "https://dissensus.ai/papers/Farzulla_2025_Autonomous_Red_Team.pdf",
+      "encodingFormat": "application/pdf"
+    }
   }
   </script>
 
@@ -93,8 +162,8 @@
 
   <title>Autonomous Red Team AI: LLM-Guided Adversarial Security Testing — Dissensus</title>
 
-  <link rel="stylesheet" href="../css/system.css?v=7e56aaaa">
-  <link rel="stylesheet" href="../css/site.css?v=7e56aaaa">
+  <link rel="stylesheet" href="../css/system.css?v=426a4a98">
+  <link rel="stylesheet" href="../css/site.css?v=426a4a98">
   <script src="../js/theme.js"></script>
   <script src="../js/motion.js" defer></script>
   <link rel="icon" href="/favicon.ico">
