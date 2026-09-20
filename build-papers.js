@@ -49,13 +49,6 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-// JSON-LD lives inside <script>, so values need JSON escaping, not HTML escaping —
-// escapeHtml() was shipping &#039; where an apostrophe belonged, and Google reads that
-// literally. `<\/` guards against a value containing </script> ending the block early.
-function jsonLd(value) {
-  return JSON.stringify(String(value == null ? '' : value)).slice(1, -1).replace(/<\//g, '<\\/');
-}
-
 function formatDate(dateStr) {
   const date = new Date(dateStr);
   return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -64,6 +57,62 @@ function formatDate(dateStr) {
 function formatCitationDate(dateStr) {
   const date = new Date(dateStr);
   return `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}`;
+}
+
+// ─── Identity + discoverability constants ────────────────────────────────────
+
+// One @id per entity, shared with farzulla.com, so every ScholarlyArticle on this
+// site and the Person block on the personal site resolve to the same nodes in a
+// knowledge graph. The ORCID URL is the person's persistent identifier; the
+// organisation gets a fragment @id on its own homepage.
+const ORG_ID = 'https://dissensus.ai/#organization';
+const SITE_URL = 'https://dissensus.ai';
+const AUTHOR_IDS = {
+  'Murad Farzulla': {
+    id: 'https://orcid.org/0009-0002-7164-8704',
+    orcid: '0009-0002-7164-8704',
+    url: 'https://farzulla.com',
+    affiliation: 'Dissensus',
+    sameAs: [
+      'https://farzulla.com',
+      'https://scholar.google.com/citations?user=bmplqfwAAAAJ',
+      'https://www.semanticscholar.org/author/Murad-Farzulla/2403682991',
+    ],
+  },
+};
+
+// Serialise a JSON-LD object for a <script> block. JSON.stringify handles the
+// escaping; `<\/` guards against a value containing </script> ending the block.
+function jsonLdBlock(obj, indent = '  ') {
+  const json = JSON.stringify(obj, null, 2).replace(/<\//g, '<\\/');
+  return `${indent}<script type="application/ld+json">\n${json.split('\n').map(l => indent + l).join('\n')}\n${indent}</script>`;
+}
+
+// Keywords a retrieval system should see for a paper: the author's own keyword list
+// from papers.json (seeded from the PDF metadata) plus the site's topic labels.
+// De-duplicated case-insensitively, order preserved (author keywords first).
+function keywordsFor(paper) {
+  const seen = new Set();
+  const out = [];
+  [...(paper.keywords || []), ...paper.tags.map(t => tagLabels[t] || t)].forEach(k => {
+    const key = String(k).trim().toLowerCase();
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    out.push(String(k).trim());
+  });
+  return out;
+}
+
+// The last date on which a paper's *content* changed, for sitemap <lastmod> and
+// JSON-LD dateModified. Never the build date: a lastmod that is always "today" is
+// exactly the kind Google says it stops trusting.
+function contentDate(paper) {
+  return [paper.date, paper.updateDate].filter(Boolean).sort().pop();
+}
+
+// Series label from the working-paper number (DP- prefix = Discussion Paper).
+function seriesName(paper) {
+  return `Dissensus ${paper.wpNumber && paper.wpNumber.startsWith('DP') ? 'Discussion' : 'Working'} Paper Series`;
 }
 
 function generateBibTeX(paper) {
@@ -197,40 +246,90 @@ function generatePaperPage(paper) {
   const zenodoUrl = paper.zenodo ? `https://doi.org/${paper.zenodo}` : '';
   const ssrnUrl = paper.ssrn ? `https://papers.ssrn.com/sol3/papers.cfm?abstract_id=${paper.ssrn}` : '';
   const philpapersUrl = paper.philpapers ? `https://philpapers.org/rec/${paper.philpapers}` : '';
-  const tags = paper.tags.map(t => tagLabels[t] || t).join(', ');
   const programLabel = programs[paper.program] ? programs[paper.program].title : '';
 
-  // JSON-LD author array
+  const pageUrl = `${SITE_URL}/papers/${paper.id}`;
+  const keywords = keywordsFor(paper);
+  const statusLabel = statusLabels[paper.status] || paper.status;
+  const modified = contentDate(paper);
+
+  // Every other public copy of this work. sameAs tells a knowledge graph that the
+  // arXiv record, the Zenodo record and this page are one object, not three.
+  const sameAs = [...new Set([arxivUrl, doiOnlyUrl, zenodoUrl, ssrnUrl, philpapersUrl].filter(Boolean))];
+
+  // JSON-LD author array. The lead author carries the shared @id (ORCID URL) so this
+  // node and the Person block on farzulla.com are the same entity.
   const authorsSchema = paper.authors.map(a => {
-    if (a === 'Murad Farzulla') {
-      return `{
-          "@type": "Person",
-          "name": "${a}",
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "ORCID",
-            "value": "0009-0002-7164-8704"
-          },
-          "url": "https://orcid.org/0009-0002-7164-8704",
-          "affiliation": {
-            "@type": "Organization",
-            "name": "Dissensus",
-            "url": "https://dissensus.ai"
-          }
-        }`;
-    }
-    return `{"@type": "Person", "name": "${a}"}`;
-  }).join(',\n        ');
+    const known = AUTHOR_IDS[a];
+    if (!known) return { '@type': 'Person', name: a };
+    return {
+      '@type': 'Person',
+      '@id': known.id,
+      name: a,
+      url: known.url,
+      identifier: { '@type': 'PropertyValue', propertyID: 'ORCID', value: known.orcid },
+      affiliation: { '@type': 'Organization', '@id': ORG_ID, name: known.affiliation, url: SITE_URL },
+      sameAs: [known.id, ...known.sameAs],
+    };
+  });
+
+  const identifiers = [];
+  if (doi) identifiers.push({ '@type': 'PropertyValue', propertyID: 'DOI', value: doi });
+  if (paper.arxiv) identifiers.push({ '@type': 'PropertyValue', propertyID: 'arXiv', value: paper.arxiv });
+  if (paper.wpNumber) identifiers.push({ '@type': 'PropertyValue', propertyID: 'Dissensus paper number', value: paper.wpNumber });
+
+  const isPartOf = [{ '@type': 'CreativeWorkSeries', name: seriesName(paper), publisher: { '@id': ORG_ID } }];
+  if (paper.journal && (paper.status === 'accepted' || paper.status === 'forthcoming')) {
+    isPartOf.push({ '@type': 'Periodical', name: paper.journal });
+  }
+
+  const scholarlyArticle = {
+    '@context': 'https://schema.org',
+    '@type': 'ScholarlyArticle',
+    '@id': doi ? `https://doi.org/${doi}` : pageUrl,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+    url: pageUrl,
+    name: paper.title,
+    headline: paper.title,
+    ...(paper.subtitle ? { alternativeHeadline: paper.subtitle } : {}),
+    author: authorsSchema,
+    datePublished: paper.date,
+    dateModified: modified,
+    publisher: { '@type': 'Organization', '@id': ORG_ID, name: 'Dissensus', url: SITE_URL },
+    abstract: paper.abstract.replace(/\n/g, ' '),
+    description: paper.abstract.replace(/\n/g, ' '),
+    keywords,
+    ...(identifiers.length ? { identifier: identifiers } : {}),
+    ...(sameAs.length ? { sameAs } : {}),
+    isPartOf,
+    creativeWorkStatus: statusLabel,
+    inLanguage: 'en',
+    license: 'https://creativecommons.org/licenses/by/4.0/',
+    isAccessibleForFree: true,
+    ...(pdfUrl ? { encoding: { '@type': 'MediaObject', contentUrl: pdfUrl, encodingFormat: 'application/pdf' } } : {}),
+  };
+
+  // Highwire: one citation_author per author, each immediately followed by its
+  // institution / ORCID tags (the tag order is how consumers pair them).
+  const authorMeta = paper.authors.map(a => {
+    const known = AUTHOR_IDS[a];
+    const lines = [`  <meta name="citation_author" content="${escapeHtml(a)}">`];
+    if (known && known.affiliation) lines.push(`  <meta name="citation_author_institution" content="${escapeHtml(known.affiliation)}">`);
+    if (known && known.orcid) lines.push(`  <meta name="citation_author_orcid" content="https://orcid.org/${known.orcid}">`);
+    return lines.join('\n  ');
+  }).join('\n  ');
 
   const journalMeta = paper.journal
     ? `    <meta name="citation_journal_title" content="${escapeHtml(paper.journal)}" />`
     : '';
   const reportMeta = paper.wpNumber
-    ? `    <meta name="citation_technical_report_number" content="${paper.wpNumber}" />`
+    ? `    <meta name="citation_technical_report_institution" content="Dissensus" />\n    <meta name="citation_technical_report_number" content="${paper.wpNumber}" />`
+    : '';
+  const arxivMeta = paper.arxiv
+    ? `  <meta name="citation_arxiv_id" content="${escapeHtml(paper.arxiv)}">`
     : '';
 
   const statusClass = `paper-detail__status--${paper.status}`;
-  const statusLabel = statusLabels[paper.status] || paper.status;
   const bibtex = generateBibTeX(paper);
 
   return `<!DOCTYPE html>
@@ -240,21 +339,22 @@ function generatePaperPage(paper) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="${escapeHtml(paper.abstract.substring(0, 160))}...">
   <meta name="author" content="${escapeHtml(authors)}">
-  <meta name="keywords" content="${escapeHtml(tags)}">
+  <meta name="keywords" content="${escapeHtml(keywords.join(', '))}">
   <meta name="theme-color" content="#faf8f5">
   <meta name="robots" content="index, follow">
 
   <!-- Highwire Press (Google Scholar) -->
   <meta name="citation_title" content="${escapeHtml(paper.title)}">
-  ${paper.authors.map(a => `  <meta name="citation_author" content="${escapeHtml(a)}">`).join('\n  ')}
+  ${authorMeta}
   <meta name="citation_publication_date" content="${formatCitationDate(paper.date)}">
   ${pdfUrl ? `<meta name="citation_pdf_url" content="${pdfUrl}">` : ''}
   ${doi ? `<meta name="citation_doi" content="${doi}">` : ''}
+${arxivMeta}
 ${journalMeta}
 ${reportMeta}
   <meta name="citation_publisher" content="Dissensus">
   <meta name="citation_abstract_html_url" content="https://dissensus.ai/papers/${paper.id}.html">
-  <meta name="citation_keywords" content="${paper.tags.map(t => tagLabels[t] || t).join('; ')}">
+  <meta name="citation_keywords" content="${escapeHtml(keywords.join('; '))}">
   <meta name="citation_language" content="en">
 
   <!-- Dublin Core -->
@@ -263,33 +363,16 @@ ${reportMeta}
   <meta name="DC.date" content="${paper.date}">
   <meta name="DC.publisher" content="Dissensus">
   <meta name="DC.description" content="${escapeHtml(paper.abstract.substring(0, 300))}...">
+  <meta name="DC.subject" content="${escapeHtml(keywords.join('; '))}">
   <meta name="DC.type" content="Text">
   <meta name="DC.format" content="text/html">
   <meta name="DC.language" content="en">
   ${doi ? `<meta name="DC.identifier" content="doi:${doi}">` : ''}
   <meta name="DC.rights" content="CC BY 4.0">
+  ${pdfUrl ? `<link rel="alternate" type="application/pdf" href="${pdfUrl}" title="PDF">` : ''}
 
   <!-- Schema.org ScholarlyArticle -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "${jsonLd(paper.title)}",
-    "author": [
-        ${authorsSchema}
-    ],
-    "datePublished": "${paper.date}",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Dissensus",
-      "url": "https://dissensus.ai"
-    },
-    "description": "${jsonLd(paper.abstract.replace(/\n/g, ' '))}",
-    ${doi ? `"identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": "${doi}"},` : ''}
-    "url": "https://dissensus.ai/papers/${paper.id}",
-    "inLanguage": "en"
-  }
-  </script>
+${jsonLdBlock(scholarlyArticle)}
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
@@ -362,7 +445,14 @@ ${doiOnlyUrl ? `        <a href="${doiOnlyUrl}" class="btn btn--ghost" target="_
         <p>${paper.abstract}</p>
       </section>
 
-      <section class="paper__section">
+${paper.findings && paper.findings.length ? `      <section class="paper__section paper__findings">
+        <h2>Key findings</h2>
+        <ul>
+          ${paper.findings.map(f => `<li>${escapeHtml(f)}</li>`).join('\n          ')}
+        </ul>
+      </section>
+
+` : ''}      <section class="paper__section">
         <h2>Suggested citation</h2>
         <div class="paper__cite">
           ${authors} (${year}). <em>${paper.title}</em>. Dissensus${paper.wpNumber ? ` ${paper.wpNumber.startsWith('DP') ? 'Discussion' : 'Working'} Paper ${paper.wpNumber}` : ''}. ${doi ? `DOI: ${doi}` : ''}
@@ -530,9 +620,32 @@ function updateResearchPage() {
     console.log('  ! research.html has no PUBLICATIONS markers — list NOT written');
     return;
   }
+  // One ItemList naming every paper by its DOI @id, so the archive page states in
+  // machine-readable form which works it indexes and where each canonical page is.
+  const itemList = jsonLdBlock({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Dissensus publications',
+    url: `${SITE_URL}/research`,
+    numberOfItems: papers.length,
+    itemListElement: papers.map((p, i) => {
+      const doi = p.doi || p.zenodo || '';
+      return {
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'ScholarlyArticle',
+          '@id': doi ? `https://doi.org/${doi}` : `${SITE_URL}/papers/${p.id}`,
+          name: p.title,
+          url: `${SITE_URL}/papers/${p.id}`,
+        },
+      };
+    }),
+  }, '    ');
+
   // Replacement FUNCTION, not a string: `block` is built from paper titles and abstracts,
   // and a literal $& / $` / $1 in any of them would be read as a replacement pattern.
-  html = html.replace(re, (_m, head, tail) => `${head}\n${block.replace(/\s+$/, '')}\n\n    ${tail}`);
+  html = html.replace(re, (_m, head, tail) => `${head}\n${block.replace(/\s+$/, '')}\n\n${itemList}\n\n    ${tail}`);
 
   fs.writeFileSync(file, html);
   const nTools = (toolsData && toolsData.tools || []).length;
@@ -1115,8 +1228,21 @@ function bustCss() {
 
 // ─── Generate Sitemap ────────────────────────────────────────────────────────
 
+// <lastmod> rules: a paper page carries the date its content last changed (papers.json
+// `date` / `updateDate`); a news post carries its article:published_time; the
+// hand-authored static pages carry no lastmod at all. Every page used to say "today"
+// on every build, which is the one pattern Google documents as untrustworthy — a
+// lastmod is only used when it is "consistently and verifiably accurate", and the
+// chrome sync + CSS cache-bust touch every file on every run, so file mtimes and git
+// dates are no better. Omitting is honest; "today" is not.
+function newsPublishedDate(file) {
+  const html = fs.readFileSync(file, 'utf8');
+  const m = html.match(/<meta property="article:published_time" content="([^"]+)"/);
+  return m ? m[1].slice(0, 10) : null;
+}
+
 function generateSitemap() {
-  const today = new Date().toISOString().split('T')[0];
+  const lastmod = d => (d ? `    <lastmod>${d}</lastmod>\n` : '');
 
   // Static pages (services/partners are redirect stubs — omitted)
   const staticPages = [
@@ -1141,7 +1267,6 @@ function generateSitemap() {
   staticPages.forEach(page => {
     sitemap += `  <url>
     <loc>${page.loc}</loc>
-    <lastmod>${today}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>
@@ -1154,8 +1279,7 @@ function generateSitemap() {
     fs.readdirSync(newsDir).filter(f => f.endsWith('.html')).sort().forEach(f => {
       sitemap += `  <url>
     <loc>https://dissensus.ai/news/${f}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>yearly</changefreq>
+${lastmod(newsPublishedDate(path.join(newsDir, f)))}    <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 `;
@@ -1168,8 +1292,7 @@ function generateSitemap() {
     const priority = (paper.status === 'peer-review' || paper.status === 'published') ? '0.9' : '0.8';
     sitemap += `  <url>
     <loc>https://dissensus.ai/papers/${paper.id}.html</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
+${lastmod(contentDate(paper))}    <changefreq>monthly</changefreq>
     <priority>${priority}</priority>
   </url>
 `;
@@ -1180,6 +1303,99 @@ function generateSitemap() {
 
   fs.writeFileSync(path.join('public', 'sitemap.xml'), sitemap);
   console.log(`  sitemap.xml (${staticPages.length + papers.length} URLs)`);
+}
+
+// ─── News posts: BlogPosting JSON-LD from their own meta tags ─────────────────
+
+// The news posts are hand-authored and already carry a canonical, a description and
+// an article:published_time. This derives a BlogPosting block from those tags, so a
+// post never needs its JSON-LD written by hand and the two can never disagree.
+// Re-runnable: an earlier generated block (marked) is replaced, not duplicated.
+function syncNewsJsonLd() {
+  const newsDir = path.join('public', 'news');
+  if (!fs.existsSync(newsDir)) { console.log('  (no news directory — skipped)'); return; }
+  const MARK_START = '<!-- news-jsonld:start -->';
+  const MARK_END = '<!-- news-jsonld:end -->';
+  const attr = (html, re) => { const m = html.match(re); return m ? m[1] : null; };
+  const decode = s => s.replace(/&mdash;/g, '—').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#039;/g, "'").replace(/&rsquo;/g, '’');
+  let touched = 0;
+  fs.readdirSync(newsDir).filter(f => f.endsWith('.html')).sort().forEach(f => {
+    const file = path.join(newsDir, f);
+    let html = fs.readFileSync(file, 'utf8');
+    const canonical = attr(html, /<link rel="canonical" href="([^"]+)"/);
+    const published = attr(html, /<meta property="article:published_time" content="([^"]+)"/);
+    const description = attr(html, /<meta name="description" content="([^"]*)"/);
+    const ogTitle = attr(html, /<meta property="og:title" content="([^"]*)"/);
+    const title = ogTitle || (attr(html, /<title>([^<]*)<\/title>/) || '').replace(/\s*(—|&mdash;)\s*Dissensus\s*$/, '');
+    const image = attr(html, /<meta property="og:image" content="([^"]+)"/);
+    if (!canonical || !published || !title) { console.log(`  ! ${f}: missing canonical / published_time / title — skipped`); return; }
+    const block = jsonLdBlock({
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      '@id': canonical,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+      url: canonical,
+      headline: decode(title),
+      ...(description ? { description: decode(description) } : {}),
+      datePublished: published,
+      author: { '@type': 'Organization', '@id': ORG_ID, name: 'Dissensus', url: SITE_URL },
+      publisher: { '@type': 'Organization', '@id': ORG_ID, name: 'Dissensus', url: SITE_URL },
+      ...(image ? { image } : {}),
+      inLanguage: 'en',
+    });
+    const wrapped = `  ${MARK_START}\n${block}\n  ${MARK_END}`;
+    const re = new RegExp(`  ${MARK_START}[\\s\\S]*?${MARK_END}`);
+    const next = re.test(html)
+      ? html.replace(re, () => wrapped)
+      : html.replace('</head>', `${wrapped}\n</head>`);
+    if (next !== html) { fs.writeFileSync(file, next); touched++; }
+  });
+  console.log(`  BlogPosting JSON-LD written into ${touched} news post(s)`);
+}
+
+// ─── llms.txt ────────────────────────────────────────────────────────────────
+
+// https://llmstxt.org/ — an H1, a blockquote summary, then H2 sections of
+// "[name](url): note" links. Evidence that retrieval systems fetch it is thin (an
+// Ahrefs study in May 2026 found 97% of such files got no bot requests at all), so
+// this costs one function and claims nothing. Generated from papers.json so it
+// cannot drift from the archive.
+function generateLlmsTxt() {
+  const stages = papersData.stages || {};
+  const order = papersData.stageOrder || Object.keys(stages);
+  const firstSentence = s => {
+    const m = String(s).replace(/\s+/g, ' ').match(/^(.+?[.?!])(\s|$)/);
+    return (m ? m[1] : String(s)).slice(0, 240);
+  };
+  let out = `# Dissensus
+
+> Independent UK research lab formalising friction dynamics in multi-agent systems: the cost of coordination across markets, governance, cognition and AI. This site is the canonical host for the lab's papers; each paper has an HTML landing page with abstract, identifiers and a PDF.
+
+Lead author: Murad Farzulla (ORCID 0009-0002-7164-8704). Publisher: Dissensus (Dissensus Ltd, England & Wales). Paper status vocabulary on this site is Forthcoming / Under Review / Preprint.
+
+`;
+  order.forEach(stage => {
+    const items = papers.filter(p => p.stage === stage);
+    if (!items.length) return;
+    out += `## ${stages[stage] || stage}\n\n`;
+    items.forEach(p => {
+      const doi = p.doi || p.zenodo || '';
+      const bits = [statusLabels[p.status] || p.status];
+      if (doi) bits.push(`DOI ${doi}`);
+      if (p.arxiv) bits.push(`arXiv:${p.arxiv}`);
+      out += `- [${p.title}${p.subtitle ? ': ' + p.subtitle : ''}](${SITE_URL}/papers/${p.id}): ${firstSentence(p.abstract)} (${bits.join('; ')}.)\n`;
+    });
+    out += '\n';
+  });
+  out += `## Site
+
+- [Research archive](${SITE_URL}/research): every paper, grouped by stage, with tools inline.
+- [About](${SITE_URL}/about): team, commitments and company.
+- [News](${SITE_URL}/news): dated lab updates, with an RSS feed at ${SITE_URL}/feed.xml.
+- [Sitemap](${SITE_URL}/sitemap.xml)
+`;
+  fs.writeFileSync(path.join('public', 'llms.txt'), out);
+  console.log(`  llms.txt (${papers.length} papers)`);
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────────
@@ -1235,9 +1451,17 @@ syncHomeTasks();
 console.log('\nChrome sync (hand-authored pages):');
 syncStaticChrome();
 
+// BlogPosting JSON-LD for the news posts, derived from their own meta tags
+console.log('\nNews JSON-LD:');
+syncNewsJsonLd();
+
 // Generate sitemap
 console.log('\nSitemap:');
 generateSitemap();
+
+// llms.txt index of the archive
+console.log('\nllms.txt:');
+generateLlmsTxt();
 
 // Point canonical/og:url at the 200 URL rather than the .html that redirects
 console.log('\nCanonical URLs:');

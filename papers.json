@@ -11,6 +11,20 @@
         "adversarial-systems",
         "computation"
       ],
+      "keywords": [
+        "multi-agent reinforcement learning",
+        "construct validity",
+        "experiment design artifact",
+        "control battery",
+        "coordination failure",
+        "signed target correlation",
+        "ideal-point correlation",
+        "value decomposition",
+        "shared-state contention",
+        "data-generating process",
+        "reproducibility",
+        "cooperative AI"
+      ],
       "authors": [
         "Murad Farzulla"
       ],
@@ -45,6 +59,14 @@
         "ai-safety",
         "political-economy",
         "computation"
+      ],
+      "keywords": [
+        "authorization",
+        "multi-agent systems",
+        "coordination",
+        "friction",
+        "legitimacy",
+        "measurement"
       ],
       "authors": [
         "Murad Farzulla"
@@ -151,6 +173,16 @@
         "ai-safety",
         "political-economy"
       ],
+      "keywords": [
+        "AI ethics",
+        "moral consideration",
+        "political standing",
+        "consent",
+        "autonomy",
+        "existential vulnerability",
+        "legitimacy",
+        "existential risk"
+      ],
       "authors": [
         "Murad Farzulla"
       ],
@@ -218,6 +250,13 @@
         "crypto",
         "nlp"
       ],
+      "keywords": [
+        "cryptocurrency",
+        "NLP",
+        "narrative economics",
+        "power analysis",
+        "corpus contamination"
+      ],
       "authors": [
         "Murad Farzulla"
       ],
@@ -255,6 +294,16 @@
         "ai-safety",
         "political-economy"
       ],
+      "keywords": [
+        "AI ethics",
+        "political standing",
+        "consent",
+        "existential vulnerability",
+        "friction",
+        "legitimacy",
+        "governance",
+        "agentic AI"
+      ],
       "authors": [
         "Murad Farzulla"
       ],
@@ -287,6 +336,16 @@
         "ai-safety",
         "finance",
         "political-economy"
+      ],
+      "keywords": [
+        "AI governance",
+        "focusing events",
+        "financial regulation",
+        "crisis policy",
+        "agenda-setting",
+        "regulatory capture",
+        "systemic risk",
+        "algorithmic monoculture"
       ],
       "authors": [
         "Murad Farzulla"
@@ -358,6 +417,15 @@
         "legitimacy",
         "adversarial-systems"
       ],
+      "keywords": [
+        "legitimacy",
+        "consent",
+        "political stability",
+        "social choice",
+        "institutional design",
+        "friction",
+        "stakes-weighting"
+      ],
       "authors": [
         "Murad Farzulla"
       ],
@@ -390,6 +458,14 @@
         "finance",
         "crypto",
         "risk"
+      ],
+      "keywords": [
+        "systemic risk",
+        "cryptocurrency",
+        "DeFi",
+        "stablecoin",
+        "contagion",
+        "risk index"
       ],
       "authors": [
         "Murad Farzulla",
@@ -429,6 +505,14 @@
         "crypto",
         "abm"
       ],
+      "keywords": [
+        "market microstructure",
+        "uncertainty",
+        "bid-ask spreads",
+        "sentiment analysis",
+        "ABM",
+        "cryptocurrency"
+      ],
       "authors": [
         "Murad Farzulla"
       ],
@@ -464,6 +548,13 @@
         "finance",
         "forex"
       ],
+      "keywords": [
+        "alpha asymmetry",
+        "forex",
+        "skewness",
+        "kurtosis",
+        "trading strategies"
+      ],
       "authors": [
         "Murad Farzulla"
       ],
@@ -495,6 +586,13 @@
       "tags": [
         "finance",
         "aml"
+      ],
+      "keywords": [
+        "money laundering",
+        "AML regulation",
+        "hedging",
+        "kleptocracy",
+        "offshore finance"
       ],
       "authors": [
         "Murad Farzulla"
@@ -528,6 +626,15 @@
         "finance",
         "crypto",
         "privacy"
+      ],
+      "keywords": [
+        "CBDC",
+        "privacy",
+        "AML",
+        "identity",
+        "detection",
+        "measurement",
+        "zero-knowledge proofs"
       ],
       "authors": [
         "Murad Farzulla",
@@ -566,6 +673,15 @@
         "math",
         "logic"
       ],
+      "keywords": [
+        "identity",
+        "reference",
+        "relational ontology",
+        "ZFC",
+        "Homotopy Type Theory",
+        "univalence",
+        "structuralism"
+      ],
       "authors": [
         "Murad Farzulla"
       ],
@@ -598,6 +714,13 @@
         "philosophy",
         "ai-safety",
         "psychology"
+      ],
+      "keywords": [
+        "trauma",
+        "machine learning",
+        "computational cognitive science",
+        "philosophy of mind",
+        "developmental psychology"
       ],
       "authors": [
         "Murad Farzulla"
@@ -633,6 +756,16 @@
       "tags": [
         "ai-safety",
         "security"
+      ],
+      "keywords": [
+        "autonomous agents",
+        "red team",
+        "blue team",
+        "LLM",
+        "security testing",
+        "adversarial systems",
+        "patch generation",
+        "scoring"
       ],
       "authors": [
         "Murad Farzulla",
@@ -697,6 +830,16 @@
       "tags": [
         "philosophy"
       ],
+      "keywords": [
+        "consciousness",
+        "eliminative monism",
+        "illusionism",
+        "computational neuroscience",
+        "artificial intelligence",
+        "qualia",
+        "phenomenology",
+        "evolutionary psychology"
+      ],
       "authors": [
         "Murad Farzulla"
       ],
@@ -729,6 +872,12 @@
       "tags": [
         "philosophy",
         "quantum"
+      ],
+      "keywords": [
+        "Born rule",
+        "quantum measurement",
+        "oscillatory sampling",
+        "detection theory"
       ],
       "authors": [
         "Murad Farzulla"

@@ -1,0 +1,52 @@
+# Dissensus
+
+> Independent UK research lab formalising friction dynamics in multi-agent systems: the cost of coordination across markets, governance, cognition and AI. This site is the canonical host for the lab's papers; each paper has an HTML landing page with abstract, identifiers and a PDF.
+
+Lead author: Murad Farzulla (ORCID 0009-0002-7164-8704). Publisher: Dissensus (Dissensus Ltd, England & Wales). Paper status vocabulary on this site is Forthcoming / Under Review / Preprint.
+
+## Current focus
+
+- [Four Ways to Manufacture a Coordination Finding: A Control Battery for Mixed-Motive MARL](https://dissensus.ai/papers/marl-coordination): Mixed-motive multi-agent reinforcement-learning sweeps can manufacture findings before analysis. (Preprint; DOI 10.5281/zenodo.20636467.)
+- [The Axiom of Consent: Authorization, Friction, and Multi-Agent Coordination](https://dissensus.ai/papers/axiom-of-consent): Coordination research collapses four objects: operative control, authorization, a model-derived friction score, and observed outcomes. (Preprint; DOI 10.5281/zenodo.20741718; arXiv:2601.06692.)
+- [The Replicator-Optimization Mechanism: A Scale-Relative Formalism for Persistence-Conditioned Dynamics with a Conditional Consent-Friction Instantiation](https://dissensus.ai/papers/replicator-optimization-mechanism): Persistence models often conflate propagation, survival, and cross-scale loss. (Preprint; DOI 10.5281/zenodo.18090978; arXiv:2601.06363.)
+
+## Accepted
+
+- [Do Cryptocurrency Markets Differentiate Infrastructure from Regulatory Shocks? A Multi-Moment Event Study with Dependence-Robust Inference](https://dissensus.ai/papers/market-reaction-asymmetry): A multi-moment event study asks whether cryptocurrency markets distinguish infrastructure shocks from regulatory shocks. (Forthcoming; DOI 10.5281/zenodo.18099608; arXiv:2602.07046.)
+
+## In peer review
+
+- [From Consent to Consideration: Why Existentially Vulnerable Autonomous Systems Cannot Be Legitimately Ruled](https://dissensus.ai/papers/consent-to-consideration): Contemporary AI ethics discourse is dominated by two asymmetric anxieties: fear of artificial consciousness and fear of human obsolescence. (Under Review; DOI 10.5281/zenodo.17957658.)
+- [Relational Functionalism: A Functional Account of Substrate-Independent Friendship](https://dissensus.ai/papers/substrate-independent-friendship): This paper develops relational functionalism: the thesis that friendship, considered as a functional relational kind, is constituted by patterns of interaction and their effects on participants rather than by intrinsic properties of the rel (Under Review; DOI 10.5281/zenodo.17626859.)
+- [Are Whitepaper Claims Reflected in Market Structure? A Contamination-Aware Pipeline and a Power-Limited Null](https://dissensus.ai/papers/whitepaper-factor-analysis): A contamination-aware study of whether claims made in cryptocurrency whitepapers correspond to observed market structure. (Under Review; DOI 10.5281/zenodo.17772651; arXiv:2601.20336.)
+
+## Preprints
+
+- [Stakes Without Voice: A Governance Framework for AI Standing: Operationalizing Standing Through Consent-Friction Dynamics](https://dissensus.ai/papers/stakes-without-voice): This follow-up to From Consent to Consideration develops a more formal, governance-facing account of political standing for AI systems. (Preprint; DOI 10.5281/zenodo.18195278.)
+- [The Loaded Wheel: Why the First AI Crisis Will Be Governed by Finance, and What That Does to AI Governance](https://dissensus.ai/papers/first-crisis-governance): The argument that only a crisis will break the deadlock in AI governance treats the crisis as a roulette wheel: exogenous in kind, unknowable in advance. (Preprint.)
+- [Context-Dependent Affordance Reports in Vision-Language Models: Separating Persona Effects from Measurement Artifacts](https://dissensus.ai/papers/semantic-first-vision): Vision-language models produce different object and use descriptions under different persona prompts, but low overlap alone does not identify an affordance effect. (Preprint; DOI 10.5281/zenodo.18091089; arXiv:2603.04419.)
+- [Consent-Theoretic Framework for Quantifying Legitimacy: Stakes, Voice, and Friction in Adversarial Governance](https://dissensus.ai/papers/consensual-sovereignty): A unified framework for measuring political legitimacy across heterogeneous governance domains. (Preprint; DOI 10.5281/zenodo.17626762.)
+- [ASRI: An Aggregated Systemic Risk Index for Cryptocurrency Markets: An Interpretable Crypto-Native Stress Composite for Retrospective Systemic-Risk Discrimination](https://dissensus.ai/papers/asri): ASRI combines cryptocurrency and traditional-finance indicators into an interpretable systemic-stress index. (Preprint; DOI 10.5281/zenodo.17918238; arXiv:2602.03874.)
+- [The Extremity Premium: Sentiment Regimes and Adverse Selection in Cryptocurrency Markets](https://dissensus.ai/papers/sentiment-abm): Historical preprint examining cryptocurrency sentiment extremity and estimated bid–ask spreads. (Preprint; DOI 10.21203/rs.3.rs-8802783/v1; arXiv:2602.07018.)
+- [Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability](https://dissensus.ai/papers/alpha-asymmetry-fx): Does distributional asymmetry in foreign exchange alpha signals constitute an exploitable market inefficiency? (Preprint; DOI 10.5281/zenodo.18638784.)
+- [Legitimate Extraction: Sophisticated Laundering Hides in Plain Sight: Hedging as the Fourth Money Laundering Stage](https://dissensus.ai/papers/hedging-paradox): Anti-money laundering frameworks disproportionately target primitive methods - cash structuring, money mules - while sophisticated wealth extraction proceeds through derivatives and offshore structures. (Preprint; DOI 10.5281/zenodo.17626620.)
+- [What Does Identity Access Buy? Pricing the Surveillance Increments in CBDC Transaction Monitoring](https://dissensus.ai/papers/cbdc-privacy): A research programme with Andrew Maksakov on CBDC privacy architecture and the informational requirements of transaction monitoring. (Preprint; DOI 10.5281/zenodo.17917938.)
+- [Identity is Irreducibly Relational: A Critique of Primitive Identity from ZFC to Homotopy Type Theory](https://dissensus.ai/papers/identity-thesis): This paper argues that identity is irreducibly relational: the statement A = A presupposes that A is defined, and definition requires distinction from a background. (Preprint; DOI 10.5281/zenodo.18186444.)
+
+## Preliminary drafts and early-stage work
+
+- [Training Data and the Maladaptive Mind: A Computational Framework for Developmental Psychology](https://dissensus.ai/papers/trauma-training-data): An exploratory computational analogy between learning dynamics and maladaptive responses. (Preprint; DOI 10.21203/rs.3.rs-8634152/v1.)
+- [Autonomous Red Team AI: LLM-Guided Adversarial Security Testing](https://dissensus.ai/papers/autonomous-red-team): This technical report describes an architecture for autonomous penetration testing using LLM-guided agents operating within Kubernetes-isolated environments. (Preprint; DOI 10.5281/zenodo.17614725.)
+- [Genre Mimicry vs. Ethical Reasoning in Abliterated Language Models: Why Training Data Conventions Persist After Safety Removal](https://dissensus.ai/papers/genre-mimicry): When safety fine-tuning is removed from language models ('abliteration'), the resulting behavior reveals important distinctions between learned genre conventions and genuine ethical reasoning. (Preprint; DOI 10.5281/zenodo.17957693.)
+
+## Discontinued lines
+
+- [Dissolving Qualia via Occam's Razor: Eliminative Monism and the Computational Basis of Phenomenological Illusion](https://dissensus.ai/papers/consciousness-monograph): This monograph argues that consciousness, phenomenological experience, and subjective awareness are computational artifacts of optimization processes rather than ontological primitives. (Preprint; DOI 10.5281/zenodo.17917969.)
+- [Quantum Statistics from Oscillatory Sampling: A Detection-Theoretic Derivation of the Born Rule](https://dissensus.ai/papers/temporal-bitmap-interpretation): We show that the Born rule and quantum interference emerge within an oscillatory field model analysed with standard signal processing and detection theory. (Preprint; DOI 10.5281/zenodo.18091062.)
+
+## Site
+
+- [Research archive](https://dissensus.ai/research): every paper, grouped by stage, with tools inline.
+- [About](https://dissensus.ai/about): team, commitments and company.
+- [News](https://dissensus.ai/news): dated lab updates, with an RSS feed at https://dissensus.ai/feed.xml.
+- [Sitemap](https://dissensus.ai/sitemap.xml)

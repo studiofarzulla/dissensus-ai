@@ -28,7 +28,9 @@ dissensus-ai/
 ├── tools.json           # Tools/packages catalogue (source of truth for tools.html)
 ├── projects.json        # Open projects seeking collaborators (-> collaborate.html)
 ├── build-papers.js      # GENERATES: papers/*, research.html list, tools.html,
-│                        #            collaborate.html, sitemap.xml
+│                        #            collaborate.html, sitemap.xml, llms.txt,
+│                        #            news/* JSON-LD blocks
+├── indexnow.js          # Pings IndexNow (Bing/Yandex/Naver) with sitemap URLs — run after deploy
 ├── public/              # Deployed to Cloudflare Pages (auto-deploy on git push)
 │   ├── index.html       # Homepage — hand-authored (hero, agendas, #proposal, Elsewhere)
 │   ├── about.html       # Team & lab (absorbed Services + Partners; #services/#partners)
@@ -44,12 +46,44 @@ dissensus-ai/
 │   ├── assets/fonts/    # self-hosted woff2
 │   ├── papers/          # GENERATED per-paper pages + hosted PDFs
 │   ├── sitemap.xml      # GENERATED
+│   ├── llms.txt         # GENERATED index of the archive (llmstxt.org format)
+│   ├── <key>.txt        # IndexNow key file (public by design)
 │   └── feed.xml
 ├── wrangler.json        # Cloudflare Pages config (optional manual deploy)
 └── .gitignore           # ignores CLAUDE.md (this file is local-only) and .claude/
 ```
 
 **Rebuild after editing any of the three JSON files:** `node build-papers.js`
+
+### Discoverability layer (Sep 2026)
+
+Every paper page carries Highwire `citation_*` tags (incl. `citation_author_orcid`,
+`citation_author_institution`, `citation_technical_report_institution`, `citation_arxiv_id`),
+Dublin Core, a `<link rel="alternate" type="application/pdf">`, and a schema.org
+`ScholarlyArticle` JSON-LD whose `@id` is the DOI URL and whose author `@id` is the ORCID URL
+(`https://orcid.org/0009-0002-7164-8704`). farzulla.com uses the **same** two `@id`s and
+`https://dissensus.ai/#organization` for the lab, so the sites describe one author, one lab, one
+set of works. Keep those three identifiers stable.
+
+Optional per-paper fields in `papers.json`:
+
+- `keywords: []` — the author's own keyword list (seeded from each PDF's embedded Keywords
+  field). Emitted in `<meta keywords>`, `citation_keywords`, `DC.subject` and JSON-LD `keywords`,
+  merged with the tag labels. Write them in the vocabulary someone would type into a search
+  box, not in the paper's private notation.
+- `findings: []` — short, plain statements of what the paper found; rendered as a "Key
+  findings" list under the abstract. **Empty everywhere for now, deliberately**: a finding
+  that restates a withdrawn claim (see the `updateNote` fields) would be worse than none, so
+  they are to be written from the current manuscript, not from memory.
+
+**Sitemap `lastmod` rule:** paper pages use `date`/`updateDate`; news posts use their
+`article:published_time`; the static pages carry no `lastmod`. Never emit the build date — the
+chrome sync and CSS cache-bust touch every file on every run, so file mtimes and git dates are
+meaningless, and Google only uses a `lastmod` it can verify.
+
+`public/robots.txt` allows everything and carries a `Content-Signal: search=yes, ai-input=yes`
+line (no statement on training). Whether an AI crawler actually reaches the origin is decided
+by the zone's Cloudflare AI-bot policy, not by this file.
 
 ## Team
 
@@ -194,4 +228,4 @@ git push origin master
 
 ---
 
-**Last Updated:** 30 July 2026
+**Last Updated:** 19 September 2026 (discoverability layer)

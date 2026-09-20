@@ -502,3 +502,9 @@ html.js [data-reveal].in { opacity: 1; transform: none; }
   color: var(--text); margin-bottom: var(--sp-2); letter-spacing: -0.01em;
 }
 .defrow__fail { color: var(--accent); font-weight: 500; }
+
+/* Key findings — optional per-paper list (papers.json `findings`), rendered between
+   the abstract and the citation block. Plain bullets: this is pre-cut evidence for a
+   reader or a retrieval system, not a feature list. */
+.paper__findings ul { color: var(--text-dim); padding-left: 1.25rem; max-width: var(--measure); }
+.paper__findings li { margin-bottom: var(--sp-2); }
