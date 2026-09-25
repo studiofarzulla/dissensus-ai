@@ -47,7 +47,10 @@
         "Artifact-control battery",
         "Exact finite-horizon oracle decomposition"
       ],
-      "stage": "current-focus"
+      "stage": "current-focus",
+      "updateNote": "Research Square v2 was posted on 23 September 2026 under the corrected Four Ways title. The preprint manuscript is dated 31 August 2026. The frozen research release and data are also available on Zenodo.",
+      "updateDate": "2026-09-25",
+      "researchsquare": "10.21203/rs.3.rs-10375465/v2"
     },
     {
       "id": "axiom-of-consent",
@@ -166,8 +169,7 @@
       "title": "From Consent to Consideration: Why Existentially Vulnerable Autonomous Systems Cannot Be Legitimately Ruled",
       "subtitle": null,
       "date": "2025-12-01",
-      "status": "under-review",
-      "journal": "AI and Ethics (Springer)",
+      "status": "preprint",
       "tags": [
         "philosophy",
         "ai-safety",
@@ -203,7 +205,8 @@
         "Substrate independence",
         "Political philosophy"
       ],
-      "stage": "peer-review"
+      "stage": "preprint",
+      "updateDate": "2026-09-25"
     },
     {
       "id": "substrate-independent-friendship",
@@ -280,8 +283,9 @@
       ],
       "stage": "peer-review",
       "summaryLabel": "Summary",
-      "updateNote": "Under review at Financial Innovation. A major revision was invited on 13 September 2026 and is in preparation. The linked public manuscript is an earlier version; the working revision has not yet replaced it.",
-      "updateDate": "2026-09-19"
+      "updateNote": "Research Square v2 was posted on 23 September 2026 and contains the June 2026 manuscript, subtitled “A Contamination-Aware Pipeline and a Power-Limited Null”. The September Financial Innovation revision, “An Auditable Non-Detection”, is in preparation and is not this public preprint. A later corrected public PDF is available here; each repository retains its own version history.",
+      "updateDate": "2026-09-25",
+      "researchsquare": "10.21203/rs.3.rs-8787736/v2"
     },
     {
       "id": "stakes-without-voice",

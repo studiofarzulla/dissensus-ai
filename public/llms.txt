@@ -16,12 +16,12 @@ Lead author: Murad Farzulla (ORCID 0009-0002-7164-8704). Publisher: Dissensus (D
 
 ## In peer review
 
-- [From Consent to Consideration: Why Existentially Vulnerable Autonomous Systems Cannot Be Legitimately Ruled](https://dissensus.ai/papers/consent-to-consideration): Contemporary AI ethics discourse is dominated by two asymmetric anxieties: fear of artificial consciousness and fear of human obsolescence. (Under Review; DOI 10.5281/zenodo.17957658.)
 - [Relational Functionalism: A Functional Account of Substrate-Independent Friendship](https://dissensus.ai/papers/substrate-independent-friendship): This paper develops relational functionalism: the thesis that friendship, considered as a functional relational kind, is constituted by patterns of interaction and their effects on participants rather than by intrinsic properties of the rel (Under Review; DOI 10.5281/zenodo.17626859.)
 - [Are Whitepaper Claims Reflected in Market Structure? A Contamination-Aware Pipeline and a Power-Limited Null](https://dissensus.ai/papers/whitepaper-factor-analysis): A contamination-aware study of whether claims made in cryptocurrency whitepapers correspond to observed market structure. (Under Review; DOI 10.5281/zenodo.17772651; arXiv:2601.20336.)
 
 ## Preprints
 
+- [From Consent to Consideration: Why Existentially Vulnerable Autonomous Systems Cannot Be Legitimately Ruled](https://dissensus.ai/papers/consent-to-consideration): Contemporary AI ethics discourse is dominated by two asymmetric anxieties: fear of artificial consciousness and fear of human obsolescence. (Preprint; DOI 10.5281/zenodo.17957658.)
 - [Stakes Without Voice: A Governance Framework for AI Standing: Operationalizing Standing Through Consent-Friction Dynamics](https://dissensus.ai/papers/stakes-without-voice): This follow-up to From Consent to Consideration develops a more formal, governance-facing account of political standing for AI systems. (Preprint; DOI 10.5281/zenodo.18195278.)
 - [The Loaded Wheel: Why the First AI Crisis Will Be Governed by Finance, and What That Does to AI Governance](https://dissensus.ai/papers/first-crisis-governance): The argument that only a crisis will break the deadlock in AI governance treats the crisis as a roulette wheel: exogenous in kind, unknowable in advance. (Preprint.)
 - [Context-Dependent Affordance Reports in Vision-Language Models: Separating Persona Effects from Measurement Artifacts](https://dissensus.ai/papers/semantic-first-vision): Vision-language models produce different object and use descriptions under different persona prompts, but low overlap alone does not identify an affordance effect. (Preprint; DOI 10.5281/zenodo.18091089; arXiv:2603.04419.)

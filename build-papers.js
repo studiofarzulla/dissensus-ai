@@ -243,6 +243,7 @@ function generatePaperPage(paper) {
   // Identifier action links (rendered in fixed order: arXiv -> DOI -> Zenodo -> SSRN -> PhilPapers -> GitHub -> Dashboard)
   const arxivUrl = paper.arxiv ? `https://arxiv.org/abs/${paper.arxiv}` : '';
   const doiOnlyUrl = paper.doi ? `https://doi.org/${paper.doi}` : '';
+  const researchSquareUrl = paper.researchsquare ? `https://doi.org/${paper.researchsquare}` : '';
   const zenodoUrl = paper.zenodo ? `https://doi.org/${paper.zenodo}` : '';
   const ssrnUrl = paper.ssrn ? `https://papers.ssrn.com/sol3/papers.cfm?abstract_id=${paper.ssrn}` : '';
   const philpapersUrl = paper.philpapers ? `https://philpapers.org/rec/${paper.philpapers}` : '';
@@ -255,7 +256,7 @@ function generatePaperPage(paper) {
 
   // Every other public copy of this work. sameAs tells a knowledge graph that the
   // arXiv record, the Zenodo record and this page are one object, not three.
-  const sameAs = [...new Set([arxivUrl, doiOnlyUrl, zenodoUrl, ssrnUrl, philpapersUrl].filter(Boolean))];
+  const sameAs = [...new Set([arxivUrl, doiOnlyUrl, zenodoUrl, researchSquareUrl, ssrnUrl, philpapersUrl].filter(Boolean))];
 
   // JSON-LD author array. The lead author carries the shared @id (ORCID URL) so this
   // node and the Person block on farzulla.com are the same entity.
@@ -431,7 +432,7 @@ ${paper.updateNote ? `      <section class="paper__section paper__version" aria-
 
 ` : ''}      <div class="paper__actions">
         ${paper.pdf ? `<a href="${paper.pdf}" class="btn" download>Download PDF</a>` : ''}
-        ${arxivUrl ? `<a href="${arxivUrl}" class="btn btn--ghost" target="_blank" rel="noopener">arXiv: ${paper.arxiv}</a>` : ''}
+${researchSquareUrl ? `        <a href="${researchSquareUrl}" class="btn btn--ghost" target="_blank" rel="noopener">Research Square v2 · DOI</a>\n` : ''}        ${arxivUrl ? `<a href="${arxivUrl}" class="btn btn--ghost" target="_blank" rel="noopener">arXiv: ${paper.arxiv}</a>` : ''}
 ${doiOnlyUrl ? `        <a href="${doiOnlyUrl}" class="btn btn--ghost" target="_blank" rel="noopener">DOI</a>` : ''}
         ${zenodoUrl ? `<a href="${zenodoUrl}" class="btn btn--ghost" target="_blank" rel="noopener">Zenodo</a>` : ''}
         ${ssrnUrl ? `<a href="${ssrnUrl}" class="btn btn--ghost" target="_blank" rel="noopener">SSRN</a>` : ''}
@@ -538,6 +539,7 @@ ${install}${links}        </div>`;
 
 function paperRowLinks(paper) {
   const bits = [];
+  if (paper.researchsquare) bits.push(`<a href="https://doi.org/${paper.researchsquare}" target="_blank" rel="noopener">Research Square v2</a>`);
   if (paper.arxiv) bits.push(`<a href="https://arxiv.org/abs/${paper.arxiv}" target="_blank" rel="noopener">arXiv</a>`);
   if (paper.doi) bits.push(`<a href="https://doi.org/${paper.doi}" target="_blank" rel="noopener">DOI</a>`);
   else if (paper.zenodo) bits.push(`<a href="https://doi.org/${paper.zenodo}" target="_blank" rel="noopener">Zenodo</a>`);
