@@ -6,19 +6,10 @@
     <link>https://dissensus.ai/</link>
     <atom:link href="https://dissensus.ai/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 08 Oct 2026 20:45:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 17:33:00 +0000</lastBuildDate>
     <managingEditor>research@dissensus.ai (Murad Farzulla)</managingEditor>
     <webMaster>research@dissensus.ai</webMaster>
     <ttl>1440</ttl>
-
-    <item>
-      <title>Dissensus joins Claude Startups</title>
-      <link>https://dissensus.ai/news/claude-startups</link>
-      <description>Dissensus has joined Anthropic's Claude Startups programme, with access to technical resources, tools and a founder community.</description>
-      <pubDate>Thu, 08 Oct 2026 20:45:00 +0000</pubDate>
-      <guid isPermaLink="true">https://dissensus.ai/news/claude-startups</guid>
-      <category>Announcement</category>
-    </item>
 
     <item>
       <title>September research update</title>
