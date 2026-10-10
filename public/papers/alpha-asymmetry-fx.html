@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Does distributional asymmetry in foreign exchange alpha signals constitute an exploitable market inefficiency? Using EUR/JPY weekly data (2015-2025) with depend...">
-  <meta name="author" content="Murad Farzulla">
+  <meta name="description" content="Skewness-based trading rules presuppose asymmetrically distributed signals. We test that premise, and whether a rule built on it earns money, for five technical...">
+  <meta name="author" content="Murad Farzulla, Tofik Israfilov">
   <meta name="keywords" content="alpha asymmetry, forex, skewness, kurtosis, trading strategies, Financial Markets, Foreign Exchange">
   <meta name="theme-color" content="#faf8f5">
   <meta name="robots" content="index, follow">
@@ -14,6 +14,7 @@
     <meta name="citation_author" content="Murad Farzulla">
     <meta name="citation_author_institution" content="Dissensus">
     <meta name="citation_author_orcid" content="https://orcid.org/0009-0002-7164-8704">
+    <meta name="citation_author" content="Tofik Israfilov">
   <meta name="citation_publication_date" content="2026/01/27">
   <meta name="citation_pdf_url" content="https://dissensus.ai/papers/Farzulla_2025_Alpha_Asymmetry.pdf">
   <meta name="citation_doi" content="10.5281/zenodo.18638784">
@@ -28,10 +29,10 @@
 
   <!-- Dublin Core -->
   <meta name="DC.title" content="Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability">
-  <meta name="DC.creator" content="Murad Farzulla">
+  <meta name="DC.creator" content="Murad Farzulla, Tofik Israfilov">
   <meta name="DC.date" content="2026-01-27">
   <meta name="DC.publisher" content="Dissensus">
-  <meta name="DC.description" content="Does distributional asymmetry in foreign exchange alpha signals constitute an exploitable market inefficiency? Using EUR/JPY weekly data (2015-2025) with dependence-robust block-bootstrap inference, we find the asymmetry premise largely dissolves: the signed tail signal skews negative (-1.47) rather...">
+  <meta name="DC.description" content="Skewness-based trading rules presuppose asymmetrically distributed signals. We test that premise, and whether a rule built on it earns money, for five technical transformations of the EUR/JPY price (“alpha signals”), using weekly indicative Yahoo Finance mid-quotes from January 2016 to August 2025 (...">
   <meta name="DC.subject" content="alpha asymmetry; forex; skewness; kurtosis; trading strategies; Financial Markets; Foreign Exchange">
   <meta name="DC.type" content="Text">
   <meta name="DC.format" content="text/html">
@@ -76,18 +77,22 @@
           "https://scholar.google.com/citations?user=bmplqfwAAAAJ",
           "https://www.semanticscholar.org/author/Murad-Farzulla/2403682991"
         ]
+      },
+      {
+        "@type": "Person",
+        "name": "Tofik Israfilov"
       }
     ],
     "datePublished": "2026-01-27",
-    "dateModified": "2026-01-27",
+    "dateModified": "2026-10-10",
     "publisher": {
       "@type": "Organization",
       "@id": "https://dissensus.ai/#organization",
       "name": "Dissensus",
       "url": "https://dissensus.ai"
     },
-    "abstract": "Does distributional asymmetry in foreign exchange alpha signals constitute an exploitable market inefficiency? Using EUR/JPY weekly data (2015-2025) with dependence-robust block-bootstrap inference, we find the asymmetry premise largely dissolves: the signed tail signal skews negative (-1.47) rather than positive, and the one signal with robust distributional asymmetry yields no tradable edge - walk-forward performance is inert, with White's Reality Check (p = 0.15) and Hansen's SPA (p = 0.28) confirming the null. An earlier version reported pronounced positive tail-signal skewness; that figure measured unsigned exceedance magnitude, which is right-skewed by construction, and we document the correction.",
-    "description": "Does distributional asymmetry in foreign exchange alpha signals constitute an exploitable market inefficiency? Using EUR/JPY weekly data (2015-2025) with dependence-robust block-bootstrap inference, we find the asymmetry premise largely dissolves: the signed tail signal skews negative (-1.47) rather than positive, and the one signal with robust distributional asymmetry yields no tradable edge - walk-forward performance is inert, with White's Reality Check (p = 0.15) and Hansen's SPA (p = 0.28) confirming the null. An earlier version reported pronounced positive tail-signal skewness; that figure measured unsigned exceedance magnitude, which is right-skewed by construction, and we document the correction.",
+    "abstract": "Skewness-based trading rules presuppose asymmetrically distributed signals. We test that premise, and whether a rule built on it earns money, for five technical transformations of the EUR/JPY price (“alpha signals”), using weekly indicative Yahoo Finance mid-quotes from January 2016 to August 2025 (504 weeks). Under block-bootstrap inference only the volatility-expansion signal is robustly skewed (1.75, 95% CI [1.18, 2.16]). The tail signal’s skewness changes sign across three defensible weekly aggregations of one daily rule, and the positive tail skewness reported in an earlier version described an unsigned magnitude series, right-skewed by construction.  A skewness-threshold rule executed at the first trading-session open after each Friday signal returns −0.73% cumulative gross over 15 holding episodes, with a Sharpe ratio indistinguishable from zero. No break-even cost exists. The result is not stable across specifications: all four execution timings lose money, and four pre-specified readings of the entry rule span 9.04 percentage points and change sign. Walk-forward selection leaves the rule nearly dormant, and proxy factor regressions show no positive residual alpha (intercept t = −0.45 on in-position weeks). Neither White’s Reality Check nor Hansen’s SPA rejects the null that no candidate rule beats a zero-return benchmark. Earlier versions, now superseded, misapplied the holding rule and priced at the Friday close. The evidence covers one currency pair and does not model capacity, financing or per-order costs. Within that scope the evidence does not establish an exploitable edge, and the results depend on construction choices the original specification did not justify.",
+    "description": "Skewness-based trading rules presuppose asymmetrically distributed signals. We test that premise, and whether a rule built on it earns money, for five technical transformations of the EUR/JPY price (“alpha signals”), using weekly indicative Yahoo Finance mid-quotes from January 2016 to August 2025 (504 weeks). Under block-bootstrap inference only the volatility-expansion signal is robustly skewed (1.75, 95% CI [1.18, 2.16]). The tail signal’s skewness changes sign across three defensible weekly aggregations of one daily rule, and the positive tail skewness reported in an earlier version described an unsigned magnitude series, right-skewed by construction.  A skewness-threshold rule executed at the first trading-session open after each Friday signal returns −0.73% cumulative gross over 15 holding episodes, with a Sharpe ratio indistinguishable from zero. No break-even cost exists. The result is not stable across specifications: all four execution timings lose money, and four pre-specified readings of the entry rule span 9.04 percentage points and change sign. Walk-forward selection leaves the rule nearly dormant, and proxy factor regressions show no positive residual alpha (intercept t = −0.45 on in-position weeks). Neither White’s Reality Check nor Hansen’s SPA rejects the null that no candidate rule beats a zero-return benchmark. Earlier versions, now superseded, misapplied the holding rule and priced at the Friday close. The evidence covers one currency pair and does not model capacity, financing or per-order costs. Within that scope the evidence does not establish an exploitable edge, and the results depend on construction choices the original specification did not justify.",
     "keywords": [
       "alpha asymmetry",
       "forex",
@@ -138,7 +143,7 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://dissensus.ai/papers/alpha-asymmetry-fx">
   <meta property="og:title" content="Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability">
-  <meta property="og:description" content="Does distributional asymmetry in foreign exchange alpha signals constitute an exploitable market inefficiency? Using EUR/JPY weekly data (2015-2025) with dependence-robust block-bootstrap inference, w...">
+  <meta property="og:description" content="Skewness-based trading rules presuppose asymmetrically distributed signals. We test that premise, and whether a rule built on it earns money, for five technical transformations of the EUR/JPY price (“...">
   <meta property="og:site_name" content="Dissensus">
   <meta property="og:image" content="https://dissensus.ai/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -147,7 +152,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability">
-  <meta name="twitter:description" content="Does distributional asymmetry in foreign exchange alpha signals constitute an exploitable market inefficiency? Using EUR/JPY weekly data (2015-2025) with dependence-robust block-bootstrap inference, w...">
+  <meta name="twitter:description" content="Skewness-based trading rules presuppose asymmetrically distributed signals. We test that premise, and whether a rule built on it earns money, for five technical transformations of the EUR/JPY price (“...">
   <meta name="twitter:image" content="https://dissensus.ai/og-image.png">
 
   <!-- Canonical -->
@@ -192,8 +197,13 @@
         </div>
         <h1 class="paper__title">Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability</h1>
         
-        <p class="paper__authors">Murad Farzulla</p>
+        <p class="paper__authors">Murad Farzulla, Tofik Israfilov</p>
       </header>
+
+      <section class="paper__section paper__version" aria-label="Version note">
+        <h2>Version note · 10 October 2026</h2>
+        <p>Version 3.1.1, co-authored with Tofik Israfilov, was published on Zenodo on 9 October 2026 (DOI 10.5281/zenodo.23195797). The downloadable PDF is that published release. It withdraws the v3.0.0 strategy figures (+3.60% cumulative gross, 17 trades, Sharpe 0.15), which came from code whose exit rule did not match the published specification.</p>
+      </section>
 
       <div class="paper__actions">
         <a href="Farzulla_2025_Alpha_Asymmetry.pdf" class="btn" download>Download PDF</a>
@@ -208,13 +218,15 @@
 
       <section class="paper__section paper__abstract">
         <h2>Abstract</h2>
-        <p>Does distributional asymmetry in foreign exchange alpha signals constitute an exploitable market inefficiency? Using EUR/JPY weekly data (2015-2025) with dependence-robust block-bootstrap inference, we find the asymmetry premise largely dissolves: the signed tail signal skews negative (-1.47) rather than positive, and the one signal with robust distributional asymmetry yields no tradable edge - walk-forward performance is inert, with White's Reality Check (p = 0.15) and Hansen's SPA (p = 0.28) confirming the null. An earlier version reported pronounced positive tail-signal skewness; that figure measured unsigned exceedance magnitude, which is right-skewed by construction, and we document the correction.</p>
+        <p>Skewness-based trading rules presuppose asymmetrically distributed signals. We test that premise, and whether a rule built on it earns money, for five technical transformations of the EUR/JPY price (“alpha signals”), using weekly indicative Yahoo Finance mid-quotes from January 2016 to August 2025 (504 weeks). Under block-bootstrap inference only the volatility-expansion signal is robustly skewed (1.75, 95% CI [1.18, 2.16]). The tail signal’s skewness changes sign across three defensible weekly aggregations of one daily rule, and the positive tail skewness reported in an earlier version described an unsigned magnitude series, right-skewed by construction.
+
+A skewness-threshold rule executed at the first trading-session open after each Friday signal returns −0.73% cumulative gross over 15 holding episodes, with a Sharpe ratio indistinguishable from zero. No break-even cost exists. The result is not stable across specifications: all four execution timings lose money, and four pre-specified readings of the entry rule span 9.04 percentage points and change sign. Walk-forward selection leaves the rule nearly dormant, and proxy factor regressions show no positive residual alpha (intercept t = −0.45 on in-position weeks). Neither White’s Reality Check nor Hansen’s SPA rejects the null that no candidate rule beats a zero-return benchmark. Earlier versions, now superseded, misapplied the holding rule and priced at the Friday close. The evidence covers one currency pair and does not model capacity, financing or per-order costs. Within that scope the evidence does not establish an exploitable edge, and the results depend on construction choices the original specification did not justify.</p>
       </section>
 
       <section class="paper__section">
         <h2>Suggested citation</h2>
         <div class="paper__cite">
-          Murad Farzulla (2026). <em>Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability</em>. Dissensus Working Paper DAI-2605. DOI: 10.5281/zenodo.18638784
+          Murad Farzulla, Tofik Israfilov (2026). <em>Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability</em>. Dissensus Working Paper DAI-2605. DOI: 10.5281/zenodo.18638784
         </div>
         <button class="mini-btn" onclick="copyBibTeX(this)">&#x27E8;/&#x27E9; Copy BibTeX</button>
       </section>
@@ -281,7 +293,7 @@
 
   <script>
     function copyBibTeX(btn) {
-      var bibtex = "@misc{farzulla2026alphaasymmetryfx,\n  author = {Farzulla, Murad},\n  title = {Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability},\n  year = {2026},\n  howpublished = {Dissensus Working Paper DAI-2605},\n  doi = {10.5281/zenodo.18638784},\n  url = {https://dissensus.ai/papers/alpha-asymmetry-fx}\n}";
+      var bibtex = "@misc{farzulla2026alphaasymmetryfx,\n  author = {Farzulla, Murad and Israfilov, Tofik},\n  title = {Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability},\n  year = {2026},\n  howpublished = {Dissensus Working Paper DAI-2605},\n  doi = {10.5281/zenodo.18638784},\n  url = {https://dissensus.ai/papers/alpha-asymmetry-fx}\n}";
       navigator.clipboard.writeText(bibtex).then(function() {
         var original = btn.innerHTML;
         btn.innerHTML = '\u2713 Copied';
