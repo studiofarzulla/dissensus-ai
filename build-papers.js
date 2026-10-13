@@ -320,7 +320,8 @@ function generatePaperPage(paper) {
     return lines.join('\n  ');
   }).join('\n  ');
 
-  const journalMeta = paper.journal
+  // Scholar reads citation_journal_title as "published in"; emit it only once accepted.
+  const journalMeta = paper.journal && (paper.status === 'accepted' || paper.status === 'forthcoming')
     ? `    <meta name="citation_journal_title" content="${escapeHtml(paper.journal)}" />`
     : '';
   const reportMeta = paper.wpNumber
